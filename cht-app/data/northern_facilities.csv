@@ -1,0 +1,278 @@
+id,name,type,level,ownership,region,district,latitude,longitude
+binde_rural_hospital_north_east,Binde Rural Hospital,Hospital,3,FBO,North East,Bunkpurugu Nakpanduri,10.5656,-0.0288
+bunkpurugu_health_centre_north_east,Bunkpurugu Health Centre,Health Centre,5,MoH,North East,Bunkpurugu Nakpanduri,10.5167,0.1
+nakpanduri_health_centre_north_east,Nakpanduri Health Centre,Health Centre,5,FBO,North East,Bunkpurugu Nakpanduri,10.635,-0.1794
+chereponi_health_centre_north_east,Chereponi Health Centre,Health Centre,5,MoH,North East,Chereponi,10.1312,0.2874
+wenchiki_health_centre_north_east,Wenchiki Health Centre,Health Centre,5,MoH,North East,Chereponi,10.2732,0.2077
+baptist_medical_centre_district_hospital_north_east,Baptist Medical Centre District Hospital,District Hospital,3,FBO,North East,East Mamprusi,10.5197,-0.3657
+gambaga_health_centre_north_east,Gambaga Health Centre,Health Centre,5,MoH,North East,East Mamprusi,10.528,-0.4404
+gbingbani_health_centre_north_east,Gbingbani Health Centre,Health Centre,5,MoH,North East,East Mamprusi,10.3871,-0.1837
+langbinsi_presby_health_centre_north_east,Langbinsi Presby Health Centre,Health Centre,5,FBO,North East,East Mamprusi,10.4075,-0.5602
+sakogu_health_centre_north_east,Sakogu Health Centre,Health Centre,5,MoH,North East,East Mamprusi,10.5758,-0.2781
+public_health_unit_bmc_clinic_north_east,Public Health Unit BMC Clinic,Clinic,6,FBO,North East,East Mamprusi,10.5241,-0.3726
+gbintiri_health_centre_north_east,Gbintiri Health Centre,Health Centre,5,MoH,North East,Gushegu,10.2812,-0.12
+kubori_health_centre_north_east,Kubori Health Centre,Health Centre,5,MoH,North East,Mamprugu Moagduri,10.1466,-1.2963
+yagaba_health_centre_north_east,Yagaba Health Centre,Health Centre,5,MoH,North East,Mamprugu Moagduri,10.2298,-1.286
+yikpabongo_health_centre_north_east,Yikpabongo Health Centre,Health Centre,5,MoH,North East,Mamprugu Moagduri,10.2449,-1.5675
+yizesi_health_centre_north_east,Yizesi Health Centre,Health Centre,5,MoH,North East,Mamprugu Moagduri,10.2839,-1.4366
+fellowship_of_medical_evangelists_fame_yizesi_clinic_north_east,Fellowship of Medical Evangelists (FAME)-Yizesi Clinic,Clinic,6,FBO,North East,Mamprugu Moagduri,10.2839,-1.4366
+mankarigu_health_centre_north_east,Mankarigu Health Centre,Health Centre,5,MoH,North East,North Gonja,10.0267,-1.2792
+walewale_district_hospital_north_east,Walewale District Hospital,District Hospital,3,MoH,North East,West Mamprusi Municipal,10.3463,-0.8085
+janga_health_centre_north_east,Janga Health Centre,Health Centre,5,MoH,North East,West Mamprusi Municipal,10.0283,-0.9754
+kpasenkpe_health_centre_north_east,Kpasenkpe Health Centre,Health Centre,5,MoH,North East,West Mamprusi Municipal,10.4471,-1.0469
+our_lady_of_rocio_health_centre_north_east,Our Lady Of Rocio Health Centre,Health Centre,5,FBO,North East,West Mamprusi Municipal,10.3599,-0.7974
+wulugu_health_centre_north_east,Wulugu Health Centre,Health Centre,5,MoH,North East,West Mamprusi Municipal,10.6111,-0.8041
+fellowship_of_medical_evangelists_fame_loagri_clinic_north_east,Fellowship of Medical Evangelists (FAME)-Loagri Clinic,Clinic,6,FBO,North East,West Mamprusi Municipal,10.2774,-0.8282
+jimbale_health_centre_north_east,Jimbale Health Centre,Health Centre,5,MoH,North East,Yunyoo-nasuan,10.4552,-0.0112
+nasuan_health_centre_north_east,Nasuan Health Centre,Health Centre,5,MoH,North East,Yunyoo-nasuan,10.5132,-0.1658
+yunyoo_health_centre_north_east,Yunyoo Health Centre,Health Centre,5,MoH,North East,Yunyoo-nasuan,10.4809,-0.0158
+gushegu_district_hospital_northern,Gushegu District Hospital,District Hospital,3,MoH,Northern,Gushegu,9.9281,-0.2149
+gushegu_hospital_northern,Gushegu Hospital,Hospital,3,MoH,Northern,Gushegu,9.9212,-0.218
+galwei_health_centre_northern,Galwei Health Centre,Health Centre,5,MoH,Northern,Gushegu,9.6214,-0.439
+kpatinga_health_centre_northern,Kpatinga Health Centre,Health Centre,5,MoH,Northern,Gushegu,9.7671,-0.2677
+nabuli_health_centre_northern,Nabuli Health Centre,Health Centre,5,MoH,Northern,Gushegu,9.9258,-0.0612
+karaga_health_centre_northern,Karaga Health Centre,Health Centre,5,MoH,Northern,Karaga,9.9156,-0.4316
+pishegu_health_centre_northern,Pishegu Health Centre,Health Centre,5,MoH,Northern,Karaga,9.9668,-0.647
+oti_river_hospital_northern,Oti River Hospital,Hospital,3,MoH,Northern,Kpandai,8.4505,-0.0758
+blajai_evangelical_presbyterian_health_centre_northern,Blajai Evangelical Presbyterian Health Centre,Health Centre,5,FBO,Northern,Kpandai,8.357,0.079
+fame_health_centre_northern,Fame Health Centre,Health Centre,5,MoH,Northern,Kpandai,8.4649,-0.2039
+kpandai_health_centre_northern,Kpandai Health Centre,Health Centre,5,MoH,Northern,Kpandai,8.4633,0.0061
+wec_health_centre_northern,Wec Health Centre,Health Centre,5,MoH,Northern,Kpandai,8.4577,0.0123
+bontanga_health_centre_northern,Bontanga Health Centre,Health Centre,5,MoH,Northern,Kumbungu,9.5272,-0.9469
+dalon_health_centre_northern,Dalon Health Centre,Health Centre,5,MoH,Northern,Kumbungu,9.6302,-1.0093
+gbulun_health_centre_northern,Gbulun Health Centre,Health Centre,5,MoH,Northern,Kumbungu,9.4895,-1.0123
+kings_medical_centre_northern,Kings Medical Centre,Health Centre,5,FBO,Northern,Kumbungu,9.5338,-0.9489
+kunbungu_health_centre_northern,Kunbungu Health Centre,Health Centre,5,MoH,Northern,Kumbungu,9.5492,-0.9423
+cheshegu_clinic_northern,Cheshegu Clinic,Clinic,6,MoH,Northern,Kumbungu,9.4562,-0.955
+dabogni_health_centre_northern,Dabogni Health Centre,Health Centre,5,MoH,Northern,Mion,9.2077,-0.1833
+jimle_health_centre_northern,Jimle Health Centre,Health Centre,5,MoH,Northern,Mion,9.4003,-0.4828
+nyani_health_centre_northern,Nyani Health Centre,Health Centre,5,MoH,Northern,Mion,9.3558,-0.1975
+sang_health_centre_northern,Sang Health Centre,Health Centre,5,MoH,Northern,Mion,9.4186,-0.2774
+jonjori_health_centre_northern,Jonjori Health Centre,Health Centre,5,MoH,Northern,Nanton,9.6527,-0.6936
+nanton_health_centre_northern,Nanton Health Centre,Health Centre,5,MoH,Northern,Nanton,9.5455,-0.7342
+zoggu_health_centre_northern,Zoggu Health Centre,Health Centre,5,MoH,Northern,Nanton,9.6672,-0.7157
+bimbilla_district_hospital_northern,Bimbilla District Hospital,District Hospital,3,MoH,Northern,Nanumba North,8.8576,-0.0556
+binchera_health_centre_northern,Binchera Health Centre,Health Centre,5,MoH,Northern,Nanumba North,9.1133,-0.0012
+chamba_health_centre_northern,Chamba Health Centre,Health Centre,5,FBO,Northern,Nanumba North,8.6937,-0.1396
+lanja_health_centre_northern,Lanja Health Centre,Health Centre,5,MoH,Northern,Nanumba North,9.1774,-0.018
+makayili_health_centre_northern,Makayili Health Centre,Health Centre,5,MoH,Northern,Nanumba North,9.0009,-0.0172
+lungni_health_centre_northern,Lungni Health Centre,Health Centre,5,MoH,Northern,Nanumba South,8.5581,-0.0032
+pudua_health_centre_northern,Pudua Health Centre,Health Centre,5,MoH,Northern,Nanumba South,8.8698,0.2748
+wulensi_health_centre_northern,Wulensi Health Centre,Health Centre,5,MoH,Northern,Nanumba South,8.6564,0.0035
+saboba_medical_centre_northern,Saboba Medical Centre,Hospital,3,FBO,Northern,Saboba,9.7097,0.3192
+kpalba_evangelical_presbyterian_health_centre_northern,Kpalba Evangelical Presbyterian Health Centre,Health Centre,5,FBO,Northern,Saboba,9.5358,0.2258
+sambuli_health_centre_northern,Sambuli Health Centre,Health Centre,5,FBO,Northern,Saboba,9.5987,0.2766
+wapuli_evangelical_presbyterian_health_centre_northern,Wapuli Evangelical Presbyterian Health Centre,Health Centre,5,FBO,Northern,Saboba,9.7396,0.1046
+kalpohini_health_centre_northern,Kalpohini Health Centre,Health Centre,5,MoH,Northern,Sagnerigu,9.4216,-0.8248
+kpiliyin_health_centre_northern,Kpiliyin Health Centre,Health Centre,5,MoH,Northern,Sagnerigu,9.5418,-0.8868
+shekina_health_centre_northern,Shekina Health Centre,Health Centre,5,MoH,Northern,Sagnerigu,9.4555,-0.8711
+bagabaga_clinic_northern,Bagabaga Clinic,Clinic,6,MoH,Northern,Sagnerigu,9.4218,-0.8686
+savelugu_district_hospital_northern,Savelugu District Hospital,District Hospital,3,MoH,Northern,Savelugu,9.6186,-0.8293
+savelugu_hospital_northern,Savelugu Hospital,Hospital,3,MoH,Northern,Savelugu,9.6247,-0.8278
+diare_health_centre_northern,Diare Health Centre,Health Centre,5,MoH,Northern,Savelugu,9.8746,-0.8758
+mogla_health_centre_northern,Mogla Health Centre,Health Centre,5,MoH,Northern,Savelugu,9.5934,-0.8732
+pong_tamale_health_centre_northern,Pong Tamale Health Centre,Health Centre,5,MoH,Northern,Savelugu,9.6823,-0.8335
+tampion_health_centre_northern,Tampion Health Centre,Health Centre,5,MoH,Northern,Savelugu,9.835,-0.7799
+tamale_central_hospital_northern,Tamale Central Hospital,Teaching Hospital,1,MoH,Northern,Tamale Metropolitan,9.4008,-0.8393
+tamale_sda_hospital_northern,Tamale SDA Hospital,Hospital,3,FBO,Northern,Tamale Metropolitan,9.3997,-0.8318
+tamale_west_district_hospital_northern,Tamale West District Hospital,District Hospital,3,MoH,Northern,Tamale Metropolitan,9.4005,-0.8503
+bilpela_health_centre_northern,Bilpela Health Centre,Health Centre,5,MoH,Northern,Tamale Metropolitan,9.3891,-0.842
+haj_adams_health_centre_northern,Haj Adams Health Centre,Health Centre,5,MoH,Northern,Tamale Metropolitan,9.4018,-0.846
+industrial_area_health_centre_northern,Industrial Area Health Centre,Health Centre,5,MoH,Northern,Tamale Metropolitan,9.3922,-0.861
+kpanvo_health_centre_northern,Kpanvo Health Centre,Health Centre,5,MoH,Northern,Tamale Metropolitan,9.3712,-0.8278
+lahagu_health_centre_northern,Lahagu Health Centre,Health Centre,5,MoH,Northern,Tamale Metropolitan,9.3296,-0.7292
+gariziegu_clinic_northern,Gariziegu Clinic,Clinic,6,MoH,Northern,Tamale Metropolitan,9.3985,-0.8309
+nyohini_clinic_northern,Nyohini Clinic,Clinic,6,MoH,Northern,Tamale Metropolitan,9.401,-0.8677
+kandin_health_centre_northern,Kandin Health Centre,Health Centre,5,MoH,Northern,Tatale Sanguli,9.1998,0.4528
+kpalbutabu_health_centre_northern,Kpalbutabu Health Centre,Health Centre,5,MoH,Northern,Tatale Sanguli,9.4062,0.4294
+tatale_health_centre_northern,Tatale Health Centre,Health Centre,5,FBO,Northern,Tatale Sanguli,9.3644,0.5296
+nyankpala_health_centre_northern,Nyankpala Health Centre,Health Centre,5,MoH,Northern,Tolon,9.4037,-0.9856
+tolon_health_centre_northern,Tolon Health Centre,Health Centre,5,MoH,Northern,Tolon,9.4269,-1.0524
+wantugu_health_centre_northern,Wantugu Health Centre,Health Centre,5,MoH,Northern,Tolon,9.5144,-1.1472
+yendi_district_hospital_northern,Yendi District Hospital,District Hospital,3,MoH,Northern,Yendi Municipal,9.446,-0.004
+adibo_health_centre_northern,Adibo Health Centre,Health Centre,5,MoH,Northern,Yendi Municipal,9.3071,-0.0164
+bunbon_health_centre_northern,Bunbon Health Centre,Health Centre,5,MoH,Northern,Yendi Municipal,9.7008,-0.0986
+church_of_christ_health_centre_northern,Church of Christ Health Centre,Health Centre,5,FBO,Northern,Yendi Municipal,9.463,-0.0088
+zabzugu_polyclinic_northern,Zabzugu Polyclinic,Polyclinic,4,MoH,Northern,Zabzugu,9.2957,0.3771
+kukpalgu_health_centre_northern,Kukpalgu Health Centre,Health Centre,5,MoH,Northern,Zabzugu,9.1813,0.3161
+nakpale_health_centre_northern,Nakpale Health Centre,Health Centre,5,MoH,Northern,Zabzugu,8.9795,0.3221
+bole_district_hospital_savannah,Bole District Hospital,District Hospital,3,MoH,Savannah,Bole,9.0276,-2.4974
+bamboi_health_centre_savannah,Bamboi Health Centre,Health Centre,5,MoH,Savannah,Bole,8.1651,-2.0324
+catholic_phc_savannah,Catholic PHC,Health Centre,5,FBO,Savannah,Bole,9.0322,-2.4866
+jama_health_centre_savannah,Jama Health Centre,Health Centre,5,MoH,Savannah,Bole,8.3,-2.1851
+mandari_health_centre_savannah,Mandari Health Centre,Health Centre,5,MoH,Savannah,Bole,9.0234,-2.5777
+mankuma_health_centre_savannah,Mankuma Health Centre,Health Centre,5,MoH,Savannah,Bole,9.1719,-2.4841
+tinga_health_centre_savannah,Tinga Health Centre,Health Centre,5,MoH,Savannah,Bole,8.5813,-2.2244
+buipe_health_centre_savannah,Buipe Health Centre,Health Centre,5,MoH,Savannah,Central Gonja,8.7837,-1.4694
+kusawgu_health_centre_savannah,Kusawgu Health Centre,Health Centre,5,FBO,Savannah,Central Gonja,9.1988,-1.0505
+mpaha_health_centre_savannah,Mpaha Health Centre,Health Centre,5,MoH,Savannah,Central Gonja,8.7458,-1.1139
+tuluwe_health_centre_savannah,Tuluwe Health Centre,Health Centre,5,MoH,Savannah,Central Gonja,8.7126,-0.9315
+yapei_health_centre_savannah,Yapei Health Centre,Health Centre,5,MoH,Savannah,Central Gonja,9.1433,-1.1547
+abromase_health_centre_savannah,Abromase Health Centre,Health Centre,5,MoH,Savannah,East Gonja Municipal,8.4642,-1.0162
+salaga_district_hospital_savannah,Salaga District Hospital,District Hospital,3,MoH,Savannah,North East Gonja,8.5573,-0.5144
+gulbi_quarters_health_centre_savannah,Gulbi Quarters Health Centre,Health Centre,5,MoH,Savannah,North East Gonja,8.2598,-0.2394
+kitare_health_centre_savannah,Kitare Health Centre,Health Centre,5,MoH,Savannah,North East Gonja,8.2624,-0.1806
+kpalbe_health_centre_savannah,Kpalbe Health Centre,Health Centre,5,MoH,Savannah,North East Gonja,9.1199,-0.5553
+kpembu_health_centre_savannah,Kpembu Health Centre,Health Centre,5,MoH,Savannah,North East Gonja,8.5621,-0.7547
+loloto_health_centre_savannah,Loloto Health Centre,Health Centre,5,FBO,Savannah,North East Gonja,8.3656,-0.403
+lonto_health_centre_savannah,Lonto Health Centre,Health Centre,5,MoH,Savannah,North East Gonja,8.2114,-0.4296
+makango_health_centre_savannah,Makango Health Centre,Health Centre,5,FBO,Savannah,North East Gonja,8.3242,-0.6192
+sabojida_health_centre_savannah,Sabojida Health Centre,Health Centre,5,MoH,Savannah,North East Gonja,8.312,-0.3062
+catholic_phc_clinic_savannah,Catholic PHC Clinic,Clinic,6,MoH,Savannah,North East Gonja,8.5489,-0.5191
+daboya_health_centre_savannah,Daboya Health Centre,Health Centre,5,MoH,Savannah,North Gonja,9.5288,-1.3815
+lingbinsi_community_clinic_savannah,Lingbinsi Community Clinic,Clinic,6,MoH,Savannah,North Gonja,9.5714,-1.407
+gindabuo_health_centre_savannah,Gindabuo Health Centre,Health Centre,5,MoH,Savannah,Sawla-tuna-kalba,9.6294,-2.4598
+kalba_health_centre_savannah,Kalba Health Centre,Health Centre,5,FBO,Savannah,Sawla-tuna-kalba,9.5488,-2.6651
+sawla_health_centre_savannah,Sawla Health Centre,Health Centre,5,MoH,Savannah,Sawla-tuna-kalba,9.2676,-2.4061
+tuna_health_centre_savannah,Tuna Health Centre,Health Centre,5,FBO,Savannah,Sawla-tuna-kalba,9.4925,-2.4188
+donald_richard_clinic_savannah,Donald Richard Clinic,Clinic,6,MoH,Savannah,Sawla-tuna-kalba,9.3786,-2.4549
+damongo_district_hospital_savannah,Damongo District Hospital,District Hospital,3,FBO,Savannah,West Gonja,9.063,-1.7987
+busunu_health_centre_savannah,Busunu Health Centre,Health Centre,5,MoH,Savannah,West Gonja,9.1648,-1.5097
+mole_game_health_centre_savannah,Mole Game Health Centre,Health Centre,5,MoH,Savannah,West Gonja,9.252,-1.8501
+bawku_municipal_hospital_upper_east,Bawku Municipal Hospital,Municipal Hospital,3,FBO,Upper East,Bawku Municipal,11.0612,-0.2329
+urban_health_centre_upper_east,Urban Health Centre,Health Centre,5,MoH,Upper East,Bawku Municipal,11.0611,-0.2386
+kuka_clinic_bawku_municipal,Kuka Clinic,Clinic,6,MoH,Upper East,Bawku Municipal,11.0136,-0.1885
+kuka_clinic_bawku_municipal_2,Kuka Clinic,Clinic,6,MoH,Upper East,Bawku Municipal,11.0551,-0.2412
+mognori_clinic_upper_east,Mognori Clinic,Clinic,6,MoH,Upper East,Bawku Municipal,11.1165,-0.2766
+urban_west_clinic_upper_east,Urban West Clinic,Clinic,6,MoH,Upper East,Bawku Municipal,11.0576,-0.243
+zebilla_district_hospital_upper_east,Zebilla District Hospital,District Hospital,3,MoH,Upper East,Bawku West,10.9362,-0.4735
+binaba_health_centre_upper_east,Binaba Health Centre,Health Centre,5,FBO,Upper East,Bawku West,10.7617,-0.4857
+sapelliga_health_centre_upper_east,Sapelliga Health Centre,Health Centre,5,MoH,Upper East,Bawku West,11.0782,-0.4086
+timonde_health_centre_upper_east,Timonde Health Centre,Health Centre,5,MoH,Upper East,Bawku West,10.9124,-0.4065
+zongoire_health_centre_upper_east,Zongoire Health Centre,Health Centre,5,MoH,Upper East,Bawku West,10.6901,-0.4335
+gbantongo_clinic_upper_east,Gbantongo Clinic,Clinic,6,MoH,Upper East,Bawku West,10.8297,-0.5099
+googo_clinic_upper_east,Googo Clinic,Clinic,6,MoH,Upper East,Bawku West,11.0241,-0.4151
+tilli_clinic_upper_east,Tilli Clinic,Clinic,6,MoH,Upper East,Bawku West,10.8832,-0.5611
+widnaba_clinic_upper_east,Widnaba Clinic,Clinic,6,MoH,Upper East,Bawku West,10.9718,-0.5683
+yelwoko_anglican_clinic_upper_east,Yelwoko Anglican Clinic,Clinic,6,FBO,Upper East,Bawku West,10.859,-0.4936
+binduri_health_centre_upper_east,Binduri Health Centre,Health Centre,5,MoH,Upper East,Binduri,10.9599,-0.3133
+bazua_community_clinic_upper_east,Bazua Community Clinic,Clinic,6,MoH,Upper East,Binduri,11.0015,-0.3543
+goore_clinic_upper_east,Goore Clinic,Clinic,6,MoH,Upper East,Binduri,10.9579,-0.3141
+zuarungu_health_centre_upper_east,Zuarungu Health Centre,Health Centre,5,MoH,Upper East,Bolga East,10.7914,-0.7937
+zuarungu_moshie_clinic_upper_east,Zuarungu-Moshie Clinic,Clinic,6,MoH,Upper East,Bolga East,10.8336,-0.7518
+bolgatanga_regional_hospital_upper_east,Bolgatanga Regional Hospital,Regional Hospital,2,MoH,Upper East,Bolgatanga Municipal,10.8074,-0.8612
+bolga_health_centre_upper_east,Bolga Health Centre,Health Centre,5,MoH,Upper East,Bolgatanga Municipal,10.7791,-0.8538
+coronation_clinic_upper_east,Coronation Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.7885,-0.8498
+gambibgo_clinic_upper_east,Gambibgo Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.756,-0.8697
+kalbeo_chps_clinic_upper_east,Kalbeo CHPS Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.7517,-0.8829
+nyariga_clinic_upper_east,Nyariga Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.8476,-0.8823
+sherigu_clinic_upper_east,Sherigu Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.7728,-0.9106
+sokabisi_clinic_upper_east,Sokabisi Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.7909,-0.8814
+sumbrungu_clinic_upper_east,Sumbrungu Clinic,Clinic,6,MoH,Upper East,Bolgatanga Municipal,10.8229,-0.9326
+bongo_district_hospital_upper_east,Bongo District Hospital,District Hospital,3,MoH,Upper East,Bongo,10.9145,-0.8073
+bongo_soe_health_centre_upper_east,Bongo/Soe Health Centre,Health Centre,5,MoH,Upper East,Bongo,10.9643,-0.7819
+namoo_health_centre_upper_east,Namoo Health Centre,Health Centre,5,MoH,Upper East,Bongo,10.9685,-0.8477
+vea_health_centre_upper_east,Vea Health Centre,Health Centre,5,MoH,Upper East,Bongo,10.8756,-0.8657
+zorko_health_centre_upper_east,Zorko Health Centre,Health Centre,5,FBO,Upper East,Bongo,10.9087,-0.8859
+anafobisi_clinic_upper_east,Anafobisi Clinic,Clinic,6,MoH,Upper East,Bongo,10.8964,-0.8104
+dua_clinic_upper_east,Dua Clinic,Clinic,6,MoH,Upper East,Bongo,10.8806,-0.7956
+sandema_district_hospital_upper_east,Sandema District Hospital,District Hospital,3,MoH,Upper East,Builsa North,10.7334,-1.2879
+chuchuliga_health_centre_upper_east,Chuchuliga Health Centre,Health Centre,5,MoH,Upper East,Builsa North,10.8136,-1.1811
+siniensi_presby_community_clinic_upper_east,Siniensi Presby Community Clinic,Clinic,6,FBO,Upper East,Builsa North,10.6659,-1.3566
+wiaga_clinic_upper_east,Wiaga Clinic,Clinic,6,FBO,Upper East,Builsa North,10.6551,-1.2568
+doninga_health_centre_upper_east,Doninga Health Centre,Health Centre,5,MoH,Upper East,Builsa South,10.6159,-1.4257
+fumbisi_health_centre_upper_east,Fumbisi Health Centre,Health Centre,5,MoH,Upper East,Builsa South,10.4568,-1.316
+kanjarga_health_centre_upper_east,Kanjarga Health Centre,Health Centre,5,MoH,Upper East,Builsa South,10.5135,-1.3732
+garu_health_centre_upper_east,Garu Health Centre,Health Centre,5,FBO,Upper East,Garu,10.8495,-0.1781
+worikambo_health_centre_upper_east,Worikambo Health Centre,Health Centre,5,MoH,Upper East,Garu,10.7719,-0.1418
+denegu_clinic_upper_east,Denegu Clinic,Clinic,6,MoH,Upper East,Garu,10.7268,-0.2212
+rabito_clinic_upper_east,Rabito Clinic,Clinic,6,MoH,Upper East,Garu,10.8505,-0.1796
+songo_clinic_upper_east,Songo Clinic,Clinic,6,MoH,Upper East,Garu,10.724,-0.2884
+war_memorial_district_hospital_upper_east,War Memorial District Hospital,District Hospital,3,MoH,Upper East,Kasena Nankana East,10.883,-1.0853
+kologo_health_centre_upper_east,Kologo Health Centre,Health Centre,5,MoH,Upper East,Kasena Nankana East,10.7374,-1.0782
+sirigu_clinic_upper_east,Sirigu Clinic,Clinic,6,FBO,Upper East,Kasena Nankana East,10.9579,-0.9424
+chiana_health_centre_upper_east,Chiana Health Centre,Health Centre,5,MoH,Upper East,Kasena Nankana West,10.8562,-1.278
+k_n_east_health_centre_upper_east,K. N. East Health Centre,Health Centre,5,MoH,Upper East,Kasena Nankana West,10.9259,-0.9577
+kayoro_health_centre_upper_east,Kayoro Health Centre,Health Centre,5,MoH,Upper East,Kasena Nankana West,10.9685,-1.3301
+paga_health_centre_upper_east,Paga Health Centre,Health Centre,5,MoH,Upper East,Kasena Nankana West,10.9705,-1.101
+nakolo_clinic_upper_east,Nakolo Clinic,Clinic,6,MoH,Upper East,Kasena Nankana West,10.9899,-1.0362
+nakolo_community_clinic_upper_east,Nakolo Community Clinic,Clinic,6,FBO,Upper East,Kasena Nankana West,10.9899,-1.0362
+nangodi_health_centre_upper_east,Nangodi Health Centre,Health Centre,5,MoH,Upper East,Nabdam,10.8631,-0.6614
+pelungu_clinic_upper_east,Pelungu Clinic,Clinic,6,MoH,Upper East,Nabdam,10.8004,-0.6955
+pusiga_health_centre_upper_east,Pusiga Health Centre,Health Centre,5,MoH,Upper East,Pusiga,11.0812,-0.1247
+widana_health_centre_upper_east,Widana Health Centre,Health Centre,5,FBO,Upper East,Pusiga,11.0818,-0.0183
+kultamise_clinic_upper_east,Kultamise Clinic,Clinic,6,MoH,Upper East,Pusiga,11.1285,-0.1545
+kulungungu_clinic_upper_east,Kulungungu Clinic,Clinic,6,MoH,Upper East,Pusiga,11.1467,-0.2094
+zuabulga_clinic_upper_east,Zuabulga Clinic,Clinic,6,MoH,Upper East,Pusiga,11.0492,-0.1415
+pwalugu_health_centre_upper_east,Pwalugu Health centre,Health Centre,5,MoH,Upper East,Talensi,10.6116,-0.8605
+tongo_health_centre_upper_east,Tongo Health Centre,Health Centre,5,MoH,Upper East,Talensi,10.7138,-0.7945
+datuko_clinic_upper_east,Datuko Clinic,Clinic,6,MoH,Upper East,Talensi,10.7153,-0.6486
+namolgo_clinic_upper_east,Namolgo Clinic,Clinic,6,FBO,Upper East,Talensi,10.7373,-0.7212
+winkogo_clinic_upper_east,Winkogo Clinic,Clinic,6,MoH,Upper East,Talensi,10.7177,-0.8664
+bugri_health_centre_upper_east,Bugri Health Centre,Health Centre,5,MoH,Upper East,Tempane,10.9694,-0.1348
+worinyanga_health_centre_upper_east,Worinyanga Health Centre,Health Centre,5,FBO,Upper East,Tempane,10.8951,-0.0559
+basyonde_clinic_upper_east,Basyonde Clinic,Clinic,6,MoH,Upper East,Tempane,10.9765,-0.0486
+fame_clinic_upper_east,Fame Clinic,Clinic,6,FBO,Upper East,Tempane,10.8316,-0.1013
+sumaduri_presby_health_clinic_upper_east,Sumaduri Presby Health Clinic,Clinic,6,FBO,Upper East,Tempane,10.8206,-0.0559
+bussie_health_centre_upper_west,Bussie Health Centre,Health Centre,5,MoH,Upper West,Daffiama Bussie Issa,10.4907,-2.5007
+daffiama_health_centre_upper_west,Daffiama Health Centre,Health Centre,5,MoH,Upper West,Daffiama Bussie Issa,10.4238,-2.5619
+fian_health_centre_upper_west,Fian Health Centre,Health Centre,5,MoH,Upper West,Daffiama Bussie Issa,10.3862,-2.4686
+issa_health_centre_upper_west,Issa Health Centre,Health Centre,5,MoH,Upper West,Daffiama Bussie Issa,10.3843,-2.3281
+kojokpere_health_centre_upper_west,Kojokpere Health Centre,Health Centre,5,MoH,Upper West,Daffiama Bussie Issa,10.3605,-2.2323
+infirmary_clinic_upper_west,Infirmary Clinic,Clinic,6,MoH,Upper West,Daffiama Bussie Issa,10.3747,-2.3029
+st_joseph_s_district_hospital_upper_west,St. Joseph's District Hospital,District Hospital,3,FBO,Upper West,Jirapa,10.5333,-2.6992
+duori_health_centre_upper_west,Duori Health Centre,Health Centre,5,MoH,Upper West,Jirapa,10.5939,-2.7843
+hain_health_centre_upper_west,Hain Health Centre,Health Centre,5,MoH,Upper West,Jirapa,10.6921,-2.4367
+sabuli_health_centre_upper_west,Sabuli Health Centre,Health Centre,5,FBO,Upper West,Jirapa,10.5721,-2.5189
+tuggo_health_centre_upper_west,Tuggo Health Centre,Health Centre,5,MoH,Upper West,Jirapa,10.511,-2.8005
+ullo_health_centre_upper_west,Ullo Health Centre,Health Centre,5,MoH,Upper West,Jirapa,10.6926,-2.5577
+yagha_health_centre_upper_west,Yagha Health Centre,Health Centre,5,MoH,Upper West,Jirapa,10.4806,-2.7901
+billaw_health_centre_upper_west,Billaw Health Centre,Health Centre,5,MoH,Upper West,Lambussie-karni,10.9213,-2.6821
+dapuori_health_centre_upper_west,Dapuori Health Centre,Health Centre,5,MoH,Upper West,Lambussie-karni,10.8758,-2.6527
+hamile_health_centre_upper_west,Hamile Health Centre,Health Centre,5,MoH,Upper West,Lambussie-karni,10.9927,-2.7356
+karni_health_centre_upper_west,Karni Health Centre,Health Centre,5,MoH,Upper West,Lambussie-karni,10.6704,-2.6399
+lambussie_health_centre_upper_west,Lambussie Health Centre,Health Centre,5,MoH,Upper West,Lambussie-karni,10.8467,-2.704
+piina_health_centre_upper_west,Piina Health Centre,Health Centre,5,FBO,Upper West,Lambussie-karni,10.8359,-2.6414
+samoa_health_centre_upper_west,Samoa Health Centre,Health Centre,5,MoH,Upper West,Lambussie-karni,10.8306,-2.5604
+lawra_district_hospital_upper_west,Lawra District Hospital,District Hospital,3,MoH,Upper West,Lawra,10.6421,-2.8879
+babile_health_centre_upper_west,Babile Health Centre,Health Centre,5,MoH,Upper West,Lawra,10.5242,-2.8465
+domwine_health_centre_upper_west,Domwine Health Centre,Health Centre,5,MoH,Upper West,Lawra,10.6389,-2.7438
+eremon_health_centre_upper_west,Eremon Health Centre,Health Centre,5,MoH,Upper West,Lawra,10.7097,-2.7886
+zambo_health_centre_upper_west,Zambo Health Centre,Health Centre,5,MoH,Upper West,Lawra,10.6535,-2.8489
+lawra_methodist_clinic_upper_west,Lawra Methodist Clinic,Clinic,6,FBO,Upper West,Lawra,10.6441,-2.8902
+ahmadiya_mission_hospital_upper_west,Ahmadiya Mission Hospital,Hospital,3,FBO,Upper West,Nadowli-kaleo,10.1697,-2.5417
+nadowli_district_hospital_upper_west,Nadowli District Hospital,District Hospital,3,MoH,Upper West,Nadowli-kaleo,10.3624,-2.6579
+charikpong_health_centre_upper_west,Charikpong Health Centre,Health Centre,5,MoH,Upper West,Nadowli-kaleo,10.3572,-2.7841
+jang_health_centre_upper_west,Jang Health Centre,Health Centre,5,MoH,Upper West,Nadowli-kaleo,10.1974,-2.4598
+kaleo_health_centre_upper_west,Kaleo Health Centre,Health Centre,5,FBO,Upper West,Nadowli-kaleo,10.1714,-2.5469
+nanvilli_health_centre_upper_west,Nanvilli Health Centre,Health Centre,5,FBO,Upper West,Nadowli-kaleo,10.2289,-2.7118
+sombo_health_centre_upper_west,Sombo Health Centre,Health Centre,5,MoH,Upper West,Nadowli-kaleo,10.2583,-2.5583
+takpo_health_centre_upper_west,Takpo Health Centre,Health Centre,5,MoH,Upper West,Nadowli-kaleo,10.2134,-2.6503
+nandom_hospital_upper_west,Nandom Hospital,Hospital,3,FBO,Upper West,Nandom,10.8387,-2.7722
+baseble_health_centre_upper_west,Baseble Health Centre,Health Centre,5,MoH,Upper West,Nandom,10.8044,-2.8019
+gengenkpe_health_centre_upper_west,Gengenkpe Health Centre,Health Centre,5,MoH,Upper West,Nandom,10.8222,-2.8505
+ketuo_health_centre_upper_west,Ketuo Health Centre,Health Centre,5,MoH,Upper West,Nandom,10.9045,-2.7976
+ko_health_centre_upper_west,Ko Health Centre,Health Centre,5,FBO,Upper West,Nandom,10.7897,-2.7299
+tumu_district_hospital_upper_west,Tumu District Hospital,District Hospital,3,MoH,Upper West,Sissala East,10.8776,-1.9865
+kulfuo_health_centre_upper_west,Kulfuo Health Centre,Health Centre,5,MoH,Upper West,Sissala East,10.6046,-1.9188
+kunchogu_health_centre_upper_west,Kunchogu Health Centre,Health Centre,5,MoH,Upper West,Sissala East,10.8615,-1.672
+nabugubelle_health_centre_upper_west,Nabugubelle Health Centre,Health Centre,5,MoH,Upper West,Sissala East,10.7083,-1.8669
+nabulo_health_centre_upper_west,Nabulo Health Centre,Health Centre,5,MoH,Upper West,Sissala East,10.4835,-1.7906
+wellembelle_health_centre_upper_west,Wellembelle Health Centre,Health Centre,5,MoH,Upper West,Sissala East,10.4928,-1.9361
+gwollu_health_centre_upper_west,Gwollu Health Centre,Health Centre,5,MoH,Upper West,Sissala West,10.9824,-2.2229
+jeffisi_health_centre_upper_west,Jeffisi Health Centre,Health Centre,5,MoH,Upper West,Sissala West,10.7701,-2.2682
+st_gerhard_health_centre_upper_west,St. Gerhard Health Centre,Health Centre,5,FBO,Upper West,Sissala West,10.9731,-2.5973
+zini_health_centre_upper_west,Zini Health Centre,Health Centre,5,MoH,Upper West,Sissala West,10.8602,-2.4089
+baayiri_health_centre_upper_west,Baayiri Health Centre,Health Centre,5,MoH,Upper West,Wa East,10.1858,-2.3213
+bulenga_health_centre_upper_west,Bulenga Health Centre,Health Centre,5,MoH,Upper West,Wa East,9.937,-2.2074
+charia_health_centre_upper_west,Charia Health Centre,Health Centre,5,MoH,Upper West,Wa East,10.0636,-2.3415
+charingu_health_centre_upper_west,Charingu Health Centre,Health Centre,5,MoH,Upper West,Wa East,10.0856,-2.2939
+holomuni_health_centre_upper_west,Holomuni Health Centre,Health Centre,5,MoH,Upper West,Wa East,9.9163,-1.7797
+kambali_health_centre_upper_west,Kambali Health Centre,Health Centre,5,MoH,Upper West,Wa East,10.1426,-2.3515
+kundugu_health_centre_upper_west,Kundugu Health Centre,Health Centre,5,FBO,Upper West,Wa East,10.1323,-1.7488
+loggu_health_centre_upper_west,Loggu Health Centre,Health Centre,5,MoH,Upper West,Wa East,9.9035,-2.3538
+st_john_s_health_centre_upper_west,St. John's Health Centre,Health Centre,5,FBO,Upper West,Wa East,10.2997,-1.9708
+yaala_health_centre_upper_west,Yaala Health Centre,Health Centre,5,MoH,Upper West,Wa East,10.1278,-1.8365
+samuel_saidu_memorial_clinic_upper_west,Samuel Saidu Memorial Clinic,Clinic,6,MoH,Upper West,Wa East,10.19,-2.2535
+upper_west_regional_hospital_upper_west,Upper West Regional Hospital,Regional Hospital,2,MoH,Upper West,Wa Municipal,10.0554,-2.4981
+busa_health_centre_upper_west,Busa Health Centre,Health Centre,5,MoH,Upper West,Wa Municipal,10.0206,-2.391
+wa_urban_health_centre_upper_west,Wa Urban Health Centre,Health Centre,5,MoH,Upper West,Wa Municipal,10.0604,-2.5003
+ahmadiya_muslim_clinic_upper_west,Ahmadiya Muslim Clinic,Clinic,6,FBO,Upper West,Wa Municipal,10.0538,-2.516
+konta_north_clinic_upper_west,Konta North Clinic,Clinic,6,MoH,Upper West,Wa Municipal,10.0563,-2.5015
+market_clinic_upper_west,Market Clinic,Clinic,6,MoH,Upper West,Wa Municipal,10.0554,-2.5033
+dorimon_health_centre_upper_west,Dorimon Health Centre,Health Centre,5,MoH,Upper West,Wa West,10.0349,-2.6851
+eggu_health_centre_upper_west,Eggu Health Centre,Health Centre,5,MoH,Upper West,Wa West,10.1458,-2.6716
+gurungu_health_centre_upper_west,Gurungu Health Centre,Health Centre,5,MoH,Upper West,Wa West,9.7229,-2.5762
+lassia_tuolu_health_centre_upper_west,Lassia Tuolu Health Centre,Health Centre,5,FBO,Upper West,Wa West,9.8375,-2.6025
+poyentanga_health_centre_upper_west,Poyentanga Health Centre,Health Centre,5,MoH,Upper West,Wa West,9.8663,-2.4637
+wechau_health_centre_upper_west,Wechau Health Centre,Health Centre,5,MoH,Upper West,Wa West,9.8264,-2.6844

@@ -13,7 +13,9 @@
 // protocols by the project's clinical advisor before any field use.
 
 const LEVELS = {
+  RAISE_REFERRAL: 110,
   DANGER_SIGN_FOLLOW_UP: 100,
+  REFERRAL_UNCONFIRMED: 95,
   NEWBORN_DAY_1: 90,
   NEWBORN_DAY_3: 80,
   NEWBORN_DAY_7: 70,
@@ -24,7 +26,9 @@ const LEVELS = {
 
 // Translation keys, so each reason can be shown in the nurse's language (translations/*.properties).
 const REASONS = {
+  RAISE_REFERRAL: 'priority.reason.raise_referral',
   DANGER_SIGN_FOLLOW_UP: 'priority.reason.danger_sign_follow_up',
+  REFERRAL_UNCONFIRMED: 'priority.reason.referral_unconfirmed',
   NEWBORN_DAY_1: 'priority.reason.newborn_day_1',
   NEWBORN_DAY_3: 'priority.reason.newborn_day_3',
   NEWBORN_DAY_7: 'priority.reason.newborn_day_7',

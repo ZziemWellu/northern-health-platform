@@ -159,4 +159,43 @@ module.exports = [
     idType: 'contact'
   },
 
+  // Module 2: of this month's referrals, the share where she is confirmed to have arrived.
+  // Aggregated for supervisors, so a district sees which nurses' referrals are stalling.
+  // Goal 80% is the blueprint's proposed exit target, to agree with the district.
+  {
+    id: 'referrals-arrival-confirmed',
+    type: 'percent',
+    icon: 'icon-follow-up',
+    goal: 80,
+    translation_key: 'targets.referral.arrival_confirmed.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['referral'],
+    passesIf: function (contact, report) {
+      return contact.reports.some(r =>
+        r.form === 'referral_follow_up' &&
+        getField(r, 'inputs.referral_uuid') === report._id &&
+        getField(r, 'arrival.arrived') === 'yes'
+      );
+    },
+    date: 'reported',
+    idType: 'report',
+    aggregate: true,
+  },
+
+  // Module 2: referrals raised this month.
+  {
+    id: 'referrals-raised',
+    type: 'count',
+    icon: 'icon-follow-up',
+    goal: -1,
+    translation_key: 'targets.referral.raised.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['referral'],
+    date: 'reported',
+    idType: 'report',
+    aggregate: true,
+  },
+
 ];

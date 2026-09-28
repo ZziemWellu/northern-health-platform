@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Referral follow-up</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="arrival-0">
+            <value>Yes, she arrived</value>
+          </text>
+          <text id="arrival-1">
+            <value>Not yet, but she is still going</value>
+          </text>
+          <text id="arrival-2">
+            <value>No, she did not go</value>
+          </text>
+          <text id="arrival-3">
+            <value>Could not find out</value>
+          </text>
+          <text id="confirmers-0">
+            <value>The facility confirmed (call, SMS or code)</value>
+          </text>
+          <text id="confirmers-1">
+            <value>She or her family told me</value>
+          </text>
+          <text id="confirmers-2">
+            <value>I saw her at the facility</value>
+          </text>
+          <text id="outcomes-0">
+            <value>Treated and back home</value>
+          </text>
+          <text id="outcomes-1">
+            <value>Admitted</value>
+          </text>
+          <text id="outcomes-2">
+            <value>Referred on to another facility</value>
+          </text>
+          <text id="outcomes-3">
+            <value>Died</value>
+          </text>
+          <text id="outcomes-4">
+            <value>Not known yet</value>
+          </text>
+          <text id="not_arrived-0">
+            <value>No transport</value>
+          </text>
+          <text id="not_arrived-1">
+            <value>No money for transport or care</value>
+          </text>
+          <text id="not_arrived-2">
+            <value>Husband or family did not agree</value>
+          </text>
+          <text id="not_arrived-3">
+            <value>She felt better</value>
+          </text>
+          <text id="not_arrived-4">
+            <value>Facility too far</value>
+          </text>
+          <text id="not_arrived-5">
+            <value>Afraid of or distrusts the facility</value>
+          </text>
+          <text id="not_arrived-6">
+            <value>Other</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/referral_uuid:label">
+            <value>Referral report ID</value>
+          </text>
+          <text id="/data/inputs/referral_code:label">
+            <value>Referral code</value>
+          </text>
+          <text id="/data/inputs/destination_name:label">
+            <value>Destination</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which woman or baby is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/arrival:label">
+            <value>Did she arrive?</value>
+          </text>
+          <text id="/data/arrival/referral_note:label">
+            <value> Referral <output value=" /data/inputs/referral_code "/> to <output value=" /data/inputs/destination_name "/></value>
+          </text>
+          <text id="/data/arrival/arrived:label">
+            <value>Did she reach the facility?</value>
+          </text>
+          <text id="/data/arrival/confirmed_by:label">
+            <value>How do you know?</value>
+          </text>
+          <text id="/data/arrival/outcome:label">
+            <value>What happened there?</value>
+          </text>
+          <text id="/data/arrival/not_arrived_reasons:label">
+            <value>Why did she not go?</value>
+          </text>
+          <text id="/data/arrival/still_needs_care:label">
+            <value>Does she still need to be seen?</value>
+          </text>
+          <text id="/data/summary:label">
+            <value>Next step</value>
+          </text>
+          <text id="/data/summary/closed_note:label">
+            <value>Referral closed.</value>
+          </text>
+          <text id="/data/summary/open_note:label">
+            <value>Referral still open. You will be reminded tomorrow. Consider the barriers she named: transport, money or family.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="referral_follow_up" version="2026092801" prefix="J1!referral_follow_up!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <referral_uuid/>
+            <referral_code/>
+            <destination_name/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <arrival>
+            <referral_note/>
+            <arrived/>
+            <confirmed_by/>
+            <outcome/>
+            <not_arrived_reasons/>
+            <still_needs_care/>
+          </arrival>
+          <r_loop_open/>
+          <t_referral_follow_up/>
+          <summary>
+            <closed_note/>
+            <open_note/>
+          </summary>
+          <data>
+            <__referral_uuid/>
+            <__arrived/>
+            <__outcome/>
+            <__not_arrived_reasons/>
+            <__loop_open/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="arrival">
+        <root>
+          <item>
+            <itextId>arrival-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>arrival-1</itextId>
+            <name>not_yet</name>
+          </item>
+          <item>
+            <itextId>arrival-2</itextId>
+            <name>no</name>
+          </item>
+          <item>
+            <itextId>arrival-3</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="confirmers">
+        <root>
+          <item>
+            <itextId>confirmers-0</itextId>
+            <name>facility</name>
+          </item>
+          <item>
+            <itextId>confirmers-1</itextId>
+            <name>family</name>
+          </item>
+          <item>
+            <itextId>confirmers-2</itextId>
+            <name>seen</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="outcomes">
+        <root>
+          <item>
+            <itextId>outcomes-0</itextId>
+            <name>treated_home</name>
+          </item>
+          <item>
+            <itextId>outcomes-1</itextId>
+            <name>admitted</name>
+          </item>
+          <item>
+            <itextId>outcomes-2</itextId>
+            <name>referred_on</name>
+          </item>
+          <item>
+            <itextId>outcomes-3</itextId>
+            <name>died</name>
+          </item>
+          <item>
+            <itextId>outcomes-4</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="not_arrived">
+        <root>
+          <item>
+            <itextId>not_arrived-0</itextId>
+            <name>no_transport</name>
+          </item>
+          <item>
+            <itextId>not_arrived-1</itextId>
+            <name>no_money</name>
+          </item>
+          <item>
+            <itextId>not_arrived-2</itextId>
+            <name>family_did_not_agree</name>
+          </item>
+          <item>
+            <itextId>not_arrived-3</itextId>
+            <name>felt_better</name>
+          </item>
+          <item>
+            <itextId>not_arrived-4</itextId>
+            <name>too_far</name>
+          </item>
+          <item>
+            <itextId>not_arrived-5</itextId>
+            <name>fear_or_distrust</name>
+          </item>
+          <item>
+            <itextId>not_arrived-6</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/referral_uuid" type="string"/>
+      <bind nodeset="/data/inputs/referral_code" type="string"/>
+      <bind nodeset="/data/inputs/destination_name" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/arrival/referral_note" readonly="true()" type="string" relevant="../../inputs/referral_code != ''"/>
+      <bind nodeset="/data/arrival/arrived" type="string" required="true()"/>
+      <bind nodeset="/data/arrival/confirmed_by" type="string" required="true()" relevant=" /data/arrival/arrived  = 'yes'"/>
+      <bind nodeset="/data/arrival/outcome" type="string" required="true()" relevant=" /data/arrival/arrived  = 'yes'"/>
+      <bind nodeset="/data/arrival/not_arrived_reasons" type="string" required="true()" relevant=" /data/arrival/arrived  = 'no'"/>
+      <bind nodeset="/data/arrival/still_needs_care" type="string" required="true()" relevant=" /data/arrival/arrived  = 'no' or  /data/arrival/arrived  = 'unknown'"/>
+      <bind nodeset="/data/r_loop_open" type="string" calculate="if( /data/arrival/arrived  = 'not_yet' or  /data/arrival/still_needs_care  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/t_referral_follow_up" type="string" calculate=" /data/r_loop_open "/>
+      <bind nodeset="/data/summary/closed_note" readonly="true()" type="string" relevant=" /data/r_loop_open  = 'no'"/>
+      <bind nodeset="/data/summary/open_note" readonly="true()" type="string" relevant=" /data/r_loop_open  = 'yes'"/>
+      <bind nodeset="/data/data/__referral_uuid" type="string" calculate="../../inputs/referral_uuid"/>
+      <bind nodeset="/data/data/__arrived" type="string" calculate=" /data/arrival/arrived "/>
+      <bind nodeset="/data/data/__outcome" type="string" calculate=" /data/arrival/outcome "/>
+      <bind nodeset="/data/data/__not_arrived_reasons" type="string" calculate=" /data/arrival/not_arrived_reasons "/>
+      <bind nodeset="/data/data/__loop_open" type="string" calculate=" /data/r_loop_open "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/arrival">
+      <label ref="jr:itext('/data/arrival:label')"/>
+      <input ref="/data/arrival/referral_note">
+        <label ref="jr:itext('/data/arrival/referral_note:label')"/>
+      </input>
+      <select1 ref="/data/arrival/arrived">
+        <label ref="jr:itext('/data/arrival/arrived:label')"/>
+        <itemset nodeset="instance('arrival')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/arrival/confirmed_by">
+        <label ref="jr:itext('/data/arrival/confirmed_by:label')"/>
+        <itemset nodeset="instance('confirmers')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/arrival/outcome">
+        <label ref="jr:itext('/data/arrival/outcome:label')"/>
+        <itemset nodeset="instance('outcomes')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select ref="/data/arrival/not_arrived_reasons">
+        <label ref="jr:itext('/data/arrival/not_arrived_reasons:label')"/>
+        <itemset nodeset="instance('not_arrived')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+      <select1 ref="/data/arrival/still_needs_care">
+        <label ref="jr:itext('/data/arrival/still_needs_care:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/summary">
+      <label ref="jr:itext('/data/summary:label')"/>
+      <input ref="/data/summary/closed_note">
+        <label ref="jr:itext('/data/summary/closed_note:label')"/>
+      </input>
+      <input ref="/data/summary/open_note">
+        <label ref="jr:itext('/data/summary/open_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

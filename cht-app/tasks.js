@@ -26,6 +26,22 @@ const getDeliveryDate = (report) => getDateISOLocal(getField(report, 'delivery_o
 
 const hasLiveBabies = (report) => Number(getField(report, 'delivery_outcome.babies_alive_num')) > 0;
 
+// Module 2: a referral stays open until a follow-up records the outcome for that specific referral.
+// "At or after" `since`, excluding the report that started the wait: two reports can share a
+// timestamp (fast data entry, or a device clock that didn't move).
+const referralFollowUps = (contact, referralId, since, excludeId) => contact.reports.filter(r =>
+  r.form === 'referral_follow_up' &&
+  r._id !== excludeId &&
+  getField(r, 'inputs.referral_uuid') === referralId &&
+  r.reported_date >= since
+);
+
+const referralFollowUpContent = (content, referralId, code, destination) => {
+  content.referral_uuid = referralId;
+  content.referral_code = code;
+  content.destination_name = destination;
+};
+
 // Module 1: newborn home visits on day 1, 3 and 7 after birth. The reference config tracked newborns
 // only after a danger sign; routine first-week checks are where most newborn deaths can be caught.
 // Windows don't overlap, so one visit resolves exactly one event.
@@ -545,6 +561,125 @@ module.exports = [
       generateNewbornVisitEvent('newborn-visit-day-1', 0, 0, 2),
       generateNewbornVisitEvent('newborn-visit-day-3', 3, 0, 2),
       generateNewbornVisitEvent('newborn-visit-day-7', 7, 1, 3),
+    ],
+  },
+
+  // Module 2: a woman flagged emergency or urgent must have a referral raised the same day. This is
+  // the top of the list until it's done.
+  {
+    name: 'referral.raise',
+    icon: 'icon-pregnancy-danger',
+    title: 'task.referral.raise.title',
+    appliesTo: 'reports',
+    appliesToType: ['maternal_danger_assessment'],
+    appliesIf: function (contact, report) {
+      return ['emergency', 'urgent'].includes(getField(report, 'r_severity')) && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      if (isPregnancyTaskMuted(contact)) {
+        return true;
+      }
+      return contact.reports.some(r => r.form === 'referral' && r.reported_date >= report.reported_date);
+    },
+    priority: () => priorityFor('RAISE_REFERRAL'),
+    actions: [
+      {
+        type: 'report',
+        form: 'referral',
+        modifyContent: function (content, contact, report) {
+          content.source_reasons = getField(report, 'r_reasons');
+          content.source_severity = getField(report, 'r_severity');
+        },
+      },
+    ],
+    events: [
+      {
+        id: 'referral-raise',
+        start: 0,
+        end: 2,
+        dueDate: function (event, contact, report) {
+          return getTimeForMidnight(report.reported_date);
+        },
+      },
+    ],
+  },
+
+  // Module 2: confirm arrival by the referral's deadline (1 day emergency, 2 urgent, 7 routine).
+  // Shown from the day of referral so the nurse can confirm early.
+  {
+    name: 'referral.confirm_arrival',
+    icon: 'icon-follow-up',
+    title: 'task.referral.confirm_arrival.title',
+    appliesTo: 'reports',
+    appliesToType: ['referral'],
+    appliesIf: function (contact) {
+      return isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      if (isPregnancyTaskMuted(contact)) {
+        return true;
+      }
+      return referralFollowUps(contact, report._id, report.reported_date, report._id).length > 0;
+    },
+    priority: () => priorityFor('REFERRAL_UNCONFIRMED'),
+    actions: [
+      {
+        type: 'report',
+        form: 'referral_follow_up',
+        modifyContent: function (content, contact, report) {
+          referralFollowUpContent(content, report._id, getField(report, 'referral_code'), getField(report, 'r_destination_name'));
+        },
+      },
+    ],
+    events: [
+      {
+        id: 'referral-confirm-arrival',
+        start: 7,
+        end: 14,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, Number(getField(report, 'r_deadline_days')) || 1);
+        },
+      },
+    ],
+  },
+
+  // Module 2: a follow-up that leaves the referral open (not yet arrived, or still needs care)
+  // brings the nurse back the next day, until a follow-up closes it.
+  {
+    name: 'referral.still_open',
+    icon: 'icon-follow-up',
+    title: 'task.referral.still_open.title',
+    appliesTo: 'reports',
+    appliesToType: ['referral_follow_up'],
+    appliesIf: function (contact, report) {
+      return getField(report, 't_referral_follow_up') === 'yes' && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      if (isPregnancyTaskMuted(contact)) {
+        return true;
+      }
+      return referralFollowUps(contact, getField(report, 'inputs.referral_uuid'), report.reported_date, report._id).length > 0;
+    },
+    priority: () => priorityFor('REFERRAL_UNCONFIRMED'),
+    actions: [
+      {
+        type: 'report',
+        form: 'referral_follow_up',
+        modifyContent: function (content, contact, report) {
+          referralFollowUpContent(content, getField(report, 'inputs.referral_uuid'),
+            getField(report, 'inputs.referral_code'), getField(report, 'inputs.destination_name'));
+        },
+      },
+    ],
+    events: [
+      {
+        id: 'referral-still-open',
+        start: 0,
+        end: 7,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 1);
+        },
+      },
     ],
   },
 

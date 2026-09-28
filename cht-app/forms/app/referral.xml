@@ -1,0 +1,3200 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Referral</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="severities-0">
+            <value>Emergency: go now</value>
+          </text>
+          <text id="severities-1">
+            <value>Urgent: go today</value>
+          </text>
+          <text id="severities-2">
+            <value>Routine: go within a week</value>
+          </text>
+          <text id="reasons-0">
+            <value>Convulsions (fits)</value>
+          </text>
+          <text id="reasons-1">
+            <value>Severe high blood pressure</value>
+          </text>
+          <text id="reasons-2">
+            <value>Signs of pre-eclampsia</value>
+          </text>
+          <text id="reasons-3">
+            <value>Heavy bleeding after birth</value>
+          </text>
+          <text id="reasons-4">
+            <value>Bleeding in pregnancy</value>
+          </text>
+          <text id="reasons-5">
+            <value>Fever with foul discharge (possible sepsis)</value>
+          </text>
+          <text id="reasons-6">
+            <value>Prolonged labour</value>
+          </text>
+          <text id="reasons-7">
+            <value>Fever</value>
+          </text>
+          <text id="reasons-8">
+            <value>Newborn danger sign</value>
+          </text>
+          <text id="reasons-9">
+            <value>Other reason</value>
+          </text>
+          <text id="present-0">
+            <value>Husband or partner</value>
+          </text>
+          <text id="present-1">
+            <value>Mother-in-law</value>
+          </text>
+          <text id="present-2">
+            <value>Other family member</value>
+          </text>
+          <text id="present-3">
+            <value>No one else</value>
+          </text>
+          <text id="regions-0">
+            <value>North East</value>
+          </text>
+          <text id="regions-1">
+            <value>Northern</value>
+          </text>
+          <text id="regions-2">
+            <value>Savannah</value>
+          </text>
+          <text id="regions-3">
+            <value>Upper East</value>
+          </text>
+          <text id="regions-4">
+            <value>Upper West</value>
+          </text>
+          <text id="districts-0">
+            <value>Bawku Municipal</value>
+          </text>
+          <text id="districts-1">
+            <value>Bawku West</value>
+          </text>
+          <text id="districts-2">
+            <value>Binduri</value>
+          </text>
+          <text id="districts-3">
+            <value>Bole</value>
+          </text>
+          <text id="districts-4">
+            <value>Bolga East</value>
+          </text>
+          <text id="districts-5">
+            <value>Bolgatanga Municipal</value>
+          </text>
+          <text id="districts-6">
+            <value>Bongo</value>
+          </text>
+          <text id="districts-7">
+            <value>Builsa North</value>
+          </text>
+          <text id="districts-8">
+            <value>Builsa South</value>
+          </text>
+          <text id="districts-9">
+            <value>Bunkpurugu Nakpanduri</value>
+          </text>
+          <text id="districts-10">
+            <value>Central Gonja</value>
+          </text>
+          <text id="districts-11">
+            <value>Chereponi</value>
+          </text>
+          <text id="districts-12">
+            <value>Daffiama Bussie Issa</value>
+          </text>
+          <text id="districts-13">
+            <value>East Gonja Municipal</value>
+          </text>
+          <text id="districts-14">
+            <value>East Mamprusi</value>
+          </text>
+          <text id="districts-15">
+            <value>Garu</value>
+          </text>
+          <text id="districts-16">
+            <value>Gushegu</value>
+          </text>
+          <text id="districts-17">
+            <value>Jirapa</value>
+          </text>
+          <text id="districts-18">
+            <value>Karaga</value>
+          </text>
+          <text id="districts-19">
+            <value>Kasena Nankana East</value>
+          </text>
+          <text id="districts-20">
+            <value>Kasena Nankana West</value>
+          </text>
+          <text id="districts-21">
+            <value>Kpandai</value>
+          </text>
+          <text id="districts-22">
+            <value>Kumbungu</value>
+          </text>
+          <text id="districts-23">
+            <value>Lambussie-karni</value>
+          </text>
+          <text id="districts-24">
+            <value>Lawra</value>
+          </text>
+          <text id="districts-25">
+            <value>Mamprugu Moagduri</value>
+          </text>
+          <text id="districts-26">
+            <value>Mion</value>
+          </text>
+          <text id="districts-27">
+            <value>Nabdam</value>
+          </text>
+          <text id="districts-28">
+            <value>Nadowli-kaleo</value>
+          </text>
+          <text id="districts-29">
+            <value>Nandom</value>
+          </text>
+          <text id="districts-30">
+            <value>Nanton</value>
+          </text>
+          <text id="districts-31">
+            <value>Nanumba North</value>
+          </text>
+          <text id="districts-32">
+            <value>Nanumba South</value>
+          </text>
+          <text id="districts-33">
+            <value>North East Gonja</value>
+          </text>
+          <text id="districts-34">
+            <value>North Gonja</value>
+          </text>
+          <text id="districts-35">
+            <value>Pusiga</value>
+          </text>
+          <text id="districts-36">
+            <value>Saboba</value>
+          </text>
+          <text id="districts-37">
+            <value>Sagnerigu</value>
+          </text>
+          <text id="districts-38">
+            <value>Savelugu</value>
+          </text>
+          <text id="districts-39">
+            <value>Sawla-tuna-kalba</value>
+          </text>
+          <text id="districts-40">
+            <value>Sissala East</value>
+          </text>
+          <text id="districts-41">
+            <value>Sissala West</value>
+          </text>
+          <text id="districts-42">
+            <value>Talensi</value>
+          </text>
+          <text id="districts-43">
+            <value>Tamale Metropolitan</value>
+          </text>
+          <text id="districts-44">
+            <value>Tatale Sanguli</value>
+          </text>
+          <text id="districts-45">
+            <value>Tempane</value>
+          </text>
+          <text id="districts-46">
+            <value>Tolon</value>
+          </text>
+          <text id="districts-47">
+            <value>Wa East</value>
+          </text>
+          <text id="districts-48">
+            <value>Wa Municipal</value>
+          </text>
+          <text id="districts-49">
+            <value>Wa West</value>
+          </text>
+          <text id="districts-50">
+            <value>West Gonja</value>
+          </text>
+          <text id="districts-51">
+            <value>West Mamprusi Municipal</value>
+          </text>
+          <text id="districts-52">
+            <value>Yendi Municipal</value>
+          </text>
+          <text id="districts-53">
+            <value>Yunyoo-nasuan</value>
+          </text>
+          <text id="districts-54">
+            <value>Zabzugu</value>
+          </text>
+          <text id="facilities-0">
+            <value>Binde Rural Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-1">
+            <value>Bunkpurugu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-2">
+            <value>Nakpanduri Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-3">
+            <value>Chereponi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-4">
+            <value>Wenchiki Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-5">
+            <value>Baptist Medical Centre District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-6">
+            <value>Gambaga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-7">
+            <value>Gbingbani Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-8">
+            <value>Langbinsi Presby Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-9">
+            <value>Sakogu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-10">
+            <value>Public Health Unit BMC Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-11">
+            <value>Gbintiri Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-12">
+            <value>Kubori Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-13">
+            <value>Yagaba Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-14">
+            <value>Yikpabongo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-15">
+            <value>Yizesi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-16">
+            <value>Fellowship of Medical Evangelists (FAME)-Yizesi Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-17">
+            <value>Mankarigu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-18">
+            <value>Walewale District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-19">
+            <value>Janga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-20">
+            <value>Kpasenkpe Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-21">
+            <value>Our Lady Of Rocio Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-22">
+            <value>Wulugu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-23">
+            <value>Fellowship of Medical Evangelists (FAME)-Loagri Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-24">
+            <value>Jimbale Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-25">
+            <value>Nasuan Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-26">
+            <value>Yunyoo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-27">
+            <value>Gushegu District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-28">
+            <value>Gushegu Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-29">
+            <value>Galwei Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-30">
+            <value>Kpatinga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-31">
+            <value>Nabuli Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-32">
+            <value>Karaga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-33">
+            <value>Pishegu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-34">
+            <value>Oti River Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-35">
+            <value>Blajai Evangelical Presbyterian Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-36">
+            <value>Fame Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-37">
+            <value>Kpandai Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-38">
+            <value>Wec Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-39">
+            <value>Bontanga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-40">
+            <value>Dalon Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-41">
+            <value>Gbulun Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-42">
+            <value>Kings Medical Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-43">
+            <value>Kunbungu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-44">
+            <value>Cheshegu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-45">
+            <value>Dabogni Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-46">
+            <value>Jimle Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-47">
+            <value>Nyani Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-48">
+            <value>Sang Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-49">
+            <value>Jonjori Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-50">
+            <value>Nanton Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-51">
+            <value>Zoggu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-52">
+            <value>Bimbilla District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-53">
+            <value>Binchera Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-54">
+            <value>Chamba Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-55">
+            <value>Lanja Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-56">
+            <value>Makayili Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-57">
+            <value>Lungni Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-58">
+            <value>Pudua Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-59">
+            <value>Wulensi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-60">
+            <value>Saboba Medical Centre (Hospital)</value>
+          </text>
+          <text id="facilities-61">
+            <value>Kpalba Evangelical Presbyterian Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-62">
+            <value>Sambuli Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-63">
+            <value>Wapuli Evangelical Presbyterian Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-64">
+            <value>Kalpohini Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-65">
+            <value>Kpiliyin Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-66">
+            <value>Shekina Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-67">
+            <value>Bagabaga Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-68">
+            <value>Savelugu District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-69">
+            <value>Savelugu Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-70">
+            <value>Diare Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-71">
+            <value>Mogla Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-72">
+            <value>Pong Tamale Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-73">
+            <value>Tampion Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-74">
+            <value>Tamale Central Hospital (Teaching Hospital)</value>
+          </text>
+          <text id="facilities-75">
+            <value>Tamale SDA Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-76">
+            <value>Tamale West District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-77">
+            <value>Bilpela Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-78">
+            <value>Haj Adams Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-79">
+            <value>Industrial Area Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-80">
+            <value>Kpanvo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-81">
+            <value>Lahagu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-82">
+            <value>Gariziegu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-83">
+            <value>Nyohini Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-84">
+            <value>Kandin Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-85">
+            <value>Kpalbutabu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-86">
+            <value>Tatale Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-87">
+            <value>Nyankpala Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-88">
+            <value>Tolon Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-89">
+            <value>Wantugu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-90">
+            <value>Yendi District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-91">
+            <value>Adibo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-92">
+            <value>Bunbon Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-93">
+            <value>Church of Christ Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-94">
+            <value>Zabzugu Polyclinic (Polyclinic)</value>
+          </text>
+          <text id="facilities-95">
+            <value>Kukpalgu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-96">
+            <value>Nakpale Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-97">
+            <value>Bole District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-98">
+            <value>Bamboi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-99">
+            <value>Catholic PHC (Health Centre)</value>
+          </text>
+          <text id="facilities-100">
+            <value>Jama Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-101">
+            <value>Mandari Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-102">
+            <value>Mankuma Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-103">
+            <value>Tinga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-104">
+            <value>Buipe Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-105">
+            <value>Kusawgu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-106">
+            <value>Mpaha Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-107">
+            <value>Tuluwe Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-108">
+            <value>Yapei Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-109">
+            <value>Abromase Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-110">
+            <value>Salaga District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-111">
+            <value>Gulbi Quarters Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-112">
+            <value>Kitare Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-113">
+            <value>Kpalbe Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-114">
+            <value>Kpembu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-115">
+            <value>Loloto Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-116">
+            <value>Lonto Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-117">
+            <value>Makango Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-118">
+            <value>Sabojida Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-119">
+            <value>Catholic PHC Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-120">
+            <value>Daboya Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-121">
+            <value>Lingbinsi Community Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-122">
+            <value>Gindabuo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-123">
+            <value>Kalba Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-124">
+            <value>Sawla Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-125">
+            <value>Tuna Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-126">
+            <value>Donald Richard Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-127">
+            <value>Damongo District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-128">
+            <value>Busunu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-129">
+            <value>Mole Game Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-130">
+            <value>Bawku Municipal Hospital (Municipal Hospital)</value>
+          </text>
+          <text id="facilities-131">
+            <value>Urban Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-132">
+            <value>Kuka Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-133">
+            <value>Kuka Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-134">
+            <value>Mognori Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-135">
+            <value>Urban West Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-136">
+            <value>Zebilla District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-137">
+            <value>Binaba Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-138">
+            <value>Sapelliga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-139">
+            <value>Timonde Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-140">
+            <value>Zongoire Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-141">
+            <value>Gbantongo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-142">
+            <value>Googo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-143">
+            <value>Tilli Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-144">
+            <value>Widnaba Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-145">
+            <value>Yelwoko Anglican Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-146">
+            <value>Binduri Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-147">
+            <value>Bazua Community Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-148">
+            <value>Goore Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-149">
+            <value>Zuarungu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-150">
+            <value>Zuarungu-Moshie Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-151">
+            <value>Bolgatanga Regional Hospital (Regional Hospital)</value>
+          </text>
+          <text id="facilities-152">
+            <value>Bolga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-153">
+            <value>Coronation Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-154">
+            <value>Gambibgo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-155">
+            <value>Kalbeo CHPS Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-156">
+            <value>Nyariga Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-157">
+            <value>Sherigu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-158">
+            <value>Sokabisi Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-159">
+            <value>Sumbrungu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-160">
+            <value>Bongo District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-161">
+            <value>Bongo/Soe Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-162">
+            <value>Namoo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-163">
+            <value>Vea Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-164">
+            <value>Zorko Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-165">
+            <value>Anafobisi Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-166">
+            <value>Dua Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-167">
+            <value>Sandema District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-168">
+            <value>Chuchuliga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-169">
+            <value>Siniensi Presby Community Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-170">
+            <value>Wiaga Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-171">
+            <value>Doninga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-172">
+            <value>Fumbisi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-173">
+            <value>Kanjarga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-174">
+            <value>Garu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-175">
+            <value>Worikambo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-176">
+            <value>Denegu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-177">
+            <value>Rabito Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-178">
+            <value>Songo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-179">
+            <value>War Memorial District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-180">
+            <value>Kologo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-181">
+            <value>Sirigu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-182">
+            <value>Chiana Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-183">
+            <value>K. N. East Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-184">
+            <value>Kayoro Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-185">
+            <value>Paga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-186">
+            <value>Nakolo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-187">
+            <value>Nakolo Community Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-188">
+            <value>Nangodi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-189">
+            <value>Pelungu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-190">
+            <value>Pusiga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-191">
+            <value>Widana Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-192">
+            <value>Kultamise Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-193">
+            <value>Kulungungu Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-194">
+            <value>Zuabulga Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-195">
+            <value>Pwalugu Health centre (Health Centre)</value>
+          </text>
+          <text id="facilities-196">
+            <value>Tongo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-197">
+            <value>Datuko Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-198">
+            <value>Namolgo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-199">
+            <value>Winkogo Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-200">
+            <value>Bugri Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-201">
+            <value>Worinyanga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-202">
+            <value>Basyonde Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-203">
+            <value>Fame Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-204">
+            <value>Sumaduri Presby Health Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-205">
+            <value>Bussie Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-206">
+            <value>Daffiama Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-207">
+            <value>Fian Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-208">
+            <value>Issa Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-209">
+            <value>Kojokpere Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-210">
+            <value>Infirmary Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-211">
+            <value>St. Joseph's District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-212">
+            <value>Duori Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-213">
+            <value>Hain Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-214">
+            <value>Sabuli Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-215">
+            <value>Tuggo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-216">
+            <value>Ullo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-217">
+            <value>Yagha Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-218">
+            <value>Billaw Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-219">
+            <value>Dapuori Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-220">
+            <value>Hamile Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-221">
+            <value>Karni Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-222">
+            <value>Lambussie Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-223">
+            <value>Piina Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-224">
+            <value>Samoa Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-225">
+            <value>Lawra District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-226">
+            <value>Babile Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-227">
+            <value>Domwine Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-228">
+            <value>Eremon Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-229">
+            <value>Zambo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-230">
+            <value>Lawra Methodist Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-231">
+            <value>Ahmadiya Mission Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-232">
+            <value>Nadowli District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-233">
+            <value>Charikpong Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-234">
+            <value>Jang Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-235">
+            <value>Kaleo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-236">
+            <value>Nanvilli Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-237">
+            <value>Sombo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-238">
+            <value>Takpo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-239">
+            <value>Nandom Hospital (Hospital)</value>
+          </text>
+          <text id="facilities-240">
+            <value>Baseble Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-241">
+            <value>Gengenkpe Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-242">
+            <value>Ketuo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-243">
+            <value>Ko Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-244">
+            <value>Tumu District Hospital (District Hospital)</value>
+          </text>
+          <text id="facilities-245">
+            <value>Kulfuo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-246">
+            <value>Kunchogu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-247">
+            <value>Nabugubelle Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-248">
+            <value>Nabulo Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-249">
+            <value>Wellembelle Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-250">
+            <value>Gwollu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-251">
+            <value>Jeffisi Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-252">
+            <value>St. Gerhard Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-253">
+            <value>Zini Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-254">
+            <value>Baayiri Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-255">
+            <value>Bulenga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-256">
+            <value>Charia Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-257">
+            <value>Charingu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-258">
+            <value>Holomuni Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-259">
+            <value>Kambali Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-260">
+            <value>Kundugu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-261">
+            <value>Loggu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-262">
+            <value>St. John's Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-263">
+            <value>Yaala Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-264">
+            <value>Samuel Saidu Memorial Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-265">
+            <value>Upper West Regional Hospital (Regional Hospital)</value>
+          </text>
+          <text id="facilities-266">
+            <value>Busa Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-267">
+            <value>Wa Urban Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-268">
+            <value>Ahmadiya Muslim Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-269">
+            <value>Konta North Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-270">
+            <value>Market Clinic (Clinic)</value>
+          </text>
+          <text id="facilities-271">
+            <value>Dorimon Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-272">
+            <value>Eggu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-273">
+            <value>Gurungu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-274">
+            <value>Lassia Tuolu Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-275">
+            <value>Poyentanga Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-276">
+            <value>Wechau Health Centre (Health Centre)</value>
+          </text>
+          <text id="facilities-277">
+            <value>Another facility (type its name)</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/source_reasons:label">
+            <value>Reasons from the assessment</value>
+          </text>
+          <text id="/data/inputs/source_severity:label">
+            <value>Severity from the assessment</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which woman or baby is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/why:label">
+            <value>Why refer</value>
+          </text>
+          <text id="/data/why/severity:label">
+            <value>How urgent is this referral?</value>
+          </text>
+          <text id="/data/why/reasons_from_assessment:label">
+            <value> Reasons from the danger assessment: <output value=" /data/inputs/source_reasons "/></value>
+          </text>
+          <text id="/data/why/reasons:label">
+            <value>Why is she being referred?</value>
+          </text>
+          <text id="/data/why/other_reason:label">
+            <value>Describe the reason</value>
+          </text>
+          <text id="/data/destination:label">
+            <value>Where to</value>
+          </text>
+          <text id="/data/destination/dest_region:label">
+            <value>Region of the receiving facility</value>
+          </text>
+          <text id="/data/destination/dest_district:label">
+            <value>District</value>
+          </text>
+          <text id="/data/destination/dest_facility:label">
+            <value>Receiving facility</value>
+          </text>
+          <text id="/data/destination/dest_other_name:label">
+            <value>Name of the facility</value>
+          </text>
+          <text id="/data/people:label">
+            <value>Who was there</value>
+          </text>
+          <text id="/data/people/present:jr:constraintMsg">
+            <value>'No one else' cannot be combined with other answers.</value>
+          </text>
+          <text id="/data/people/present:label">
+            <value>Who else was present when you advised the referral?</value>
+          </text>
+          <text id="/data/people/decider_present:label">
+            <value>Was the person who decides on money and transport present?</value>
+          </text>
+          <text id="/data/people/consent_call_decider:label">
+            <value>Does she agree that we call that person to explain why she must go? (Only if she says yes.)</value>
+          </text>
+          <text id="/data/people/decider_phone:jr:constraintMsg">
+            <value>Enter a 10-digit Ghana number starting with 0.</value>
+          </text>
+          <text id="/data/people/decider_phone:label">
+            <value>That person's phone number</value>
+          </text>
+          <text id="/data/summary:label">
+            <value>Referral</value>
+          </text>
+          <text id="/data/summary/code_note:label">
+            <value> Referral code: <output value=" /data/referral_code "/>. Write it on her referral slip and give it to the receiving facility.</value>
+          </text>
+          <text id="/data/summary/destination_note:label">
+            <value> Destination: <output value=" /data/r_destination_name "/></value>
+          </text>
+          <text id="/data/summary/emergency_note:label">
+            <value>EMERGENCY: call the facility or her family today to confirm she arrived.</value>
+          </text>
+          <text id="/data/summary/deadline_note:label">
+            <value> Arrival must be confirmed within <output value=" /data/r_deadline_days "/> day(s). A follow-up task will remind you.</value>
+          </text>
+          <text id="/data/summary/decider_note:label">
+            <value>The decider was not present and she did not agree to a call. Encourage her to take this slip home and talk it through tonight.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="referral" version="2026092801" prefix="J1!referral!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <source_reasons/>
+            <source_severity/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <why>
+            <severity/>
+            <reasons_from_assessment/>
+            <reasons/>
+            <other_reason/>
+          </why>
+          <destination>
+            <dest_region/>
+            <dest_district/>
+            <dest_facility/>
+            <dest_other_name/>
+          </destination>
+          <people>
+            <present/>
+            <decider_present/>
+            <consent_call_decider/>
+            <decider_phone/>
+          </people>
+          <referral_code/>
+          <r_severity/>
+          <r_reasons/>
+          <r_deadline_days/>
+          <r_destination_name/>
+          <t_referral_follow_up/>
+          <summary>
+            <code_note/>
+            <destination_note/>
+            <emergency_note/>
+            <deadline_note/>
+            <decider_note/>
+          </summary>
+          <data>
+            <__referral_code/>
+            <__severity/>
+            <__reasons/>
+            <__destination_id/>
+            <__destination_name/>
+            <__deadline_days/>
+            <__decider_present/>
+            <__consent_call_decider/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="severities">
+        <root>
+          <item>
+            <itextId>severities-0</itextId>
+            <name>emergency</name>
+          </item>
+          <item>
+            <itextId>severities-1</itextId>
+            <name>urgent</name>
+          </item>
+          <item>
+            <itextId>severities-2</itextId>
+            <name>routine</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="reasons">
+        <root>
+          <item>
+            <itextId>reasons-0</itextId>
+            <name>convulsions</name>
+          </item>
+          <item>
+            <itextId>reasons-1</itextId>
+            <name>severe_hypertension</name>
+          </item>
+          <item>
+            <itextId>reasons-2</itextId>
+            <name>pre_eclampsia_signs</name>
+          </item>
+          <item>
+            <itextId>reasons-3</itextId>
+            <name>haemorrhage_after_birth</name>
+          </item>
+          <item>
+            <itextId>reasons-4</itextId>
+            <name>bleeding_in_pregnancy</name>
+          </item>
+          <item>
+            <itextId>reasons-5</itextId>
+            <name>sepsis_signs</name>
+          </item>
+          <item>
+            <itextId>reasons-6</itextId>
+            <name>prolonged_labour</name>
+          </item>
+          <item>
+            <itextId>reasons-7</itextId>
+            <name>fever</name>
+          </item>
+          <item>
+            <itextId>reasons-8</itextId>
+            <name>newborn_danger_sign</name>
+          </item>
+          <item>
+            <itextId>reasons-9</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="present">
+        <root>
+          <item>
+            <itextId>present-0</itextId>
+            <name>husband</name>
+          </item>
+          <item>
+            <itextId>present-1</itextId>
+            <name>mother_in_law</name>
+          </item>
+          <item>
+            <itextId>present-2</itextId>
+            <name>other_family</name>
+          </item>
+          <item>
+            <itextId>present-3</itextId>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="regions">
+        <root>
+          <item>
+            <itextId>regions-0</itextId>
+            <name>north_east</name>
+          </item>
+          <item>
+            <itextId>regions-1</itextId>
+            <name>northern</name>
+          </item>
+          <item>
+            <itextId>regions-2</itextId>
+            <name>savannah</name>
+          </item>
+          <item>
+            <itextId>regions-3</itextId>
+            <name>upper_east</name>
+          </item>
+          <item>
+            <itextId>regions-4</itextId>
+            <name>upper_west</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="districts">
+        <root>
+          <item>
+            <itextId>districts-0</itextId>
+            <name>bawku_municipal</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-1</itextId>
+            <name>bawku_west</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-2</itextId>
+            <name>binduri</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-3</itextId>
+            <name>bole</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-4</itextId>
+            <name>bolga_east</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-5</itextId>
+            <name>bolgatanga_municipal</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-6</itextId>
+            <name>bongo</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-7</itextId>
+            <name>builsa_north</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-8</itextId>
+            <name>builsa_south</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-9</itextId>
+            <name>bunkpurugu_nakpanduri</name>
+            <region>north_east</region>
+          </item>
+          <item>
+            <itextId>districts-10</itextId>
+            <name>central_gonja</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-11</itextId>
+            <name>chereponi</name>
+            <region>north_east</region>
+          </item>
+          <item>
+            <itextId>districts-12</itextId>
+            <name>daffiama_bussie_issa</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-13</itextId>
+            <name>east_gonja_municipal</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-14</itextId>
+            <name>east_mamprusi</name>
+            <region>north_east</region>
+          </item>
+          <item>
+            <itextId>districts-15</itextId>
+            <name>garu</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-16</itextId>
+            <name>gushegu</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-17</itextId>
+            <name>jirapa</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-18</itextId>
+            <name>karaga</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-19</itextId>
+            <name>kasena_nankana_east</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-20</itextId>
+            <name>kasena_nankana_west</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-21</itextId>
+            <name>kpandai</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-22</itextId>
+            <name>kumbungu</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-23</itextId>
+            <name>lambussie_karni</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-24</itextId>
+            <name>lawra</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-25</itextId>
+            <name>mamprugu_moagduri</name>
+            <region>north_east</region>
+          </item>
+          <item>
+            <itextId>districts-26</itextId>
+            <name>mion</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-27</itextId>
+            <name>nabdam</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-28</itextId>
+            <name>nadowli_kaleo</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-29</itextId>
+            <name>nandom</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-30</itextId>
+            <name>nanton</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-31</itextId>
+            <name>nanumba_north</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-32</itextId>
+            <name>nanumba_south</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-33</itextId>
+            <name>north_east_gonja</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-34</itextId>
+            <name>north_gonja</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-35</itextId>
+            <name>pusiga</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-36</itextId>
+            <name>saboba</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-37</itextId>
+            <name>sagnerigu</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-38</itextId>
+            <name>savelugu</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-39</itextId>
+            <name>sawla_tuna_kalba</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-40</itextId>
+            <name>sissala_east</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-41</itextId>
+            <name>sissala_west</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-42</itextId>
+            <name>talensi</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-43</itextId>
+            <name>tamale_metropolitan</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-44</itextId>
+            <name>tatale_sanguli</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-45</itextId>
+            <name>tempane</name>
+            <region>upper_east</region>
+          </item>
+          <item>
+            <itextId>districts-46</itextId>
+            <name>tolon</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-47</itextId>
+            <name>wa_east</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-48</itextId>
+            <name>wa_municipal</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-49</itextId>
+            <name>wa_west</name>
+            <region>upper_west</region>
+          </item>
+          <item>
+            <itextId>districts-50</itextId>
+            <name>west_gonja</name>
+            <region>savannah</region>
+          </item>
+          <item>
+            <itextId>districts-51</itextId>
+            <name>west_mamprusi_municipal</name>
+            <region>north_east</region>
+          </item>
+          <item>
+            <itextId>districts-52</itextId>
+            <name>yendi_municipal</name>
+            <region>northern</region>
+          </item>
+          <item>
+            <itextId>districts-53</itextId>
+            <name>yunyoo_nasuan</name>
+            <region>north_east</region>
+          </item>
+          <item>
+            <itextId>districts-54</itextId>
+            <name>zabzugu</name>
+            <region>northern</region>
+          </item>
+        </root>
+      </instance>
+      <instance id="facilities">
+        <root>
+          <item>
+            <itextId>facilities-0</itextId>
+            <name>binde_rural_hospital_north_east</name>
+            <district>bunkpurugu_nakpanduri</district>
+          </item>
+          <item>
+            <itextId>facilities-1</itextId>
+            <name>bunkpurugu_health_centre_north_east</name>
+            <district>bunkpurugu_nakpanduri</district>
+          </item>
+          <item>
+            <itextId>facilities-2</itextId>
+            <name>nakpanduri_health_centre_north_east</name>
+            <district>bunkpurugu_nakpanduri</district>
+          </item>
+          <item>
+            <itextId>facilities-3</itextId>
+            <name>chereponi_health_centre_north_east</name>
+            <district>chereponi</district>
+          </item>
+          <item>
+            <itextId>facilities-4</itextId>
+            <name>wenchiki_health_centre_north_east</name>
+            <district>chereponi</district>
+          </item>
+          <item>
+            <itextId>facilities-5</itextId>
+            <name>baptist_medical_centre_district_hospital_north_east</name>
+            <district>east_mamprusi</district>
+          </item>
+          <item>
+            <itextId>facilities-6</itextId>
+            <name>gambaga_health_centre_north_east</name>
+            <district>east_mamprusi</district>
+          </item>
+          <item>
+            <itextId>facilities-7</itextId>
+            <name>gbingbani_health_centre_north_east</name>
+            <district>east_mamprusi</district>
+          </item>
+          <item>
+            <itextId>facilities-8</itextId>
+            <name>langbinsi_presby_health_centre_north_east</name>
+            <district>east_mamprusi</district>
+          </item>
+          <item>
+            <itextId>facilities-9</itextId>
+            <name>sakogu_health_centre_north_east</name>
+            <district>east_mamprusi</district>
+          </item>
+          <item>
+            <itextId>facilities-10</itextId>
+            <name>public_health_unit_bmc_clinic_north_east</name>
+            <district>east_mamprusi</district>
+          </item>
+          <item>
+            <itextId>facilities-11</itextId>
+            <name>gbintiri_health_centre_north_east</name>
+            <district>gushegu</district>
+          </item>
+          <item>
+            <itextId>facilities-12</itextId>
+            <name>kubori_health_centre_north_east</name>
+            <district>mamprugu_moagduri</district>
+          </item>
+          <item>
+            <itextId>facilities-13</itextId>
+            <name>yagaba_health_centre_north_east</name>
+            <district>mamprugu_moagduri</district>
+          </item>
+          <item>
+            <itextId>facilities-14</itextId>
+            <name>yikpabongo_health_centre_north_east</name>
+            <district>mamprugu_moagduri</district>
+          </item>
+          <item>
+            <itextId>facilities-15</itextId>
+            <name>yizesi_health_centre_north_east</name>
+            <district>mamprugu_moagduri</district>
+          </item>
+          <item>
+            <itextId>facilities-16</itextId>
+            <name>fellowship_of_medical_evangelists_fame_yizesi_clinic_north_east</name>
+            <district>mamprugu_moagduri</district>
+          </item>
+          <item>
+            <itextId>facilities-17</itextId>
+            <name>mankarigu_health_centre_north_east</name>
+            <district>north_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-18</itextId>
+            <name>walewale_district_hospital_north_east</name>
+            <district>west_mamprusi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-19</itextId>
+            <name>janga_health_centre_north_east</name>
+            <district>west_mamprusi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-20</itextId>
+            <name>kpasenkpe_health_centre_north_east</name>
+            <district>west_mamprusi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-21</itextId>
+            <name>our_lady_of_rocio_health_centre_north_east</name>
+            <district>west_mamprusi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-22</itextId>
+            <name>wulugu_health_centre_north_east</name>
+            <district>west_mamprusi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-23</itextId>
+            <name>fellowship_of_medical_evangelists_fame_loagri_clinic_north_east</name>
+            <district>west_mamprusi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-24</itextId>
+            <name>jimbale_health_centre_north_east</name>
+            <district>yunyoo_nasuan</district>
+          </item>
+          <item>
+            <itextId>facilities-25</itextId>
+            <name>nasuan_health_centre_north_east</name>
+            <district>yunyoo_nasuan</district>
+          </item>
+          <item>
+            <itextId>facilities-26</itextId>
+            <name>yunyoo_health_centre_north_east</name>
+            <district>yunyoo_nasuan</district>
+          </item>
+          <item>
+            <itextId>facilities-27</itextId>
+            <name>gushegu_district_hospital_northern</name>
+            <district>gushegu</district>
+          </item>
+          <item>
+            <itextId>facilities-28</itextId>
+            <name>gushegu_hospital_northern</name>
+            <district>gushegu</district>
+          </item>
+          <item>
+            <itextId>facilities-29</itextId>
+            <name>galwei_health_centre_northern</name>
+            <district>gushegu</district>
+          </item>
+          <item>
+            <itextId>facilities-30</itextId>
+            <name>kpatinga_health_centre_northern</name>
+            <district>gushegu</district>
+          </item>
+          <item>
+            <itextId>facilities-31</itextId>
+            <name>nabuli_health_centre_northern</name>
+            <district>gushegu</district>
+          </item>
+          <item>
+            <itextId>facilities-32</itextId>
+            <name>karaga_health_centre_northern</name>
+            <district>karaga</district>
+          </item>
+          <item>
+            <itextId>facilities-33</itextId>
+            <name>pishegu_health_centre_northern</name>
+            <district>karaga</district>
+          </item>
+          <item>
+            <itextId>facilities-34</itextId>
+            <name>oti_river_hospital_northern</name>
+            <district>kpandai</district>
+          </item>
+          <item>
+            <itextId>facilities-35</itextId>
+            <name>blajai_evangelical_presbyterian_health_centre_northern</name>
+            <district>kpandai</district>
+          </item>
+          <item>
+            <itextId>facilities-36</itextId>
+            <name>fame_health_centre_northern</name>
+            <district>kpandai</district>
+          </item>
+          <item>
+            <itextId>facilities-37</itextId>
+            <name>kpandai_health_centre_northern</name>
+            <district>kpandai</district>
+          </item>
+          <item>
+            <itextId>facilities-38</itextId>
+            <name>wec_health_centre_northern</name>
+            <district>kpandai</district>
+          </item>
+          <item>
+            <itextId>facilities-39</itextId>
+            <name>bontanga_health_centre_northern</name>
+            <district>kumbungu</district>
+          </item>
+          <item>
+            <itextId>facilities-40</itextId>
+            <name>dalon_health_centre_northern</name>
+            <district>kumbungu</district>
+          </item>
+          <item>
+            <itextId>facilities-41</itextId>
+            <name>gbulun_health_centre_northern</name>
+            <district>kumbungu</district>
+          </item>
+          <item>
+            <itextId>facilities-42</itextId>
+            <name>kings_medical_centre_northern</name>
+            <district>kumbungu</district>
+          </item>
+          <item>
+            <itextId>facilities-43</itextId>
+            <name>kunbungu_health_centre_northern</name>
+            <district>kumbungu</district>
+          </item>
+          <item>
+            <itextId>facilities-44</itextId>
+            <name>cheshegu_clinic_northern</name>
+            <district>kumbungu</district>
+          </item>
+          <item>
+            <itextId>facilities-45</itextId>
+            <name>dabogni_health_centre_northern</name>
+            <district>mion</district>
+          </item>
+          <item>
+            <itextId>facilities-46</itextId>
+            <name>jimle_health_centre_northern</name>
+            <district>mion</district>
+          </item>
+          <item>
+            <itextId>facilities-47</itextId>
+            <name>nyani_health_centre_northern</name>
+            <district>mion</district>
+          </item>
+          <item>
+            <itextId>facilities-48</itextId>
+            <name>sang_health_centre_northern</name>
+            <district>mion</district>
+          </item>
+          <item>
+            <itextId>facilities-49</itextId>
+            <name>jonjori_health_centre_northern</name>
+            <district>nanton</district>
+          </item>
+          <item>
+            <itextId>facilities-50</itextId>
+            <name>nanton_health_centre_northern</name>
+            <district>nanton</district>
+          </item>
+          <item>
+            <itextId>facilities-51</itextId>
+            <name>zoggu_health_centre_northern</name>
+            <district>nanton</district>
+          </item>
+          <item>
+            <itextId>facilities-52</itextId>
+            <name>bimbilla_district_hospital_northern</name>
+            <district>nanumba_north</district>
+          </item>
+          <item>
+            <itextId>facilities-53</itextId>
+            <name>binchera_health_centre_northern</name>
+            <district>nanumba_north</district>
+          </item>
+          <item>
+            <itextId>facilities-54</itextId>
+            <name>chamba_health_centre_northern</name>
+            <district>nanumba_north</district>
+          </item>
+          <item>
+            <itextId>facilities-55</itextId>
+            <name>lanja_health_centre_northern</name>
+            <district>nanumba_north</district>
+          </item>
+          <item>
+            <itextId>facilities-56</itextId>
+            <name>makayili_health_centre_northern</name>
+            <district>nanumba_north</district>
+          </item>
+          <item>
+            <itextId>facilities-57</itextId>
+            <name>lungni_health_centre_northern</name>
+            <district>nanumba_south</district>
+          </item>
+          <item>
+            <itextId>facilities-58</itextId>
+            <name>pudua_health_centre_northern</name>
+            <district>nanumba_south</district>
+          </item>
+          <item>
+            <itextId>facilities-59</itextId>
+            <name>wulensi_health_centre_northern</name>
+            <district>nanumba_south</district>
+          </item>
+          <item>
+            <itextId>facilities-60</itextId>
+            <name>saboba_medical_centre_northern</name>
+            <district>saboba</district>
+          </item>
+          <item>
+            <itextId>facilities-61</itextId>
+            <name>kpalba_evangelical_presbyterian_health_centre_northern</name>
+            <district>saboba</district>
+          </item>
+          <item>
+            <itextId>facilities-62</itextId>
+            <name>sambuli_health_centre_northern</name>
+            <district>saboba</district>
+          </item>
+          <item>
+            <itextId>facilities-63</itextId>
+            <name>wapuli_evangelical_presbyterian_health_centre_northern</name>
+            <district>saboba</district>
+          </item>
+          <item>
+            <itextId>facilities-64</itextId>
+            <name>kalpohini_health_centre_northern</name>
+            <district>sagnerigu</district>
+          </item>
+          <item>
+            <itextId>facilities-65</itextId>
+            <name>kpiliyin_health_centre_northern</name>
+            <district>sagnerigu</district>
+          </item>
+          <item>
+            <itextId>facilities-66</itextId>
+            <name>shekina_health_centre_northern</name>
+            <district>sagnerigu</district>
+          </item>
+          <item>
+            <itextId>facilities-67</itextId>
+            <name>bagabaga_clinic_northern</name>
+            <district>sagnerigu</district>
+          </item>
+          <item>
+            <itextId>facilities-68</itextId>
+            <name>savelugu_district_hospital_northern</name>
+            <district>savelugu</district>
+          </item>
+          <item>
+            <itextId>facilities-69</itextId>
+            <name>savelugu_hospital_northern</name>
+            <district>savelugu</district>
+          </item>
+          <item>
+            <itextId>facilities-70</itextId>
+            <name>diare_health_centre_northern</name>
+            <district>savelugu</district>
+          </item>
+          <item>
+            <itextId>facilities-71</itextId>
+            <name>mogla_health_centre_northern</name>
+            <district>savelugu</district>
+          </item>
+          <item>
+            <itextId>facilities-72</itextId>
+            <name>pong_tamale_health_centre_northern</name>
+            <district>savelugu</district>
+          </item>
+          <item>
+            <itextId>facilities-73</itextId>
+            <name>tampion_health_centre_northern</name>
+            <district>savelugu</district>
+          </item>
+          <item>
+            <itextId>facilities-74</itextId>
+            <name>tamale_central_hospital_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-75</itextId>
+            <name>tamale_sda_hospital_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-76</itextId>
+            <name>tamale_west_district_hospital_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-77</itextId>
+            <name>bilpela_health_centre_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-78</itextId>
+            <name>haj_adams_health_centre_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-79</itextId>
+            <name>industrial_area_health_centre_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-80</itextId>
+            <name>kpanvo_health_centre_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-81</itextId>
+            <name>lahagu_health_centre_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-82</itextId>
+            <name>gariziegu_clinic_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-83</itextId>
+            <name>nyohini_clinic_northern</name>
+            <district>tamale_metropolitan</district>
+          </item>
+          <item>
+            <itextId>facilities-84</itextId>
+            <name>kandin_health_centre_northern</name>
+            <district>tatale_sanguli</district>
+          </item>
+          <item>
+            <itextId>facilities-85</itextId>
+            <name>kpalbutabu_health_centre_northern</name>
+            <district>tatale_sanguli</district>
+          </item>
+          <item>
+            <itextId>facilities-86</itextId>
+            <name>tatale_health_centre_northern</name>
+            <district>tatale_sanguli</district>
+          </item>
+          <item>
+            <itextId>facilities-87</itextId>
+            <name>nyankpala_health_centre_northern</name>
+            <district>tolon</district>
+          </item>
+          <item>
+            <itextId>facilities-88</itextId>
+            <name>tolon_health_centre_northern</name>
+            <district>tolon</district>
+          </item>
+          <item>
+            <itextId>facilities-89</itextId>
+            <name>wantugu_health_centre_northern</name>
+            <district>tolon</district>
+          </item>
+          <item>
+            <itextId>facilities-90</itextId>
+            <name>yendi_district_hospital_northern</name>
+            <district>yendi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-91</itextId>
+            <name>adibo_health_centre_northern</name>
+            <district>yendi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-92</itextId>
+            <name>bunbon_health_centre_northern</name>
+            <district>yendi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-93</itextId>
+            <name>church_of_christ_health_centre_northern</name>
+            <district>yendi_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-94</itextId>
+            <name>zabzugu_polyclinic_northern</name>
+            <district>zabzugu</district>
+          </item>
+          <item>
+            <itextId>facilities-95</itextId>
+            <name>kukpalgu_health_centre_northern</name>
+            <district>zabzugu</district>
+          </item>
+          <item>
+            <itextId>facilities-96</itextId>
+            <name>nakpale_health_centre_northern</name>
+            <district>zabzugu</district>
+          </item>
+          <item>
+            <itextId>facilities-97</itextId>
+            <name>bole_district_hospital_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-98</itextId>
+            <name>bamboi_health_centre_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-99</itextId>
+            <name>catholic_phc_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-100</itextId>
+            <name>jama_health_centre_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-101</itextId>
+            <name>mandari_health_centre_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-102</itextId>
+            <name>mankuma_health_centre_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-103</itextId>
+            <name>tinga_health_centre_savannah</name>
+            <district>bole</district>
+          </item>
+          <item>
+            <itextId>facilities-104</itextId>
+            <name>buipe_health_centre_savannah</name>
+            <district>central_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-105</itextId>
+            <name>kusawgu_health_centre_savannah</name>
+            <district>central_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-106</itextId>
+            <name>mpaha_health_centre_savannah</name>
+            <district>central_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-107</itextId>
+            <name>tuluwe_health_centre_savannah</name>
+            <district>central_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-108</itextId>
+            <name>yapei_health_centre_savannah</name>
+            <district>central_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-109</itextId>
+            <name>abromase_health_centre_savannah</name>
+            <district>east_gonja_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-110</itextId>
+            <name>salaga_district_hospital_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-111</itextId>
+            <name>gulbi_quarters_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-112</itextId>
+            <name>kitare_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-113</itextId>
+            <name>kpalbe_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-114</itextId>
+            <name>kpembu_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-115</itextId>
+            <name>loloto_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-116</itextId>
+            <name>lonto_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-117</itextId>
+            <name>makango_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-118</itextId>
+            <name>sabojida_health_centre_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-119</itextId>
+            <name>catholic_phc_clinic_savannah</name>
+            <district>north_east_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-120</itextId>
+            <name>daboya_health_centre_savannah</name>
+            <district>north_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-121</itextId>
+            <name>lingbinsi_community_clinic_savannah</name>
+            <district>north_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-122</itextId>
+            <name>gindabuo_health_centre_savannah</name>
+            <district>sawla_tuna_kalba</district>
+          </item>
+          <item>
+            <itextId>facilities-123</itextId>
+            <name>kalba_health_centre_savannah</name>
+            <district>sawla_tuna_kalba</district>
+          </item>
+          <item>
+            <itextId>facilities-124</itextId>
+            <name>sawla_health_centre_savannah</name>
+            <district>sawla_tuna_kalba</district>
+          </item>
+          <item>
+            <itextId>facilities-125</itextId>
+            <name>tuna_health_centre_savannah</name>
+            <district>sawla_tuna_kalba</district>
+          </item>
+          <item>
+            <itextId>facilities-126</itextId>
+            <name>donald_richard_clinic_savannah</name>
+            <district>sawla_tuna_kalba</district>
+          </item>
+          <item>
+            <itextId>facilities-127</itextId>
+            <name>damongo_district_hospital_savannah</name>
+            <district>west_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-128</itextId>
+            <name>busunu_health_centre_savannah</name>
+            <district>west_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-129</itextId>
+            <name>mole_game_health_centre_savannah</name>
+            <district>west_gonja</district>
+          </item>
+          <item>
+            <itextId>facilities-130</itextId>
+            <name>bawku_municipal_hospital_upper_east</name>
+            <district>bawku_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-131</itextId>
+            <name>urban_health_centre_upper_east</name>
+            <district>bawku_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-132</itextId>
+            <name>kuka_clinic_bawku_municipal</name>
+            <district>bawku_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-133</itextId>
+            <name>kuka_clinic_bawku_municipal_2</name>
+            <district>bawku_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-134</itextId>
+            <name>mognori_clinic_upper_east</name>
+            <district>bawku_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-135</itextId>
+            <name>urban_west_clinic_upper_east</name>
+            <district>bawku_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-136</itextId>
+            <name>zebilla_district_hospital_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-137</itextId>
+            <name>binaba_health_centre_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-138</itextId>
+            <name>sapelliga_health_centre_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-139</itextId>
+            <name>timonde_health_centre_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-140</itextId>
+            <name>zongoire_health_centre_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-141</itextId>
+            <name>gbantongo_clinic_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-142</itextId>
+            <name>googo_clinic_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-143</itextId>
+            <name>tilli_clinic_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-144</itextId>
+            <name>widnaba_clinic_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-145</itextId>
+            <name>yelwoko_anglican_clinic_upper_east</name>
+            <district>bawku_west</district>
+          </item>
+          <item>
+            <itextId>facilities-146</itextId>
+            <name>binduri_health_centre_upper_east</name>
+            <district>binduri</district>
+          </item>
+          <item>
+            <itextId>facilities-147</itextId>
+            <name>bazua_community_clinic_upper_east</name>
+            <district>binduri</district>
+          </item>
+          <item>
+            <itextId>facilities-148</itextId>
+            <name>goore_clinic_upper_east</name>
+            <district>binduri</district>
+          </item>
+          <item>
+            <itextId>facilities-149</itextId>
+            <name>zuarungu_health_centre_upper_east</name>
+            <district>bolga_east</district>
+          </item>
+          <item>
+            <itextId>facilities-150</itextId>
+            <name>zuarungu_moshie_clinic_upper_east</name>
+            <district>bolga_east</district>
+          </item>
+          <item>
+            <itextId>facilities-151</itextId>
+            <name>bolgatanga_regional_hospital_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-152</itextId>
+            <name>bolga_health_centre_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-153</itextId>
+            <name>coronation_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-154</itextId>
+            <name>gambibgo_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-155</itextId>
+            <name>kalbeo_chps_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-156</itextId>
+            <name>nyariga_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-157</itextId>
+            <name>sherigu_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-158</itextId>
+            <name>sokabisi_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-159</itextId>
+            <name>sumbrungu_clinic_upper_east</name>
+            <district>bolgatanga_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-160</itextId>
+            <name>bongo_district_hospital_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-161</itextId>
+            <name>bongo_soe_health_centre_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-162</itextId>
+            <name>namoo_health_centre_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-163</itextId>
+            <name>vea_health_centre_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-164</itextId>
+            <name>zorko_health_centre_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-165</itextId>
+            <name>anafobisi_clinic_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-166</itextId>
+            <name>dua_clinic_upper_east</name>
+            <district>bongo</district>
+          </item>
+          <item>
+            <itextId>facilities-167</itextId>
+            <name>sandema_district_hospital_upper_east</name>
+            <district>builsa_north</district>
+          </item>
+          <item>
+            <itextId>facilities-168</itextId>
+            <name>chuchuliga_health_centre_upper_east</name>
+            <district>builsa_north</district>
+          </item>
+          <item>
+            <itextId>facilities-169</itextId>
+            <name>siniensi_presby_community_clinic_upper_east</name>
+            <district>builsa_north</district>
+          </item>
+          <item>
+            <itextId>facilities-170</itextId>
+            <name>wiaga_clinic_upper_east</name>
+            <district>builsa_north</district>
+          </item>
+          <item>
+            <itextId>facilities-171</itextId>
+            <name>doninga_health_centre_upper_east</name>
+            <district>builsa_south</district>
+          </item>
+          <item>
+            <itextId>facilities-172</itextId>
+            <name>fumbisi_health_centre_upper_east</name>
+            <district>builsa_south</district>
+          </item>
+          <item>
+            <itextId>facilities-173</itextId>
+            <name>kanjarga_health_centre_upper_east</name>
+            <district>builsa_south</district>
+          </item>
+          <item>
+            <itextId>facilities-174</itextId>
+            <name>garu_health_centre_upper_east</name>
+            <district>garu</district>
+          </item>
+          <item>
+            <itextId>facilities-175</itextId>
+            <name>worikambo_health_centre_upper_east</name>
+            <district>garu</district>
+          </item>
+          <item>
+            <itextId>facilities-176</itextId>
+            <name>denegu_clinic_upper_east</name>
+            <district>garu</district>
+          </item>
+          <item>
+            <itextId>facilities-177</itextId>
+            <name>rabito_clinic_upper_east</name>
+            <district>garu</district>
+          </item>
+          <item>
+            <itextId>facilities-178</itextId>
+            <name>songo_clinic_upper_east</name>
+            <district>garu</district>
+          </item>
+          <item>
+            <itextId>facilities-179</itextId>
+            <name>war_memorial_district_hospital_upper_east</name>
+            <district>kasena_nankana_east</district>
+          </item>
+          <item>
+            <itextId>facilities-180</itextId>
+            <name>kologo_health_centre_upper_east</name>
+            <district>kasena_nankana_east</district>
+          </item>
+          <item>
+            <itextId>facilities-181</itextId>
+            <name>sirigu_clinic_upper_east</name>
+            <district>kasena_nankana_east</district>
+          </item>
+          <item>
+            <itextId>facilities-182</itextId>
+            <name>chiana_health_centre_upper_east</name>
+            <district>kasena_nankana_west</district>
+          </item>
+          <item>
+            <itextId>facilities-183</itextId>
+            <name>k_n_east_health_centre_upper_east</name>
+            <district>kasena_nankana_west</district>
+          </item>
+          <item>
+            <itextId>facilities-184</itextId>
+            <name>kayoro_health_centre_upper_east</name>
+            <district>kasena_nankana_west</district>
+          </item>
+          <item>
+            <itextId>facilities-185</itextId>
+            <name>paga_health_centre_upper_east</name>
+            <district>kasena_nankana_west</district>
+          </item>
+          <item>
+            <itextId>facilities-186</itextId>
+            <name>nakolo_clinic_upper_east</name>
+            <district>kasena_nankana_west</district>
+          </item>
+          <item>
+            <itextId>facilities-187</itextId>
+            <name>nakolo_community_clinic_upper_east</name>
+            <district>kasena_nankana_west</district>
+          </item>
+          <item>
+            <itextId>facilities-188</itextId>
+            <name>nangodi_health_centre_upper_east</name>
+            <district>nabdam</district>
+          </item>
+          <item>
+            <itextId>facilities-189</itextId>
+            <name>pelungu_clinic_upper_east</name>
+            <district>nabdam</district>
+          </item>
+          <item>
+            <itextId>facilities-190</itextId>
+            <name>pusiga_health_centre_upper_east</name>
+            <district>pusiga</district>
+          </item>
+          <item>
+            <itextId>facilities-191</itextId>
+            <name>widana_health_centre_upper_east</name>
+            <district>pusiga</district>
+          </item>
+          <item>
+            <itextId>facilities-192</itextId>
+            <name>kultamise_clinic_upper_east</name>
+            <district>pusiga</district>
+          </item>
+          <item>
+            <itextId>facilities-193</itextId>
+            <name>kulungungu_clinic_upper_east</name>
+            <district>pusiga</district>
+          </item>
+          <item>
+            <itextId>facilities-194</itextId>
+            <name>zuabulga_clinic_upper_east</name>
+            <district>pusiga</district>
+          </item>
+          <item>
+            <itextId>facilities-195</itextId>
+            <name>pwalugu_health_centre_upper_east</name>
+            <district>talensi</district>
+          </item>
+          <item>
+            <itextId>facilities-196</itextId>
+            <name>tongo_health_centre_upper_east</name>
+            <district>talensi</district>
+          </item>
+          <item>
+            <itextId>facilities-197</itextId>
+            <name>datuko_clinic_upper_east</name>
+            <district>talensi</district>
+          </item>
+          <item>
+            <itextId>facilities-198</itextId>
+            <name>namolgo_clinic_upper_east</name>
+            <district>talensi</district>
+          </item>
+          <item>
+            <itextId>facilities-199</itextId>
+            <name>winkogo_clinic_upper_east</name>
+            <district>talensi</district>
+          </item>
+          <item>
+            <itextId>facilities-200</itextId>
+            <name>bugri_health_centre_upper_east</name>
+            <district>tempane</district>
+          </item>
+          <item>
+            <itextId>facilities-201</itextId>
+            <name>worinyanga_health_centre_upper_east</name>
+            <district>tempane</district>
+          </item>
+          <item>
+            <itextId>facilities-202</itextId>
+            <name>basyonde_clinic_upper_east</name>
+            <district>tempane</district>
+          </item>
+          <item>
+            <itextId>facilities-203</itextId>
+            <name>fame_clinic_upper_east</name>
+            <district>tempane</district>
+          </item>
+          <item>
+            <itextId>facilities-204</itextId>
+            <name>sumaduri_presby_health_clinic_upper_east</name>
+            <district>tempane</district>
+          </item>
+          <item>
+            <itextId>facilities-205</itextId>
+            <name>bussie_health_centre_upper_west</name>
+            <district>daffiama_bussie_issa</district>
+          </item>
+          <item>
+            <itextId>facilities-206</itextId>
+            <name>daffiama_health_centre_upper_west</name>
+            <district>daffiama_bussie_issa</district>
+          </item>
+          <item>
+            <itextId>facilities-207</itextId>
+            <name>fian_health_centre_upper_west</name>
+            <district>daffiama_bussie_issa</district>
+          </item>
+          <item>
+            <itextId>facilities-208</itextId>
+            <name>issa_health_centre_upper_west</name>
+            <district>daffiama_bussie_issa</district>
+          </item>
+          <item>
+            <itextId>facilities-209</itextId>
+            <name>kojokpere_health_centre_upper_west</name>
+            <district>daffiama_bussie_issa</district>
+          </item>
+          <item>
+            <itextId>facilities-210</itextId>
+            <name>infirmary_clinic_upper_west</name>
+            <district>daffiama_bussie_issa</district>
+          </item>
+          <item>
+            <itextId>facilities-211</itextId>
+            <name>st_joseph_s_district_hospital_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-212</itextId>
+            <name>duori_health_centre_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-213</itextId>
+            <name>hain_health_centre_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-214</itextId>
+            <name>sabuli_health_centre_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-215</itextId>
+            <name>tuggo_health_centre_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-216</itextId>
+            <name>ullo_health_centre_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-217</itextId>
+            <name>yagha_health_centre_upper_west</name>
+            <district>jirapa</district>
+          </item>
+          <item>
+            <itextId>facilities-218</itextId>
+            <name>billaw_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-219</itextId>
+            <name>dapuori_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-220</itextId>
+            <name>hamile_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-221</itextId>
+            <name>karni_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-222</itextId>
+            <name>lambussie_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-223</itextId>
+            <name>piina_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-224</itextId>
+            <name>samoa_health_centre_upper_west</name>
+            <district>lambussie_karni</district>
+          </item>
+          <item>
+            <itextId>facilities-225</itextId>
+            <name>lawra_district_hospital_upper_west</name>
+            <district>lawra</district>
+          </item>
+          <item>
+            <itextId>facilities-226</itextId>
+            <name>babile_health_centre_upper_west</name>
+            <district>lawra</district>
+          </item>
+          <item>
+            <itextId>facilities-227</itextId>
+            <name>domwine_health_centre_upper_west</name>
+            <district>lawra</district>
+          </item>
+          <item>
+            <itextId>facilities-228</itextId>
+            <name>eremon_health_centre_upper_west</name>
+            <district>lawra</district>
+          </item>
+          <item>
+            <itextId>facilities-229</itextId>
+            <name>zambo_health_centre_upper_west</name>
+            <district>lawra</district>
+          </item>
+          <item>
+            <itextId>facilities-230</itextId>
+            <name>lawra_methodist_clinic_upper_west</name>
+            <district>lawra</district>
+          </item>
+          <item>
+            <itextId>facilities-231</itextId>
+            <name>ahmadiya_mission_hospital_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-232</itextId>
+            <name>nadowli_district_hospital_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-233</itextId>
+            <name>charikpong_health_centre_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-234</itextId>
+            <name>jang_health_centre_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-235</itextId>
+            <name>kaleo_health_centre_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-236</itextId>
+            <name>nanvilli_health_centre_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-237</itextId>
+            <name>sombo_health_centre_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-238</itextId>
+            <name>takpo_health_centre_upper_west</name>
+            <district>nadowli_kaleo</district>
+          </item>
+          <item>
+            <itextId>facilities-239</itextId>
+            <name>nandom_hospital_upper_west</name>
+            <district>nandom</district>
+          </item>
+          <item>
+            <itextId>facilities-240</itextId>
+            <name>baseble_health_centre_upper_west</name>
+            <district>nandom</district>
+          </item>
+          <item>
+            <itextId>facilities-241</itextId>
+            <name>gengenkpe_health_centre_upper_west</name>
+            <district>nandom</district>
+          </item>
+          <item>
+            <itextId>facilities-242</itextId>
+            <name>ketuo_health_centre_upper_west</name>
+            <district>nandom</district>
+          </item>
+          <item>
+            <itextId>facilities-243</itextId>
+            <name>ko_health_centre_upper_west</name>
+            <district>nandom</district>
+          </item>
+          <item>
+            <itextId>facilities-244</itextId>
+            <name>tumu_district_hospital_upper_west</name>
+            <district>sissala_east</district>
+          </item>
+          <item>
+            <itextId>facilities-245</itextId>
+            <name>kulfuo_health_centre_upper_west</name>
+            <district>sissala_east</district>
+          </item>
+          <item>
+            <itextId>facilities-246</itextId>
+            <name>kunchogu_health_centre_upper_west</name>
+            <district>sissala_east</district>
+          </item>
+          <item>
+            <itextId>facilities-247</itextId>
+            <name>nabugubelle_health_centre_upper_west</name>
+            <district>sissala_east</district>
+          </item>
+          <item>
+            <itextId>facilities-248</itextId>
+            <name>nabulo_health_centre_upper_west</name>
+            <district>sissala_east</district>
+          </item>
+          <item>
+            <itextId>facilities-249</itextId>
+            <name>wellembelle_health_centre_upper_west</name>
+            <district>sissala_east</district>
+          </item>
+          <item>
+            <itextId>facilities-250</itextId>
+            <name>gwollu_health_centre_upper_west</name>
+            <district>sissala_west</district>
+          </item>
+          <item>
+            <itextId>facilities-251</itextId>
+            <name>jeffisi_health_centre_upper_west</name>
+            <district>sissala_west</district>
+          </item>
+          <item>
+            <itextId>facilities-252</itextId>
+            <name>st_gerhard_health_centre_upper_west</name>
+            <district>sissala_west</district>
+          </item>
+          <item>
+            <itextId>facilities-253</itextId>
+            <name>zini_health_centre_upper_west</name>
+            <district>sissala_west</district>
+          </item>
+          <item>
+            <itextId>facilities-254</itextId>
+            <name>baayiri_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-255</itextId>
+            <name>bulenga_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-256</itextId>
+            <name>charia_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-257</itextId>
+            <name>charingu_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-258</itextId>
+            <name>holomuni_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-259</itextId>
+            <name>kambali_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-260</itextId>
+            <name>kundugu_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-261</itextId>
+            <name>loggu_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-262</itextId>
+            <name>st_john_s_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-263</itextId>
+            <name>yaala_health_centre_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-264</itextId>
+            <name>samuel_saidu_memorial_clinic_upper_west</name>
+            <district>wa_east</district>
+          </item>
+          <item>
+            <itextId>facilities-265</itextId>
+            <name>upper_west_regional_hospital_upper_west</name>
+            <district>wa_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-266</itextId>
+            <name>busa_health_centre_upper_west</name>
+            <district>wa_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-267</itextId>
+            <name>wa_urban_health_centre_upper_west</name>
+            <district>wa_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-268</itextId>
+            <name>ahmadiya_muslim_clinic_upper_west</name>
+            <district>wa_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-269</itextId>
+            <name>konta_north_clinic_upper_west</name>
+            <district>wa_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-270</itextId>
+            <name>market_clinic_upper_west</name>
+            <district>wa_municipal</district>
+          </item>
+          <item>
+            <itextId>facilities-271</itextId>
+            <name>dorimon_health_centre_upper_west</name>
+            <district>wa_west</district>
+          </item>
+          <item>
+            <itextId>facilities-272</itextId>
+            <name>eggu_health_centre_upper_west</name>
+            <district>wa_west</district>
+          </item>
+          <item>
+            <itextId>facilities-273</itextId>
+            <name>gurungu_health_centre_upper_west</name>
+            <district>wa_west</district>
+          </item>
+          <item>
+            <itextId>facilities-274</itextId>
+            <name>lassia_tuolu_health_centre_upper_west</name>
+            <district>wa_west</district>
+          </item>
+          <item>
+            <itextId>facilities-275</itextId>
+            <name>poyentanga_health_centre_upper_west</name>
+            <district>wa_west</district>
+          </item>
+          <item>
+            <itextId>facilities-276</itextId>
+            <name>wechau_health_centre_upper_west</name>
+            <district>wa_west</district>
+          </item>
+          <item>
+            <itextId>facilities-277</itextId>
+            <name>other</name>
+            <district>any</district>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/source_reasons" type="string"/>
+      <bind nodeset="/data/inputs/source_severity" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/why/severity" type="string" required="true()"/>
+      <bind nodeset="/data/why/reasons_from_assessment" readonly="true()" type="string" relevant=" /data/inputs/source_reasons  != ''"/>
+      <bind nodeset="/data/why/reasons" type="string" required="true()" relevant=" /data/inputs/source_reasons  = ''"/>
+      <bind nodeset="/data/why/other_reason" type="string" required="true()" relevant="selected( /data/why/reasons , 'other')"/>
+      <bind nodeset="/data/destination/dest_region" type="string" required="true()"/>
+      <bind nodeset="/data/destination/dest_district" type="string" required="true()"/>
+      <bind nodeset="/data/destination/dest_facility" type="string" required="true()"/>
+      <bind nodeset="/data/destination/dest_other_name" type="string" required="true()" relevant=" /data/destination/dest_facility  = 'other'"/>
+      <bind nodeset="/data/people/present" type="string" required="true()" constraint="not(selected(., 'none') and count-selected(.) &gt; 1)" jr:constraintMsg="jr:itext('/data/people/present:jr:constraintMsg')"/>
+      <bind nodeset="/data/people/decider_present" type="string" required="true()"/>
+      <bind nodeset="/data/people/consent_call_decider" type="string" required="true()" relevant=" /data/people/decider_present  = 'no'"/>
+      <bind nodeset="/data/people/decider_phone" type="string" required="true()" relevant=" /data/people/consent_call_decider  = 'yes'" constraint="regex(., '^0[0-9]{9}$')" jr:constraintMsg="jr:itext('/data/people/decider_phone:jr:constraintMsg')"/>
+      <bind nodeset="/data/referral_code" type="string" calculate="once(concat('R', substr(uuid(), 0, 6)))"/>
+      <bind nodeset="/data/r_severity" type="string" calculate="if( /data/inputs/source_severity  = 'emergency' and  /data/why/severity  != 'emergency', 'emergency',  /data/why/severity )"/>
+      <bind nodeset="/data/r_reasons" type="string" calculate="if( /data/inputs/source_reasons  != '',  /data/inputs/source_reasons ,  /data/why/reasons )"/>
+      <bind nodeset="/data/r_deadline_days" type="string" calculate="if( /data/r_severity  = 'emergency', 1, if( /data/r_severity  = 'urgent', 2, 7))"/>
+      <bind nodeset="/data/r_destination_name" type="string" calculate="if( /data/destination/dest_facility  = 'other',  /data/destination/dest_other_name , jr:choice-name( /data/destination/dest_facility , ' /data/destination/dest_facility '))"/>
+      <bind nodeset="/data/t_referral_follow_up" type="string" calculate="'yes'"/>
+      <bind nodeset="/data/summary/code_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/summary/destination_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/summary/emergency_note" readonly="true()" type="string" relevant=" /data/r_severity  = 'emergency'"/>
+      <bind nodeset="/data/summary/deadline_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/summary/decider_note" readonly="true()" type="string" relevant=" /data/people/decider_present  = 'no' and  /data/people/consent_call_decider  = 'no'"/>
+      <bind nodeset="/data/data/__referral_code" type="string" calculate=" /data/referral_code "/>
+      <bind nodeset="/data/data/__severity" type="string" calculate=" /data/r_severity "/>
+      <bind nodeset="/data/data/__reasons" type="string" calculate=" /data/r_reasons "/>
+      <bind nodeset="/data/data/__destination_id" type="string" calculate=" /data/destination/dest_facility "/>
+      <bind nodeset="/data/data/__destination_name" type="string" calculate=" /data/r_destination_name "/>
+      <bind nodeset="/data/data/__deadline_days" type="string" calculate=" /data/r_deadline_days "/>
+      <bind nodeset="/data/data/__decider_present" type="string" calculate=" /data/people/decider_present "/>
+      <bind nodeset="/data/data/__consent_call_decider" type="string" calculate=" /data/people/consent_call_decider "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/why">
+      <label ref="jr:itext('/data/why:label')"/>
+      <select1 ref="/data/why/severity">
+        <label ref="jr:itext('/data/why/severity:label')"/>
+        <itemset nodeset="instance('severities')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/why/reasons_from_assessment">
+        <label ref="jr:itext('/data/why/reasons_from_assessment:label')"/>
+      </input>
+      <select ref="/data/why/reasons">
+        <label ref="jr:itext('/data/why/reasons:label')"/>
+        <itemset nodeset="instance('reasons')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+      <input ref="/data/why/other_reason">
+        <label ref="jr:itext('/data/why/other_reason:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/destination">
+      <label ref="jr:itext('/data/destination:label')"/>
+      <select1 ref="/data/destination/dest_region">
+        <label ref="jr:itext('/data/destination/dest_region:label')"/>
+        <itemset nodeset="instance('regions')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/destination/dest_district">
+        <label ref="jr:itext('/data/destination/dest_district:label')"/>
+        <itemset nodeset="instance('districts')/root/item[region= /data/destination/dest_region ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/destination/dest_facility">
+        <label ref="jr:itext('/data/destination/dest_facility:label')"/>
+        <itemset nodeset="instance('facilities')/root/item[district= /data/destination/dest_district  or district='any']">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/destination/dest_other_name">
+        <label ref="jr:itext('/data/destination/dest_other_name:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/people">
+      <label ref="jr:itext('/data/people:label')"/>
+      <select ref="/data/people/present">
+        <label ref="jr:itext('/data/people/present:label')"/>
+        <itemset nodeset="instance('present')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+      <select1 ref="/data/people/decider_present">
+        <label ref="jr:itext('/data/people/decider_present:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/people/consent_call_decider">
+        <label ref="jr:itext('/data/people/consent_call_decider:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/people/decider_phone">
+        <label ref="jr:itext('/data/people/decider_phone:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/summary">
+      <label ref="jr:itext('/data/summary:label')"/>
+      <input ref="/data/summary/code_note">
+        <label ref="jr:itext('/data/summary/code_note:label')"/>
+      </input>
+      <input ref="/data/summary/destination_note">
+        <label ref="jr:itext('/data/summary/destination_note:label')"/>
+      </input>
+      <input ref="/data/summary/emergency_note">
+        <label ref="jr:itext('/data/summary/emergency_note:label')"/>
+      </input>
+      <input ref="/data/summary/deadline_note">
+        <label ref="jr:itext('/data/summary/deadline_note:label')"/>
+      </input>
+      <input ref="/data/summary/decider_note">
+        <label ref="jr:itext('/data/summary/decider_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

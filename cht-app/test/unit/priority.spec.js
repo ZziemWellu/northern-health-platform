@@ -2,9 +2,17 @@ const { expect } = require('chai');
 const { LEVELS, REASONS, priorityFor, newbornVisitPriority, NEWBORN_EVENT_KINDS } = require('../../priority');
 
 describe('Module 1 priority scheme', () => {
-  it('ranks danger-sign follow-ups above every routine visit', () => {
-    const routine = Object.entries(LEVELS).filter(([kind]) => kind !== 'DANGER_SIGN_FOLLOW_UP');
-    routine.forEach(([kind, level]) => expect(LEVELS.DANGER_SIGN_FOLLOW_UP, kind).to.be.greaterThan(level));
+  it('puts a flagged woman with no referral yet at the very top', () => {
+    Object.entries(LEVELS).filter(([kind]) => kind !== 'RAISE_REFERRAL')
+      .forEach(([kind, level]) => expect(LEVELS.RAISE_REFERRAL, kind).to.be.greaterThan(level));
+  });
+
+  it('ranks danger-sign follow-ups and unconfirmed referrals above every routine visit', () => {
+    const urgent = ['RAISE_REFERRAL', 'DANGER_SIGN_FOLLOW_UP', 'REFERRAL_UNCONFIRMED'];
+    Object.entries(LEVELS).filter(([kind]) => !urgent.includes(kind)).forEach(([kind, level]) => {
+      expect(LEVELS.DANGER_SIGN_FOLLOW_UP, kind).to.be.greaterThan(level);
+      expect(LEVELS.REFERRAL_UNCONFIRMED, kind).to.be.greaterThan(level);
+    });
   });
 
   it('ranks the newborn first week above pregnancy and delivery tasks, day 1 highest', () => {

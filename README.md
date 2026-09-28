@@ -8,7 +8,7 @@ Each module can ship on its own or together with the others. The design is in th
 | Module | Status |
 | --- | --- |
 | 1 Risk before crisis | In progress: urgency ranking, newborn home visits (day 1, 3, 7), maternal danger assessment with explained rules |
-| 2 Last-mile follow-up | Not started (MAMA-AI's referral code will move here) |
+| 2 Last-mile follow-up | In progress: tracked referrals with code, destination and deadline; arrival follow-up; supervisor targets. SMS confirmation by facilities needs a live server (not built yet) |
 | 3 Local-food nutrition | Not started |
 | 4 Voice support | Not started (MAMA-AI's Twi audio pipeline will move here) |
 | 5 CHPS workflows | Not started |
@@ -24,14 +24,34 @@ Each module can ship on its own or together with the others. The design is in th
 ```
 cht-app/                  CHT app configuration (forms, tasks, targets, translations, tests)
   priority.js             Module 1: one urgency ranking for the whole task list
-  tasks.js                Task rules (reference tasks + Module 1 newborn visits)
+  tasks.js                Task rules (reference tasks + Modules 1 and 2)
+  targets.js              Dashboard targets (reference + Module 2 referral completion)
   forms/app/              App forms (.xlsx source -> .xml compiled)
+  data/                   Northern facility list (referral destinations) and hand-verified fixes
   tools/                  Form generators (forms written as code)
   test/unit/              Fast unit tests (no browser)
   test/tasks|forms|...    Behaviour tests in the CHT test harness (headless browser)
 ```
 
 `cht-app/` started as a copy of `config/default` from cht-core **5.3.1** (AGPL-3.0).
+
+### Referral destinations (`data/northern_facilities.csv`)
+
+277 referral-level facilities (hospitals, polyclinics, health centres, clinics) in the five
+northern regions, built by `tools/build_facilities.py` from:
+
+- "Health Facilities in Sub-Saharan Africa" (Maina et al., WHO / KEMRI-Wellcome) on HDX: public
+  (MoH) and faith-based facilities, geocoded, pre-2019 region names.
+- geoBoundaries Ghana regions (2021, OSM, CC BY-SA 2.0) and districts (2019, Ghana Statistical
+  Service via USAID, CC BY 4.0), to assign each facility its current region and district.
+
+MAMA-AI's OpenStreetMap-derived list was not used: it had only 51 northern entries, including
+non-clinical ones, and missed the main referral hospitals.
+
+**Limits:** the list predates 2019, has no private facilities, and does not say which facilities
+offer caesarean section or blood transfusion. Source coordinates can be wrong (Tamale Teaching
+Hospital was placed in Savannah); fixes go in `data/facility_corrections.csv` with a reason.
+The list needs checking by each Regional Health Directorate before emergency routing relies on it.
 
 ## Setting up a machine
 

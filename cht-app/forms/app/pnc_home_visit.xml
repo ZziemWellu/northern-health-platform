@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Newborn home visit</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/delivery_uuid:label">
+            <value>Delivery Report ID</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which mother is this visit for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/newborn:label">
+            <value>Newborn check</value>
+          </text>
+          <text id="/data/newborn/baby_seen:label">
+            <value>Did you see and examine the baby today?</value>
+          </text>
+          <text id="/data/newborn/baby_signs_note:label">
+            <value>Check the baby for each of these danger signs.</value>
+          </text>
+          <text id="/data/newborn/convulsion:label">
+            <value>Convulsions</value>
+          </text>
+          <text id="/data/newborn/difficulty_feeding:label">
+            <value>Not feeding well or unable to feed</value>
+          </text>
+          <text id="/data/newborn/fever:label">
+            <value>Fever (feels hot)</value>
+          </text>
+          <text id="/data/newborn/blue_skin:label">
+            <value>Feels cold or blue skin</value>
+          </text>
+          <text id="/data/newborn/drowsy:label">
+            <value>Drowsy, unconscious, or moves only when stimulated</value>
+          </text>
+          <text id="/data/newborn/stiff:label">
+            <value>Body stiffness</value>
+          </text>
+          <text id="/data/newborn/vomit:label">
+            <value>Vomits everything</value>
+          </text>
+          <text id="/data/newborn/yellow_skin:label">
+            <value>Yellow skin, especially palms or soles</value>
+          </text>
+          <text id="/data/newborn/infected_umbilical_cord:label">
+            <value>Umbilical cord red, swollen or with pus</value>
+          </text>
+          <text id="/data/newborn/breastfeeding_only:label">
+            <value>Is the baby fed only breast milk?</value>
+          </text>
+          <text id="/data/mother:label">
+            <value>Mother check</value>
+          </text>
+          <text id="/data/mother/vaginal_bleeding:label">
+            <value>Heavy vaginal bleeding</value>
+          </text>
+          <text id="/data/mother/fever:label">
+            <value>Fever</value>
+          </text>
+          <text id="/data/mother/severe_headache:label">
+            <value>Severe headache or blurred vision</value>
+          </text>
+          <text id="/data/mother/convulsion:label">
+            <value>Convulsions</value>
+          </text>
+          <text id="/data/mother/vaginal_discharge:label">
+            <value>Foul-smelling vaginal discharge</value>
+          </text>
+          <text id="/data/summary:label">
+            <value>Summary</value>
+          </text>
+          <text id="/data/summary/refer_baby:label">
+            <value>REFER THE BABY NOW. A newborn danger sign is present. Help the family go to the nearest facility today.</value>
+          </text>
+          <text id="/data/summary/refer_mother:label">
+            <value>REFER THE MOTHER NOW. A postnatal danger sign is present.</value>
+          </text>
+          <text id="/data/summary/not_seen:label">
+            <value>The baby was not seen. A follow-up visit is scheduled for tomorrow.</value>
+          </text>
+          <text id="/data/summary/all_well:label">
+            <value>No danger signs found. Remind the family of the danger signs and when to come back.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="pnc_home_visit" version="2026092801" prefix="J1!pnc_home_visit!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <delivery_uuid/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_id/>
+          <patient_name/>
+          <newborn>
+            <baby_seen/>
+            <baby_signs_note/>
+            <convulsion/>
+            <difficulty_feeding/>
+            <fever/>
+            <blue_skin/>
+            <drowsy/>
+            <stiff/>
+            <vomit/>
+            <yellow_skin/>
+            <infected_umbilical_cord/>
+            <breastfeeding_only/>
+            <r_baby_danger/>
+          </newborn>
+          <mother>
+            <vaginal_bleeding/>
+            <fever/>
+            <severe_headache/>
+            <convulsion/>
+            <vaginal_discharge/>
+            <r_mother_danger/>
+          </mother>
+          <summary>
+            <refer_baby/>
+            <refer_mother/>
+            <not_seen/>
+            <all_well/>
+          </summary>
+          <t_newborn_danger_follow_up/>
+          <data>
+            <__baby_seen/>
+            <__baby_danger_sign/>
+            <__mother_danger_sign/>
+            <__breastfeeding_only/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__delivery_uuid/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/delivery_uuid" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/newborn/baby_seen" type="string" required="true()"/>
+      <bind nodeset="/data/newborn/baby_signs_note" readonly="true()" type="string" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/convulsion" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/difficulty_feeding" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/fever" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/blue_skin" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/drowsy" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/stiff" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/vomit" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/yellow_skin" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/infected_umbilical_cord" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/breastfeeding_only" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
+      <bind nodeset="/data/newborn/r_baby_danger" type="string" calculate="if(selected(../convulsion, 'yes') or selected(../difficulty_feeding, 'yes') or selected(../fever, 'yes') or selected(../blue_skin, 'yes') or selected(../drowsy, 'yes') or selected(../stiff, 'yes') or selected(../vomit, 'yes') or selected(../yellow_skin, 'yes') or selected(../infected_umbilical_cord, 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/data/mother/vaginal_bleeding" type="string" required="true()"/>
+      <bind nodeset="/data/mother/fever" type="string" required="true()"/>
+      <bind nodeset="/data/mother/severe_headache" type="string" required="true()"/>
+      <bind nodeset="/data/mother/convulsion" type="string" required="true()"/>
+      <bind nodeset="/data/mother/vaginal_discharge" type="string" required="true()"/>
+      <bind nodeset="/data/mother/r_mother_danger" type="string" calculate="if(selected(../vaginal_bleeding, 'yes') or selected(../fever, 'yes') or selected(../severe_headache, 'yes') or selected(../convulsion, 'yes') or selected(../vaginal_discharge, 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/data/summary/refer_baby" readonly="true()" type="string" relevant=" /data/newborn/r_baby_danger  = 'yes'"/>
+      <bind nodeset="/data/summary/refer_mother" readonly="true()" type="string" relevant=" /data/mother/r_mother_danger  = 'yes'"/>
+      <bind nodeset="/data/summary/not_seen" readonly="true()" type="string" relevant=" /data/newborn/baby_seen  = 'no'"/>
+      <bind nodeset="/data/summary/all_well" readonly="true()" type="string" relevant=" /data/newborn/baby_seen  = 'yes' and  /data/newborn/r_baby_danger  = 'no' and  /data/mother/r_mother_danger  = 'no'"/>
+      <bind nodeset="/data/t_newborn_danger_follow_up" type="string" calculate="if( /data/newborn/r_baby_danger  = 'yes' or  /data/mother/r_mother_danger  = 'yes' or  /data/newborn/baby_seen  = 'no', 'yes', 'no')"/>
+      <bind nodeset="/data/data/__baby_seen" type="string" calculate=" /data/newborn/baby_seen "/>
+      <bind nodeset="/data/data/__baby_danger_sign" type="string" calculate=" /data/newborn/r_baby_danger "/>
+      <bind nodeset="/data/data/__mother_danger_sign" type="string" calculate=" /data/mother/r_mother_danger "/>
+      <bind nodeset="/data/data/__breastfeeding_only" type="string" calculate=" /data/newborn/breastfeeding_only "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__delivery_uuid" type="string" calculate="../../../inputs/delivery_uuid"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/newborn">
+      <label ref="jr:itext('/data/newborn:label')"/>
+      <select1 ref="/data/newborn/baby_seen">
+        <label ref="jr:itext('/data/newborn/baby_seen:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/newborn/baby_signs_note">
+        <label ref="jr:itext('/data/newborn/baby_signs_note:label')"/>
+      </input>
+      <select1 ref="/data/newborn/convulsion">
+        <label ref="jr:itext('/data/newborn/convulsion:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/difficulty_feeding">
+        <label ref="jr:itext('/data/newborn/difficulty_feeding:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/fever">
+        <label ref="jr:itext('/data/newborn/fever:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/blue_skin">
+        <label ref="jr:itext('/data/newborn/blue_skin:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/drowsy">
+        <label ref="jr:itext('/data/newborn/drowsy:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/stiff">
+        <label ref="jr:itext('/data/newborn/stiff:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/vomit">
+        <label ref="jr:itext('/data/newborn/vomit:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/yellow_skin">
+        <label ref="jr:itext('/data/newborn/yellow_skin:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/infected_umbilical_cord">
+        <label ref="jr:itext('/data/newborn/infected_umbilical_cord:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/newborn/breastfeeding_only">
+        <label ref="jr:itext('/data/newborn/breastfeeding_only:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/mother">
+      <label ref="jr:itext('/data/mother:label')"/>
+      <select1 ref="/data/mother/vaginal_bleeding">
+        <label ref="jr:itext('/data/mother/vaginal_bleeding:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/mother/fever">
+        <label ref="jr:itext('/data/mother/fever:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/mother/severe_headache">
+        <label ref="jr:itext('/data/mother/severe_headache:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/mother/convulsion">
+        <label ref="jr:itext('/data/mother/convulsion:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/mother/vaginal_discharge">
+        <label ref="jr:itext('/data/mother/vaginal_discharge:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/summary">
+      <label ref="jr:itext('/data/summary:label')"/>
+      <input ref="/data/summary/refer_baby">
+        <label ref="jr:itext('/data/summary/refer_baby:label')"/>
+      </input>
+      <input ref="/data/summary/refer_mother">
+        <label ref="jr:itext('/data/summary/refer_mother:label')"/>
+      </input>
+      <input ref="/data/summary/not_seen">
+        <label ref="jr:itext('/data/summary/not_seen:label')"/>
+      </input>
+      <input ref="/data/summary/all_well">
+        <label ref="jr:itext('/data/summary/all_well:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

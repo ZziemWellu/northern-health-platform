@@ -1,0 +1,4 @@
+node_modules/
+*.swp
+.DS_Store
+# forms are generated from tools/*.py into xlsx and compiled into xml; both are committed

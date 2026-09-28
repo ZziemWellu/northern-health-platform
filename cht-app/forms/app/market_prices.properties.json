@@ -1,0 +1,8 @@
+{
+    "icon": "icon-healthcare",
+    "title": "Market prices",
+    "context": {
+        "person": false,
+        "place": true
+    }
+}

@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Feeding counselling</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="price_regions-0">
+            <value>Northern, Savannah or North East</value>
+          </text>
+          <text id="price_regions-1">
+            <value>Upper East</value>
+          </text>
+          <text id="price_regions-2">
+            <value>Upper West</value>
+          </text>
+          <text id="mdd_groups-0">
+            <value>Breast milk</value>
+          </text>
+          <text id="mdd_groups-1">
+            <value>Porridge, tuo zaafi, rice, yam, gari or other grains, roots and tubers</value>
+          </text>
+          <text id="mdd_groups-2">
+            <value>Beans, cowpea, soybean, groundnut or dawadawa</value>
+          </text>
+          <text id="mdd_groups-3">
+            <value>Milk, yoghurt or cheese</value>
+          </text>
+          <text id="mdd_groups-4">
+            <value>Meat, fish (including dried fish) or liver</value>
+          </text>
+          <text id="mdd_groups-5">
+            <value>Eggs</value>
+          </text>
+          <text id="mdd_groups-6">
+            <value>Dark green leaves (baobab, moringa, cowpea leaves), orange sweet potato, pawpaw or mango</value>
+          </text>
+          <text id="mdd_groups-7">
+            <value>Other fruits or vegetables (tomato, garden egg, onion, okra)</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which child is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/date_of_birth:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/who:label">
+            <value>Child and place</value>
+          </text>
+          <text id="/data/who/age_months_entered:jr:constraintMsg">
+            <value>Feeding plans are for children 6 to 23 months.</value>
+          </text>
+          <text id="/data/who/age_months_entered:label">
+            <value>Child's age in months</value>
+          </text>
+          <text id="/data/who/price_region:label">
+            <value>Region where the family buys food</value>
+          </text>
+          <text id="/data/diet:label">
+            <value>Yesterday's food</value>
+          </text>
+          <text id="/data/diet/mdd:label">
+            <value>Yesterday, from morning to night, which did the child eat or drink?</value>
+          </text>
+          <text id="/data/advice:label">
+            <value>Feeding advice</value>
+          </text>
+          <text id="/data/advice/out_of_range:label">
+            <value>Feeding plans are for children 6 to 23 months.</value>
+          </text>
+          <text id="/data/advice/mdd_note:label">
+            <value> Food groups yesterday: <output value=" /data/r_mdd_score "/> of 8 (5 or more is the minimum).</value>
+          </text>
+          <text id="/data/advice/no_approved_plan:label">
+            <value>No nutritionist-approved local-food plan for this region, season and age yet. Give the standard GHS feeding counselling.</value>
+          </text>
+          <text id="/data/advice/refer_note:label">
+            <value>If the child's MUAC is yellow or red, or the child is sick, use the sick child assessment.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="feeding_counselling" version="2026092801" prefix="J1!feeding_counselling!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <dob/>
+          <age_months/>
+          <who>
+            <age_months_entered/>
+            <price_region/>
+          </who>
+          <r_age/>
+          <r_age_group/>
+          <r_month/>
+          <r_season/>
+          <r_plan_id/>
+          <diet>
+            <mdd/>
+          </diet>
+          <r_mdd_score/>
+          <r_mdd_met/>
+          <advice>
+            <out_of_range/>
+            <mdd_note/>
+            <no_approved_plan/>
+            <refer_note/>
+          </advice>
+          <r_plan_shown/>
+          <data>
+            <__age_group/>
+            <__plan_shown/>
+            <__mdd_score/>
+            <__mdd_met/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="price_regions">
+        <root>
+          <item>
+            <itextId>price_regions-0</itextId>
+            <name>northern</name>
+          </item>
+          <item>
+            <itextId>price_regions-1</itextId>
+            <name>upper_east</name>
+          </item>
+          <item>
+            <itextId>price_regions-2</itextId>
+            <name>upper_west</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="mdd_groups">
+        <root>
+          <item>
+            <itextId>mdd_groups-0</itextId>
+            <name>breast_milk</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-1</itextId>
+            <name>grains_roots</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-2</itextId>
+            <name>pulses_nuts</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-3</itextId>
+            <name>dairy</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-4</itextId>
+            <name>flesh</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-5</itextId>
+            <name>eggs</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-6</itextId>
+            <name>vita_fruit_veg</name>
+          </item>
+          <item>
+            <itextId>mdd_groups-7</itextId>
+            <name>other_fruit_veg</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/age_months" type="string" calculate="if( /data/dob  != '', floor(difference-in-months( /data/dob , today())), '')"/>
+      <bind nodeset="/data/who/age_months_entered" type="int" required="true()" relevant=" /data/dob  = ''" constraint=". &gt;= 6 and . &lt;= 23" jr:constraintMsg="jr:itext('/data/who/age_months_entered:jr:constraintMsg')"/>
+      <bind nodeset="/data/who/price_region" type="string" required="true()"/>
+      <bind nodeset="/data/r_age" type="string" calculate="if( /data/age_months  != '',  /data/age_months ,  /data/who/age_months_entered )"/>
+      <bind nodeset="/data/r_age_group" type="string" calculate="if( /data/r_age  &gt;= 6 and  /data/r_age  &lt;= 8, '6_8m', if( /data/r_age  &gt;= 9 and  /data/r_age  &lt;= 11, '9_11m', if( /data/r_age  &gt;= 12 and  /data/r_age  &lt;= 23, '12_23m', 'out_of_range')))"/>
+      <bind nodeset="/data/r_month" type="string" calculate="number(format-date(today(), '%n'))"/>
+      <bind nodeset="/data/r_season" type="string" calculate="if( /data/r_month  = 6 or  /data/r_month  = 7 or  /data/r_month  = 8 or  /data/r_month  = 9, 'lean', 'post_harvest')"/>
+      <bind nodeset="/data/r_plan_id" type="string" calculate="concat( /data/who/price_region , '-',  /data/r_season , '-',  /data/r_age_group )"/>
+      <bind nodeset="/data/diet/mdd" type="string" required="true()"/>
+      <bind nodeset="/data/r_mdd_score" type="string" calculate="count-selected( /data/diet/mdd )"/>
+      <bind nodeset="/data/r_mdd_met" type="string" calculate="if( /data/r_mdd_score  &gt;= 5, 'yes', 'no')"/>
+      <bind nodeset="/data/advice/out_of_range" readonly="true()" type="string" relevant=" /data/r_age_group  = 'out_of_range'"/>
+      <bind nodeset="/data/advice/mdd_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/advice/no_approved_plan" readonly="true()" type="string" relevant=" /data/r_age_group  != 'out_of_range' and true()"/>
+      <bind nodeset="/data/advice/refer_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/r_plan_shown" type="string" calculate="if(false(),  /data/r_plan_id , '')"/>
+      <bind nodeset="/data/data/__age_group" type="string" calculate=" /data/r_age_group "/>
+      <bind nodeset="/data/data/__plan_shown" type="string" calculate=" /data/r_plan_shown "/>
+      <bind nodeset="/data/data/__mdd_score" type="string" calculate=" /data/r_mdd_score "/>
+      <bind nodeset="/data/data/__mdd_met" type="string" calculate=" /data/r_mdd_met "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/who">
+      <label ref="jr:itext('/data/who:label')"/>
+      <input ref="/data/who/age_months_entered">
+        <label ref="jr:itext('/data/who/age_months_entered:label')"/>
+      </input>
+      <select1 ref="/data/who/price_region">
+        <label ref="jr:itext('/data/who/price_region:label')"/>
+        <itemset nodeset="instance('price_regions')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/diet">
+      <label ref="jr:itext('/data/diet:label')"/>
+      <select ref="/data/diet/mdd">
+        <label ref="jr:itext('/data/diet/mdd:label')"/>
+        <itemset nodeset="instance('mdd_groups')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+    </group>
+    <group appearance="field-list" ref="/data/advice">
+      <label ref="jr:itext('/data/advice:label')"/>
+      <input ref="/data/advice/out_of_range">
+        <label ref="jr:itext('/data/advice/out_of_range:label')"/>
+      </input>
+      <input ref="/data/advice/mdd_note">
+        <label ref="jr:itext('/data/advice/mdd_note:label')"/>
+      </input>
+      <input ref="/data/advice/no_approved_plan">
+        <label ref="jr:itext('/data/advice/no_approved_plan:label')"/>
+      </input>
+      <input ref="/data/advice/refer_note">
+        <label ref="jr:itext('/data/advice/refer_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

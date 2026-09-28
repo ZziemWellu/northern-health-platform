@@ -1,0 +1,52 @@
+{
+  "_about": "Daily nutrient targets for complementary foods of breastfed children, used by the Module 3 optimiser. NEEDS NUTRITIONIST SIGN-OFF before any plan reaches caregivers.",
+  "method": "Follows de Jager et al. 2018 (northern Ghana, Optifood): FAO/WHO 2004 RNIs, iron at 5% bioavailability, adequacy = at least 70% of RNI. Unlike Optifood, breast milk's contribution is NOT subtracted: percentages report what these foods alone supply against the full daily RNI, so they understate the child's true total intake (breast milk adds vitamin A, calcium and vitamin C; it adds little iron and zinc).",
+  "adequacy_threshold": 0.7,
+  "sources": {
+    "fao_who_2004": {
+      "title": "FAO/WHO Vitamin and mineral requirements in human nutrition, 2nd edition (2004)",
+      "url": "https://www.fao.org/3/y2809e/y2809e.pdf",
+      "verified": true,
+      "note": "Values read from Table 15 (vitamin C), Table 18 (vitamin A safe intake), Table 40 (iron, 5% bioavailability), Table 56 (zinc, low bioavailability) and Appendix 1 (calcium)."
+    },
+    "energy_from_complementary_foods": {
+      "title": "WHO/PAHO Guiding principles for complementary feeding of the breastfed child (2003), based on Dewey & Brown 2003",
+      "verified": false,
+      "note": "200 / 300 / 550 kcal a day at 6-8 / 9-11 / 12-23 months for average breast-milk intake in developing countries. Quoted consistently in secondary sources (including de Jager et al. 2018's references); the primary document could not be opened during this build. Confirm before use."
+    },
+    "de_jager_2018": {
+      "title": "de Jager, Giller & Brouwer 2018, Food and nutrient gaps in rural Northern Ghana, PLOS ONE (PMC6136797)",
+      "verified": true
+    }
+  },
+  "nutrients": {
+    "iron_mg": {"label": "Iron", "wafct_column": "FE"},
+    "zinc_mg": {"label": "Zinc", "wafct_column": "ZN"},
+    "calcium_mg": {"label": "Calcium", "wafct_column": "CA"},
+    "vitamin_a_mcg_rae": {"label": "Vitamin A", "wafct_column": "VITA_RAE"},
+    "vitamin_c_mg": {"label": "Vitamin C", "wafct_column": "VITC"}
+  },
+  "age_groups": {
+    "6_8m": {
+      "label": "6 to 8 months",
+      "energy_kcal": 200,
+      "rni": {"iron_mg": 18.6, "zinc_mg": 8.4, "calcium_mg": 400, "vitamin_a_mcg_rae": 400, "vitamin_c_mg": 30}
+    },
+    "9_11m": {
+      "label": "9 to 11 months",
+      "energy_kcal": 300,
+      "rni": {"iron_mg": 18.6, "zinc_mg": 8.4, "calcium_mg": 400, "vitamin_a_mcg_rae": 400, "vitamin_c_mg": 30}
+    },
+    "12_23m": {
+      "label": "12 to 23 months",
+      "energy_kcal": 550,
+      "rni": {"iron_mg": 11.6, "zinc_mg": 8.3, "calcium_mg": 500, "vitamin_a_mcg_rae": 400, "vitamin_c_mg": 30}
+    }
+  },
+  "energy_tolerance": 0.1,
+  "_notes": [
+    "Zinc: FAO/WHO low-bioavailability values (unrefined cereal diets). Table 56 gives 8.4 mg at 7-12 months and 8.3 mg at 1-3 years; Appendix 1 swaps the two. Table 56 is used. de Jager et al. used IZiNCG values instead.",
+    "Vitamin A: FAO/WHO 'recommended safe intake' in ug RE; WAFCT's RAE column is used as the closest match (RAE counts carotenoids at half the value of RE, so plant-source vitamin A is under- rather than over-credited).",
+    "The same RNIs apply to 6-8 and 9-11 months (FAO/WHO 7-12 month band); only the energy budget differs."
+  ]
+}

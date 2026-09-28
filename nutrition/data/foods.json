@@ -1,0 +1,287 @@
+{
+  "_about": "Foods the Module 3 optimiser may use: each maps to a WAFCT 2019 composition entry and a WFP retail price series for northern markets. Portion limits are PLANNING ASSUMPTIONS (grams of the food as bought, per day, for the whole day's complementary food) until replaced with local intake data such as de Jager et al.'s northern Ghana dietary survey. NEEDS NUTRITIONIST SIGN-OFF.",
+  "foods": [
+    {
+      "id": "maize_white",
+      "label": "White maize (whole grain flour)",
+      "group": "grain",
+      "wafct": "01_004",
+      "wfp_commodity": "Maize",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "maize_yellow",
+      "label": "Yellow maize (whole grain flour)",
+      "group": "grain",
+      "wafct": "01_006",
+      "wfp_commodity": "Maize (yellow)",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "millet",
+      "label": "Pearl millet (whole grain flour)",
+      "group": "grain",
+      "wafct": "01_017",
+      "wfp_commodity": "Millet",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "sorghum",
+      "label": "Sorghum (whole grain flour)",
+      "group": "grain",
+      "wafct": "01_039",
+      "wfp_commodity": "Sorghum",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "rice_local",
+      "label": "Local rice",
+      "group": "grain",
+      "wafct": "01_037",
+      "wfp_commodity": "Rice (local)",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "gari",
+      "label": "Gari",
+      "group": "tuber",
+      "wafct": "02_039",
+      "wfp_commodity": "Gari",
+      "max_g": {
+        "6_8m": 20,
+        "9_11m": 30,
+        "12_23m": 60
+      }
+    },
+    {
+      "id": "yam",
+      "label": "Yam",
+      "group": "tuber",
+      "wafct": "02_019",
+      "wfp_commodity": "Yam",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "plantain",
+      "label": "Plantain (unripe)",
+      "group": "tuber",
+      "wafct": "02_046",
+      "wfp_commodity": "Plantains (apentu)",
+      "max_g": {
+        "6_8m": 60,
+        "9_11m": 90,
+        "12_23m": 150
+      }
+    },
+    {
+      "id": "cowpea",
+      "label": "Cowpea (beans)",
+      "group": "legume",
+      "wafct": "03_004",
+      "wfp_commodity": "Cowpeas",
+      "max_g": {
+        "6_8m": 20,
+        "9_11m": 30,
+        "12_23m": 50
+      }
+    },
+    {
+      "id": "soybean",
+      "label": "Soybean (roasted flour)",
+      "group": "legume",
+      "wafct": "03_039",
+      "wfp_commodity": "Soybeans",
+      "max_g": {
+        "6_8m": 20,
+        "9_11m": 30,
+        "12_23m": 50
+      }
+    },
+    {
+      "id": "egg",
+      "label": "Egg",
+      "group": "animal",
+      "wafct": "08_001",
+      "wfp_commodity": "Eggs",
+      "price_unit_note": "WFP prices eggs per 30 (wholesale); converted assuming 55 g per egg as bought (assumption).",
+      "grams_per_unit": 55,
+      "max_g": {
+        "6_8m": 55,
+        "9_11m": 55,
+        "12_23m": 55
+      },
+      "known_price_issue": "WFP northern egg prices (about GHS 864 per 30 in Tamale, July 2023) imply nearly GHS 29 per egg, which is implausible. Excluded until volunteers collect real prices."
+    },
+    {
+      "id": "fish_mackerel",
+      "label": "Fish (mackerel, fresh)",
+      "group": "animal",
+      "wafct": "09_003",
+      "wfp_commodity": "Fish (mackerel, fresh)",
+      "max_g": {
+        "6_8m": 30,
+        "9_11m": 40,
+        "12_23m": 60
+      }
+    },
+    {
+      "id": "chicken",
+      "label": "Chicken",
+      "group": "animal",
+      "wafct": "07_003",
+      "wfp_commodity": "Meat (chicken)",
+      "max_g": {
+        "6_8m": 30,
+        "9_11m": 40,
+        "12_23m": 60
+      }
+    },
+    {
+      "id": "tomato",
+      "label": "Tomato",
+      "group": "vegetable",
+      "wafct": "04_021",
+      "wfp_commodity": "Tomatoes (local)",
+      "max_g": {
+        "6_8m": 30,
+        "9_11m": 40,
+        "12_23m": 60
+      }
+    },
+    {
+      "id": "garden_egg",
+      "label": "Garden egg (local eggplant)",
+      "group": "vegetable",
+      "wafct": "04_074",
+      "wfp_commodity": "Eggplants",
+      "max_g": {
+        "6_8m": 30,
+        "9_11m": 40,
+        "12_23m": 60
+      }
+    },
+    {
+      "id": "onion",
+      "label": "Onion",
+      "group": "vegetable",
+      "wafct": "04_018",
+      "wfp_commodity": "Onions",
+      "max_g": {
+        "6_8m": 10,
+        "9_11m": 15,
+        "12_23m": 20
+      }
+    }
+  ],
+  "unpriced_foods": [
+    {
+      "label": "Groundnut / groundnut paste",
+      "wafct": "06_025",
+      "why_it_matters": "Energy, protein and fat for small stomachs",
+      "max_g": {
+        "6_8m": 15,
+        "9_11m": 20,
+        "12_23m": 30
+      }
+    },
+    {
+      "label": "Dawadawa (fermented African locust bean)",
+      "wafct": "03_042",
+      "why_it_matters": "Iron, zinc and calcium",
+      "max_g": {
+        "6_8m": 5,
+        "9_11m": 8,
+        "12_23m": 10
+      }
+    },
+    {
+      "label": "Baobab leaves (dried)",
+      "wafct": "04_002",
+      "why_it_matters": "Calcium, iron, vitamin A",
+      "max_g": {
+        "6_8m": 5,
+        "9_11m": 8,
+        "12_23m": 10
+      }
+    },
+    {
+      "label": "Moringa leaves",
+      "wafct": "04_011",
+      "why_it_matters": "Vitamin A, vitamin C, calcium, iron",
+      "max_g": {
+        "6_8m": 10,
+        "9_11m": 15,
+        "12_23m": 20
+      }
+    },
+    {
+      "label": "Cowpea leaves",
+      "wafct": "04_010",
+      "why_it_matters": "Calcium, vitamin A, vitamin C",
+      "max_g": {
+        "6_8m": 20,
+        "9_11m": 30,
+        "12_23m": 40
+      }
+    },
+    {
+      "label": "Orange-fleshed sweet potato",
+      "wafct": "02_049",
+      "why_it_matters": "Vitamin A",
+      "max_g": {
+        "6_8m": 40,
+        "9_11m": 60,
+        "12_23m": 90
+      }
+    },
+    {
+      "label": "Small dried fish (anchovy, 'one man thousand')",
+      "wafct": "09_001",
+      "why_it_matters": "Calcium, zinc, protein; eaten with bones",
+      "max_g": {
+        "6_8m": 5,
+        "9_11m": 8,
+        "12_23m": 10
+      }
+    },
+    {
+      "label": "Chicken liver",
+      "wafct": "07_041",
+      "why_it_matters": "Iron and vitamin A",
+      "max_g": {
+        "6_8m": 10,
+        "9_11m": 15,
+        "12_23m": 20
+      }
+    },
+    {
+      "label": "Shea butter or vegetable oil",
+      "wafct": null,
+      "why_it_matters": "Energy density"
+    }
+  ]
+}

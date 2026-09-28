@@ -9,7 +9,7 @@ Each module can ship on its own or together with the others. The design is in th
 | --- | --- |
 | 1 Risk before crisis | In progress: urgency ranking, newborn home visits (day 1, 3, 7), maternal danger assessment with explained rules |
 | 2 Last-mile follow-up | In progress: tracked referrals with code, destination and deadline; arrival follow-up; supervisor targets. SMS confirmation by facilities needs a live server (not built yet) |
-| 3 Local-food nutrition | Not started |
+| 3 Local-food nutrition | In progress: nutrition engine (`nutrition/`) with checked prices, balanced least-cost plans and a nutritionist approval gate; CHT feeding counselling (approved plans only, dietary diversity) and market price forms. No plan approved yet |
 | 4 Voice support | Not started (MAMA-AI's Twi audio pipeline will move here) |
 | 5 CHPS workflows | Not started |
 | 6 Hidden barriers | In progress: barrier screen with an action per barrier, birth plan with the decider (by 32 weeks), same-day barrier check after a missed referral, supervisor target |
@@ -22,6 +22,7 @@ Each module can ship on its own or together with the others. The design is in th
 ## Layout
 
 ```
+nutrition/                Module 3 feeding-plan engine (Python): data, optimiser, plans, approval
 cht-app/                  CHT app configuration (forms, tasks, targets, translations, tests)
   priority.js             Module 1: one urgency ranking for the whole task list
   tasks.js                Task rules (reference tasks + Modules 1, 2, 6 and 7)

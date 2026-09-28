@@ -1,0 +1,1600 @@
+{
+ "built_on": "2026-09-28",
+ "unpriced_foods": [
+  {
+   "label": "Groundnut / groundnut paste",
+   "wafct": "06_025",
+   "why_it_matters": "Energy, protein and fat for small stomachs",
+   "max_g": {
+    "6_8m": 15,
+    "9_11m": 20,
+    "12_23m": 30
+   }
+  },
+  {
+   "label": "Dawadawa (fermented African locust bean)",
+   "wafct": "03_042",
+   "why_it_matters": "Iron, zinc and calcium",
+   "max_g": {
+    "6_8m": 5,
+    "9_11m": 8,
+    "12_23m": 10
+   }
+  },
+  {
+   "label": "Baobab leaves (dried)",
+   "wafct": "04_002",
+   "why_it_matters": "Calcium, iron, vitamin A",
+   "max_g": {
+    "6_8m": 5,
+    "9_11m": 8,
+    "12_23m": 10
+   }
+  },
+  {
+   "label": "Moringa leaves",
+   "wafct": "04_011",
+   "why_it_matters": "Vitamin A, vitamin C, calcium, iron",
+   "max_g": {
+    "6_8m": 10,
+    "9_11m": 15,
+    "12_23m": 20
+   }
+  },
+  {
+   "label": "Cowpea leaves",
+   "wafct": "04_010",
+   "why_it_matters": "Calcium, vitamin A, vitamin C",
+   "max_g": {
+    "6_8m": 20,
+    "9_11m": 30,
+    "12_23m": 40
+   }
+  },
+  {
+   "label": "Orange-fleshed sweet potato",
+   "wafct": "02_049",
+   "why_it_matters": "Vitamin A",
+   "max_g": {
+    "6_8m": 40,
+    "9_11m": 60,
+    "12_23m": 90
+   }
+  },
+  {
+   "label": "Small dried fish (anchovy, 'one man thousand')",
+   "wafct": "09_001",
+   "why_it_matters": "Calcium, zinc, protein; eaten with bones",
+   "max_g": {
+    "6_8m": 5,
+    "9_11m": 8,
+    "12_23m": 10
+   }
+  },
+  {
+   "label": "Chicken liver",
+   "wafct": "07_041",
+   "why_it_matters": "Iron and vitamin A",
+   "max_g": {
+    "6_8m": 10,
+    "9_11m": 15,
+    "12_23m": 20
+   }
+  },
+  {
+   "label": "Shea butter or vegetable oil",
+   "wafct": null,
+   "why_it_matters": "Energy density"
+  }
+ ],
+ "plans": [
+  {
+   "id": "northern-lean-6_8m",
+   "price_region": "NORTHERN",
+   "regions": [
+    "Northern",
+    "Savannah",
+    "North East"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "6_8m",
+   "age_label": "6 to 8 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "millet": 13,
+    "yam": 59,
+    "plantain": 60,
+    "cowpea": 18
+   },
+   "foods": {
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.52,
+   "energy_kcal": 217,
+   "energy_target_kcal": 200,
+   "adequacy": {
+    "iron_mg": 0.217,
+    "zinc_mg": 0.169,
+    "calcium_mg": 0.082,
+    "vitamin_a_mcg_rae": 0.06,
+    "vitamin_c_mg": 0.426
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "northern-lean-9_11m",
+   "price_region": "NORTHERN",
+   "regions": [
+    "Northern",
+    "Savannah",
+    "North East"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "9_11m",
+   "age_label": "9 to 11 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 9,
+    "millet": 12,
+    "yam": 90,
+    "plantain": 90,
+    "cowpea": 26
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 2.3,
+   "energy_kcal": 328,
+   "energy_target_kcal": 300,
+   "adequacy": {
+    "iron_mg": 0.278,
+    "zinc_mg": 0.248,
+    "calcium_mg": 0.123,
+    "vitamin_a_mcg_rae": 0.092,
+    "vitamin_c_mg": 0.653
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "northern-lean-12_23m",
+   "price_region": "NORTHERN",
+   "regions": [
+    "Northern",
+    "Savannah",
+    "North East"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "12_23m",
+   "age_label": "12 to 23 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 40,
+    "millet": 15,
+    "yam": 116,
+    "plantain": 150,
+    "cowpea": 50
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 3.36,
+   "energy_kcal": 602,
+   "energy_target_kcal": 550,
+   "adequacy": {
+    "iron_mg": 0.747,
+    "zinc_mg": 0.47,
+    "calcium_mg": 0.168,
+    "vitamin_a_mcg_rae": 0.16,
+    "vitamin_c_mg": 0.994
+   },
+   "problem_nutrients": [
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "northern-post_harvest-6_8m",
+   "price_region": "NORTHERN",
+   "regions": [
+    "Northern",
+    "Savannah",
+    "North East"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "6_8m",
+   "age_label": "6 to 8 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 11,
+    "millet": 17,
+    "yam": 60,
+    "plantain": 57,
+    "cowpea": 1
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 0.66,
+   "energy_kcal": 213,
+   "energy_target_kcal": 200,
+   "adequacy": {
+    "iron_mg": 0.213,
+    "zinc_mg": 0.135,
+    "calcium_mg": 0.056,
+    "vitamin_a_mcg_rae": 0.06,
+    "vitamin_c_mg": 0.425
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "northern-post_harvest-9_11m",
+   "price_region": "NORTHERN",
+   "regions": [
+    "Northern",
+    "Savannah",
+    "North East"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "9_11m",
+   "age_label": "9 to 11 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 23,
+    "millet": 17,
+    "yam": 90,
+    "plantain": 87,
+    "cowpea": 5
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 0.98,
+   "energy_kcal": 324,
+   "energy_target_kcal": 300,
+   "adequacy": {
+    "iron_mg": 0.274,
+    "zinc_mg": 0.207,
+    "calcium_mg": 0.09,
+    "vitamin_a_mcg_rae": 0.094,
+    "vitamin_c_mg": 0.65
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "northern-post_harvest-12_23m",
+   "price_region": "NORTHERN",
+   "regions": [
+    "Northern",
+    "Savannah",
+    "North East"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "12_23m",
+   "age_label": "12 to 23 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 48,
+    "millet": 17,
+    "yam": 121,
+    "plantain": 143,
+    "cowpea": 39
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.72,
+   "energy_kcal": 601,
+   "energy_target_kcal": 550,
+   "adequacy": {
+    "iron_mg": 0.742,
+    "zinc_mg": 0.45,
+    "calcium_mg": 0.156,
+    "vitamin_a_mcg_rae": 0.156,
+    "vitamin_c_mg": 0.992
+   },
+   "problem_nutrients": [
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_east-lean-6_8m",
+   "price_region": "UPPER EAST",
+   "regions": [
+    "Upper East"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "6_8m",
+   "age_label": "6 to 8 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 11,
+    "millet": 17,
+    "yam": 58,
+    "plantain": 60,
+    "cowpea": 1
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.38,
+   "energy_kcal": 214,
+   "energy_target_kcal": 200,
+   "adequacy": {
+    "iron_mg": 0.212,
+    "zinc_mg": 0.135,
+    "calcium_mg": 0.055,
+    "vitamin_a_mcg_rae": 0.063,
+    "vitamin_c_mg": 0.428
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_east-lean-9_11m",
+   "price_region": "UPPER EAST",
+   "regions": [
+    "Upper East"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "9_11m",
+   "age_label": "9 to 11 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 23,
+    "millet": 17,
+    "yam": 88,
+    "plantain": 90,
+    "cowpea": 5
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 2.09,
+   "energy_kcal": 325,
+   "energy_target_kcal": 300,
+   "adequacy": {
+    "iron_mg": 0.273,
+    "zinc_mg": 0.207,
+    "calcium_mg": 0.089,
+    "vitamin_a_mcg_rae": 0.096,
+    "vitamin_c_mg": 0.653
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_east-lean-12_23m",
+   "price_region": "UPPER EAST",
+   "regions": [
+    "Upper East"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "12_23m",
+   "age_label": "12 to 23 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 40,
+    "millet": 19,
+    "gari": 7,
+    "yam": 116,
+    "plantain": 150,
+    "cowpea": 37
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "gari": "Gari",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 3.39,
+   "energy_kcal": 599,
+   "energy_target_kcal": 550,
+   "adequacy": {
+    "iron_mg": 0.74,
+    "zinc_mg": 0.433,
+    "calcium_mg": 0.155,
+    "vitamin_a_mcg_rae": 0.16,
+    "vitamin_c_mg": 0.994
+   },
+   "problem_nutrients": [
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_east-post_harvest-6_8m",
+   "price_region": "UPPER EAST",
+   "regions": [
+    "Upper East"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "6_8m",
+   "age_label": "6 to 8 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_white": 4,
+    "maize_yellow": 7,
+    "millet": 17,
+    "yam": 60,
+    "plantain": 58
+   },
+   "foods": {
+    "maize_white": "White maize (whole grain flour)",
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)"
+   },
+   "cost_ghs_per_day": 0.7,
+   "energy_kcal": 211,
+   "energy_target_kcal": 200,
+   "adequacy": {
+    "iron_mg": 0.21,
+    "zinc_mg": 0.132,
+    "calcium_mg": 0.054,
+    "vitamin_a_mcg_rae": 0.06,
+    "vitamin_c_mg": 0.427
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_east-post_harvest-9_11m",
+   "price_region": "UPPER EAST",
+   "regions": [
+    "Upper East"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "9_11m",
+   "age_label": "9 to 11 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_white": 4,
+    "maize_yellow": 18,
+    "millet": 17,
+    "yam": 90,
+    "plantain": 88,
+    "cowpea": 4
+   },
+   "foods": {
+    "maize_white": "White maize (whole grain flour)",
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.04,
+   "energy_kcal": 318,
+   "energy_target_kcal": 300,
+   "adequacy": {
+    "iron_mg": 0.269,
+    "zinc_mg": 0.202,
+    "calcium_mg": 0.087,
+    "vitamin_a_mcg_rae": 0.093,
+    "vitamin_c_mg": 0.651
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_east-post_harvest-12_23m",
+   "price_region": "UPPER EAST",
+   "regions": [
+    "Upper East"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "12_23m",
+   "age_label": "12 to 23 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 45,
+    "millet": 18,
+    "yam": 147,
+    "plantain": 142,
+    "cowpea": 32
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.92,
+   "energy_kcal": 598,
+   "energy_target_kcal": 550,
+   "adequacy": {
+    "iron_mg": 0.739,
+    "zinc_mg": 0.432,
+    "calcium_mg": 0.155,
+    "vitamin_a_mcg_rae": 0.156,
+    "vitamin_c_mg": 1.077
+   },
+   "problem_nutrients": [
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_west-lean-6_8m",
+   "price_region": "UPPER WEST",
+   "regions": [
+    "Upper West"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "6_8m",
+   "age_label": "6 to 8 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 11,
+    "millet": 17,
+    "yam": 58,
+    "plantain": 60,
+    "cowpea": 1
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.84,
+   "energy_kcal": 214,
+   "energy_target_kcal": 200,
+   "adequacy": {
+    "iron_mg": 0.212,
+    "zinc_mg": 0.135,
+    "calcium_mg": 0.055,
+    "vitamin_a_mcg_rae": 0.063,
+    "vitamin_c_mg": 0.428
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_west-lean-9_11m",
+   "price_region": "UPPER WEST",
+   "regions": [
+    "Upper West"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "9_11m",
+   "age_label": "9 to 11 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 23,
+    "millet": 17,
+    "yam": 88,
+    "plantain": 90,
+    "cowpea": 5
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 2.76,
+   "energy_kcal": 325,
+   "energy_target_kcal": 300,
+   "adequacy": {
+    "iron_mg": 0.273,
+    "zinc_mg": 0.207,
+    "calcium_mg": 0.089,
+    "vitamin_a_mcg_rae": 0.096,
+    "vitamin_c_mg": 0.653
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_west-lean-12_23m",
+   "price_region": "UPPER WEST",
+   "regions": [
+    "Upper West"
+   ],
+   "season": "lean",
+   "season_label": "Lean season (June to August)",
+   "age_group": "12_23m",
+   "age_label": "12 to 23 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 47,
+    "millet": 17,
+    "yam": 115,
+    "plantain": 150,
+    "cowpea": 40
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 4.01,
+   "energy_kcal": 600,
+   "energy_target_kcal": 550,
+   "adequacy": {
+    "iron_mg": 0.74,
+    "zinc_mg": 0.45,
+    "calcium_mg": 0.155,
+    "vitamin_a_mcg_rae": 0.162,
+    "vitamin_c_mg": 0.994
+   },
+   "problem_nutrients": [
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_west-post_harvest-6_8m",
+   "price_region": "UPPER WEST",
+   "regions": [
+    "Upper West"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "6_8m",
+   "age_label": "6 to 8 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "millet": 13,
+    "yam": 60,
+    "plantain": 59,
+    "cowpea": 18
+   },
+   "foods": {
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 0.78,
+   "energy_kcal": 217,
+   "energy_target_kcal": 200,
+   "adequacy": {
+    "iron_mg": 0.217,
+    "zinc_mg": 0.169,
+    "calcium_mg": 0.083,
+    "vitamin_a_mcg_rae": 0.059,
+    "vitamin_c_mg": 0.426
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_west-post_harvest-9_11m",
+   "price_region": "UPPER WEST",
+   "regions": [
+    "Upper West"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "9_11m",
+   "age_label": "9 to 11 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 9,
+    "millet": 12,
+    "yam": 90,
+    "plantain": 90,
+    "cowpea": 26
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.16,
+   "energy_kcal": 328,
+   "energy_target_kcal": 300,
+   "adequacy": {
+    "iron_mg": 0.278,
+    "zinc_mg": 0.248,
+    "calcium_mg": 0.123,
+    "vitamin_a_mcg_rae": 0.092,
+    "vitamin_c_mg": 0.653
+   },
+   "problem_nutrients": [
+    "iron_mg",
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae",
+    "vitamin_c_mg"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  },
+  {
+   "id": "upper_west-post_harvest-12_23m",
+   "price_region": "UPPER WEST",
+   "regions": [
+    "Upper West"
+   ],
+   "season": "post_harvest",
+   "season_label": "After harvest (October to December)",
+   "age_group": "12_23m",
+   "age_label": "12 to 23 months",
+   "feasible": true,
+   "reason": "",
+   "grams_per_day": {
+    "maize_yellow": 29,
+    "millet": 17,
+    "yam": 119,
+    "plantain": 150,
+    "cowpea": 50
+   },
+   "foods": {
+    "maize_yellow": "Yellow maize (whole grain flour)",
+    "millet": "Pearl millet (whole grain flour)",
+    "yam": "Yam",
+    "plantain": "Plantain (unripe)",
+    "cowpea": "Cowpea (beans)"
+   },
+   "cost_ghs_per_day": 1.84,
+   "energy_kcal": 574,
+   "energy_target_kcal": 550,
+   "adequacy": {
+    "iron_mg": 0.745,
+    "zinc_mg": 0.452,
+    "calcium_mg": 0.166,
+    "vitamin_a_mcg_rae": 0.157,
+    "vitamin_c_mg": 0.994
+   },
+   "problem_nutrients": [
+    "zinc_mg",
+    "calcium_mg",
+    "vitamin_a_mcg_rae"
+   ],
+   "unknown_values": {},
+   "price_sources": {
+    "maize_white": "wfp",
+    "maize_yellow": "wfp",
+    "millet": "wfp",
+    "sorghum": "wfp",
+    "rice_local": "wfp",
+    "gari": "wfp",
+    "yam": "wfp",
+    "plantain": "wfp",
+    "cowpea": "wfp"
+   },
+   "excluded_foods": {
+    "soybean": "inconsistent",
+    "egg": "known_issue",
+    "fish_mackerel": "inconsistent",
+    "chicken": "inconsistent",
+    "tomato": "inconsistent",
+    "garden_egg": "inconsistent",
+    "onion": "inconsistent"
+   },
+   "status": "draft"
+  }
+ ],
+ "what_if": {
+  "6_8m": {
+   "base": {
+    "iron_mg": 0.219,
+    "zinc_mg": 0.14,
+    "calcium_mg": 0.069,
+    "vitamin_a_mcg_rae": 0.058,
+    "vitamin_c_mg": 0.427
+   },
+   "each": [
+    {
+     "food": "Groundnut / groundnut paste",
+     "grams": 0,
+     "gain": {
+      "iron_mg": -0.007,
+      "zinc_mg": -0.003,
+      "calcium_mg": -0.003,
+      "vitamin_a_mcg_rae": 0.001,
+      "vitamin_c_mg": 0.001
+     }
+    },
+    {
+     "food": "Dawadawa (fermented African locust bean)",
+     "grams": 1,
+     "gain": {
+      "iron_mg": -0.056,
+      "zinc_mg": 0.022,
+      "calcium_mg": 0.023,
+      "vitamin_a_mcg_rae": 0.004,
+      "vitamin_c_mg": 0.009
+     }
+    },
+    {
+     "food": "Baobab leaves (dried)",
+     "grams": 4,
+     "gain": {
+      "iron_mg": -0.04,
+      "zinc_mg": 0.012,
+      "calcium_mg": 0.119,
+      "vitamin_a_mcg_rae": 0.02,
+      "vitamin_c_mg": 0.038
+     }
+    },
+    {
+     "food": "Moringa leaves",
+     "grams": 9,
+     "gain": {
+      "iron_mg": 0.004,
+      "zinc_mg": 0.027,
+      "calcium_mg": 0.095,
+      "vitamin_a_mcg_rae": 0.222,
+      "vitamin_c_mg": 0.383
+     }
+    },
+    {
+     "food": "Cowpea leaves",
+     "grams": 20,
+     "gain": {
+      "iron_mg": 0.002,
+      "zinc_mg": -0.003,
+      "calcium_mg": 0.097,
+      "vitamin_a_mcg_rae": 0.088,
+      "vitamin_c_mg": 0.32
+     }
+    },
+    {
+     "food": "Orange-fleshed sweet potato",
+     "grams": 39,
+     "gain": {
+      "iron_mg": -0.088,
+      "zinc_mg": 0.016,
+      "calcium_mg": 0.055,
+      "vitamin_a_mcg_rae": 0.626,
+      "vitamin_c_mg": 0.258
+     }
+    },
+    {
+     "food": "Small dried fish (anchovy, 'one man thousand')",
+     "grams": 0,
+     "gain": {
+      "iron_mg": -0.011,
+      "zinc_mg": -0.007,
+      "calcium_mg": -0.002,
+      "vitamin_a_mcg_rae": 0.0,
+      "vitamin_c_mg": 0.0
+     }
+    },
+    {
+     "food": "Chicken liver",
+     "grams": 5,
+     "gain": {
+      "iron_mg": -0.036,
+      "zinc_mg": 0.039,
+      "calcium_mg": 0.018,
+      "vitamin_a_mcg_rae": 0.869,
+      "vitamin_c_mg": 0.001
+     }
+    }
+   ],
+   "all_together": {
+    "iron_mg": 0.479,
+    "zinc_mg": 0.264,
+    "calcium_mg": 0.481,
+    "vitamin_a_mcg_rae": 1.995,
+    "vitamin_c_mg": 0.987
+   }
+  },
+  "9_11m": {
+   "base": {
+    "iron_mg": 0.267,
+    "zinc_mg": 0.203,
+    "calcium_mg": 0.104,
+    "vitamin_a_mcg_rae": 0.091,
+    "vitamin_c_mg": 0.652
+   },
+   "each": [
+    {
+     "food": "Groundnut / groundnut paste",
+     "grams": 0,
+     "gain": {
+      "iron_mg": 0.011,
+      "zinc_mg": 0.045,
+      "calcium_mg": 0.019,
+      "vitamin_a_mcg_rae": 0.001,
+      "vitamin_c_mg": 0.001
+     }
+    },
+    {
+     "food": "Dawadawa (fermented African locust bean)",
+     "grams": 4,
+     "gain": {
+      "iron_mg": -0.055,
+      "zinc_mg": 0.03,
+      "calcium_mg": 0.046,
+      "vitamin_a_mcg_rae": 0.006,
+      "vitamin_c_mg": 0.013
+     }
+    },
+    {
+     "food": "Baobab leaves (dried)",
+     "grams": 7,
+     "gain": {
+      "iron_mg": -0.044,
+      "zinc_mg": 0.0,
+      "calcium_mg": 0.193,
+      "vitamin_a_mcg_rae": 0.033,
+      "vitamin_c_mg": 0.059
+     }
+    },
+    {
+     "food": "Moringa leaves",
+     "grams": 14,
+     "gain": {
+      "iron_mg": 0.191,
+      "zinc_mg": 0.081,
+      "calcium_mg": 0.152,
+      "vitamin_a_mcg_rae": 0.271,
+      "vitamin_c_mg": 0.302
+     }
+    },
+    {
+     "food": "Cowpea leaves",
+     "grams": 30,
+     "gain": {
+      "iron_mg": 0.045,
+      "zinc_mg": 0.011,
+      "calcium_mg": 0.138,
+      "vitamin_a_mcg_rae": 0.128,
+      "vitamin_c_mg": 0.341
+     }
+    },
+    {
+     "food": "Orange-fleshed sweet potato",
+     "grams": 57,
+     "gain": {
+      "iron_mg": -0.048,
+      "zinc_mg": 0.046,
+      "calcium_mg": 0.091,
+      "vitamin_a_mcg_rae": 0.9,
+      "vitamin_c_mg": 0.327
+     }
+    },
+    {
+     "food": "Small dried fish (anchovy, 'one man thousand')",
+     "grams": 3,
+     "gain": {
+      "iron_mg": -0.002,
+      "zinc_mg": -0.001,
+      "calcium_mg": 0.0,
+      "vitamin_a_mcg_rae": 0.002,
+      "vitamin_c_mg": 0.003
+     }
+    },
+    {
+     "food": "Chicken liver",
+     "grams": 7,
+     "gain": {
+      "iron_mg": 0.019,
+      "zinc_mg": 0.058,
+      "calcium_mg": 0.033,
+      "vitamin_a_mcg_rae": 1.195,
+      "vitamin_c_mg": -0.069
+     }
+    }
+   ],
+   "all_together": {
+    "iron_mg": 0.747,
+    "zinc_mg": 0.408,
+    "calcium_mg": 0.717,
+    "vitamin_a_mcg_rae": 2.795,
+    "vitamin_c_mg": 1.263
+   }
+  },
+  "12_23m": {
+   "base": {
+    "iron_mg": 0.733,
+    "zinc_mg": 0.431,
+    "calcium_mg": 0.154,
+    "vitamin_a_mcg_rae": 0.157,
+    "vitamin_c_mg": 0.992
+   },
+   "each": [
+    {
+     "food": "Groundnut / groundnut paste",
+     "grams": 0,
+     "gain": {
+      "iron_mg": 0.0,
+      "zinc_mg": 0.0,
+      "calcium_mg": 0.0,
+      "vitamin_a_mcg_rae": 0.0,
+      "vitamin_c_mg": 0.0
+     }
+    },
+    {
+     "food": "Dawadawa (fermented African locust bean)",
+     "grams": 5,
+     "gain": {
+      "iron_mg": -0.07,
+      "zinc_mg": 0.002,
+      "calcium_mg": 0.025,
+      "vitamin_a_mcg_rae": 0.01,
+      "vitamin_c_mg": 0.0
+     }
+    },
+    {
+     "food": "Baobab leaves (dried)",
+     "grams": 9,
+     "gain": {
+      "iron_mg": -0.146,
+      "zinc_mg": -0.052,
+      "calcium_mg": 0.168,
+      "vitamin_a_mcg_rae": 0.047,
+      "vitamin_c_mg": -0.004
+     }
+    },
+    {
+     "food": "Moringa leaves",
+     "grams": 19,
+     "gain": {
+      "iron_mg": 0.212,
+      "zinc_mg": 0.011,
+      "calcium_mg": 0.184,
+      "vitamin_a_mcg_rae": 0.337,
+      "vitamin_c_mg": 0.464
+     }
+    },
+    {
+     "food": "Cowpea leaves",
+     "grams": 40,
+     "gain": {
+      "iron_mg": 0.132,
+      "zinc_mg": 0.014,
+      "calcium_mg": 0.17,
+      "vitamin_a_mcg_rae": 0.168,
+      "vitamin_c_mg": 0.611
+     }
+    },
+    {
+     "food": "Orange-fleshed sweet potato",
+     "grams": 83,
+     "gain": {
+      "iron_mg": -0.007,
+      "zinc_mg": 0.007,
+      "calcium_mg": 0.114,
+      "vitamin_a_mcg_rae": 1.232,
+      "vitamin_c_mg": 0.317
+     }
+    },
+    {
+     "food": "Small dried fish (anchovy, 'one man thousand')",
+     "grams": 10,
+     "gain": {
+      "iron_mg": -0.009,
+      "zinc_mg": -0.003,
+      "calcium_mg": 0.004,
+      "vitamin_a_mcg_rae": 0.003,
+      "vitamin_c_mg": 0.001
+     }
+    },
+    {
+     "food": "Chicken liver",
+     "grams": 11,
+     "gain": {
+      "iron_mg": 0.261,
+      "zinc_mg": 0.054,
+      "calcium_mg": 0.043,
+      "vitamin_a_mcg_rae": 1.8,
+      "vitamin_c_mg": -0.273
+     }
+    }
+   ],
+   "all_together": {
+    "iron_mg": 1.672,
+    "zinc_mg": 0.708,
+    "calcium_mg": 0.862,
+    "vitamin_a_mcg_rae": 5.672,
+    "vitamin_c_mg": 2.537
+   }
+  }
+ }
+}

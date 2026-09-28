@@ -1,0 +1,977 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Market prices</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="price_regions-0">
+            <value>Northern, Savannah or North East</value>
+          </text>
+          <text id="price_regions-1">
+            <value>Upper East</value>
+          </text>
+          <text id="price_regions-2">
+            <value>Upper West</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/market:label">
+            <value>Market</value>
+          </text>
+          <text id="/data/market/price_region:label">
+            <value>Region of the market</value>
+          </text>
+          <text id="/data/market/market_name:label">
+            <value>Market name (town)</value>
+          </text>
+          <text id="/data/market/how_note:label">
+            <value>For each food: buy or ask the price of an amount you can weigh, then enter the price and the weight. Leave both empty if the food is not sold today.</value>
+          </text>
+          <text id="/data/p_maize_white:label">
+            <value>White maize (whole grain flour)</value>
+          </text>
+          <text id="/data/p_maize_white/maize_white_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_maize_white/maize_white_ghs:label">
+            <value>White maize (whole grain flour): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_maize_white/maize_white_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_maize_white/maize_white_grams:label">
+            <value>White maize (whole grain flour): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_maize_yellow:label">
+            <value>Yellow maize (whole grain flour)</value>
+          </text>
+          <text id="/data/p_maize_yellow/maize_yellow_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_maize_yellow/maize_yellow_ghs:label">
+            <value>Yellow maize (whole grain flour): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_maize_yellow/maize_yellow_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_maize_yellow/maize_yellow_grams:label">
+            <value>Yellow maize (whole grain flour): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_millet:label">
+            <value>Pearl millet (whole grain flour)</value>
+          </text>
+          <text id="/data/p_millet/millet_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_millet/millet_ghs:label">
+            <value>Pearl millet (whole grain flour): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_millet/millet_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_millet/millet_grams:label">
+            <value>Pearl millet (whole grain flour): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_sorghum:label">
+            <value>Sorghum (whole grain flour)</value>
+          </text>
+          <text id="/data/p_sorghum/sorghum_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_sorghum/sorghum_ghs:label">
+            <value>Sorghum (whole grain flour): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_sorghum/sorghum_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_sorghum/sorghum_grams:label">
+            <value>Sorghum (whole grain flour): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_rice_local:label">
+            <value>Local rice</value>
+          </text>
+          <text id="/data/p_rice_local/rice_local_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_rice_local/rice_local_ghs:label">
+            <value>Local rice: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_rice_local/rice_local_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_rice_local/rice_local_grams:label">
+            <value>Local rice: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_gari:label">
+            <value>Gari</value>
+          </text>
+          <text id="/data/p_gari/gari_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_gari/gari_ghs:label">
+            <value>Gari: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_gari/gari_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_gari/gari_grams:label">
+            <value>Gari: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_yam:label">
+            <value>Yam</value>
+          </text>
+          <text id="/data/p_yam/yam_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_yam/yam_ghs:label">
+            <value>Yam: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_yam/yam_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_yam/yam_grams:label">
+            <value>Yam: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_plantain:label">
+            <value>Plantain (unripe)</value>
+          </text>
+          <text id="/data/p_plantain/plantain_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_plantain/plantain_ghs:label">
+            <value>Plantain (unripe): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_plantain/plantain_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_plantain/plantain_grams:label">
+            <value>Plantain (unripe): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_cowpea:label">
+            <value>Cowpea (beans)</value>
+          </text>
+          <text id="/data/p_cowpea/cowpea_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_cowpea/cowpea_ghs:label">
+            <value>Cowpea (beans): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_cowpea/cowpea_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_cowpea/cowpea_grams:label">
+            <value>Cowpea (beans): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_soybean:label">
+            <value>Soybean (roasted flour)</value>
+          </text>
+          <text id="/data/p_soybean/soybean_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_soybean/soybean_ghs:label">
+            <value>Soybean (roasted flour): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_soybean/soybean_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_soybean/soybean_grams:label">
+            <value>Soybean (roasted flour): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_egg:label">
+            <value>Egg</value>
+          </text>
+          <text id="/data/p_egg/egg_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_egg/egg_ghs:label">
+            <value>Egg: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_egg/egg_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_egg/egg_grams:label">
+            <value>Egg: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_fish_mackerel:label">
+            <value>Fish (mackerel, fresh)</value>
+          </text>
+          <text id="/data/p_fish_mackerel/fish_mackerel_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_fish_mackerel/fish_mackerel_ghs:label">
+            <value>Fish (mackerel, fresh): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_fish_mackerel/fish_mackerel_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_fish_mackerel/fish_mackerel_grams:label">
+            <value>Fish (mackerel, fresh): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_chicken:label">
+            <value>Chicken</value>
+          </text>
+          <text id="/data/p_chicken/chicken_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_chicken/chicken_ghs:label">
+            <value>Chicken: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_chicken/chicken_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_chicken/chicken_grams:label">
+            <value>Chicken: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_tomato:label">
+            <value>Tomato</value>
+          </text>
+          <text id="/data/p_tomato/tomato_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_tomato/tomato_ghs:label">
+            <value>Tomato: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_tomato/tomato_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_tomato/tomato_grams:label">
+            <value>Tomato: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_garden_egg:label">
+            <value>Garden egg (local eggplant)</value>
+          </text>
+          <text id="/data/p_garden_egg/garden_egg_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_garden_egg/garden_egg_ghs:label">
+            <value>Garden egg (local eggplant): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_garden_egg/garden_egg_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_garden_egg/garden_egg_grams:label">
+            <value>Garden egg (local eggplant): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_onion:label">
+            <value>Onion</value>
+          </text>
+          <text id="/data/p_onion/onion_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_onion/onion_ghs:label">
+            <value>Onion: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_onion/onion_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_onion/onion_grams:label">
+            <value>Onion: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_groundnut___groundnut_paste:label">
+            <value>Groundnut / groundnut paste</value>
+          </text>
+          <text id="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs:label">
+            <value>Groundnut / groundnut paste: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams:label">
+            <value>Groundnut / groundnut paste: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_dawadawa__fermented_african_loc:label">
+            <value>Dawadawa (fermented African locust bean)</value>
+          </text>
+          <text id="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs:label">
+            <value>Dawadawa (fermented African locust bean): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams:label">
+            <value>Dawadawa (fermented African locust bean): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_baobab_leaves__dried:label">
+            <value>Baobab leaves (dried)</value>
+          </text>
+          <text id="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs:label">
+            <value>Baobab leaves (dried): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams:label">
+            <value>Baobab leaves (dried): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_moringa_leaves:label">
+            <value>Moringa leaves</value>
+          </text>
+          <text id="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs:label">
+            <value>Moringa leaves: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams:label">
+            <value>Moringa leaves: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_cowpea_leaves:label">
+            <value>Cowpea leaves</value>
+          </text>
+          <text id="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs:label">
+            <value>Cowpea leaves: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams:label">
+            <value>Cowpea leaves: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_orange_fleshed_sweet_potato:label">
+            <value>Orange-fleshed sweet potato</value>
+          </text>
+          <text id="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs:label">
+            <value>Orange-fleshed sweet potato: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams:label">
+            <value>Orange-fleshed sweet potato: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_small_dried_fish__anchovy___one:label">
+            <value>Small dried fish (anchovy, 'one man thousand')</value>
+          </text>
+          <text id="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs:label">
+            <value>Small dried fish (anchovy, 'one man thousand'): price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams:label">
+            <value>Small dried fish (anchovy, 'one man thousand'): weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_chicken_liver:label">
+            <value>Chicken liver</value>
+          </text>
+          <text id="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs:label">
+            <value>Chicken liver: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams:label">
+            <value>Chicken liver: weight of that amount (grams)</value>
+          </text>
+          <text id="/data/p_unpriced_shea_butter_or_vegetable_oil:label">
+            <value>Shea butter or vegetable oil</value>
+          </text>
+          <text id="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs:jr:constraintMsg">
+            <value>Enter a price in cedis.</value>
+          </text>
+          <text id="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs:label">
+            <value>Shea butter or vegetable oil: price paid (GHS)</value>
+          </text>
+          <text id="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams:jr:constraintMsg">
+            <value>Enter the weight in grams (10 to 100,000).</value>
+          </text>
+          <text id="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams:label">
+            <value>Shea butter or vegetable oil: weight of that amount (grams)</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="market_prices" version="2026092801" prefix="J1!market_prices!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+          </inputs>
+          <market>
+            <price_region/>
+            <market_name/>
+            <how_note/>
+          </market>
+          <p_maize_white>
+            <maize_white_ghs/>
+            <maize_white_grams/>
+            <maize_white_ghs_per_kg/>
+          </p_maize_white>
+          <p_maize_yellow>
+            <maize_yellow_ghs/>
+            <maize_yellow_grams/>
+            <maize_yellow_ghs_per_kg/>
+          </p_maize_yellow>
+          <p_millet>
+            <millet_ghs/>
+            <millet_grams/>
+            <millet_ghs_per_kg/>
+          </p_millet>
+          <p_sorghum>
+            <sorghum_ghs/>
+            <sorghum_grams/>
+            <sorghum_ghs_per_kg/>
+          </p_sorghum>
+          <p_rice_local>
+            <rice_local_ghs/>
+            <rice_local_grams/>
+            <rice_local_ghs_per_kg/>
+          </p_rice_local>
+          <p_gari>
+            <gari_ghs/>
+            <gari_grams/>
+            <gari_ghs_per_kg/>
+          </p_gari>
+          <p_yam>
+            <yam_ghs/>
+            <yam_grams/>
+            <yam_ghs_per_kg/>
+          </p_yam>
+          <p_plantain>
+            <plantain_ghs/>
+            <plantain_grams/>
+            <plantain_ghs_per_kg/>
+          </p_plantain>
+          <p_cowpea>
+            <cowpea_ghs/>
+            <cowpea_grams/>
+            <cowpea_ghs_per_kg/>
+          </p_cowpea>
+          <p_soybean>
+            <soybean_ghs/>
+            <soybean_grams/>
+            <soybean_ghs_per_kg/>
+          </p_soybean>
+          <p_egg>
+            <egg_ghs/>
+            <egg_grams/>
+            <egg_ghs_per_kg/>
+          </p_egg>
+          <p_fish_mackerel>
+            <fish_mackerel_ghs/>
+            <fish_mackerel_grams/>
+            <fish_mackerel_ghs_per_kg/>
+          </p_fish_mackerel>
+          <p_chicken>
+            <chicken_ghs/>
+            <chicken_grams/>
+            <chicken_ghs_per_kg/>
+          </p_chicken>
+          <p_tomato>
+            <tomato_ghs/>
+            <tomato_grams/>
+            <tomato_ghs_per_kg/>
+          </p_tomato>
+          <p_garden_egg>
+            <garden_egg_ghs/>
+            <garden_egg_grams/>
+            <garden_egg_ghs_per_kg/>
+          </p_garden_egg>
+          <p_onion>
+            <onion_ghs/>
+            <onion_grams/>
+            <onion_ghs_per_kg/>
+          </p_onion>
+          <p_unpriced_groundnut___groundnut_paste>
+            <unpriced_groundnut___groundnut_paste_ghs/>
+            <unpriced_groundnut___groundnut_paste_grams/>
+            <unpriced_groundnut___groundnut_paste_ghs_per_kg/>
+          </p_unpriced_groundnut___groundnut_paste>
+          <p_unpriced_dawadawa__fermented_african_loc>
+            <unpriced_dawadawa__fermented_african_loc_ghs/>
+            <unpriced_dawadawa__fermented_african_loc_grams/>
+            <unpriced_dawadawa__fermented_african_loc_ghs_per_kg/>
+          </p_unpriced_dawadawa__fermented_african_loc>
+          <p_unpriced_baobab_leaves__dried>
+            <unpriced_baobab_leaves__dried_ghs/>
+            <unpriced_baobab_leaves__dried_grams/>
+            <unpriced_baobab_leaves__dried_ghs_per_kg/>
+          </p_unpriced_baobab_leaves__dried>
+          <p_unpriced_moringa_leaves>
+            <unpriced_moringa_leaves_ghs/>
+            <unpriced_moringa_leaves_grams/>
+            <unpriced_moringa_leaves_ghs_per_kg/>
+          </p_unpriced_moringa_leaves>
+          <p_unpriced_cowpea_leaves>
+            <unpriced_cowpea_leaves_ghs/>
+            <unpriced_cowpea_leaves_grams/>
+            <unpriced_cowpea_leaves_ghs_per_kg/>
+          </p_unpriced_cowpea_leaves>
+          <p_unpriced_orange_fleshed_sweet_potato>
+            <unpriced_orange_fleshed_sweet_potato_ghs/>
+            <unpriced_orange_fleshed_sweet_potato_grams/>
+            <unpriced_orange_fleshed_sweet_potato_ghs_per_kg/>
+          </p_unpriced_orange_fleshed_sweet_potato>
+          <p_unpriced_small_dried_fish__anchovy___one>
+            <unpriced_small_dried_fish__anchovy___one_ghs/>
+            <unpriced_small_dried_fish__anchovy___one_grams/>
+            <unpriced_small_dried_fish__anchovy___one_ghs_per_kg/>
+          </p_unpriced_small_dried_fish__anchovy___one>
+          <p_unpriced_chicken_liver>
+            <unpriced_chicken_liver_ghs/>
+            <unpriced_chicken_liver_grams/>
+            <unpriced_chicken_liver_ghs_per_kg/>
+          </p_unpriced_chicken_liver>
+          <p_unpriced_shea_butter_or_vegetable_oil>
+            <unpriced_shea_butter_or_vegetable_oil_ghs/>
+            <unpriced_shea_butter_or_vegetable_oil_grams/>
+            <unpriced_shea_butter_or_vegetable_oil_ghs_per_kg/>
+          </p_unpriced_shea_butter_or_vegetable_oil>
+          <data>
+            <__price_region/>
+            <__market/>
+            <__maize_white/>
+            <__maize_yellow/>
+            <__millet/>
+            <__sorghum/>
+            <__rice_local/>
+            <__gari/>
+            <__yam/>
+            <__plantain/>
+            <__cowpea/>
+            <__soybean/>
+            <__egg/>
+            <__fish_mackerel/>
+            <__chicken/>
+            <__tomato/>
+            <__garden_egg/>
+            <__onion/>
+            <__unpriced_groundnut___groundnut_paste/>
+            <__unpriced_dawadawa__fermented_african_loc/>
+            <__unpriced_baobab_leaves__dried/>
+            <__unpriced_moringa_leaves/>
+            <__unpriced_cowpea_leaves/>
+            <__unpriced_orange_fleshed_sweet_potato/>
+            <__unpriced_small_dried_fish__anchovy___one/>
+            <__unpriced_chicken_liver/>
+            <__unpriced_shea_butter_or_vegetable_oil/>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="price_regions">
+        <root>
+          <item>
+            <itextId>price_regions-0</itextId>
+            <name>northern</name>
+          </item>
+          <item>
+            <itextId>price_regions-1</itextId>
+            <name>upper_east</name>
+          </item>
+          <item>
+            <itextId>price_regions-2</itextId>
+            <name>upper_west</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/market/price_region" type="string" required="true()"/>
+      <bind nodeset="/data/market/market_name" type="string" required="true()"/>
+      <bind nodeset="/data/market/how_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/p_maize_white/maize_white_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_maize_white/maize_white_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_maize_white/maize_white_grams" type="int" required="true()" relevant=" /data/p_maize_white/maize_white_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_maize_white/maize_white_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_maize_white/maize_white_ghs_per_kg" type="string" calculate="if( /data/p_maize_white/maize_white_ghs  != '' and  /data/p_maize_white/maize_white_grams  &gt; 0, round( /data/p_maize_white/maize_white_ghs  div  /data/p_maize_white/maize_white_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_maize_yellow/maize_yellow_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_maize_yellow/maize_yellow_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_maize_yellow/maize_yellow_grams" type="int" required="true()" relevant=" /data/p_maize_yellow/maize_yellow_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_maize_yellow/maize_yellow_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_maize_yellow/maize_yellow_ghs_per_kg" type="string" calculate="if( /data/p_maize_yellow/maize_yellow_ghs  != '' and  /data/p_maize_yellow/maize_yellow_grams  &gt; 0, round( /data/p_maize_yellow/maize_yellow_ghs  div  /data/p_maize_yellow/maize_yellow_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_millet/millet_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_millet/millet_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_millet/millet_grams" type="int" required="true()" relevant=" /data/p_millet/millet_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_millet/millet_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_millet/millet_ghs_per_kg" type="string" calculate="if( /data/p_millet/millet_ghs  != '' and  /data/p_millet/millet_grams  &gt; 0, round( /data/p_millet/millet_ghs  div  /data/p_millet/millet_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_sorghum/sorghum_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_sorghum/sorghum_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_sorghum/sorghum_grams" type="int" required="true()" relevant=" /data/p_sorghum/sorghum_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_sorghum/sorghum_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_sorghum/sorghum_ghs_per_kg" type="string" calculate="if( /data/p_sorghum/sorghum_ghs  != '' and  /data/p_sorghum/sorghum_grams  &gt; 0, round( /data/p_sorghum/sorghum_ghs  div  /data/p_sorghum/sorghum_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_rice_local/rice_local_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_rice_local/rice_local_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_rice_local/rice_local_grams" type="int" required="true()" relevant=" /data/p_rice_local/rice_local_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_rice_local/rice_local_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_rice_local/rice_local_ghs_per_kg" type="string" calculate="if( /data/p_rice_local/rice_local_ghs  != '' and  /data/p_rice_local/rice_local_grams  &gt; 0, round( /data/p_rice_local/rice_local_ghs  div  /data/p_rice_local/rice_local_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_gari/gari_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_gari/gari_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_gari/gari_grams" type="int" required="true()" relevant=" /data/p_gari/gari_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_gari/gari_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_gari/gari_ghs_per_kg" type="string" calculate="if( /data/p_gari/gari_ghs  != '' and  /data/p_gari/gari_grams  &gt; 0, round( /data/p_gari/gari_ghs  div  /data/p_gari/gari_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_yam/yam_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_yam/yam_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_yam/yam_grams" type="int" required="true()" relevant=" /data/p_yam/yam_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_yam/yam_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_yam/yam_ghs_per_kg" type="string" calculate="if( /data/p_yam/yam_ghs  != '' and  /data/p_yam/yam_grams  &gt; 0, round( /data/p_yam/yam_ghs  div  /data/p_yam/yam_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_plantain/plantain_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_plantain/plantain_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_plantain/plantain_grams" type="int" required="true()" relevant=" /data/p_plantain/plantain_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_plantain/plantain_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_plantain/plantain_ghs_per_kg" type="string" calculate="if( /data/p_plantain/plantain_ghs  != '' and  /data/p_plantain/plantain_grams  &gt; 0, round( /data/p_plantain/plantain_ghs  div  /data/p_plantain/plantain_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_cowpea/cowpea_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_cowpea/cowpea_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_cowpea/cowpea_grams" type="int" required="true()" relevant=" /data/p_cowpea/cowpea_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_cowpea/cowpea_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_cowpea/cowpea_ghs_per_kg" type="string" calculate="if( /data/p_cowpea/cowpea_ghs  != '' and  /data/p_cowpea/cowpea_grams  &gt; 0, round( /data/p_cowpea/cowpea_ghs  div  /data/p_cowpea/cowpea_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_soybean/soybean_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_soybean/soybean_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_soybean/soybean_grams" type="int" required="true()" relevant=" /data/p_soybean/soybean_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_soybean/soybean_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_soybean/soybean_ghs_per_kg" type="string" calculate="if( /data/p_soybean/soybean_ghs  != '' and  /data/p_soybean/soybean_grams  &gt; 0, round( /data/p_soybean/soybean_ghs  div  /data/p_soybean/soybean_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_egg/egg_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_egg/egg_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_egg/egg_grams" type="int" required="true()" relevant=" /data/p_egg/egg_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_egg/egg_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_egg/egg_ghs_per_kg" type="string" calculate="if( /data/p_egg/egg_ghs  != '' and  /data/p_egg/egg_grams  &gt; 0, round( /data/p_egg/egg_ghs  div  /data/p_egg/egg_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_fish_mackerel/fish_mackerel_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_fish_mackerel/fish_mackerel_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_fish_mackerel/fish_mackerel_grams" type="int" required="true()" relevant=" /data/p_fish_mackerel/fish_mackerel_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_fish_mackerel/fish_mackerel_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_fish_mackerel/fish_mackerel_ghs_per_kg" type="string" calculate="if( /data/p_fish_mackerel/fish_mackerel_ghs  != '' and  /data/p_fish_mackerel/fish_mackerel_grams  &gt; 0, round( /data/p_fish_mackerel/fish_mackerel_ghs  div  /data/p_fish_mackerel/fish_mackerel_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_chicken/chicken_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_chicken/chicken_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_chicken/chicken_grams" type="int" required="true()" relevant=" /data/p_chicken/chicken_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_chicken/chicken_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_chicken/chicken_ghs_per_kg" type="string" calculate="if( /data/p_chicken/chicken_ghs  != '' and  /data/p_chicken/chicken_grams  &gt; 0, round( /data/p_chicken/chicken_ghs  div  /data/p_chicken/chicken_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_tomato/tomato_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_tomato/tomato_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_tomato/tomato_grams" type="int" required="true()" relevant=" /data/p_tomato/tomato_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_tomato/tomato_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_tomato/tomato_ghs_per_kg" type="string" calculate="if( /data/p_tomato/tomato_ghs  != '' and  /data/p_tomato/tomato_grams  &gt; 0, round( /data/p_tomato/tomato_ghs  div  /data/p_tomato/tomato_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_garden_egg/garden_egg_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_garden_egg/garden_egg_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_garden_egg/garden_egg_grams" type="int" required="true()" relevant=" /data/p_garden_egg/garden_egg_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_garden_egg/garden_egg_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_garden_egg/garden_egg_ghs_per_kg" type="string" calculate="if( /data/p_garden_egg/garden_egg_ghs  != '' and  /data/p_garden_egg/garden_egg_grams  &gt; 0, round( /data/p_garden_egg/garden_egg_ghs  div  /data/p_garden_egg/garden_egg_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_onion/onion_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_onion/onion_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_onion/onion_grams" type="int" required="true()" relevant=" /data/p_onion/onion_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_onion/onion_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_onion/onion_ghs_per_kg" type="string" calculate="if( /data/p_onion/onion_ghs  != '' and  /data/p_onion/onion_grams  &gt; 0, round( /data/p_onion/onion_ghs  div  /data/p_onion/onion_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams" type="int" required="true()" relevant=" /data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs  != '' and  /data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams  &gt; 0, round( /data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs  div  /data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams" type="int" required="true()" relevant=" /data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs  != '' and  /data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams  &gt; 0, round( /data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs  div  /data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams" type="int" required="true()" relevant=" /data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs  != '' and  /data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams  &gt; 0, round( /data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs  div  /data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams" type="int" required="true()" relevant=" /data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs  != '' and  /data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams  &gt; 0, round( /data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs  div  /data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams" type="int" required="true()" relevant=" /data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs  != '' and  /data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams  &gt; 0, round( /data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs  div  /data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams" type="int" required="true()" relevant=" /data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs  != '' and  /data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams  &gt; 0, round( /data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs  div  /data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams" type="int" required="true()" relevant=" /data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs  != '' and  /data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams  &gt; 0, round( /data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs  div  /data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams" type="int" required="true()" relevant=" /data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs  != '' and  /data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams  &gt; 0, round( /data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs  div  /data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs" type="decimal" constraint=". &gt; 0 and . &lt;= 10000" jr:constraintMsg="jr:itext('/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams" type="int" required="true()" relevant=" /data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs  != ''" constraint=". &gt;= 10 and . &lt;= 100000" jr:constraintMsg="jr:itext('/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams:jr:constraintMsg')"/>
+      <bind nodeset="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs_per_kg" type="string" calculate="if( /data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs  != '' and  /data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams  &gt; 0, round( /data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs  div  /data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams  * 1000, 2), '')"/>
+      <bind nodeset="/data/data/__price_region" type="string" calculate=" /data/market/price_region "/>
+      <bind nodeset="/data/data/__market" type="string" calculate=" /data/market/market_name "/>
+      <bind nodeset="/data/data/__maize_white" type="string" calculate=" /data/p_maize_white/maize_white_ghs_per_kg "/>
+      <bind nodeset="/data/data/__maize_yellow" type="string" calculate=" /data/p_maize_yellow/maize_yellow_ghs_per_kg "/>
+      <bind nodeset="/data/data/__millet" type="string" calculate=" /data/p_millet/millet_ghs_per_kg "/>
+      <bind nodeset="/data/data/__sorghum" type="string" calculate=" /data/p_sorghum/sorghum_ghs_per_kg "/>
+      <bind nodeset="/data/data/__rice_local" type="string" calculate=" /data/p_rice_local/rice_local_ghs_per_kg "/>
+      <bind nodeset="/data/data/__gari" type="string" calculate=" /data/p_gari/gari_ghs_per_kg "/>
+      <bind nodeset="/data/data/__yam" type="string" calculate=" /data/p_yam/yam_ghs_per_kg "/>
+      <bind nodeset="/data/data/__plantain" type="string" calculate=" /data/p_plantain/plantain_ghs_per_kg "/>
+      <bind nodeset="/data/data/__cowpea" type="string" calculate=" /data/p_cowpea/cowpea_ghs_per_kg "/>
+      <bind nodeset="/data/data/__soybean" type="string" calculate=" /data/p_soybean/soybean_ghs_per_kg "/>
+      <bind nodeset="/data/data/__egg" type="string" calculate=" /data/p_egg/egg_ghs_per_kg "/>
+      <bind nodeset="/data/data/__fish_mackerel" type="string" calculate=" /data/p_fish_mackerel/fish_mackerel_ghs_per_kg "/>
+      <bind nodeset="/data/data/__chicken" type="string" calculate=" /data/p_chicken/chicken_ghs_per_kg "/>
+      <bind nodeset="/data/data/__tomato" type="string" calculate=" /data/p_tomato/tomato_ghs_per_kg "/>
+      <bind nodeset="/data/data/__garden_egg" type="string" calculate=" /data/p_garden_egg/garden_egg_ghs_per_kg "/>
+      <bind nodeset="/data/data/__onion" type="string" calculate=" /data/p_onion/onion_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_groundnut___groundnut_paste" type="string" calculate=" /data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_dawadawa__fermented_african_loc" type="string" calculate=" /data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_baobab_leaves__dried" type="string" calculate=" /data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_moringa_leaves" type="string" calculate=" /data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_cowpea_leaves" type="string" calculate=" /data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_orange_fleshed_sweet_potato" type="string" calculate=" /data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_small_dried_fish__anchovy___one" type="string" calculate=" /data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_chicken_liver" type="string" calculate=" /data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs_per_kg "/>
+      <bind nodeset="/data/data/__unpriced_shea_butter_or_vegetable_oil" type="string" calculate=" /data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs_per_kg "/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs"/>
+    <group appearance="field-list" ref="/data/market">
+      <label ref="jr:itext('/data/market:label')"/>
+      <select1 ref="/data/market/price_region">
+        <label ref="jr:itext('/data/market/price_region:label')"/>
+        <itemset nodeset="instance('price_regions')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/market/market_name">
+        <label ref="jr:itext('/data/market/market_name:label')"/>
+      </input>
+      <input ref="/data/market/how_note">
+        <label ref="jr:itext('/data/market/how_note:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_maize_white">
+      <label ref="jr:itext('/data/p_maize_white:label')"/>
+      <input ref="/data/p_maize_white/maize_white_ghs">
+        <label ref="jr:itext('/data/p_maize_white/maize_white_ghs:label')"/>
+      </input>
+      <input ref="/data/p_maize_white/maize_white_grams">
+        <label ref="jr:itext('/data/p_maize_white/maize_white_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_maize_yellow">
+      <label ref="jr:itext('/data/p_maize_yellow:label')"/>
+      <input ref="/data/p_maize_yellow/maize_yellow_ghs">
+        <label ref="jr:itext('/data/p_maize_yellow/maize_yellow_ghs:label')"/>
+      </input>
+      <input ref="/data/p_maize_yellow/maize_yellow_grams">
+        <label ref="jr:itext('/data/p_maize_yellow/maize_yellow_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_millet">
+      <label ref="jr:itext('/data/p_millet:label')"/>
+      <input ref="/data/p_millet/millet_ghs">
+        <label ref="jr:itext('/data/p_millet/millet_ghs:label')"/>
+      </input>
+      <input ref="/data/p_millet/millet_grams">
+        <label ref="jr:itext('/data/p_millet/millet_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_sorghum">
+      <label ref="jr:itext('/data/p_sorghum:label')"/>
+      <input ref="/data/p_sorghum/sorghum_ghs">
+        <label ref="jr:itext('/data/p_sorghum/sorghum_ghs:label')"/>
+      </input>
+      <input ref="/data/p_sorghum/sorghum_grams">
+        <label ref="jr:itext('/data/p_sorghum/sorghum_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_rice_local">
+      <label ref="jr:itext('/data/p_rice_local:label')"/>
+      <input ref="/data/p_rice_local/rice_local_ghs">
+        <label ref="jr:itext('/data/p_rice_local/rice_local_ghs:label')"/>
+      </input>
+      <input ref="/data/p_rice_local/rice_local_grams">
+        <label ref="jr:itext('/data/p_rice_local/rice_local_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_gari">
+      <label ref="jr:itext('/data/p_gari:label')"/>
+      <input ref="/data/p_gari/gari_ghs">
+        <label ref="jr:itext('/data/p_gari/gari_ghs:label')"/>
+      </input>
+      <input ref="/data/p_gari/gari_grams">
+        <label ref="jr:itext('/data/p_gari/gari_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_yam">
+      <label ref="jr:itext('/data/p_yam:label')"/>
+      <input ref="/data/p_yam/yam_ghs">
+        <label ref="jr:itext('/data/p_yam/yam_ghs:label')"/>
+      </input>
+      <input ref="/data/p_yam/yam_grams">
+        <label ref="jr:itext('/data/p_yam/yam_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_plantain">
+      <label ref="jr:itext('/data/p_plantain:label')"/>
+      <input ref="/data/p_plantain/plantain_ghs">
+        <label ref="jr:itext('/data/p_plantain/plantain_ghs:label')"/>
+      </input>
+      <input ref="/data/p_plantain/plantain_grams">
+        <label ref="jr:itext('/data/p_plantain/plantain_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_cowpea">
+      <label ref="jr:itext('/data/p_cowpea:label')"/>
+      <input ref="/data/p_cowpea/cowpea_ghs">
+        <label ref="jr:itext('/data/p_cowpea/cowpea_ghs:label')"/>
+      </input>
+      <input ref="/data/p_cowpea/cowpea_grams">
+        <label ref="jr:itext('/data/p_cowpea/cowpea_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_soybean">
+      <label ref="jr:itext('/data/p_soybean:label')"/>
+      <input ref="/data/p_soybean/soybean_ghs">
+        <label ref="jr:itext('/data/p_soybean/soybean_ghs:label')"/>
+      </input>
+      <input ref="/data/p_soybean/soybean_grams">
+        <label ref="jr:itext('/data/p_soybean/soybean_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_egg">
+      <label ref="jr:itext('/data/p_egg:label')"/>
+      <input ref="/data/p_egg/egg_ghs">
+        <label ref="jr:itext('/data/p_egg/egg_ghs:label')"/>
+      </input>
+      <input ref="/data/p_egg/egg_grams">
+        <label ref="jr:itext('/data/p_egg/egg_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_fish_mackerel">
+      <label ref="jr:itext('/data/p_fish_mackerel:label')"/>
+      <input ref="/data/p_fish_mackerel/fish_mackerel_ghs">
+        <label ref="jr:itext('/data/p_fish_mackerel/fish_mackerel_ghs:label')"/>
+      </input>
+      <input ref="/data/p_fish_mackerel/fish_mackerel_grams">
+        <label ref="jr:itext('/data/p_fish_mackerel/fish_mackerel_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_chicken">
+      <label ref="jr:itext('/data/p_chicken:label')"/>
+      <input ref="/data/p_chicken/chicken_ghs">
+        <label ref="jr:itext('/data/p_chicken/chicken_ghs:label')"/>
+      </input>
+      <input ref="/data/p_chicken/chicken_grams">
+        <label ref="jr:itext('/data/p_chicken/chicken_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_tomato">
+      <label ref="jr:itext('/data/p_tomato:label')"/>
+      <input ref="/data/p_tomato/tomato_ghs">
+        <label ref="jr:itext('/data/p_tomato/tomato_ghs:label')"/>
+      </input>
+      <input ref="/data/p_tomato/tomato_grams">
+        <label ref="jr:itext('/data/p_tomato/tomato_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_garden_egg">
+      <label ref="jr:itext('/data/p_garden_egg:label')"/>
+      <input ref="/data/p_garden_egg/garden_egg_ghs">
+        <label ref="jr:itext('/data/p_garden_egg/garden_egg_ghs:label')"/>
+      </input>
+      <input ref="/data/p_garden_egg/garden_egg_grams">
+        <label ref="jr:itext('/data/p_garden_egg/garden_egg_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_onion">
+      <label ref="jr:itext('/data/p_onion:label')"/>
+      <input ref="/data/p_onion/onion_ghs">
+        <label ref="jr:itext('/data/p_onion/onion_ghs:label')"/>
+      </input>
+      <input ref="/data/p_onion/onion_grams">
+        <label ref="jr:itext('/data/p_onion/onion_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_groundnut___groundnut_paste">
+      <label ref="jr:itext('/data/p_unpriced_groundnut___groundnut_paste:label')"/>
+      <input ref="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs">
+        <label ref="jr:itext('/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams">
+        <label ref="jr:itext('/data/p_unpriced_groundnut___groundnut_paste/unpriced_groundnut___groundnut_paste_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_dawadawa__fermented_african_loc">
+      <label ref="jr:itext('/data/p_unpriced_dawadawa__fermented_african_loc:label')"/>
+      <input ref="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs">
+        <label ref="jr:itext('/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams">
+        <label ref="jr:itext('/data/p_unpriced_dawadawa__fermented_african_loc/unpriced_dawadawa__fermented_african_loc_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_baobab_leaves__dried">
+      <label ref="jr:itext('/data/p_unpriced_baobab_leaves__dried:label')"/>
+      <input ref="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs">
+        <label ref="jr:itext('/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams">
+        <label ref="jr:itext('/data/p_unpriced_baobab_leaves__dried/unpriced_baobab_leaves__dried_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_moringa_leaves">
+      <label ref="jr:itext('/data/p_unpriced_moringa_leaves:label')"/>
+      <input ref="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs">
+        <label ref="jr:itext('/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams">
+        <label ref="jr:itext('/data/p_unpriced_moringa_leaves/unpriced_moringa_leaves_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_cowpea_leaves">
+      <label ref="jr:itext('/data/p_unpriced_cowpea_leaves:label')"/>
+      <input ref="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs">
+        <label ref="jr:itext('/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams">
+        <label ref="jr:itext('/data/p_unpriced_cowpea_leaves/unpriced_cowpea_leaves_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_orange_fleshed_sweet_potato">
+      <label ref="jr:itext('/data/p_unpriced_orange_fleshed_sweet_potato:label')"/>
+      <input ref="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs">
+        <label ref="jr:itext('/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams">
+        <label ref="jr:itext('/data/p_unpriced_orange_fleshed_sweet_potato/unpriced_orange_fleshed_sweet_potato_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_small_dried_fish__anchovy___one">
+      <label ref="jr:itext('/data/p_unpriced_small_dried_fish__anchovy___one:label')"/>
+      <input ref="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs">
+        <label ref="jr:itext('/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams">
+        <label ref="jr:itext('/data/p_unpriced_small_dried_fish__anchovy___one/unpriced_small_dried_fish__anchovy___one_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_chicken_liver">
+      <label ref="jr:itext('/data/p_unpriced_chicken_liver:label')"/>
+      <input ref="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs">
+        <label ref="jr:itext('/data/p_unpriced_chicken_liver/unpriced_chicken_liver_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams">
+        <label ref="jr:itext('/data/p_unpriced_chicken_liver/unpriced_chicken_liver_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/p_unpriced_shea_butter_or_vegetable_oil">
+      <label ref="jr:itext('/data/p_unpriced_shea_butter_or_vegetable_oil:label')"/>
+      <input ref="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs">
+        <label ref="jr:itext('/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_ghs:label')"/>
+      </input>
+      <input ref="/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams">
+        <label ref="jr:itext('/data/p_unpriced_shea_butter_or_vegetable_oil/unpriced_shea_butter_or_vegetable_oil_grams:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data"/>
+  </h:body>
+</h:html>

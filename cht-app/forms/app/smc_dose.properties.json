@@ -1,0 +1,9 @@
+{
+    "icon": "icon-child",
+    "title": "SMC dose",
+    "context": {
+        "person": true,
+        "place": false,
+        "expression": "contact.type === 'person' && summary.alive && (!contact.date_of_birth || ageInYears(contact) < 5) && user._id != contact._id"
+    }
+}

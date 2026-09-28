@@ -198,4 +198,48 @@ module.exports = [
     aggregate: true,
   },
 
+  // Module 6: active pregnancies with a complete birth plan (ride, money, blood donor, decider
+  // agreement). Aggregated for supervisors.
+  {
+    id: 'birth-plans-complete',
+    type: 'percent',
+    icon: 'icon-pregnancy',
+    goal: 70,
+    translation_key: 'targets.birth_plan.complete.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['pregnancy'],
+    appliesIf: function (contact, report) {
+      return isActivePregnancy(contact, report);
+    },
+    passesIf: function (contact, report) {
+      return contact.reports.some(r =>
+        r.form === 'birth_plan' &&
+        r.reported_date >= report.reported_date &&
+        getField(r, 'r_complete') === 'yes'
+      );
+    },
+    date: 'now',
+    idType: 'contact',
+    aggregate: true,
+  },
+
+  // Module 7: SMC cycles where the day-2 and day-3 home doses were both given.
+  {
+    id: 'smc-doses-complete',
+    type: 'percent',
+    icon: 'icon-child',
+    goal: 90,
+    translation_key: 'targets.smc.doses_complete.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['smc_adherence'],
+    passesIf: function (contact, report) {
+      return getField(report, 'r_complete') === 'yes';
+    },
+    date: 'reported',
+    idType: 'report',
+    aggregate: true,
+  },
+
 ];

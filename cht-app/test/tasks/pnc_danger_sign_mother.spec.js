@@ -6,7 +6,7 @@ chai.use(require('chai-things'));
 const TestRunner = require('cht-conf-test-harness');
 
 const { deliveryReportScenarios, pncDangerSignFollowUpScenarios, pregnancyHomeVisitScenarios } = require('../form-inputs');
-const { excludingNewbornVisits } = require('../test-helpers');
+const { excludingPlatformRoutineTasks } = require('../test-helpers');
 const harness = new TestRunner();
 
 const now = '2000-04-30';
@@ -34,7 +34,7 @@ describe('PNC danger sign follow up for mother tests', () => {
     await harness.loadAction(tasksAfterDelivery[0]);
     const followupFormResult = await harness.fillForm(...pncDangerSignFollowUpScenarios.mother.cured);
     expect(followupFormResult.errors).to.be.empty;
-    const tasksAfterDangerSignsFollowUp = excludingNewbornVisits(await harness.getTasks());
+    const tasksAfterDangerSignsFollowUp = excludingPlatformRoutineTasks(await harness.getTasks());
     expect(tasksAfterDangerSignsFollowUp).to.have.property('length', 0); //also follow up
 
   });
@@ -59,7 +59,7 @@ describe('PNC danger sign follow up for mother tests', () => {
     await harness.loadAction(tasksAfterDangerSignFollowUp2[0]);
     followupFormResult = await harness.fillForm(...pncDangerSignFollowUpScenarios.mother.cured);
     expect(followupFormResult.errors).to.be.empty;
-    const tasksAfterDangerSignFollowUp3 = excludingNewbornVisits(await harness.getTasks());
+    const tasksAfterDangerSignFollowUp3 = excludingPlatformRoutineTasks(await harness.getTasks());
     expect(tasksAfterDangerSignFollowUp3).to.have.property('length', 0);
 
   });

@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>SMC dose</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="cycles-0">
+            <value>Cycle 1</value>
+          </text>
+          <text id="cycles-1">
+            <value>Cycle 2</value>
+          </text>
+          <text id="cycles-2">
+            <value>Cycle 3</value>
+          </text>
+          <text id="cycles-3">
+            <value>Cycle 4</value>
+          </text>
+          <text id="not_given-0">
+            <value>Child or caregiver not at home</value>
+          </text>
+          <text id="not_given-1">
+            <value>Caregiver refused</value>
+          </text>
+          <text id="not_given-2">
+            <value>Child sick today (assess first)</value>
+          </text>
+          <text id="not_given-3">
+            <value>Other</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/cycle_due:label">
+            <value>Cycle due</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which child is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/date_of_birth:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/age:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/age/age_months_entered:jr:constraintMsg">
+            <value>This assessment is for children under 5 (0 to 59 months).</value>
+          </text>
+          <text id="/data/age/age_months_entered:label">
+            <value>Child's age in months</value>
+          </text>
+          <text id="/data/dose:label">
+            <value>SMC dose</value>
+          </text>
+          <text id="/data/dose/not_eligible:label">
+            <value>SMC is for children 3 to 59 months. Do not give.</value>
+          </text>
+          <text id="/data/dose/cycle:label">
+            <value>Which cycle is this?</value>
+          </text>
+          <text id="/data/dose/day1_given:label">
+            <value>Was the day-1 dose given and swallowed under your observation?</value>
+          </text>
+          <text id="/data/dose/not_given_reason:label">
+            <value>Why was it not given?</value>
+          </text>
+          <text id="/data/dose/home_doses_explained:label">
+            <value>Did you give the caregiver the day-2 and day-3 doses and explain when to give them?</value>
+          </text>
+          <text id="/data/result:label">
+            <value>Next step</value>
+          </text>
+          <text id="/data/result/catch_up_note:label">
+            <value>Not at home: a catch-up visit is scheduled for tomorrow.</value>
+          </text>
+          <text id="/data/result/sick_note:label">
+            <value>Assess the sick child first with the sick child form.</value>
+          </text>
+          <text id="/data/result/given_note:label">
+            <value>You will be reminded in 2 days to check the home doses.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="smc_dose" version="2026092801" prefix="J1!smc_dose!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <cycle_due/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <dob/>
+          <age>
+            <age_months_entered/>
+          </age>
+          <age_months/>
+          <dose>
+            <not_eligible/>
+            <cycle/>
+            <day1_given/>
+            <not_given_reason/>
+            <home_doses_explained/>
+          </dose>
+          <r_catch_up/>
+          <result>
+            <catch_up_note/>
+            <sick_note/>
+            <given_note/>
+          </result>
+          <data>
+            <__cycle/>
+            <__day1_given/>
+            <__not_given_reason/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="cycles">
+        <root>
+          <item>
+            <itextId>cycles-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>cycles-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>cycles-2</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>cycles-3</itextId>
+            <name>4</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="not_given">
+        <root>
+          <item>
+            <itextId>not_given-0</itextId>
+            <name>absent</name>
+          </item>
+          <item>
+            <itextId>not_given-1</itextId>
+            <name>refused</name>
+          </item>
+          <item>
+            <itextId>not_given-2</itextId>
+            <name>sick</name>
+          </item>
+          <item>
+            <itextId>not_given-3</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/cycle_due" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/age/age_months_entered" type="int" required="true()" relevant=" /data/dob  = ''" constraint=". &gt;= 0 and . &lt;= 59" jr:constraintMsg="jr:itext('/data/age/age_months_entered:jr:constraintMsg')"/>
+      <bind nodeset="/data/age_months" type="string" calculate="if( /data/dob  != '', floor(difference-in-months( /data/dob , today())),  /data/age/age_months_entered )"/>
+      <bind nodeset="/data/dose/not_eligible" readonly="true()" type="string" relevant=" /data/age_months  &lt; 3"/>
+      <bind nodeset="/data/dose/cycle" type="string" required="true()" relevant=" /data/age_months  &gt;= 3"/>
+      <bind nodeset="/data/dose/day1_given" type="string" required="true()" relevant=" /data/age_months  &gt;= 3"/>
+      <bind nodeset="/data/dose/not_given_reason" type="string" required="true()" relevant=" /data/dose/day1_given  = 'no'"/>
+      <bind nodeset="/data/dose/home_doses_explained" type="string" required="true()" relevant=" /data/dose/day1_given  = 'yes'"/>
+      <bind nodeset="/data/r_catch_up" type="string" calculate="if( /data/dose/not_given_reason  = 'absent', 'yes', 'no')"/>
+      <bind nodeset="/data/result/catch_up_note" readonly="true()" type="string" relevant=" /data/r_catch_up  = 'yes'"/>
+      <bind nodeset="/data/result/sick_note" readonly="true()" type="string" relevant=" /data/dose/not_given_reason  = 'sick'"/>
+      <bind nodeset="/data/result/given_note" readonly="true()" type="string" relevant=" /data/dose/day1_given  = 'yes'"/>
+      <bind nodeset="/data/data/__cycle" type="string" calculate=" /data/dose/cycle "/>
+      <bind nodeset="/data/data/__day1_given" type="string" calculate=" /data/dose/day1_given "/>
+      <bind nodeset="/data/data/__not_given_reason" type="string" calculate=" /data/dose/not_given_reason "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/age">
+      <label ref="jr:itext('/data/age:label')"/>
+      <input ref="/data/age/age_months_entered">
+        <label ref="jr:itext('/data/age/age_months_entered:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/dose">
+      <label ref="jr:itext('/data/dose:label')"/>
+      <input ref="/data/dose/not_eligible">
+        <label ref="jr:itext('/data/dose/not_eligible:label')"/>
+      </input>
+      <select1 ref="/data/dose/cycle">
+        <label ref="jr:itext('/data/dose/cycle:label')"/>
+        <itemset nodeset="instance('cycles')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/dose/day1_given">
+        <label ref="jr:itext('/data/dose/day1_given:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/dose/not_given_reason">
+        <label ref="jr:itext('/data/dose/not_given_reason:label')"/>
+        <itemset nodeset="instance('not_given')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/dose/home_doses_explained">
+        <label ref="jr:itext('/data/dose/home_doses_explained:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/result">
+      <label ref="jr:itext('/data/result:label')"/>
+      <input ref="/data/result/catch_up_note">
+        <label ref="jr:itext('/data/result/catch_up_note:label')"/>
+      </input>
+      <input ref="/data/result/sick_note">
+        <label ref="jr:itext('/data/result/sick_note:label')"/>
+      </input>
+      <input ref="/data/result/given_note">
+        <label ref="jr:itext('/data/result/given_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

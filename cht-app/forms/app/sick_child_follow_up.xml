@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Sick child follow-up</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="progress-0">
+            <value>Better</value>
+          </text>
+          <text id="progress-1">
+            <value>The same</value>
+          </text>
+          <text id="progress-2">
+            <value>Worse</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/treatments:label">
+            <value>Treatments given</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which child is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/date_of_birth:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/check:label">
+            <value>Day-3 check</value>
+          </text>
+          <text id="/data/check/treatments_note:label">
+            <value> Treatments given at the first visit: <output value=" /data/inputs/treatments "/></value>
+          </text>
+          <text id="/data/check/progress:label">
+            <value>How is the child now?</value>
+          </text>
+          <text id="/data/check/danger_now:label">
+            <value>Any danger sign now (convulsions, cannot drink, vomits everything, very sleepy, chest indrawing)?</value>
+          </text>
+          <text id="/data/check/treatment_completed:label">
+            <value>Is the treatment being taken as advised?</value>
+          </text>
+          <text id="/data/result:label">
+            <value>What to do</value>
+          </text>
+          <text id="/data/result/refer_now:label">
+            <value>REFER NOW: a danger sign at the follow-up visit.</value>
+          </text>
+          <text id="/data/result/refer_today:label">
+            <value>Not better after 3 days: refer to the CHPS compound or health centre today.</value>
+          </text>
+          <text id="/data/result/adherence_note:label">
+            <value>Help the caregiver finish the full treatment.</value>
+          </text>
+          <text id="/data/result/well_note:label">
+            <value>The child is better. Remind the caregiver to finish the treatment.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="sick_child_follow_up" version="2026092801" prefix="J1!sick_child_follow_up!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <treatments/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <dob/>
+          <check>
+            <treatments_note/>
+            <progress/>
+            <danger_now/>
+            <treatment_completed/>
+          </check>
+          <r_severity/>
+          <r_reasons/>
+          <result>
+            <refer_now/>
+            <refer_today/>
+            <adherence_note/>
+            <well_note/>
+          </result>
+          <data>
+            <__progress/>
+            <__severity/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="progress">
+        <root>
+          <item>
+            <itextId>progress-0</itextId>
+            <name>better</name>
+          </item>
+          <item>
+            <itextId>progress-1</itextId>
+            <name>same</name>
+          </item>
+          <item>
+            <itextId>progress-2</itextId>
+            <name>worse</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/treatments" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/check/treatments_note" readonly="true()" type="string" relevant=" /data/inputs/treatments  != ''"/>
+      <bind nodeset="/data/check/progress" type="string" required="true()"/>
+      <bind nodeset="/data/check/danger_now" type="string" required="true()"/>
+      <bind nodeset="/data/check/treatment_completed" type="string" required="true()"/>
+      <bind nodeset="/data/r_severity" type="string" calculate="if( /data/check/danger_now  = 'yes', 'emergency', if( /data/check/progress  != 'better', 'urgent', 'none'))"/>
+      <bind nodeset="/data/r_reasons" type="string" calculate="if( /data/check/danger_now  = 'yes', 'danger_sign_at_follow_up', if( /data/check/progress  != 'better', 'not_better_at_day_3', ''))"/>
+      <bind nodeset="/data/result/refer_now" readonly="true()" type="string" relevant=" /data/r_severity  = 'emergency'"/>
+      <bind nodeset="/data/result/refer_today" readonly="true()" type="string" relevant=" /data/r_severity  = 'urgent'"/>
+      <bind nodeset="/data/result/adherence_note" readonly="true()" type="string" relevant=" /data/check/treatment_completed  = 'no'"/>
+      <bind nodeset="/data/result/well_note" readonly="true()" type="string" relevant=" /data/r_severity  = 'none'"/>
+      <bind nodeset="/data/data/__progress" type="string" calculate=" /data/check/progress "/>
+      <bind nodeset="/data/data/__severity" type="string" calculate=" /data/r_severity "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/check">
+      <label ref="jr:itext('/data/check:label')"/>
+      <input ref="/data/check/treatments_note">
+        <label ref="jr:itext('/data/check/treatments_note:label')"/>
+      </input>
+      <select1 ref="/data/check/progress">
+        <label ref="jr:itext('/data/check/progress:label')"/>
+        <itemset nodeset="instance('progress')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/check/danger_now">
+        <label ref="jr:itext('/data/check/danger_now:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/check/treatment_completed">
+        <label ref="jr:itext('/data/check/treatment_completed:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/result">
+      <label ref="jr:itext('/data/result:label')"/>
+      <input ref="/data/result/refer_now">
+        <label ref="jr:itext('/data/result/refer_now:label')"/>
+      </input>
+      <input ref="/data/result/refer_today">
+        <label ref="jr:itext('/data/result/refer_today:label')"/>
+      </input>
+      <input ref="/data/result/adherence_note">
+        <label ref="jr:itext('/data/result/adherence_note:label')"/>
+      </input>
+      <input ref="/data/result/well_note">
+        <label ref="jr:itext('/data/result/well_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

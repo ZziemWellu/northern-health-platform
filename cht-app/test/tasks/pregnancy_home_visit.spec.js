@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 const TestRunner = require('cht-conf-test-harness');
-const { MAX_DAYS_IN_PREGNANCY, getRangeForTask, getTaskTestDays } = require('../test-helpers');
+const { MAX_DAYS_IN_PREGNANCY, getRangeForTask, getTaskTestDays, excludingPlatformRoutineTasks } = require('../test-helpers');
 const { pregnancyRegistrationScenarios, pregnancyHomeVisitScenarios } = require('../form-inputs');
 const harness = new TestRunner();
 const TEST_INTERVAL_DAYS = 7;
@@ -91,7 +91,7 @@ describe('pregnancy home visit tests', () => {
     expect(followupFormResult.errors).to.be.empty;
 
     //Task should clear
-    expect(await harness.getTasks()).to.be.empty;
+    expect(excludingPlatformRoutineTasks(await harness.getTasks())).to.be.empty;
     
     await harness.setNow('1999-12-12');
     taskForHomeVisit = await harness.getTasks({ title: 'task.anc.pregnancy_home_visit.title' });
@@ -138,7 +138,7 @@ describe('pregnancy home visit tests', () => {
       }
 
       else {
-        expect(await harness.getTasks()).to.be.empty;
+        expect(excludingPlatformRoutineTasks(await harness.getTasks())).to.be.empty;
       }
     }
 
@@ -164,7 +164,7 @@ describe('pregnancy home visit tests', () => {
       }
 
       else {
-        expect(await harness.getTasks()).to.be.empty;
+        expect(excludingPlatformRoutineTasks(await harness.getTasks())).to.be.empty;
       }
     }
   });

@@ -4,7 +4,7 @@ chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 const TestRunner = require('cht-conf-test-harness');
 const { pregnancyRegistrationScenarios, pregnancyHomeVisitScenarios } = require('../form-inputs');
-const { getRangeForTask, getTaskTestDays } = require('../test-helpers');
+const { getRangeForTask, getTaskTestDays, excludingPlatformRoutineTasks } = require('../test-helpers');
 const harness = new TestRunner();
 
 const now = '2000-01-01';
@@ -91,13 +91,13 @@ describe('Pregnancy registration and scheduled visit', () => {
         await harness.loadForm('pregnancy_home_visit');
         const followupFormResult = await harness.fillForm(...pregnancyHomeVisitScenarios.clearAll);
         expect(followupFormResult.errors).to.be.empty;
-        const tasksAfterFacilityReminder = await harness.getTasks();
+        const tasksAfterFacilityReminder = excludingPlatformRoutineTasks(await harness.getTasks());
         expect(tasksAfterFacilityReminder).to.be.empty;
         cleared = true;
       }
 
       else {
-        const tasks = await harness.getTasks();
+        const tasks = excludingPlatformRoutineTasks(await harness.getTasks());
         expect(tasks).to.be.empty;
       }
     }

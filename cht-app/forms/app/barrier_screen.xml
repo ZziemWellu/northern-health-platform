@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Barrier screen</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="travel-0">
+            <value>Under 30 minutes</value>
+          </text>
+          <text id="travel-1">
+            <value>30 minutes to 1 hour</value>
+          </text>
+          <text id="travel-2">
+            <value>1 to 2 hours</value>
+          </text>
+          <text id="travel-3">
+            <value>More than 2 hours</value>
+          </text>
+          <text id="transport-0">
+            <value>Household motorbike, tricycle or car</value>
+          </text>
+          <text id="transport-1">
+            <value>Can hire a motorbike or taxi</value>
+          </text>
+          <text id="transport-2">
+            <value>Community or tricycle ambulance</value>
+          </text>
+          <text id="transport-3">
+            <value>No transport</value>
+          </text>
+          <text id="nhis-0">
+            <value>Active</value>
+          </text>
+          <text id="nhis-1">
+            <value>Expired</value>
+          </text>
+          <text id="nhis-2">
+            <value>Never registered</value>
+          </text>
+          <text id="nhis-3">
+            <value>Not sure</value>
+          </text>
+          <text id="decider-0">
+            <value>She decides herself</value>
+          </text>
+          <text id="decider-1">
+            <value>Her husband or partner</value>
+          </text>
+          <text id="decider-2">
+            <value>Her mother-in-law</value>
+          </text>
+          <text id="decider-3">
+            <value>The household head</value>
+          </text>
+          <text id="decider-4">
+            <value>Someone else</value>
+          </text>
+          <text id="supports-0">
+            <value>Yes</value>
+          </text>
+          <text id="supports-1">
+            <value>No</value>
+          </text>
+          <text id="supports-2">
+            <value>Not sure</value>
+          </text>
+          <text id="phone-0">
+            <value>She has her own phone</value>
+          </text>
+          <text id="phone-1">
+            <value>A shared household phone</value>
+          </text>
+          <text id="phone-2">
+            <value>No phone</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/source_reasons:label">
+            <value>Reasons a referral failed</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which woman or baby is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/access:label">
+            <value>Getting to care</value>
+          </text>
+          <text id="/data/access/missed_referral_note:label">
+            <value> She did not reach a referral. Reasons given: <output value=" /data/inputs/source_reasons "/></value>
+          </text>
+          <text id="/data/access/travel_time:label">
+            <value>How long does it take her to reach the facility where she plans to deliver?</value>
+          </text>
+          <text id="/data/access/transport:label">
+            <value>What transport could she use to get there, day or night?</value>
+          </text>
+          <text id="/data/money:label">
+            <value>Money and insurance</value>
+          </text>
+          <text id="/data/money/nhis_status:label">
+            <value>Is her NHIS membership active?</value>
+          </text>
+          <text id="/data/money/money_set_aside:label">
+            <value>Has money been set aside for the birth or an emergency?</value>
+          </text>
+          <text id="/data/people:label">
+            <value>Who decides</value>
+          </text>
+          <text id="/data/people/privacy_note:label">
+            <value>Ask these questions privately, only if she is comfortable answering.</value>
+          </text>
+          <text id="/data/people/decider:label">
+            <value>Who decides whether she goes to a health facility?</value>
+          </text>
+          <text id="/data/people/decider_supports:label">
+            <value>Does that person support her giving birth at a facility?</value>
+          </text>
+          <text id="/data/people/phone_access:label">
+            <value>Is there a phone she can use in an emergency?</value>
+          </text>
+          <text id="/data/result:label">
+            <value>What to do</value>
+          </text>
+          <text id="/data/result/none_found:label">
+            <value>No barriers found. Make her birth plan before 32 weeks.</value>
+          </text>
+          <text id="/data/result/do_far:label">
+            <value>- More than an hour from the delivery facility: discuss a maternity waiting home near term, and arrange transport early.</value>
+          </text>
+          <text id="/data/result/do_no_transport:label">
+            <value>- No transport: record a named driver or the community ambulance in her birth plan.</value>
+          </text>
+          <text id="/data/result/do_no_insurance:label">
+            <value>- NHIS not active: pregnant women register free of charge. Help her register or renew now (Ghana Card, *929#).</value>
+          </text>
+          <text id="/data/result/do_no_money:label">
+            <value>- No money set aside: agree a small saving plan in the birth plan, and ask the district social welfare officer about LEAP.</value>
+          </text>
+          <text id="/data/result/do_decider_not_supportive:label">
+            <value>- The person who decides may not support a facility birth: with her agreement, involve them in the birth plan.</value>
+          </text>
+          <text id="/data/result/do_no_phone:label">
+            <value>- No phone in the household: agree whose phone to call in an emergency.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="barrier_screen" version="2026092801" prefix="J1!barrier_screen!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <source_reasons/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <access>
+            <missed_referral_note/>
+            <travel_time/>
+            <transport/>
+          </access>
+          <money>
+            <nhis_status/>
+            <money_set_aside/>
+          </money>
+          <people>
+            <privacy_note/>
+            <decider/>
+            <decider_supports/>
+            <phone_access/>
+          </people>
+          <b_far/>
+          <b_no_transport/>
+          <b_no_insurance/>
+          <b_no_money/>
+          <b_decider_not_supportive/>
+          <b_no_phone/>
+          <r_barriers/>
+          <r_barrier_count/>
+          <result>
+            <none_found/>
+            <do_far/>
+            <do_no_transport/>
+            <do_no_insurance/>
+            <do_no_money/>
+            <do_decider_not_supportive/>
+            <do_no_phone/>
+          </result>
+          <data>
+            <__barriers/>
+            <__barrier_count/>
+            <__nhis_status/>
+            <__travel_time/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="travel">
+        <root>
+          <item>
+            <itextId>travel-0</itextId>
+            <name>under_30</name>
+          </item>
+          <item>
+            <itextId>travel-1</itextId>
+            <name>30_60</name>
+          </item>
+          <item>
+            <itextId>travel-2</itextId>
+            <name>1_2h</name>
+          </item>
+          <item>
+            <itextId>travel-3</itextId>
+            <name>over_2h</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="transport">
+        <root>
+          <item>
+            <itextId>transport-0</itextId>
+            <name>household</name>
+          </item>
+          <item>
+            <itextId>transport-1</itextId>
+            <name>can_hire</name>
+          </item>
+          <item>
+            <itextId>transport-2</itextId>
+            <name>community_ambulance</name>
+          </item>
+          <item>
+            <itextId>transport-3</itextId>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="nhis">
+        <root>
+          <item>
+            <itextId>nhis-0</itextId>
+            <name>active</name>
+          </item>
+          <item>
+            <itextId>nhis-1</itextId>
+            <name>expired</name>
+          </item>
+          <item>
+            <itextId>nhis-2</itextId>
+            <name>never</name>
+          </item>
+          <item>
+            <itextId>nhis-3</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="decider">
+        <root>
+          <item>
+            <itextId>decider-0</itextId>
+            <name>herself</name>
+          </item>
+          <item>
+            <itextId>decider-1</itextId>
+            <name>husband</name>
+          </item>
+          <item>
+            <itextId>decider-2</itextId>
+            <name>mother_in_law</name>
+          </item>
+          <item>
+            <itextId>decider-3</itextId>
+            <name>household_head</name>
+          </item>
+          <item>
+            <itextId>decider-4</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="supports">
+        <root>
+          <item>
+            <itextId>supports-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>supports-1</itextId>
+            <name>no</name>
+          </item>
+          <item>
+            <itextId>supports-2</itextId>
+            <name>unsure</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="phone">
+        <root>
+          <item>
+            <itextId>phone-0</itextId>
+            <name>own</name>
+          </item>
+          <item>
+            <itextId>phone-1</itextId>
+            <name>shared</name>
+          </item>
+          <item>
+            <itextId>phone-2</itextId>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/source_reasons" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/access/missed_referral_note" readonly="true()" type="string" relevant=" /data/inputs/source_reasons  != ''"/>
+      <bind nodeset="/data/access/travel_time" type="string" required="true()"/>
+      <bind nodeset="/data/access/transport" type="string" required="true()"/>
+      <bind nodeset="/data/money/nhis_status" type="string" required="true()"/>
+      <bind nodeset="/data/money/money_set_aside" type="string" required="true()"/>
+      <bind nodeset="/data/people/privacy_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/people/decider" type="string" required="true()"/>
+      <bind nodeset="/data/people/decider_supports" type="string" required="true()" relevant=" /data/people/decider  != 'herself'"/>
+      <bind nodeset="/data/people/phone_access" type="string" required="true()"/>
+      <bind nodeset="/data/b_far" type="string" calculate="if( /data/access/travel_time  = '1_2h' or  /data/access/travel_time  = 'over_2h', 'yes', 'no')"/>
+      <bind nodeset="/data/b_no_transport" type="string" calculate="if( /data/access/transport  = 'none', 'yes', 'no')"/>
+      <bind nodeset="/data/b_no_insurance" type="string" calculate="if( /data/money/nhis_status  != 'active', 'yes', 'no')"/>
+      <bind nodeset="/data/b_no_money" type="string" calculate="if( /data/money/money_set_aside  = 'no', 'yes', 'no')"/>
+      <bind nodeset="/data/b_decider_not_supportive" type="string" calculate="if( /data/people/decider  != 'herself' and ( /data/people/decider_supports  = 'no' or  /data/people/decider_supports  = 'unsure'), 'yes', 'no')"/>
+      <bind nodeset="/data/b_no_phone" type="string" calculate="if( /data/people/phone_access  = 'none', 'yes', 'no')"/>
+      <bind nodeset="/data/r_barriers" type="string" calculate="normalize-space(concat(if( /data/b_far  = 'yes', 'far', ''), ' ', if( /data/b_no_transport  = 'yes', 'no_transport', ''), ' ', if( /data/b_no_insurance  = 'yes', 'no_insurance', ''), ' ', if( /data/b_no_money  = 'yes', 'no_money', ''), ' ', if( /data/b_decider_not_supportive  = 'yes', 'decider_not_supportive', ''), ' ', if( /data/b_no_phone  = 'yes', 'no_phone', '')))"/>
+      <bind nodeset="/data/r_barrier_count" type="string" calculate="if( /data/b_far  = 'yes', 1, 0) + if( /data/b_no_transport  = 'yes', 1, 0) + if( /data/b_no_insurance  = 'yes', 1, 0) + if( /data/b_no_money  = 'yes', 1, 0) + if( /data/b_decider_not_supportive  = 'yes', 1, 0) + if( /data/b_no_phone  = 'yes', 1, 0)"/>
+      <bind nodeset="/data/result/none_found" readonly="true()" type="string" relevant=" /data/r_barrier_count  = 0"/>
+      <bind nodeset="/data/result/do_far" readonly="true()" type="string" relevant=" /data/b_far  = 'yes'"/>
+      <bind nodeset="/data/result/do_no_transport" readonly="true()" type="string" relevant=" /data/b_no_transport  = 'yes'"/>
+      <bind nodeset="/data/result/do_no_insurance" readonly="true()" type="string" relevant=" /data/b_no_insurance  = 'yes'"/>
+      <bind nodeset="/data/result/do_no_money" readonly="true()" type="string" relevant=" /data/b_no_money  = 'yes'"/>
+      <bind nodeset="/data/result/do_decider_not_supportive" readonly="true()" type="string" relevant=" /data/b_decider_not_supportive  = 'yes'"/>
+      <bind nodeset="/data/result/do_no_phone" readonly="true()" type="string" relevant=" /data/b_no_phone  = 'yes'"/>
+      <bind nodeset="/data/data/__barriers" type="string" calculate=" /data/r_barriers "/>
+      <bind nodeset="/data/data/__barrier_count" type="string" calculate=" /data/r_barrier_count "/>
+      <bind nodeset="/data/data/__nhis_status" type="string" calculate=" /data/money/nhis_status "/>
+      <bind nodeset="/data/data/__travel_time" type="string" calculate=" /data/access/travel_time "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/access">
+      <label ref="jr:itext('/data/access:label')"/>
+      <input ref="/data/access/missed_referral_note">
+        <label ref="jr:itext('/data/access/missed_referral_note:label')"/>
+      </input>
+      <select1 ref="/data/access/travel_time">
+        <label ref="jr:itext('/data/access/travel_time:label')"/>
+        <itemset nodeset="instance('travel')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/access/transport">
+        <label ref="jr:itext('/data/access/transport:label')"/>
+        <itemset nodeset="instance('transport')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/money">
+      <label ref="jr:itext('/data/money:label')"/>
+      <select1 ref="/data/money/nhis_status">
+        <label ref="jr:itext('/data/money/nhis_status:label')"/>
+        <itemset nodeset="instance('nhis')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/money/money_set_aside">
+        <label ref="jr:itext('/data/money/money_set_aside:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/people">
+      <label ref="jr:itext('/data/people:label')"/>
+      <input ref="/data/people/privacy_note">
+        <label ref="jr:itext('/data/people/privacy_note:label')"/>
+      </input>
+      <select1 ref="/data/people/decider">
+        <label ref="jr:itext('/data/people/decider:label')"/>
+        <itemset nodeset="instance('decider')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/people/decider_supports">
+        <label ref="jr:itext('/data/people/decider_supports:label')"/>
+        <itemset nodeset="instance('supports')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/people/phone_access">
+        <label ref="jr:itext('/data/people/phone_access:label')"/>
+        <itemset nodeset="instance('phone')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/result">
+      <label ref="jr:itext('/data/result:label')"/>
+      <input ref="/data/result/none_found">
+        <label ref="jr:itext('/data/result/none_found:label')"/>
+      </input>
+      <input ref="/data/result/do_far">
+        <label ref="jr:itext('/data/result/do_far:label')"/>
+      </input>
+      <input ref="/data/result/do_no_transport">
+        <label ref="jr:itext('/data/result/do_no_transport:label')"/>
+      </input>
+      <input ref="/data/result/do_no_insurance">
+        <label ref="jr:itext('/data/result/do_no_insurance:label')"/>
+      </input>
+      <input ref="/data/result/do_no_money">
+        <label ref="jr:itext('/data/result/do_no_money:label')"/>
+      </input>
+      <input ref="/data/result/do_decider_not_supportive">
+        <label ref="jr:itext('/data/result/do_decider_not_supportive:label')"/>
+      </input>
+      <input ref="/data/result/do_no_phone">
+        <label ref="jr:itext('/data/result/do_no_phone:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

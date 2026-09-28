@@ -114,17 +114,11 @@ def yes_no():
             {"list_name": "yes_no", "name": "no", "label::en": "No"}]
 
 
-def build_referral():
+def facility_choices():
+    """Region -> district -> facility cascading choice lists (shared with the birth plan form)."""
     facilities = list(csv.DictReader(FACILITIES.open(encoding="utf-8")))
     district_key = lambda f: "".join(c if c.isalnum() else "_" for c in f["district"].lower())
-
-    choices = yes_no()
-    choices += [{"list_name": "severities", "name": n, "label::en": l} for n, l in [
-        ("emergency", "Emergency: go now"), ("urgent", "Urgent: go today"), ("routine", "Routine: go within a week")]]
-    choices += [{"list_name": "reasons", "name": n, "label::en": l} for n, l in REASONS]
-    choices += [{"list_name": "present", "name": n, "label::en": l} for n, l in [
-        ("husband", "Husband or partner"), ("mother_in_law", "Mother-in-law"),
-        ("other_family", "Other family member"), ("none", "No one else")]]
+    choices = []
     for region in sorted({f["region"] for f in facilities}):
         choices.append({"list_name": "regions", "name": region.lower().replace(" ", "_"), "label::en": region})
     for key, (district, region) in sorted({district_key(f): (f["district"], f["region"]) for f in facilities}.items()):
@@ -135,6 +129,32 @@ def build_referral():
                         "district": district_key(f)})
     choices.append({"list_name": "facilities", "name": "other", "label::en": "Another facility (type its name)",
                     "district": "any"})
+    return choices
+
+
+def facility_picker(prefix, question):
+    """Survey rows for picking a facility; the chosen name ends up in ${<prefix>_name}."""
+    return [
+        row("select_one regions", f"{prefix}_region", "Region of the facility", required="yes"),
+        row("select_one districts", f"{prefix}_district", "District", required="yes", choice_filter=f"region=${{{prefix}_region}}"),
+        row("select_one facilities", f"{prefix}_facility", question, required="yes",
+            choice_filter=f"district=${{{prefix}_district}} or district='any'"),
+        row("string", f"{prefix}_other_name", "Name of the facility", required="yes",
+            relevant=f"${{{prefix}_facility}} = 'other'"),
+        row("calculate", f"{prefix}_name", "NO_LABEL",
+            calculation=f"if(${{{prefix}_facility}} = 'other', ${{{prefix}_other_name}}, jr:choice-name(${{{prefix}_facility}}, '${{{prefix}_facility}}'))"),
+    ]
+
+
+def build_referral():
+    choices = yes_no()
+    choices += [{"list_name": "severities", "name": n, "label::en": l} for n, l in [
+        ("emergency", "Emergency: go now"), ("urgent", "Urgent: go today"), ("routine", "Routine: go within a week")]]
+    choices += [{"list_name": "reasons", "name": n, "label::en": l} for n, l in REASONS]
+    choices += [{"list_name": "present", "name": n, "label::en": l} for n, l in [
+        ("husband", "Husband or partner"), ("mother_in_law", "Mother-in-law"),
+        ("other_family", "Other family member"), ("none", "No one else")]]
+    choices += facility_choices()
 
     rows = contact_inputs([("source_reasons", "Reasons from the assessment"),
                            ("source_severity", "Severity from the assessment")])

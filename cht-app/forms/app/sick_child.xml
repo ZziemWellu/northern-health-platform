@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Sick child assessment</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="rdt-0">
+            <value>Positive</value>
+          </text>
+          <text id="rdt-1">
+            <value>Negative</value>
+          </text>
+          <text id="rdt-2">
+            <value>Not done (no test available)</value>
+          </text>
+          <text id="muac-0">
+            <value>Green (125 mm or more)</value>
+          </text>
+          <text id="muac-1">
+            <value>Yellow (115 to 124 mm)</value>
+          </text>
+          <text id="muac-2">
+            <value>Red (under 115 mm)</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which child is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/date_of_birth:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/age:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/age/age_months_entered:jr:constraintMsg">
+            <value>This assessment is for children under 5 (0 to 59 months).</value>
+          </text>
+          <text id="/data/age/age_months_entered:label">
+            <value>Child's age in months</value>
+          </text>
+          <text id="/data/problems:label">
+            <value>What is wrong</value>
+          </text>
+          <text id="/data/problems/fever:label">
+            <value>Fever now or in the last 3 days?</value>
+          </text>
+          <text id="/data/problems/fever_days:jr:constraintMsg">
+            <value>Enter 0 to 60 days.</value>
+          </text>
+          <text id="/data/problems/fever_days:label">
+            <value>For how many days?</value>
+          </text>
+          <text id="/data/problems/cough:label">
+            <value>Cough?</value>
+          </text>
+          <text id="/data/problems/cough_days:jr:constraintMsg">
+            <value>Enter 0 to 120 days.</value>
+          </text>
+          <text id="/data/problems/cough_days:label">
+            <value>For how many days?</value>
+          </text>
+          <text id="/data/problems/diarrhoea:label">
+            <value>Diarrhoea (3 or more loose stools in a day)?</value>
+          </text>
+          <text id="/data/problems/diarrhoea_days:jr:constraintMsg">
+            <value>Enter 0 to 60 days.</value>
+          </text>
+          <text id="/data/problems/diarrhoea_days:label">
+            <value>For how many days?</value>
+          </text>
+          <text id="/data/problems/blood_in_stool:label">
+            <value>Blood in the stool?</value>
+          </text>
+          <text id="/data/danger:label">
+            <value>Danger signs</value>
+          </text>
+          <text id="/data/danger/convulsions:label">
+            <value>Convulsions?</value>
+          </text>
+          <text id="/data/danger/unable_to_drink:label">
+            <value>Not able to drink or breastfeed?</value>
+          </text>
+          <text id="/data/danger/vomits_everything:label">
+            <value>Vomits everything?</value>
+          </text>
+          <text id="/data/danger/very_sleepy:label">
+            <value>Very sleepy or unconscious?</value>
+          </text>
+          <text id="/data/danger/chest_indrawing:label">
+            <value>Chest indrawing?</value>
+          </text>
+          <text id="/data/danger/swelling_both_feet:label">
+            <value>Swelling of both feet?</value>
+          </text>
+          <text id="/data/danger/muac:label">
+            <value>MUAC colour</value>
+          </text>
+          <text id="/data/tests:label">
+            <value>Tests</value>
+          </text>
+          <text id="/data/tests/rdt:label">
+            <value>Malaria rapid test (RDT) result</value>
+          </text>
+          <text id="/data/tests/breaths_per_minute:jr:constraintMsg">
+            <value>Enter 10 to 120.</value>
+          </text>
+          <text id="/data/tests/breaths_per_minute:label">
+            <value>Breaths counted in one full minute</value>
+          </text>
+          <text id="/data/result:label">
+            <value>What to do</value>
+          </text>
+          <text id="/data/result/refer_note:label">
+            <value>REFER NOW. Give the first dose of pre-referral treatment if the national chart says so, and raise the referral.</value>
+          </text>
+          <text id="/data/result/why_young_infant:label">
+            <value>- Under 2 months old: sick young infants are always referred.</value>
+          </text>
+          <text id="/data/result/why_convulsions:label">
+            <value>- Convulsions.</value>
+          </text>
+          <text id="/data/result/why_unable_to_drink:label">
+            <value>- Not able to drink or breastfeed.</value>
+          </text>
+          <text id="/data/result/why_vomits_everything:label">
+            <value>- Vomits everything.</value>
+          </text>
+          <text id="/data/result/why_very_sleepy:label">
+            <value>- Very sleepy or unconscious.</value>
+          </text>
+          <text id="/data/result/why_chest_indrawing:label">
+            <value>- Chest indrawing.</value>
+          </text>
+          <text id="/data/result/why_red_muac:label">
+            <value>- MUAC red (under 115 mm): severe acute malnutrition.</value>
+          </text>
+          <text id="/data/result/why_swelling_both_feet:label">
+            <value>- Swelling of both feet.</value>
+          </text>
+          <text id="/data/result/why_fever_7_days:label">
+            <value> - Fever for <output value=" /data/problems/fever_days "/> days (7 or more).</value>
+          </text>
+          <text id="/data/result/why_cough_21_days:label">
+            <value> - Cough for <output value=" /data/problems/cough_days "/> days (21 or more).</value>
+          </text>
+          <text id="/data/result/why_diarrhoea_14_days:label">
+            <value> - Diarrhoea for <output value=" /data/problems/diarrhoea_days "/> days (14 or more).</value>
+          </text>
+          <text id="/data/result/why_blood_in_stool:label">
+            <value>- Blood in the stool.</value>
+          </text>
+          <text id="/data/result/no_rdt_note:label">
+            <value>Fever but no malaria test: malaria cannot be confirmed. Send the child to the CHPS compound today.</value>
+          </text>
+          <text id="/data/result/do_malaria:label">
+            <value>- Malaria (fever, RDT positive): give ACT by age from the national dosing chart.</value>
+          </text>
+          <text id="/data/result/do_pneumonia:label">
+            <value> - Fast breathing (<output value=" /data/tests/breaths_per_minute "/> per minute): give oral amoxicillin from the national dosing chart.</value>
+          </text>
+          <text id="/data/result/do_diarrhoea:label">
+            <value>- Diarrhoea: give ORS and zinc from the national dosing chart.</value>
+          </text>
+          <text id="/data/result/do_yellow_muac:label">
+            <value>- MUAC yellow (115 to 124 mm): counsel on feeding and refer to the nutrition programme.</value>
+          </text>
+          <text id="/data/result/follow_up_note:label">
+            <value>Visit again in 3 days. Tell the caregiver to come back at once if the child cannot drink, gets worse, or has a new danger sign.</value>
+          </text>
+          <text id="/data/result/nothing_note:label">
+            <value>No danger sign and nothing to treat at home. Advise the caregiver on the danger signs.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="sick_child" version="2026092801" prefix="J1!sick_child!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <dob/>
+          <age>
+            <age_months_entered/>
+          </age>
+          <age_months/>
+          <problems>
+            <fever/>
+            <fever_days/>
+            <cough/>
+            <cough_days/>
+            <diarrhoea/>
+            <diarrhoea_days/>
+            <blood_in_stool/>
+          </problems>
+          <danger>
+            <convulsions/>
+            <unable_to_drink/>
+            <vomits_everything/>
+            <very_sleepy/>
+            <chest_indrawing/>
+            <swelling_both_feet/>
+            <muac/>
+          </danger>
+          <tests>
+            <rdt/>
+            <breaths_per_minute/>
+          </tests>
+          <d_young_infant/>
+          <d_convulsions/>
+          <d_unable_to_drink/>
+          <d_vomits_everything/>
+          <d_very_sleepy/>
+          <d_chest_indrawing/>
+          <d_red_muac/>
+          <d_swelling_both_feet/>
+          <d_fever_7_days/>
+          <d_cough_21_days/>
+          <d_diarrhoea_14_days/>
+          <d_blood_in_stool/>
+          <r_danger/>
+          <t_malaria/>
+          <t_pneumonia/>
+          <t_diarrhoea/>
+          <t_yellow_muac/>
+          <r_no_rdt/>
+          <r_severity/>
+          <r_reasons/>
+          <r_treatments/>
+          <t_sick_child_follow_up/>
+          <result>
+            <refer_note/>
+            <why_young_infant/>
+            <why_convulsions/>
+            <why_unable_to_drink/>
+            <why_vomits_everything/>
+            <why_very_sleepy/>
+            <why_chest_indrawing/>
+            <why_red_muac/>
+            <why_swelling_both_feet/>
+            <why_fever_7_days/>
+            <why_cough_21_days/>
+            <why_diarrhoea_14_days/>
+            <why_blood_in_stool/>
+            <no_rdt_note/>
+            <do_malaria/>
+            <do_pneumonia/>
+            <do_diarrhoea/>
+            <do_yellow_muac/>
+            <follow_up_note/>
+            <nothing_note/>
+          </result>
+          <data>
+            <__age_months/>
+            <__severity/>
+            <__danger_signs/>
+            <__treatments/>
+            <__rdt/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="rdt">
+        <root>
+          <item>
+            <itextId>rdt-0</itextId>
+            <name>positive</name>
+          </item>
+          <item>
+            <itextId>rdt-1</itextId>
+            <name>negative</name>
+          </item>
+          <item>
+            <itextId>rdt-2</itextId>
+            <name>not_done</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="muac">
+        <root>
+          <item>
+            <itextId>muac-0</itextId>
+            <name>green</name>
+          </item>
+          <item>
+            <itextId>muac-1</itextId>
+            <name>yellow</name>
+          </item>
+          <item>
+            <itextId>muac-2</itextId>
+            <name>red</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/age/age_months_entered" type="int" required="true()" relevant=" /data/dob  = ''" constraint=". &gt;= 0 and . &lt;= 59" jr:constraintMsg="jr:itext('/data/age/age_months_entered:jr:constraintMsg')"/>
+      <bind nodeset="/data/age_months" type="string" calculate="if( /data/dob  != '', floor(difference-in-months( /data/dob , today())),  /data/age/age_months_entered )"/>
+      <bind nodeset="/data/problems/fever" type="string" required="true()"/>
+      <bind nodeset="/data/problems/fever_days" type="int" required="true()" relevant=" /data/problems/fever  = 'yes'" constraint=". &gt;= 0 and . &lt;= 60" jr:constraintMsg="jr:itext('/data/problems/fever_days:jr:constraintMsg')"/>
+      <bind nodeset="/data/problems/cough" type="string" required="true()"/>
+      <bind nodeset="/data/problems/cough_days" type="int" required="true()" relevant=" /data/problems/cough  = 'yes'" constraint=". &gt;= 0 and . &lt;= 120" jr:constraintMsg="jr:itext('/data/problems/cough_days:jr:constraintMsg')"/>
+      <bind nodeset="/data/problems/diarrhoea" type="string" required="true()"/>
+      <bind nodeset="/data/problems/diarrhoea_days" type="int" required="true()" relevant=" /data/problems/diarrhoea  = 'yes'" constraint=". &gt;= 0 and . &lt;= 60" jr:constraintMsg="jr:itext('/data/problems/diarrhoea_days:jr:constraintMsg')"/>
+      <bind nodeset="/data/problems/blood_in_stool" type="string" required="true()" relevant=" /data/problems/diarrhoea  = 'yes'"/>
+      <bind nodeset="/data/danger/convulsions" type="string" required="true()"/>
+      <bind nodeset="/data/danger/unable_to_drink" type="string" required="true()"/>
+      <bind nodeset="/data/danger/vomits_everything" type="string" required="true()"/>
+      <bind nodeset="/data/danger/very_sleepy" type="string" required="true()"/>
+      <bind nodeset="/data/danger/chest_indrawing" type="string" required="true()" relevant=" /data/problems/cough  = 'yes'"/>
+      <bind nodeset="/data/danger/swelling_both_feet" type="string" required="true()"/>
+      <bind nodeset="/data/danger/muac" type="string" required="true()" relevant=" /data/age_months  &gt;= 6"/>
+      <bind nodeset="/data/tests/rdt" type="string" required="true()" relevant=" /data/problems/fever  = 'yes'"/>
+      <bind nodeset="/data/tests/breaths_per_minute" type="int" required="true()" relevant=" /data/problems/cough  = 'yes'" constraint=". &gt;= 10 and . &lt;= 120" jr:constraintMsg="jr:itext('/data/tests/breaths_per_minute:jr:constraintMsg')"/>
+      <bind nodeset="/data/d_young_infant" type="string" calculate="if( /data/age_months  &lt; 2, 'yes', 'no')"/>
+      <bind nodeset="/data/d_convulsions" type="string" calculate="if( /data/danger/convulsions  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/d_unable_to_drink" type="string" calculate="if( /data/danger/unable_to_drink  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/d_vomits_everything" type="string" calculate="if( /data/danger/vomits_everything  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/d_very_sleepy" type="string" calculate="if( /data/danger/very_sleepy  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/d_chest_indrawing" type="string" calculate="if( /data/danger/chest_indrawing  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/d_red_muac" type="string" calculate="if( /data/danger/muac  = 'red', 'yes', 'no')"/>
+      <bind nodeset="/data/d_swelling_both_feet" type="string" calculate="if( /data/danger/swelling_both_feet  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/d_fever_7_days" type="string" calculate="if( /data/problems/fever  = 'yes' and  /data/problems/fever_days  &gt;= 7, 'yes', 'no')"/>
+      <bind nodeset="/data/d_cough_21_days" type="string" calculate="if( /data/problems/cough  = 'yes' and  /data/problems/cough_days  &gt;= 21, 'yes', 'no')"/>
+      <bind nodeset="/data/d_diarrhoea_14_days" type="string" calculate="if( /data/problems/diarrhoea  = 'yes' and  /data/problems/diarrhoea_days  &gt;= 14, 'yes', 'no')"/>
+      <bind nodeset="/data/d_blood_in_stool" type="string" calculate="if( /data/problems/diarrhoea  = 'yes' and  /data/problems/blood_in_stool  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/r_danger" type="string" calculate="if( /data/d_young_infant  = 'yes' or  /data/d_convulsions  = 'yes' or  /data/d_unable_to_drink  = 'yes' or  /data/d_vomits_everything  = 'yes' or  /data/d_very_sleepy  = 'yes' or  /data/d_chest_indrawing  = 'yes' or  /data/d_red_muac  = 'yes' or  /data/d_swelling_both_feet  = 'yes' or  /data/d_fever_7_days  = 'yes' or  /data/d_cough_21_days  = 'yes' or  /data/d_diarrhoea_14_days  = 'yes' or  /data/d_blood_in_stool  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/t_malaria" type="string" calculate="if( /data/r_danger  = 'no' and ( /data/problems/fever  = 'yes' and  /data/tests/rdt  = 'positive'), 'yes', 'no')"/>
+      <bind nodeset="/data/t_pneumonia" type="string" calculate="if( /data/r_danger  = 'no' and ( /data/problems/cough  = 'yes' and ((( /data/age_months  &gt;= 2 and  /data/age_months  &lt; 12) and  /data/tests/breaths_per_minute  &gt;= 50) or ( /data/age_months  &gt;= 12 and  /data/tests/breaths_per_minute  &gt;= 40))), 'yes', 'no')"/>
+      <bind nodeset="/data/t_diarrhoea" type="string" calculate="if( /data/r_danger  = 'no' and ( /data/problems/diarrhoea  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/data/t_yellow_muac" type="string" calculate="if( /data/r_danger  = 'no' and ( /data/danger/muac  = 'yellow'), 'yes', 'no')"/>
+      <bind nodeset="/data/r_no_rdt" type="string" calculate="if( /data/r_danger  = 'no' and  /data/problems/fever  = 'yes' and  /data/tests/rdt  = 'not_done', 'yes', 'no')"/>
+      <bind nodeset="/data/r_severity" type="string" calculate="if( /data/r_danger  = 'yes', 'emergency', if( /data/r_no_rdt  = 'yes', 'urgent', 'none'))"/>
+      <bind nodeset="/data/r_reasons" type="string" calculate="if( /data/r_danger  = 'yes', normalize-space(concat(if( /data/d_young_infant  = 'yes', 'young_infant', ''), ' ', if( /data/d_convulsions  = 'yes', 'convulsions', ''), ' ', if( /data/d_unable_to_drink  = 'yes', 'unable_to_drink', ''), ' ', if( /data/d_vomits_everything  = 'yes', 'vomits_everything', ''), ' ', if( /data/d_very_sleepy  = 'yes', 'very_sleepy', ''), ' ', if( /data/d_chest_indrawing  = 'yes', 'chest_indrawing', ''), ' ', if( /data/d_red_muac  = 'yes', 'red_muac', ''), ' ', if( /data/d_swelling_both_feet  = 'yes', 'swelling_both_feet', ''), ' ', if( /data/d_fever_7_days  = 'yes', 'fever_7_days', ''), ' ', if( /data/d_cough_21_days  = 'yes', 'cough_21_days', ''), ' ', if( /data/d_diarrhoea_14_days  = 'yes', 'diarrhoea_14_days', ''), ' ', if( /data/d_blood_in_stool  = 'yes', 'blood_in_stool', ''))), if( /data/r_no_rdt  = 'yes', 'fever_no_rdt', ''))"/>
+      <bind nodeset="/data/r_treatments" type="string" calculate="normalize-space(concat(if( /data/t_malaria  = 'yes', 'malaria', ''), ' ', if( /data/t_pneumonia  = 'yes', 'pneumonia', ''), ' ', if( /data/t_diarrhoea  = 'yes', 'diarrhoea', ''), ' ', if( /data/t_yellow_muac  = 'yes', 'yellow_muac', '')))"/>
+      <bind nodeset="/data/t_sick_child_follow_up" type="string" calculate="if( /data/r_danger  = 'no' and  /data/r_treatments  != '', 'yes', 'no')"/>
+      <bind nodeset="/data/result/refer_note" readonly="true()" type="string" relevant=" /data/r_danger  = 'yes'"/>
+      <bind nodeset="/data/result/why_young_infant" readonly="true()" type="string" relevant=" /data/d_young_infant  = 'yes'"/>
+      <bind nodeset="/data/result/why_convulsions" readonly="true()" type="string" relevant=" /data/d_convulsions  = 'yes'"/>
+      <bind nodeset="/data/result/why_unable_to_drink" readonly="true()" type="string" relevant=" /data/d_unable_to_drink  = 'yes'"/>
+      <bind nodeset="/data/result/why_vomits_everything" readonly="true()" type="string" relevant=" /data/d_vomits_everything  = 'yes'"/>
+      <bind nodeset="/data/result/why_very_sleepy" readonly="true()" type="string" relevant=" /data/d_very_sleepy  = 'yes'"/>
+      <bind nodeset="/data/result/why_chest_indrawing" readonly="true()" type="string" relevant=" /data/d_chest_indrawing  = 'yes'"/>
+      <bind nodeset="/data/result/why_red_muac" readonly="true()" type="string" relevant=" /data/d_red_muac  = 'yes'"/>
+      <bind nodeset="/data/result/why_swelling_both_feet" readonly="true()" type="string" relevant=" /data/d_swelling_both_feet  = 'yes'"/>
+      <bind nodeset="/data/result/why_fever_7_days" readonly="true()" type="string" relevant=" /data/d_fever_7_days  = 'yes'"/>
+      <bind nodeset="/data/result/why_cough_21_days" readonly="true()" type="string" relevant=" /data/d_cough_21_days  = 'yes'"/>
+      <bind nodeset="/data/result/why_diarrhoea_14_days" readonly="true()" type="string" relevant=" /data/d_diarrhoea_14_days  = 'yes'"/>
+      <bind nodeset="/data/result/why_blood_in_stool" readonly="true()" type="string" relevant=" /data/d_blood_in_stool  = 'yes'"/>
+      <bind nodeset="/data/result/no_rdt_note" readonly="true()" type="string" relevant=" /data/r_no_rdt  = 'yes'"/>
+      <bind nodeset="/data/result/do_malaria" readonly="true()" type="string" relevant=" /data/t_malaria  = 'yes'"/>
+      <bind nodeset="/data/result/do_pneumonia" readonly="true()" type="string" relevant=" /data/t_pneumonia  = 'yes'"/>
+      <bind nodeset="/data/result/do_diarrhoea" readonly="true()" type="string" relevant=" /data/t_diarrhoea  = 'yes'"/>
+      <bind nodeset="/data/result/do_yellow_muac" readonly="true()" type="string" relevant=" /data/t_yellow_muac  = 'yes'"/>
+      <bind nodeset="/data/result/follow_up_note" readonly="true()" type="string" relevant=" /data/t_sick_child_follow_up  = 'yes'"/>
+      <bind nodeset="/data/result/nothing_note" readonly="true()" type="string" relevant=" /data/r_danger  = 'no' and  /data/r_no_rdt  = 'no' and  /data/r_treatments  = ''"/>
+      <bind nodeset="/data/data/__age_months" type="string" calculate=" /data/age_months "/>
+      <bind nodeset="/data/data/__severity" type="string" calculate=" /data/r_severity "/>
+      <bind nodeset="/data/data/__danger_signs" type="string" calculate=" /data/r_reasons "/>
+      <bind nodeset="/data/data/__treatments" type="string" calculate=" /data/r_treatments "/>
+      <bind nodeset="/data/data/__rdt" type="string" calculate=" /data/tests/rdt "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/age">
+      <label ref="jr:itext('/data/age:label')"/>
+      <input ref="/data/age/age_months_entered">
+        <label ref="jr:itext('/data/age/age_months_entered:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/problems">
+      <label ref="jr:itext('/data/problems:label')"/>
+      <select1 ref="/data/problems/fever">
+        <label ref="jr:itext('/data/problems/fever:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/problems/fever_days">
+        <label ref="jr:itext('/data/problems/fever_days:label')"/>
+      </input>
+      <select1 ref="/data/problems/cough">
+        <label ref="jr:itext('/data/problems/cough:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/problems/cough_days">
+        <label ref="jr:itext('/data/problems/cough_days:label')"/>
+      </input>
+      <select1 ref="/data/problems/diarrhoea">
+        <label ref="jr:itext('/data/problems/diarrhoea:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/problems/diarrhoea_days">
+        <label ref="jr:itext('/data/problems/diarrhoea_days:label')"/>
+      </input>
+      <select1 ref="/data/problems/blood_in_stool">
+        <label ref="jr:itext('/data/problems/blood_in_stool:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/danger">
+      <label ref="jr:itext('/data/danger:label')"/>
+      <select1 ref="/data/danger/convulsions">
+        <label ref="jr:itext('/data/danger/convulsions:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/danger/unable_to_drink">
+        <label ref="jr:itext('/data/danger/unable_to_drink:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/danger/vomits_everything">
+        <label ref="jr:itext('/data/danger/vomits_everything:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/danger/very_sleepy">
+        <label ref="jr:itext('/data/danger/very_sleepy:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/danger/chest_indrawing">
+        <label ref="jr:itext('/data/danger/chest_indrawing:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/danger/swelling_both_feet">
+        <label ref="jr:itext('/data/danger/swelling_both_feet:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/danger/muac">
+        <label ref="jr:itext('/data/danger/muac:label')"/>
+        <itemset nodeset="instance('muac')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/tests">
+      <label ref="jr:itext('/data/tests:label')"/>
+      <select1 ref="/data/tests/rdt">
+        <label ref="jr:itext('/data/tests/rdt:label')"/>
+        <itemset nodeset="instance('rdt')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/tests/breaths_per_minute">
+        <label ref="jr:itext('/data/tests/breaths_per_minute:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/result">
+      <label ref="jr:itext('/data/result:label')"/>
+      <input ref="/data/result/refer_note">
+        <label ref="jr:itext('/data/result/refer_note:label')"/>
+      </input>
+      <input ref="/data/result/why_young_infant">
+        <label ref="jr:itext('/data/result/why_young_infant:label')"/>
+      </input>
+      <input ref="/data/result/why_convulsions">
+        <label ref="jr:itext('/data/result/why_convulsions:label')"/>
+      </input>
+      <input ref="/data/result/why_unable_to_drink">
+        <label ref="jr:itext('/data/result/why_unable_to_drink:label')"/>
+      </input>
+      <input ref="/data/result/why_vomits_everything">
+        <label ref="jr:itext('/data/result/why_vomits_everything:label')"/>
+      </input>
+      <input ref="/data/result/why_very_sleepy">
+        <label ref="jr:itext('/data/result/why_very_sleepy:label')"/>
+      </input>
+      <input ref="/data/result/why_chest_indrawing">
+        <label ref="jr:itext('/data/result/why_chest_indrawing:label')"/>
+      </input>
+      <input ref="/data/result/why_red_muac">
+        <label ref="jr:itext('/data/result/why_red_muac:label')"/>
+      </input>
+      <input ref="/data/result/why_swelling_both_feet">
+        <label ref="jr:itext('/data/result/why_swelling_both_feet:label')"/>
+      </input>
+      <input ref="/data/result/why_fever_7_days">
+        <label ref="jr:itext('/data/result/why_fever_7_days:label')"/>
+      </input>
+      <input ref="/data/result/why_cough_21_days">
+        <label ref="jr:itext('/data/result/why_cough_21_days:label')"/>
+      </input>
+      <input ref="/data/result/why_diarrhoea_14_days">
+        <label ref="jr:itext('/data/result/why_diarrhoea_14_days:label')"/>
+      </input>
+      <input ref="/data/result/why_blood_in_stool">
+        <label ref="jr:itext('/data/result/why_blood_in_stool:label')"/>
+      </input>
+      <input ref="/data/result/no_rdt_note">
+        <label ref="jr:itext('/data/result/no_rdt_note:label')"/>
+      </input>
+      <input ref="/data/result/do_malaria">
+        <label ref="jr:itext('/data/result/do_malaria:label')"/>
+      </input>
+      <input ref="/data/result/do_pneumonia">
+        <label ref="jr:itext('/data/result/do_pneumonia:label')"/>
+      </input>
+      <input ref="/data/result/do_diarrhoea">
+        <label ref="jr:itext('/data/result/do_diarrhoea:label')"/>
+      </input>
+      <input ref="/data/result/do_yellow_muac">
+        <label ref="jr:itext('/data/result/do_yellow_muac:label')"/>
+      </input>
+      <input ref="/data/result/follow_up_note">
+        <label ref="jr:itext('/data/result/follow_up_note:label')"/>
+      </input>
+      <input ref="/data/result/nothing_note">
+        <label ref="jr:itext('/data/result/nothing_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

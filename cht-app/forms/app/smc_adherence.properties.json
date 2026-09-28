@@ -1,0 +1,8 @@
+{
+    "icon": "icon-child",
+    "title": "SMC home doses check",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}

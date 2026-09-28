@@ -35,15 +35,23 @@ function getTaskTestDays(start, end, task, interval = 1) {
   return [...new Set(range(start, end, interval).concat(getTaskWindowEdges(task)))].sort(function(a, b) {return a - b;});
 }
 
-// Module 1 adds routine newborn home visits after every delivery with a live baby. Reference tests
-// that assert "no tasks left" after a delivery are about other tasks, so they leave these out.
-const NEWBORN_VISIT_TITLE = 'task.pnc.newborn_home_visit.title';
-const excludingNewbornVisits = tasks => tasks.filter(task => task.emission.title !== NEWBORN_VISIT_TITLE);
+// The platform adds routine tasks the reference tests don't know about: newborn home visits after a
+// delivery (Module 1), and a barrier screen and birth plan for every pregnancy (Module 6). Reference
+// tests that assert "no tasks left" are about their own tasks, so they leave these out. Muting of
+// the platform's tasks is checked directly: the unfiltered "cleared" assertion in
+// pregnancy_danger_signs.spec.js, and the clearing tests in barriers.spec.js and
+// newborn_home_visit.spec.js.
+const PLATFORM_ROUTINE_TITLES = [
+  'task.pnc.newborn_home_visit.title',
+  'task.barrier.screen.title',
+  'task.birth_plan.make.title',
+];
+const excludingPlatformRoutineTasks = tasks => tasks.filter(task => !PLATFORM_ROUTINE_TITLES.includes(task.emission.title));
 
 module.exports = {
   MAX_DAYS_IN_PREGNANCY,
   range,
   getRangeForTask,
   getTaskTestDays,
-  excludingNewbornVisits,
+  excludingPlatformRoutineTasks,
 };

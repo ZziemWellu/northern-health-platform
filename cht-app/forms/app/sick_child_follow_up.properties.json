@@ -1,0 +1,8 @@
+{
+    "icon": "icon-child",
+    "title": "Sick child follow-up",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}

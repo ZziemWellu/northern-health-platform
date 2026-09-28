@@ -3,7 +3,7 @@ const expect = chai.expect;
 chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 const TestRunner = require('cht-conf-test-harness');
-const { getRangeForTask, getTaskTestDays, excludingNewbornVisits } = require('../test-helpers');
+const { getRangeForTask, getTaskTestDays, excludingPlatformRoutineTasks } = require('../test-helpers');
 const { pregnancyRegistrationScenarios, pregnancyHomeVisitScenarios, deliveryReportScenarios } = require('../form-inputs');
 const harness = new TestRunner();
 
@@ -100,7 +100,7 @@ describe('Delivery tasks tests', () => {
         await harness.loadAction(taskForDelivery[0]);
         const deliveryFormResult = await harness.fillForm(...deliveryReportScenarios.oneChildHealthyFacility);
         expect(deliveryFormResult.errors).to.be.empty;
-        const tasksAfterDeliveryReport = excludingNewbornVisits(await harness.getTasks());
+        const tasksAfterDeliveryReport = excludingPlatformRoutineTasks(await harness.getTasks());
         expect(tasksAfterDeliveryReport).to.be.empty;
         resolved = true;
       }

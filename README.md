@@ -12,8 +12,8 @@ Each module can ship on its own or together with the others. The design is in th
 | 3 Local-food nutrition | Not started |
 | 4 Voice support | Not started (MAMA-AI's Twi audio pipeline will move here) |
 | 5 CHPS workflows | Not started |
-| 6 Hidden barriers | Not started |
-| 7 Sick child and prevention | Not started |
+| 6 Hidden barriers | In progress: barrier screen with an action per barrier, birth plan with the decider (by 32 weeks), same-day barrier check after a missed referral, supervisor target |
+| 7 Sick child and prevention | In progress: iCCM sick-child assessment (malaria, pneumonia, diarrhoea, danger signs) with day-3 follow-up, SMC dose tracking with catch-up and home-dose checks. Vaccine defaulter tracking not started |
 
 > **Not for clinical use.** Clinical rules (danger signs, visit timing, priorities) follow WHO-based
 > reference content and must be confirmed against Ghana Health Service protocols by a clinical
@@ -24,8 +24,8 @@ Each module can ship on its own or together with the others. The design is in th
 ```
 cht-app/                  CHT app configuration (forms, tasks, targets, translations, tests)
   priority.js             Module 1: one urgency ranking for the whole task list
-  tasks.js                Task rules (reference tasks + Modules 1 and 2)
-  targets.js              Dashboard targets (reference + Module 2 referral completion)
+  tasks.js                Task rules (reference tasks + Modules 1, 2, 6 and 7)
+  targets.js              Dashboard targets (reference + referral completion, birth plans, SMC doses)
   forms/app/              App forms (.xlsx source -> .xml compiled)
   data/                   Northern facility list (referral destinations) and hand-verified fixes
   tools/                  Form generators (forms written as code)

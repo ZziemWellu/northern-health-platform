@@ -42,6 +42,19 @@ const referralFollowUpContent = (content, referralId, code, destination) => {
   content.destination_name = destination;
 };
 
+// Module 6 helpers.
+const BARRIER_REASONS = ['no_transport', 'no_money', 'family_did_not_agree', 'too_far'];
+
+const submittedSince = (contact, forms, since, excludeId) => contact.reports.some(r =>
+  forms.includes(r.form) && r._id !== excludeId && r.reported_date >= since
+);
+
+const pregnancyEnded = (contact, pregnancyReport) =>
+  isPregnancyTaskMuted(contact) ||
+  submittedSince(contact, ['delivery'], pregnancyReport.reported_date) ||
+  !!getRecentANCVisitWithEvent(contact, pregnancyReport, 'abortion') ||
+  !!getRecentANCVisitWithEvent(contact, pregnancyReport, 'miscarriage');
+
 // Module 1: newborn home visits on day 1, 3 and 7 after birth. The reference config tracked newborns
 // only after a danger sign; routine first-week checks are where most newborn deaths can be caught.
 // Windows don't overlap, so one visit resolves exactly one event.
@@ -564,14 +577,15 @@ module.exports = [
     ],
   },
 
-  // Module 2: a woman flagged emergency or urgent must have a referral raised the same day. This is
-  // the top of the list until it's done.
+  // Module 2: anyone flagged emergency or urgent must have a referral raised the same day: a woman
+  // (maternal danger assessment) or a child (Module 7 sick child and its day-3 check). This is the
+  // top of the list until it's done.
   {
     name: 'referral.raise',
     icon: 'icon-pregnancy-danger',
     title: 'task.referral.raise.title',
     appliesTo: 'reports',
-    appliesToType: ['maternal_danger_assessment'],
+    appliesToType: ['maternal_danger_assessment', 'sick_child', 'sick_child_follow_up'],
     appliesIf: function (contact, report) {
       return ['emergency', 'urgent'].includes(getField(report, 'r_severity')) && isAlive(contact);
     },
@@ -678,6 +692,258 @@ module.exports = [
         end: 7,
         dueDate: function (event, contact, report) {
           return addDays(report.reported_date, 1);
+        },
+      },
+    ],
+  },
+
+  // Module 6: screen every new pregnancy for barriers within its first weeks on the register.
+  {
+    name: 'barrier.screen',
+    icon: 'icon-pregnancy',
+    title: 'task.barrier.screen.title',
+    appliesTo: 'reports',
+    appliesToType: ['pregnancy'],
+    appliesIf: function (contact, report) {
+      return isAlive(contact) && report.reported_date === getNewestPregnancyTimestamp(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return pregnancyEnded(contact, report) ||
+        submittedSince(contact, ['barrier_screen'], report.reported_date);
+    },
+    priority: () => priorityFor('BARRIER_SCREEN'),
+    actions: [{ type: 'report', form: 'barrier_screen' }],
+    events: [
+      {
+        id: 'barrier-screen',
+        start: 7,
+        end: 28,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 7);
+        },
+      },
+    ],
+  },
+
+  // Module 6: a birth plan made with the decider by 32 weeks (or 4 weeks after registration if
+  // the LMP is unknown).
+  {
+    name: 'birth_plan.make',
+    icon: 'icon-pregnancy',
+    title: 'task.birth_plan.make.title',
+    appliesTo: 'reports',
+    appliesToType: ['pregnancy'],
+    appliesIf: function (contact, report) {
+      return isAlive(contact) && report.reported_date === getNewestPregnancyTimestamp(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return pregnancyEnded(contact, report) ||
+        submittedSince(contact, ['birth_plan'], report.reported_date);
+    },
+    priority: () => priorityFor('BIRTH_PLAN'),
+    actions: [{ type: 'report', form: 'birth_plan' }],
+    events: [
+      {
+        id: 'birth-plan-by-32-weeks',
+        start: 56,
+        end: 84,
+        dueDate: function (event, contact, report) {
+          const lmp = getMostRecentLMPDateForPregnancy(contact, report);
+          return lmp ? addDays(lmp, 32 * 7) : addDays(report.reported_date, 28);
+        },
+      },
+    ],
+  },
+
+  // Module 6: an incomplete birth plan comes back in two weeks, until it is complete or she delivers.
+  {
+    name: 'birth_plan.complete',
+    icon: 'icon-pregnancy',
+    title: 'task.birth_plan.complete.title',
+    appliesTo: 'reports',
+    appliesToType: ['birth_plan'],
+    appliesIf: function (contact, report) {
+      return getField(report, 't_birth_plan_incomplete') === 'yes' && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return isPregnancyTaskMuted(contact) ||
+        submittedSince(contact, ['delivery'], report.reported_date) ||
+        submittedSince(contact, ['birth_plan'], report.reported_date, report._id);
+    },
+    priority: () => priorityFor('BIRTH_PLAN'),
+    actions: [{ type: 'report', form: 'birth_plan' }],
+    events: [
+      {
+        id: 'birth-plan-complete',
+        start: 7,
+        end: 21,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 14);
+        },
+      },
+    ],
+  },
+
+  // Module 6: a referral that failed for transport, money, family or distance triggers a barrier
+  // check the same day, carrying the reasons she gave.
+  {
+    name: 'barrier.after_missed_referral',
+    icon: 'icon-follow-up',
+    title: 'task.barrier.after_missed_referral.title',
+    appliesTo: 'reports',
+    appliesToType: ['referral_follow_up'],
+    appliesIf: function (contact, report) {
+      const reasons = (getField(report, 'arrival.not_arrived_reasons') || '').split(' ');
+      return isAlive(contact) && getField(report, 'arrival.arrived') === 'no' &&
+        reasons.some(r => BARRIER_REASONS.includes(r));
+    },
+    resolvedIf: function (contact, report) {
+      return isPregnancyTaskMuted(contact) ||
+        submittedSince(contact, ['barrier_screen'], report.reported_date);
+    },
+    priority: () => priorityFor('BARRIER_AFTER_MISSED_REFERRAL'),
+    actions: [
+      {
+        type: 'report',
+        form: 'barrier_screen',
+        modifyContent: function (content, contact, report) {
+          content.source_reasons = getField(report, 'arrival.not_arrived_reasons');
+        },
+      },
+    ],
+    events: [
+      {
+        id: 'barrier-after-missed-referral',
+        start: 0,
+        end: 3,
+        dueDate: function (event, contact, report) {
+          return getTimeForMidnight(report.reported_date);
+        },
+      },
+    ],
+  },
+
+  // Module 7: every child treated at home is seen again on day 3.
+  {
+    name: 'sick_child.follow_up',
+    icon: 'icon-child',
+    title: 'task.sick_child.follow_up.title',
+    appliesTo: 'reports',
+    appliesToType: ['sick_child'],
+    appliesIf: function (contact, report) {
+      return getField(report, 't_sick_child_follow_up') === 'yes' && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return submittedSince(contact, ['sick_child_follow_up'], report.reported_date);
+    },
+    priority: () => priorityFor('SICK_CHILD_FOLLOW_UP'),
+    actions: [
+      {
+        type: 'report',
+        form: 'sick_child_follow_up',
+        modifyContent: function (content, contact, report) {
+          content.treatments = getField(report, 'r_treatments');
+        },
+      },
+    ],
+    events: [
+      {
+        id: 'sick-child-day-3',
+        start: 1,
+        end: 3,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 3);
+        },
+      },
+    ],
+  },
+
+  // Module 7: an SMC dose missed because the child was away gets a catch-up visit the next day.
+  // (Caregiver absence was the main cause of missed doses in Upper East, Ayamba et al. 2025.)
+  {
+    name: 'smc.catch_up',
+    icon: 'icon-child',
+    title: 'task.smc.catch_up.title',
+    appliesTo: 'reports',
+    appliesToType: ['smc_dose'],
+    appliesIf: function (contact, report) {
+      return getField(report, 'r_catch_up') === 'yes' && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return submittedSince(contact, ['smc_dose'], report.reported_date, report._id);
+    },
+    priority: () => priorityFor('SMC_CATCH_UP'),
+    actions: [{ type: 'report', form: 'smc_dose' }],
+    events: [
+      {
+        id: 'smc-catch-up',
+        start: 0,
+        end: 4,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 1);
+        },
+      },
+    ],
+  },
+
+  // Module 7: check the day-2 and day-3 home doses.
+  {
+    name: 'smc.adherence',
+    icon: 'icon-child',
+    title: 'task.smc.adherence.title',
+    appliesTo: 'reports',
+    appliesToType: ['smc_dose'],
+    appliesIf: function (contact, report) {
+      return getField(report, 'dose.day1_given') === 'yes' && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return submittedSince(contact, ['smc_adherence'], report.reported_date);
+    },
+    priority: () => priorityFor('SMC_ADHERENCE'),
+    actions: [
+      {
+        type: 'report',
+        form: 'smc_adherence',
+        modifyContent: function (content, contact, report) {
+          content.cycle = getField(report, 'dose.cycle');
+        },
+      },
+    ],
+    events: [
+      {
+        id: 'smc-adherence',
+        start: 0,
+        end: 3,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 2);
+        },
+      },
+    ],
+  },
+
+  // Module 7: the next monthly SMC cycle, until cycle 4.
+  {
+    name: 'smc.next_cycle',
+    icon: 'icon-child',
+    title: 'task.smc.next_cycle.title',
+    appliesTo: 'reports',
+    appliesToType: ['smc_dose'],
+    appliesIf: function (contact, report) {
+      return getField(report, 'dose.day1_given') === 'yes' &&
+        Number(getField(report, 'dose.cycle')) < 4 && isAlive(contact);
+    },
+    resolvedIf: function (contact, report) {
+      return submittedSince(contact, ['smc_dose'], report.reported_date, report._id);
+    },
+    priority: () => priorityFor('SMC_NEXT_CYCLE'),
+    actions: [{ type: 'report', form: 'smc_dose' }],
+    events: [
+      {
+        id: 'smc-next-cycle',
+        start: 3,
+        end: 7,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 28);
         },
       },
     ],

@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>SMC home doses check</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/cycle:label">
+            <value>Cycle</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which child is this for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/date_of_birth:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/doses:label">
+            <value>Home doses</value>
+          </text>
+          <text id="/data/doses/day2_given:label">
+            <value>Was the day-2 dose given?</value>
+          </text>
+          <text id="/data/doses/day3_given:label">
+            <value>Was the day-3 dose given?</value>
+          </text>
+          <text id="/data/doses/sick_since:label">
+            <value>Has the child had fever or been sick since the first dose?</value>
+          </text>
+          <text id="/data/result:label">
+            <value>Next step</value>
+          </text>
+          <text id="/data/result/complete_note:label">
+            <value>All three doses taken for this cycle.</value>
+          </text>
+          <text id="/data/result/incomplete_note:label">
+            <value>Doses were missed. Explain why all three matter; record this for the supervisor.</value>
+          </text>
+          <text id="/data/result/sick_note:label">
+            <value>The child has been sick: assess with the sick child form now.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="smc_adherence" version="2026092801" prefix="J1!smc_adherence!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <cycle/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <dob/>
+          <doses>
+            <day2_given/>
+            <day3_given/>
+            <sick_since/>
+          </doses>
+          <r_complete/>
+          <result>
+            <complete_note/>
+            <incomplete_note/>
+            <sick_note/>
+          </result>
+          <data>
+            <__complete/>
+            <__cycle/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/cycle" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/doses/day2_given" type="string" required="true()"/>
+      <bind nodeset="/data/doses/day3_given" type="string" required="true()"/>
+      <bind nodeset="/data/doses/sick_since" type="string" required="true()"/>
+      <bind nodeset="/data/r_complete" type="string" calculate="if( /data/doses/day2_given  = 'yes' and  /data/doses/day3_given  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/result/complete_note" readonly="true()" type="string" relevant=" /data/r_complete  = 'yes'"/>
+      <bind nodeset="/data/result/incomplete_note" readonly="true()" type="string" relevant=" /data/r_complete  = 'no'"/>
+      <bind nodeset="/data/result/sick_note" readonly="true()" type="string" relevant=" /data/doses/sick_since  = 'yes'"/>
+      <bind nodeset="/data/data/__complete" type="string" calculate=" /data/r_complete "/>
+      <bind nodeset="/data/data/__cycle" type="string" calculate="../../inputs/cycle"/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/doses">
+      <label ref="jr:itext('/data/doses:label')"/>
+      <select1 ref="/data/doses/day2_given">
+        <label ref="jr:itext('/data/doses/day2_given:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/doses/day3_given">
+        <label ref="jr:itext('/data/doses/day3_given:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/doses/sick_since">
+        <label ref="jr:itext('/data/doses/sick_since:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/result">
+      <label ref="jr:itext('/data/result:label')"/>
+      <input ref="/data/result/complete_note">
+        <label ref="jr:itext('/data/result/complete_note:label')"/>
+      </input>
+      <input ref="/data/result/incomplete_note">
+        <label ref="jr:itext('/data/result/incomplete_note:label')"/>
+      </input>
+      <input ref="/data/result/sick_note">
+        <label ref="jr:itext('/data/result/sick_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

@@ -6,6 +6,7 @@ chai.use(require('chai-things'));
 const TestRunner = require('cht-conf-test-harness');
 
 const { pregnancyRegistrationScenarios, pregnancyDangerSignScenarios, pregnancyHomeVisitScenarios } = require('../form-inputs');
+const { excludingPlatformRoutineTasks } = require('../test-helpers');
 const harness = new TestRunner();
 
 const now = '2000-01-01';
@@ -37,7 +38,7 @@ describe('Pregnancy danger sign tests', () => {
     await harness.loadAction(tasksAfterRegistration[0]);
     const followupFormResult = await harness.fillForm(...pregnancyDangerSignScenarios.followUp.cured);
     expect(followupFormResult.errors).to.be.empty;
-    const tasksAfterDangerSignsFollowUp = await harness.getTasks();
+    const tasksAfterDangerSignsFollowUp = excludingPlatformRoutineTasks(await harness.getTasks());
     expect(tasksAfterDangerSignsFollowUp).to.have.property('length', 0);
 
   });
@@ -64,7 +65,7 @@ describe('Pregnancy danger sign tests', () => {
     await harness.loadAction(tasksAfterRegistration[0]);
     followupFormResult = await harness.fillForm(...pregnancyDangerSignScenarios.followUp.cured);
     expect(followupFormResult.errors).to.be.empty;
-    const tasksAfterDangerSignsFollowUp = await harness.getTasks();
+    const tasksAfterDangerSignsFollowUp = excludingPlatformRoutineTasks(await harness.getTasks());
     expect(tasksAfterDangerSignsFollowUp).to.have.property('length', 0);
   });
 
@@ -116,7 +117,7 @@ describe('Pregnancy danger sign tests', () => {
     await harness.loadAction(tasksAfterDangerSignReport[0]);
     followupFormResult = await harness.fillForm(...pregnancyDangerSignScenarios.followUp.cured);
     expect(followupFormResult.errors).to.be.empty;
-    const tasksAfterDangerSignsFollowUp = await harness.getTasks();
+    const tasksAfterDangerSignsFollowUp = excludingPlatformRoutineTasks(await harness.getTasks());
     expect(tasksAfterDangerSignsFollowUp).to.have.property('length', 0);
 
   });

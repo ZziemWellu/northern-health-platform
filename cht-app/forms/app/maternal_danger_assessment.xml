@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Maternal danger assessment</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="stages-0">
+            <value>Pregnant, not in labour</value>
+          </text>
+          <text id="stages-1">
+            <value>In labour</value>
+          </text>
+          <text id="stages-2">
+            <value>After birth (up to 6 weeks)</value>
+          </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Which woman is this assessment for?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/data/stage_page:label">
+            <value>Stage</value>
+          </text>
+          <text id="/data/stage_page/stage:label">
+            <value>Where is she in her pregnancy?</value>
+          </text>
+          <text id="/data/vitals:label">
+            <value>Measurements</value>
+          </text>
+          <text id="/data/vitals/vitals_note:label">
+            <value>Leave a measurement empty if you could not take it.</value>
+          </text>
+          <text id="/data/vitals/systolic_bp:jr:constraintMsg">
+            <value>Enter a value between 50 and 260.</value>
+          </text>
+          <text id="/data/vitals/systolic_bp:label">
+            <value>Blood pressure, top number (systolic)</value>
+          </text>
+          <text id="/data/vitals/diastolic_bp:jr:constraintMsg">
+            <value>Enter a value between 30 and 160.</value>
+          </text>
+          <text id="/data/vitals/diastolic_bp:label">
+            <value>Blood pressure, bottom number (diastolic)</value>
+          </text>
+          <text id="/data/vitals/temperature:jr:constraintMsg">
+            <value>Enter a value between 34 and 43.</value>
+          </text>
+          <text id="/data/vitals/temperature:label">
+            <value>Temperature (C)</value>
+          </text>
+          <text id="/data/symptoms:label">
+            <value>Danger signs</value>
+          </text>
+          <text id="/data/symptoms/convulsions:label">
+            <value>Convulsions (fits) now or since your last visit?</value>
+          </text>
+          <text id="/data/symptoms/severe_headache:label">
+            <value>Severe headache?</value>
+          </text>
+          <text id="/data/symptoms/blurred_vision:label">
+            <value>Blurred vision?</value>
+          </text>
+          <text id="/data/symptoms/epigastric_pain:label">
+            <value>Pain in the upper belly (under the ribs)?</value>
+          </text>
+          <text id="/data/symptoms/vaginal_bleeding:label">
+            <value>Vaginal bleeding?</value>
+          </text>
+          <text id="/data/symptoms/bleeding_ml:jr:constraintMsg">
+            <value>Enter a value between 0 and 5000.</value>
+          </text>
+          <text id="/data/symptoms/bleeding_ml:label">
+            <value>Estimated blood loss (mL)</value>
+          </text>
+          <text id="/data/symptoms/foul_discharge:label">
+            <value>Foul-smelling vaginal discharge?</value>
+          </text>
+          <text id="/data/symptoms/fever_reported:label">
+            <value>Does she feel hot or report fever?</value>
+          </text>
+          <text id="/data/symptoms/labour_hours:jr:constraintMsg">
+            <value>Enter a value between 0 and 96.</value>
+          </text>
+          <text id="/data/symptoms/labour_hours:label">
+            <value>Hours since labour started</value>
+          </text>
+          <text id="/data/result:label">
+            <value>Result</value>
+          </text>
+          <text id="/data/result/refer_now:label">
+            <value>REFER NOW: emergency. Arrange transport immediately and give pre-referral care per the GHS protocol.</value>
+          </text>
+          <text id="/data/result/refer_today:label">
+            <value>REFER TODAY: she needs to be seen at a facility today.</value>
+          </text>
+          <text id="/data/result/why_note:label">
+            <value>Why:</value>
+          </text>
+          <text id="/data/result/why_convulsions:label">
+            <value>- Convulsions (fits): possible eclampsia.</value>
+          </text>
+          <text id="/data/result/why_severe_hypertension:label">
+            <value> - Blood pressure <output value=" /data/vitals/systolic_bp "/>/<output value=" /data/vitals/diastolic_bp "/> is at or above 160/110: severe hypertension.</value>
+          </text>
+          <text id="/data/result/why_pre_eclampsia_signs:label">
+            <value> - Blood pressure <output value=" /data/vitals/systolic_bp "/>/<output value=" /data/vitals/diastolic_bp "/> is at or above 140/90 with headache, blurred vision or upper belly pain: possible pre-eclampsia.</value>
+          </text>
+          <text id="/data/result/why_haemorrhage_after_birth:label">
+            <value> - Blood loss of about <output value=" /data/symptoms/bleeding_ml "/> mL after birth is over 500 mL: postpartum haemorrhage.</value>
+          </text>
+          <text id="/data/result/why_bleeding_in_pregnancy:label">
+            <value>- Vaginal bleeding during pregnancy.</value>
+          </text>
+          <text id="/data/result/why_sepsis_signs:label">
+            <value>- Fever with foul-smelling discharge: possible sepsis.</value>
+          </text>
+          <text id="/data/result/why_prolonged_labour:label">
+            <value> - Labour for <output value=" /data/symptoms/labour_hours "/> hours (12 or more): prolonged labour.</value>
+          </text>
+          <text id="/data/result/why_fever:label">
+            <value> - Fever (<output value=" /data/vitals/temperature "/> C, or reported): needs assessment today.</value>
+          </text>
+          <text id="/data/result/no_danger:label">
+            <value>No danger signs found from these answers. Keep her usual visit schedule and remind her of the danger signs.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="maternal_danger_assessment" version="2026092801" prefix="J1!maternal_danger_assessment!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_uuid/>
+          <patient_name/>
+          <stage_page>
+            <stage/>
+          </stage_page>
+          <vitals>
+            <vitals_note/>
+            <systolic_bp/>
+            <diastolic_bp/>
+            <temperature/>
+          </vitals>
+          <symptoms>
+            <convulsions/>
+            <severe_headache/>
+            <blurred_vision/>
+            <epigastric_pain/>
+            <vaginal_bleeding/>
+            <bleeding_ml/>
+            <foul_discharge/>
+            <fever_reported/>
+            <labour_hours/>
+          </symptoms>
+          <r_convulsions/>
+          <r_severe_hypertension/>
+          <r_pre_eclampsia_signs/>
+          <r_haemorrhage_after_birth/>
+          <r_bleeding_in_pregnancy/>
+          <r_sepsis_signs/>
+          <r_prolonged_labour/>
+          <r_fever/>
+          <r_severity/>
+          <r_reasons/>
+          <t_maternal_danger_follow_up/>
+          <result>
+            <refer_now/>
+            <refer_today/>
+            <why_note/>
+            <why_convulsions/>
+            <why_severe_hypertension/>
+            <why_pre_eclampsia_signs/>
+            <why_haemorrhage_after_birth/>
+            <why_bleeding_in_pregnancy/>
+            <why_sepsis_signs/>
+            <why_prolonged_labour/>
+            <why_fever/>
+            <no_danger/>
+          </result>
+          <data>
+            <__stage/>
+            <__severity/>
+            <__reasons/>
+            <__systolic_bp/>
+            <__diastolic_bp/>
+            <__temperature/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="stages">
+        <root>
+          <item>
+            <itextId>stages-0</itextId>
+            <name>pregnant</name>
+          </item>
+          <item>
+            <itextId>stages-1</itextId>
+            <name>labour</name>
+          </item>
+          <item>
+            <itextId>stages-2</itextId>
+            <name>after_birth</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/stage_page/stage" type="string" required="true()"/>
+      <bind nodeset="/data/vitals/vitals_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/vitals/systolic_bp" type="int" constraint=". &gt;= 50 and . &lt;= 260" jr:constraintMsg="jr:itext('/data/vitals/systolic_bp:jr:constraintMsg')"/>
+      <bind nodeset="/data/vitals/diastolic_bp" type="int" constraint=". &gt;= 30 and . &lt;= 160" jr:constraintMsg="jr:itext('/data/vitals/diastolic_bp:jr:constraintMsg')"/>
+      <bind nodeset="/data/vitals/temperature" type="decimal" constraint=". &gt;= 34 and . &lt;= 43" jr:constraintMsg="jr:itext('/data/vitals/temperature:jr:constraintMsg')"/>
+      <bind nodeset="/data/symptoms/convulsions" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/severe_headache" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/blurred_vision" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/epigastric_pain" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/vaginal_bleeding" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/bleeding_ml" type="int" relevant=" /data/symptoms/vaginal_bleeding  = 'yes'" constraint=". &gt;= 0 and . &lt;= 5000" jr:constraintMsg="jr:itext('/data/symptoms/bleeding_ml:jr:constraintMsg')"/>
+      <bind nodeset="/data/symptoms/foul_discharge" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/fever_reported" type="string" required="true()"/>
+      <bind nodeset="/data/symptoms/labour_hours" type="decimal" relevant=" /data/stage_page/stage  = 'labour'" constraint=". &gt;= 0 and . &lt;= 96" jr:constraintMsg="jr:itext('/data/symptoms/labour_hours:jr:constraintMsg')"/>
+      <bind nodeset="/data/r_convulsions" type="string" calculate="if( /data/symptoms/convulsions  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/r_severe_hypertension" type="string" calculate="if( /data/vitals/systolic_bp  &gt;= 160 or  /data/vitals/diastolic_bp  &gt;= 110, 'yes', 'no')"/>
+      <bind nodeset="/data/r_pre_eclampsia_signs" type="string" calculate="if(( /data/vitals/systolic_bp  &gt;= 140 or  /data/vitals/diastolic_bp  &gt;= 90) and ( /data/symptoms/severe_headache  = 'yes' or  /data/symptoms/blurred_vision  = 'yes' or  /data/symptoms/epigastric_pain  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/data/r_haemorrhage_after_birth" type="string" calculate="if( /data/stage_page/stage  = 'after_birth' and  /data/symptoms/bleeding_ml  &gt; 500, 'yes', 'no')"/>
+      <bind nodeset="/data/r_bleeding_in_pregnancy" type="string" calculate="if( /data/stage_page/stage  = 'pregnant' and  /data/symptoms/vaginal_bleeding  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/r_sepsis_signs" type="string" calculate="if(( /data/vitals/temperature  &gt;= 38 or  /data/symptoms/fever_reported  = 'yes') and  /data/symptoms/foul_discharge  = 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/r_prolonged_labour" type="string" calculate="if( /data/stage_page/stage  = 'labour' and  /data/symptoms/labour_hours  &gt;= 12, 'yes', 'no')"/>
+      <bind nodeset="/data/r_fever" type="string" calculate="if(( /data/vitals/temperature  &gt;= 38 or  /data/symptoms/fever_reported  = 'yes') and  /data/symptoms/foul_discharge  != 'yes', 'yes', 'no')"/>
+      <bind nodeset="/data/r_severity" type="string" calculate="if( /data/r_convulsions  = 'yes' or  /data/r_severe_hypertension  = 'yes' or  /data/r_pre_eclampsia_signs  = 'yes' or  /data/r_haemorrhage_after_birth  = 'yes' or  /data/r_bleeding_in_pregnancy  = 'yes' or  /data/r_sepsis_signs  = 'yes', 'emergency', if( /data/r_prolonged_labour  = 'yes' or  /data/r_fever  = 'yes', 'urgent', 'none'))"/>
+      <bind nodeset="/data/r_reasons" type="string" calculate="normalize-space(concat(if( /data/r_convulsions  = 'yes', 'convulsions', ''), ' ', if( /data/r_severe_hypertension  = 'yes', 'severe_hypertension', ''), ' ', if( /data/r_pre_eclampsia_signs  = 'yes', 'pre_eclampsia_signs', ''), ' ', if( /data/r_haemorrhage_after_birth  = 'yes', 'haemorrhage_after_birth', ''), ' ', if( /data/r_bleeding_in_pregnancy  = 'yes', 'bleeding_in_pregnancy', ''), ' ', if( /data/r_sepsis_signs  = 'yes', 'sepsis_signs', ''), ' ', if( /data/r_prolonged_labour  = 'yes', 'prolonged_labour', ''), ' ', if( /data/r_fever  = 'yes', 'fever', '')))"/>
+      <bind nodeset="/data/t_maternal_danger_follow_up" type="string" calculate="if( /data/r_severity  != 'none', 'yes', 'no')"/>
+      <bind nodeset="/data/result/refer_now" readonly="true()" type="string" relevant=" /data/r_severity  = 'emergency'"/>
+      <bind nodeset="/data/result/refer_today" readonly="true()" type="string" relevant=" /data/r_severity  = 'urgent'"/>
+      <bind nodeset="/data/result/why_note" readonly="true()" type="string" relevant=" /data/r_severity  != 'none'"/>
+      <bind nodeset="/data/result/why_convulsions" readonly="true()" type="string" relevant=" /data/r_convulsions  = 'yes'"/>
+      <bind nodeset="/data/result/why_severe_hypertension" readonly="true()" type="string" relevant=" /data/r_severe_hypertension  = 'yes'"/>
+      <bind nodeset="/data/result/why_pre_eclampsia_signs" readonly="true()" type="string" relevant=" /data/r_pre_eclampsia_signs  = 'yes'"/>
+      <bind nodeset="/data/result/why_haemorrhage_after_birth" readonly="true()" type="string" relevant=" /data/r_haemorrhage_after_birth  = 'yes'"/>
+      <bind nodeset="/data/result/why_bleeding_in_pregnancy" readonly="true()" type="string" relevant=" /data/r_bleeding_in_pregnancy  = 'yes'"/>
+      <bind nodeset="/data/result/why_sepsis_signs" readonly="true()" type="string" relevant=" /data/r_sepsis_signs  = 'yes'"/>
+      <bind nodeset="/data/result/why_prolonged_labour" readonly="true()" type="string" relevant=" /data/r_prolonged_labour  = 'yes'"/>
+      <bind nodeset="/data/result/why_fever" readonly="true()" type="string" relevant=" /data/r_fever  = 'yes'"/>
+      <bind nodeset="/data/result/no_danger" readonly="true()" type="string" relevant=" /data/r_severity  = 'none'"/>
+      <bind nodeset="/data/data/__stage" type="string" calculate=" /data/stage_page/stage "/>
+      <bind nodeset="/data/data/__severity" type="string" calculate=" /data/r_severity "/>
+      <bind nodeset="/data/data/__reasons" type="string" calculate=" /data/r_reasons "/>
+      <bind nodeset="/data/data/__systolic_bp" type="string" calculate=" /data/vitals/systolic_bp "/>
+      <bind nodeset="/data/data/__diastolic_bp" type="string" calculate=" /data/vitals/diastolic_bp "/>
+      <bind nodeset="/data/data/__temperature" type="string" calculate=" /data/vitals/temperature "/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/stage_page">
+      <label ref="jr:itext('/data/stage_page:label')"/>
+      <select1 ref="/data/stage_page/stage">
+        <label ref="jr:itext('/data/stage_page/stage:label')"/>
+        <itemset nodeset="instance('stages')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/vitals">
+      <label ref="jr:itext('/data/vitals:label')"/>
+      <input ref="/data/vitals/vitals_note">
+        <label ref="jr:itext('/data/vitals/vitals_note:label')"/>
+      </input>
+      <input ref="/data/vitals/systolic_bp">
+        <label ref="jr:itext('/data/vitals/systolic_bp:label')"/>
+      </input>
+      <input ref="/data/vitals/diastolic_bp">
+        <label ref="jr:itext('/data/vitals/diastolic_bp:label')"/>
+      </input>
+      <input ref="/data/vitals/temperature">
+        <label ref="jr:itext('/data/vitals/temperature:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/symptoms">
+      <label ref="jr:itext('/data/symptoms:label')"/>
+      <select1 ref="/data/symptoms/convulsions">
+        <label ref="jr:itext('/data/symptoms/convulsions:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/symptoms/severe_headache">
+        <label ref="jr:itext('/data/symptoms/severe_headache:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/symptoms/blurred_vision">
+        <label ref="jr:itext('/data/symptoms/blurred_vision:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/symptoms/epigastric_pain">
+        <label ref="jr:itext('/data/symptoms/epigastric_pain:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/symptoms/vaginal_bleeding">
+        <label ref="jr:itext('/data/symptoms/vaginal_bleeding:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/symptoms/bleeding_ml">
+        <label ref="jr:itext('/data/symptoms/bleeding_ml:label')"/>
+      </input>
+      <select1 ref="/data/symptoms/foul_discharge">
+        <label ref="jr:itext('/data/symptoms/foul_discharge:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/symptoms/fever_reported">
+        <label ref="jr:itext('/data/symptoms/fever_reported:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/symptoms/labour_hours">
+        <label ref="jr:itext('/data/symptoms/labour_hours:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/result">
+      <label ref="jr:itext('/data/result:label')"/>
+      <input ref="/data/result/refer_now">
+        <label ref="jr:itext('/data/result/refer_now:label')"/>
+      </input>
+      <input ref="/data/result/refer_today">
+        <label ref="jr:itext('/data/result/refer_today:label')"/>
+      </input>
+      <input ref="/data/result/why_note">
+        <label ref="jr:itext('/data/result/why_note:label')"/>
+      </input>
+      <input ref="/data/result/why_convulsions">
+        <label ref="jr:itext('/data/result/why_convulsions:label')"/>
+      </input>
+      <input ref="/data/result/why_severe_hypertension">
+        <label ref="jr:itext('/data/result/why_severe_hypertension:label')"/>
+      </input>
+      <input ref="/data/result/why_pre_eclampsia_signs">
+        <label ref="jr:itext('/data/result/why_pre_eclampsia_signs:label')"/>
+      </input>
+      <input ref="/data/result/why_haemorrhage_after_birth">
+        <label ref="jr:itext('/data/result/why_haemorrhage_after_birth:label')"/>
+      </input>
+      <input ref="/data/result/why_bleeding_in_pregnancy">
+        <label ref="jr:itext('/data/result/why_bleeding_in_pregnancy:label')"/>
+      </input>
+      <input ref="/data/result/why_sepsis_signs">
+        <label ref="jr:itext('/data/result/why_sepsis_signs:label')"/>
+      </input>
+      <input ref="/data/result/why_prolonged_labour">
+        <label ref="jr:itext('/data/result/why_prolonged_labour:label')"/>
+      </input>
+      <input ref="/data/result/why_fever">
+        <label ref="jr:itext('/data/result/why_fever:label')"/>
+      </input>
+      <input ref="/data/result/no_danger">
+        <label ref="jr:itext('/data/result/no_danger:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

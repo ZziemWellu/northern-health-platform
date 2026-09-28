@@ -548,6 +548,53 @@ module.exports = [
     ],
   },
 
+  // Module 1: a woman flagged by the maternal danger assessment is followed up the next day, at the
+  // top of the list, until a reassessment finds no danger sign. (Referral tracking itself belongs
+  // to Module 2.)
+  {
+    name: 'maternal_danger_follow_up',
+    icon: 'icon-pregnancy-danger',
+    title: 'task.maternal_danger_follow_up.title',
+    appliesTo: 'reports',
+    appliesToType: ['maternal_danger_assessment'],
+    appliesIf: function (contact, report) {
+      return getField(report, 't_maternal_danger_follow_up') === 'yes' && isAlive(contact);
+    },
+    resolvedIf: function (contact, report, event, dueDate) {
+      if (isPregnancyTaskMuted(contact)) {
+        return true;
+      }
+      const startTime = Math.max(
+        addDays(dueDate, -event.start).getTime(),
+        report.reported_date + 1
+      );
+      const endTime = addDays(dueDate, event.end + 1).getTime();
+      return isFormArraySubmittedInWindow(
+        contact.reports,
+        ['maternal_danger_assessment'],
+        startTime,
+        endTime
+      );
+    },
+    priority: () => priorityFor('DANGER_SIGN_FOLLOW_UP'),
+    actions: [
+      {
+        type: 'report',
+        form: 'maternal_danger_assessment',
+      },
+    ],
+    events: [
+      {
+        id: 'maternal-danger-follow-up',
+        start: 0,
+        end: 3,
+        dueDate: function (event, contact, report) {
+          return addDays(report.reported_date, 1);
+        },
+      },
+    ],
+  },
+
   // Module 1: a danger sign found at a newborn home visit brings the nurse back the next day,
   // at the top of the list.
   {

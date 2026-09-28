@@ -7,7 +7,7 @@ Each module can ship on its own or together with the others. The design is in th
 
 | Module | Status |
 | --- | --- |
-| 1 Risk before crisis | In progress: urgency ranking of the task list, newborn home visits (day 1, 3, 7) |
+| 1 Risk before crisis | In progress: urgency ranking, newborn home visits (day 1, 3, 7), maternal danger assessment with explained rules |
 | 2 Last-mile follow-up | Not started (MAMA-AI's referral code will move here) |
 | 3 Local-food nutrition | Not started |
 | 4 Voice support | Not started (MAMA-AI's Twi audio pipeline will move here) |
@@ -17,7 +17,7 @@ Each module can ship on its own or together with the others. The design is in th
 
 > **Not for clinical use.** Clinical rules (danger signs, visit timing, priorities) follow WHO-based
 > reference content and must be confirmed against Ghana Health Service protocols by a clinical
-> advisor before any field use. See `cht-app/priority.js` and `cht-app/tools/build_pnc_home_visit.py`.
+> advisor before any field use. See `cht-app/priority.js` and the generators in `cht-app/tools/`.
 
 ## Layout
 

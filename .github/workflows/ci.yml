@@ -24,6 +24,12 @@ jobs:
       - name: System tools (xsltproc for the CHT test harness)
         run: sudo apt-get update && sudo apt-get install -y xsltproc
 
+      # Ubuntu 24.04 blocks the unprivileged user namespaces Chrome's sandbox needs ("No usable
+      # sandbox"). Lifting that on this throwaway CI machine keeps Chrome sandboxed, unlike
+      # --no-sandbox.
+      - name: Allow Chrome's sandbox on the CI runner
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
       - name: Python tools (form conversion, generators, nutrition engine)
         run: pip install openpyxl scipy pytest "git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic"
 

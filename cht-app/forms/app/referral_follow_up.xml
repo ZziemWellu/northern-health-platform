@@ -98,6 +98,9 @@
           <text id="/data/arrival:label">
             <value>Did she arrive?</value>
           </text>
+          <text id="/data/arrival/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/arrival/referral_note:label">
             <value> Referral <output value=" /data/inputs/referral_code "/> to <output value=" /data/inputs/destination_name "/></value>
           </text>
@@ -155,6 +158,7 @@
           <patient_uuid/>
           <patient_name/>
           <arrival>
+            <pilot_warning/>
             <referral_note/>
             <arrived/>
             <confirmed_by/>
@@ -304,6 +308,7 @@
       <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/arrival/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/arrival/referral_note" readonly="true()" type="string" relevant="../../inputs/referral_code != ''"/>
       <bind nodeset="/data/arrival/arrived" type="string" required="true()"/>
       <bind nodeset="/data/arrival/confirmed_by" type="string" required="true()" relevant=" /data/arrival/arrived  = 'yes'"/>
@@ -337,6 +342,9 @@
     </group>
     <group appearance="field-list" ref="/data/arrival">
       <label ref="jr:itext('/data/arrival:label')"/>
+      <input ref="/data/arrival/pilot_warning">
+        <label ref="jr:itext('/data/arrival/pilot_warning:label')"/>
+      </input>
       <input ref="/data/arrival/referral_note">
         <label ref="jr:itext('/data/arrival/referral_note:label')"/>
       </input>

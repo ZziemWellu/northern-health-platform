@@ -1,0 +1,23 @@
+{
+  "_about": "Clinical sign-off per module. Until a module is approved here by a named clinical advisor, every one of its forms shows a PILOT warning on its first page. Edit only when a qualified reviewer has checked that module's content against GHS protocols; see CLINICAL_CONTENT.md for what they must check.",
+  "modules": {
+    "1": {"name": "Risk before crisis", "approved": false, "by": null, "on": null},
+    "2": {"name": "Last-mile follow-up", "approved": false, "by": null, "on": null},
+    "3": {"name": "Local-food nutrition", "approved": false, "by": null, "on": null},
+    "6": {"name": "Hidden barriers", "approved": false, "by": null, "on": null},
+    "7": {"name": "Sick child and prevention", "approved": false, "by": null, "on": null}
+  },
+  "forms": {
+    "pnc_home_visit": "1",
+    "maternal_danger_assessment": "1",
+    "referral": "2",
+    "referral_follow_up": "2",
+    "feeding_counselling": "3",
+    "barrier_screen": "6",
+    "birth_plan": "6",
+    "sick_child": "7",
+    "sick_child_follow_up": "7",
+    "smc_dose": "7",
+    "smc_adherence": "7"
+  }
+}

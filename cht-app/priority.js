@@ -15,6 +15,7 @@
 const LEVELS = {
   RAISE_REFERRAL: 110,
   DANGER_SIGN_FOLLOW_UP: 100,
+  RAISE_REFERRAL_URGENT: 98,
   REFERRAL_UNCONFIRMED: 95,
   BARRIER_AFTER_MISSED_REFERRAL: 93,
   NEWBORN_DAY_1: 90,
@@ -35,6 +36,7 @@ const LEVELS = {
 const REASONS = {
   RAISE_REFERRAL: 'priority.reason.raise_referral',
   DANGER_SIGN_FOLLOW_UP: 'priority.reason.danger_sign_follow_up',
+  RAISE_REFERRAL_URGENT: 'priority.reason.raise_referral_urgent',
   REFERRAL_UNCONFIRMED: 'priority.reason.referral_unconfirmed',
   BARRIER_AFTER_MISSED_REFERRAL: 'priority.reason.barrier_after_missed_referral',
   NEWBORN_DAY_1: 'priority.reason.newborn_day_1',

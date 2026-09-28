@@ -104,6 +104,9 @@
           <text id="/data/access:label">
             <value>Getting to care</value>
           </text>
+          <text id="/data/access/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/access/missed_referral_note:label">
             <value> She did not reach a referral. Reasons given: <output value=" /data/inputs/source_reasons "/></value>
           </text>
@@ -189,6 +192,7 @@
           <patient_uuid/>
           <patient_name/>
           <access>
+            <pilot_warning/>
             <missed_referral_note/>
             <travel_time/>
             <transport/>
@@ -377,6 +381,7 @@
       <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/access/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/access/missed_referral_note" readonly="true()" type="string" relevant=" /data/inputs/source_reasons  != ''"/>
       <bind nodeset="/data/access/travel_time" type="string" required="true()"/>
       <bind nodeset="/data/access/transport" type="string" required="true()"/>
@@ -423,6 +428,9 @@
     </group>
     <group appearance="field-list" ref="/data/access">
       <label ref="jr:itext('/data/access:label')"/>
+      <input ref="/data/access/pilot_warning">
+        <label ref="jr:itext('/data/access/pilot_warning:label')"/>
+      </input>
       <input ref="/data/access/missed_referral_note">
         <label ref="jr:itext('/data/access/missed_referral_note:label')"/>
       </input>

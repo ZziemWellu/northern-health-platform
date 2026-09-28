@@ -18,8 +18,8 @@ const TWO_YEARS = child('child_2y', '2024-09-01');
 const EIGHT_MONTHS = child('child_8m', '2026-01-15');
 const ONE_MONTH = child('child_1m', '2026-08-20');
 
-// Builds page answers for sick_child, following the form's relevance rules. The age page is
-// skipped because every test child has a date of birth.
+// Builds page answers for sick_child, following the form's relevance rules. Every test child has a
+// date of birth, so the first page shows only the pilot warning.
 const sickChild = ({ ageMonths = 24, fever = null, cough = null, diarrhoea = null, blood = 'no',
   convulsions = 'no', unableToDrink = 'no', vomits = 'no', sleepy = 'no', indrawing = 'no',
   swelling = 'no', muac = 'green', rdt = 'positive', breaths = '30' } = {}) => {
@@ -40,7 +40,8 @@ const sickChild = ({ ageMonths = 24, fever = null, cough = null, diarrhoea = nul
   if (fever !== null) { tests.push(rdt); }
   if (cough !== null) { tests.push(breaths); }
 
-  return tests.length ? [problems, danger, tests, []] : [problems, danger, []];
+  // The first page carries the pilot warning (and the age question when there is no date of birth).
+  return tests.length ? [[], problems, danger, tests, []] : [[], problems, danger, []];
 };
 
 const assess = async (subject, options) => {
@@ -147,7 +148,7 @@ describe('Module 7: sick child at home and malaria prevention', () => {
   });
 
   describe('seasonal malaria chemoprevention', () => {
-    const dose = (cycle, given, extra) => [[cycle, given, extra], []];
+    const dose = (cycle, given, extra) => [[], [cycle, given, extra], []]; // first page: pilot warning
 
     it('a given dose schedules the home-dose check (day 3) and the next cycle (day 28)', async () => {
       harness.subject = TWO_YEARS._id;

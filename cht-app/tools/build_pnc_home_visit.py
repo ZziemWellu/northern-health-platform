@@ -9,7 +9,12 @@ by the project's clinical advisor before any field use.
 """
 from pathlib import Path
 
+import sys
+
 import openpyxl
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from signoff import add_pilot_banner  # noqa: E402
 
 OUT = Path(__file__).resolve().parent.parent / "forms" / "app" / "pnc_home_visit.xlsx"
 
@@ -111,6 +116,7 @@ def build():
     survey = wb.active
     survey.title = "survey"
     survey.append(SURVEY_HEADERS)
+    rows = add_pilot_banner("pnc_home_visit", rows, lambda n, label: ["note", n, label] + [""] * 5)
     for row in rows:
         survey.append(row)
 

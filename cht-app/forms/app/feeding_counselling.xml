@@ -68,6 +68,9 @@
           <text id="/data/who:label">
             <value>Child and place</value>
           </text>
+          <text id="/data/who/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/who/age_months_entered:jr:constraintMsg">
             <value>Feeding plans are for children 6 to 23 months.</value>
           </text>
@@ -128,6 +131,7 @@
           <dob/>
           <age_months/>
           <who>
+            <pilot_warning/>
             <age_months_entered/>
             <price_region/>
           </who>
@@ -243,6 +247,7 @@
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
       <bind nodeset="/data/age_months" type="string" calculate="if( /data/dob  != '', floor(difference-in-months( /data/dob , today())), '')"/>
+      <bind nodeset="/data/who/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/who/age_months_entered" type="int" required="true()" relevant=" /data/dob  = ''" constraint=". &gt;= 6 and . &lt;= 23" jr:constraintMsg="jr:itext('/data/who/age_months_entered:jr:constraintMsg')"/>
       <bind nodeset="/data/who/price_region" type="string" required="true()"/>
       <bind nodeset="/data/r_age" type="string" calculate="if( /data/age_months  != '',  /data/age_months ,  /data/who/age_months_entered )"/>
@@ -280,6 +285,9 @@
     </group>
     <group appearance="field-list" ref="/data/who">
       <label ref="jr:itext('/data/who:label')"/>
+      <input ref="/data/who/pilot_warning">
+        <label ref="jr:itext('/data/who/pilot_warning:label')"/>
+      </input>
       <input ref="/data/who/age_months_entered">
         <label ref="jr:itext('/data/who/age_months_entered:label')"/>
       </input>

@@ -53,6 +53,9 @@
           <text id="/data/age:label">
             <value>Age</value>
           </text>
+          <text id="/data/age/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/age/age_months_entered:jr:constraintMsg">
             <value>This assessment is for children under 5 (0 to 59 months).</value>
           </text>
@@ -220,6 +223,7 @@
           <patient_name/>
           <dob/>
           <age>
+            <pilot_warning/>
             <age_months_entered/>
           </age>
           <age_months/>
@@ -364,6 +368,7 @@
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/age/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/age/age_months_entered" type="int" required="true()" relevant=" /data/dob  = ''" constraint=". &gt;= 0 and . &lt;= 59" jr:constraintMsg="jr:itext('/data/age/age_months_entered:jr:constraintMsg')"/>
       <bind nodeset="/data/age_months" type="string" calculate="if( /data/dob  != '', floor(difference-in-months( /data/dob , today())),  /data/age/age_months_entered )"/>
       <bind nodeset="/data/problems/fever" type="string" required="true()"/>
@@ -447,6 +452,9 @@
     </group>
     <group appearance="field-list" ref="/data/age">
       <label ref="jr:itext('/data/age:label')"/>
+      <input ref="/data/age/pilot_warning">
+        <label ref="jr:itext('/data/age/pilot_warning:label')"/>
+      </input>
       <input ref="/data/age/age_months_entered">
         <label ref="jr:itext('/data/age/age_months_entered:label')"/>
       </input>

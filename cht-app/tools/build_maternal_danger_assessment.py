@@ -21,7 +21,12 @@ then: npx cht --no-check convert-app-forms -- maternal_danger_assessment
 """
 from pathlib import Path
 
+import sys
+
 import openpyxl
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from signoff import add_pilot_banner  # noqa: E402
 
 FORM_ID = "maternal_danger_assessment"
 OUT = Path(__file__).resolve().parent.parent / "forms" / "app" / f"{FORM_ID}.xlsx"
@@ -156,6 +161,7 @@ def build():
     survey = wb.active
     survey.title = "survey"
     survey.append(HEADERS)
+    rows = add_pilot_banner(FORM_ID, rows, lambda n, label: row("note", n, label))
     for r in rows:
         survey.append(r)
 

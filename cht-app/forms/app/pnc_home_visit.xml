@@ -35,6 +35,9 @@
           <text id="/data/newborn:label">
             <value>Newborn check</value>
           </text>
+          <text id="/data/newborn/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/newborn/baby_seen:label">
             <value>Did you see and examine the baby today?</value>
           </text>
@@ -133,6 +136,7 @@
           <patient_id/>
           <patient_name/>
           <newborn>
+            <pilot_warning/>
             <baby_seen/>
             <baby_signs_note/>
             <convulsion/>
@@ -204,6 +208,7 @@
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/newborn/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/newborn/baby_seen" type="string" required="true()"/>
       <bind nodeset="/data/newborn/baby_signs_note" readonly="true()" type="string" relevant=" /data/newborn/baby_seen  = 'yes'"/>
       <bind nodeset="/data/newborn/convulsion" type="string" required="true()" relevant=" /data/newborn/baby_seen  = 'yes'"/>
@@ -250,6 +255,9 @@
     </group>
     <group appearance="field-list" ref="/data/newborn">
       <label ref="jr:itext('/data/newborn:label')"/>
+      <input ref="/data/newborn/pilot_warning">
+        <label ref="jr:itext('/data/newborn/pilot_warning:label')"/>
+      </input>
       <select1 ref="/data/newborn/baby_seen">
         <label ref="jr:itext('/data/newborn/baby_seen:label')"/>
         <itemset nodeset="instance('yes_no')/root/item">

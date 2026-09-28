@@ -15,9 +15,9 @@ Each module can ship on its own or together with the others. The design is in th
 | 6 Hidden barriers | In progress: barrier screen with an action per barrier, birth plan with the decider (by 32 weeks), same-day barrier check after a missed referral, supervisor target |
 | 7 Sick child and prevention | In progress: iCCM sick-child assessment (malaria, pneumonia, diarrhoea, danger signs) with day-3 follow-up, SMC dose tracking with catch-up and home-dose checks. Vaccine defaulter tracking not started |
 
-> **Not for clinical use.** Clinical rules (danger signs, visit timing, priorities) follow WHO-based
-> reference content and must be confirmed against Ghana Health Service protocols by a clinical
-> advisor before any field use. See `cht-app/priority.js` and the generators in `cht-app/tools/`.
+> **Not for clinical use.** No module has clinical sign-off yet, so every clinical form shows a
+> "PILOT - NOT FOR PATIENT CARE" warning. What a clinician must check, and how to sign a module off,
+> is in [CLINICAL_CONTENT.md](CLINICAL_CONTENT.md); sign-offs are recorded in `clinical_signoff.json`.
 
 ## Layout
 
@@ -71,12 +71,14 @@ pip install openpyxl "git+https://github.com/medic/pyxform.git@medic-conf-1.17#e
 ## Everyday commands (from `cht-app/`)
 
 ```bash
-npx mocha test/unit                          # fast unit tests, seconds
-npx cht --no-check compile-app-settings      # REQUIRED after changing tasks.js / targets.js / priority.js
-npm run test-tasks                           # task behaviour tests (headless browser)
-npm test                                     # everything (about 15 minutes on a slow laptop)
-python tools/build_pnc_home_visit.py && npx cht --no-check convert-app-forms -- pnc_home_visit
+npm run build          # regenerate every platform form and compile app settings: run after ANY change
+npm run test-unit      # ranking, facility data, integrity checks: seconds
+npm test               # everything in the CHT harness (about 15 minutes on a slow laptop)
+cd tools && python -m pytest -q    # form generators, pilot warning, emergency routing
 ```
+
+GitHub Actions runs all of this on every push, and fails if the committed forms or settings differ
+from what their sources generate (`.github/workflows/ci.yml`).
 
 The test harness reads the **compiled** `app_settings.json`, not `tasks.js`. If a rule change
 seems to have no effect in tests, you forgot to compile.

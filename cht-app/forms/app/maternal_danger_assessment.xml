@@ -41,6 +41,9 @@
           <text id="/data/stage_page:label">
             <value>Stage</value>
           </text>
+          <text id="/data/stage_page/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/stage_page/stage:label">
             <value>Where is she in her pregnancy?</value>
           </text>
@@ -170,6 +173,7 @@
           <patient_uuid/>
           <patient_name/>
           <stage_page>
+            <pilot_warning/>
             <stage/>
           </stage_page>
           <vitals>
@@ -271,6 +275,7 @@
       <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/data/stage_page/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/stage_page/stage" type="string" required="true()"/>
       <bind nodeset="/data/vitals/vitals_note" readonly="true()" type="string"/>
       <bind nodeset="/data/vitals/systolic_bp" type="int" constraint=". &gt;= 50 and . &lt;= 260" jr:constraintMsg="jr:itext('/data/vitals/systolic_bp:jr:constraintMsg')"/>
@@ -331,6 +336,9 @@
     </group>
     <group appearance="field-list" ref="/data/stage_page">
       <label ref="jr:itext('/data/stage_page:label')"/>
+      <input ref="/data/stage_page/pilot_warning">
+        <label ref="jr:itext('/data/stage_page/pilot_warning:label')"/>
+      </input>
       <select1 ref="/data/stage_page/stage">
         <label ref="jr:itext('/data/stage_page/stage:label')"/>
         <itemset nodeset="instance('stages')/root/item">

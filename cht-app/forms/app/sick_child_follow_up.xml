@@ -47,6 +47,9 @@
           <text id="/data/check:label">
             <value>Day-3 check</value>
           </text>
+          <text id="/data/check/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/check/treatments_note:label">
             <value> Treatments given at the first visit: <output value=" /data/inputs/treatments "/></value>
           </text>
@@ -104,6 +107,7 @@
           <patient_name/>
           <dob/>
           <check>
+            <pilot_warning/>
             <treatments_note/>
             <progress/>
             <danger_now/>
@@ -174,6 +178,7 @@
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/check/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/check/treatments_note" readonly="true()" type="string" relevant=" /data/inputs/treatments  != ''"/>
       <bind nodeset="/data/check/progress" type="string" required="true()"/>
       <bind nodeset="/data/check/danger_now" type="string" required="true()"/>
@@ -204,6 +209,9 @@
     </group>
     <group appearance="field-list" ref="/data/check">
       <label ref="jr:itext('/data/check:label')"/>
+      <input ref="/data/check/pilot_warning">
+        <label ref="jr:itext('/data/check/pilot_warning:label')"/>
+      </input>
       <input ref="/data/check/treatments_note">
         <label ref="jr:itext('/data/check/treatments_note:label')"/>
       </input>

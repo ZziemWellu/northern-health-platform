@@ -13,10 +13,13 @@ const assessment = ({ convulsions = 'no', feverReported = 'no' } = {}) => [
 ];
 
 // Referral answers. With reasons pre-filled from an assessment, page 1 asks only the severity.
+// Urgent and routine referrals pick region, district, facility. An emergency skips the district
+// and lists only the region's hospitals.
 const BOLGA = ['upper_east', 'bolgatanga_municipal', 'bolgatanga_regional_hospital_upper_east'];
-const referral = ({ severity = 'emergency', reasons, people = ['husband', 'yes'] } = {}) => [
+const BOLGA_EMERGENCY = ['upper_east', 'bolgatanga_regional_hospital_upper_east'];
+const referral = ({ severity = 'emergency', reasons, people = ['husband', 'yes'], emergency = severity === 'emergency' } = {}) => [
   reasons ? [severity, reasons] : [severity],
-  BOLGA,
+  emergency ? BOLGA_EMERGENCY : BOLGA,
   people,
   [],
 ];
@@ -40,7 +43,8 @@ describe('Module 2: referrals are tracked until she arrives', () => {
     expect((await harness.fillForm('maternal_danger_assessment', ...assessment(assessmentOptions))).errors).to.be.empty;
     const [raise] = await tasksTitled(RAISE);
     await harness.loadAction(raise);
-    const result = await harness.fillForm(...referral({ severity }));
+    // The assessment flagged an emergency, so the referral stays one whatever the nurse picks.
+    const result = await harness.fillForm(...referral({ severity, emergency: true }));
     expect(result.errors).to.be.empty;
     return result.report;
   };
@@ -130,16 +134,36 @@ describe('Module 2: referrals are tracked until she arrives', () => {
     await harness.fillForm('maternal_danger_assessment', ...assessment({ convulsions: 'yes' }));
     const [raise] = await tasksTitled(RAISE);
     await harness.loadAction(raise);
-    const bad = await harness.fillForm(['emergency'], BOLGA, ['none', 'no', 'yes', '12345'], []);
+    const bad = await harness.fillForm(['emergency'], BOLGA_EMERGENCY, ['none', 'no', 'yes', '12345'], []);
     expect(bad.errors).to.not.be.empty;
 
     await harness.clear();
     await harness.fillForm('maternal_danger_assessment', ...assessment({ convulsions: 'yes' }));
     const [raise2] = await tasksTitled(RAISE);
     await harness.loadAction(raise2);
-    const good = await harness.fillForm(['emergency'], BOLGA, ['none', 'no', 'yes', '0244714242'], []);
+    const good = await harness.fillForm(['emergency'], BOLGA_EMERGENCY, ['none', 'no', 'yes', '0244714242'], []);
     expect(good.errors).to.be.empty;
     expect(good.report.fields.data.__consent_call_decider).to.equal('yes');
+  });
+
+  // "An emergency can only go to a hospital" is tested in tools/test_referral_routing.py: the harness
+  // hangs instead of failing when asked to pick a choice a filter hides, so it can't test the negative.
+
+  it("an urgent referral still offers the district's health centres", async () => {
+    const result = await harness.fillForm('referral', ['urgent', 'fever'],
+      ['upper_east', 'bolgatanga_municipal', 'bolga_health_centre_upper_east'], ['husband', 'yes'], []);
+    expect(result.errors).to.be.empty;
+    expect(result.report.fields.r_destination_name).to.equal('Bolga Health Centre (Health Centre)');
+  });
+
+  it('an urgent referral sits below an emergency on the list', async () => {
+    harness.pushMockedDoc({ _id: 'child_2y', type: 'person', name: 'child_2y', patient_id: 'child_2y', date_of_birth: '2024-09-01',
+      reported_date: 1700000000000, parent: { _id: 'patient_parent_id', parent: { _id: 'chw_area_id', parent: { _id: 'district_id' } } } });
+    harness.subject = 'child_2y';
+    await harness.fillForm('sick_child', [], ['yes', '2', 'no', 'no'], ['no', 'no', 'no', 'no', 'no', 'green'], ['not_done'], []);
+    const [raise] = await tasksTitled(RAISE);
+    expect(raise.emission.priority).to.equal(LEVELS.RAISE_REFERRAL_URGENT);
+    expect(raise.emission.priorityLabel).to.equal(REASONS.RAISE_REFERRAL_URGENT);
   });
 
   describe('supervisor targets', () => {

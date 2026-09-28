@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: cht-app/package-lock.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: System tools (xsltproc for the CHT test harness)
+        run: sudo apt-get update && sudo apt-get install -y xsltproc
+
+      - name: Python tools (form conversion, generators, nutrition engine)
+        run: pip install openpyxl scipy pytest "git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic"
+
+      - name: Install CHT tooling
+        working-directory: cht-app
+        run: npm ci
+
+      - name: Forms and app settings match their sources
+        working-directory: cht-app
+        run: |
+          npm run build
+          # Spreadsheets carry build timestamps; the compiled XML and settings must not change.
+          git diff --stat --exit-code -- . ':(exclude)*.xlsx'
+
+      - name: Unit tests (ranking, facilities, integrity)
+        working-directory: cht-app
+        run: npx mocha test/unit
+
+      - name: Python tests (form generators, sign-off, routing, nutrition)
+        run: |
+          (cd cht-app/tools && python -m pytest -q -p no:cacheprovider)
+          (cd nutrition && python -m pytest -q -p no:cacheprovider)
+
+      - name: CHT behaviour tests (tasks, forms, targets)
+        working-directory: cht-app
+        run: npx cross-env TZ=Africa/Accra mocha --recursive --reporter dot test --timeout 120000

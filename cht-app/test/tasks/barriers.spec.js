@@ -77,6 +77,8 @@ describe('Module 6: hidden barriers', () => {
     // The screen is due in the first weeks; the birth plan only from 24 weeks.
     await register();
     expect(await tasksTitled(SCREEN)).to.have.property('length', 1);
+    // A day later: at the same timestamp as registration, "newest report" would be ambiguous.
+    await harness.flush(1);
     const cleared = await harness.fillForm('pregnancy_home_visit', ...pregnancyHomeVisitScenarios.clearAll);
     expect(cleared.errors).to.be.empty;
     expect(await tasksTitled(SCREEN)).to.be.empty;

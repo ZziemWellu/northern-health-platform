@@ -13,9 +13,13 @@ Run:  python tools/build_referral_forms.py
 then: npx cht --no-check convert-app-forms -- referral referral_follow_up
 """
 import csv
+import sys
 from pathlib import Path
 
 import openpyxl
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from signoff import add_pilot_banner, is_clinical  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 FORMS = ROOT / "forms" / "app"
@@ -90,6 +94,8 @@ def meta_rows():
 
 
 def save(name, title, rows, choices):
+    if is_clinical(name):
+        rows = add_pilot_banner(name, rows, lambda n, label: row("note", n, label))
     wb = openpyxl.Workbook()
     survey = wb.active
     survey.title = "survey"
@@ -126,9 +132,10 @@ def facility_choices():
                         "region": region.lower().replace(" ", "_")})
     for f in facilities:
         choices.append({"list_name": "facilities", "name": f["id"], "label::en": f"{f['name']} ({f['type']})",
-                        "district": district_key(f)})
+                        "district": district_key(f), "region": f["region"].lower().replace(" ", "_"),
+                        "level": f["level"]})
     choices.append({"list_name": "facilities", "name": "other", "label::en": "Another facility (type its name)",
-                    "district": "any"})
+                    "district": "any", "region": "any", "level": "0"})
     return choices
 
 
@@ -169,11 +176,19 @@ def build_referral():
             relevant="selected(${reasons}, 'other')"),
         row("end group", "why"),
 
+        # An emergency goes to a hospital: many northern districts have none, so an emergency lists
+        # the region's hospitals (levels 1-3: teaching, regional, district, municipal, other hospital)
+        # instead of the district's clinics. Urgent and routine referrals use the district list.
         row("begin group", "destination", "Where to", appearance="field-list"),
         row("select_one regions", "dest_region", "Region of the receiving facility", required="yes"),
-        row("select_one districts", "dest_district", "District", required="yes", choice_filter="region=${dest_region}"),
+        row("note", "emergency_hospitals_note",
+            "Emergency: only hospitals in this region are listed. Choose a clinic or health centre only through 'Another facility', and only if it can manage this emergency.",
+            relevant="${r_severity} = 'emergency'"),
+        row("select_one districts", "dest_district", "District", required="yes", choice_filter="region=${dest_region}",
+            relevant="${r_severity} != 'emergency'"),
         row("select_one facilities", "dest_facility", "Receiving facility", required="yes",
-            choice_filter="district=${dest_district} or district='any'"),
+            choice_filter="(${r_severity} = 'emergency' and region=${dest_region} and level <= 3) or "
+                          "(${r_severity} != 'emergency' and district=${dest_district}) or district='any'"),
         row("string", "dest_other_name", "Name of the facility", required="yes",
             relevant="${dest_facility} = 'other'"),
         row("end group", "destination"),
@@ -274,6 +289,25 @@ def build_follow_up():
     save("referral_follow_up", "Referral follow-up", rows, choices)
 
 
+PROPERTIES = {
+    # A referral can be raised from anyone's profile (woman or child), not only from a task.
+    "referral": {"icon": "icon-follow-up", "title": "Referral", "context": {
+        "person": True, "place": False,
+        "expression": "contact.type === 'person' && summary.alive && user._id != contact._id"}},
+    # A follow-up only makes sense for a specific referral, so it opens only from its task.
+    "referral_follow_up": {"icon": "icon-follow-up", "title": "Referral follow-up",
+                           "context": {"person": False, "place": False}},
+}
+
+
+def write_properties():
+    import json
+    for name, props in PROPERTIES.items():
+        text = json.dumps(props, indent=4)
+        (FORMS / f"{name}.properties.json").write_text(text + chr(10), encoding="utf-8")
+
+
 if __name__ == "__main__":
     build_referral()
     build_follow_up()
+    write_properties()

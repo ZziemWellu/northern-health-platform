@@ -2,17 +2,23 @@ const { expect } = require('chai');
 const { LEVELS, REASONS, priorityFor, newbornVisitPriority, NEWBORN_EVENT_KINDS } = require('../../priority');
 
 describe('Module 1 priority scheme', () => {
-  it('puts a flagged woman with no referral yet at the very top', () => {
+  it('puts an emergency with no referral yet at the very top', () => {
     Object.entries(LEVELS).filter(([kind]) => kind !== 'RAISE_REFERRAL')
       .forEach(([kind, level]) => expect(LEVELS.RAISE_REFERRAL, kind).to.be.greaterThan(level));
   });
 
   it('ranks danger-sign follow-ups and unconfirmed referrals above every routine visit', () => {
-    const urgent = ['RAISE_REFERRAL', 'DANGER_SIGN_FOLLOW_UP', 'REFERRAL_UNCONFIRMED'];
+    const urgent = ['RAISE_REFERRAL', 'DANGER_SIGN_FOLLOW_UP', 'RAISE_REFERRAL_URGENT', 'REFERRAL_UNCONFIRMED'];
     Object.entries(LEVELS).filter(([kind]) => !urgent.includes(kind)).forEach(([kind, level]) => {
       expect(LEVELS.DANGER_SIGN_FOLLOW_UP, kind).to.be.greaterThan(level);
       expect(LEVELS.REFERRAL_UNCONFIRMED, kind).to.be.greaterThan(level);
     });
+  });
+
+  it('ranks an urgent referral below an emergency and danger-sign follow-ups, above an unconfirmed one', () => {
+    expect(LEVELS.RAISE_REFERRAL).to.be.greaterThan(LEVELS.DANGER_SIGN_FOLLOW_UP);
+    expect(LEVELS.DANGER_SIGN_FOLLOW_UP).to.be.greaterThan(LEVELS.RAISE_REFERRAL_URGENT);
+    expect(LEVELS.RAISE_REFERRAL_URGENT).to.be.greaterThan(LEVELS.REFERRAL_UNCONFIRMED);
   });
 
   it('ranks the newborn first week above pregnancy and delivery tasks, day 1 highest', () => {

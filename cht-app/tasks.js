@@ -595,7 +595,12 @@ module.exports = [
       }
       return contact.reports.some(r => r.form === 'referral' && r.reported_date >= report.reported_date);
     },
-    priority: () => priorityFor('RAISE_REFERRAL'),
+    // An emergency (go now) outranks everything; an urgent referral (go today) sits just below
+    // yesterday's danger-sign follow-ups, so a child with no malaria test never ranks level with a
+    // woman who is convulsing.
+    priority: function (contact, report) {
+      return priorityFor(getField(report, 'r_severity') === 'emergency' ? 'RAISE_REFERRAL' : 'RAISE_REFERRAL_URGENT');
+    },
     actions: [
       {
         type: 'report',

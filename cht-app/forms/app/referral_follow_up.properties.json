@@ -1,0 +1,8 @@
+{
+    "icon": "icon-follow-up",
+    "title": "Referral follow-up",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}

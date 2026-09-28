@@ -38,6 +38,9 @@
           <text id="/data/doses:label">
             <value>Home doses</value>
           </text>
+          <text id="/data/doses/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
           <text id="/data/doses/day2_given:label">
             <value>Was the day-2 dose given?</value>
           </text>
@@ -89,6 +92,7 @@
           <patient_name/>
           <dob/>
           <doses>
+            <pilot_warning/>
             <day2_given/>
             <day3_given/>
             <sick_since/>
@@ -140,6 +144,7 @@
       <bind nodeset="/data/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/data/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/data/dob" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/data/doses/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/doses/day2_given" type="string" required="true()"/>
       <bind nodeset="/data/doses/day3_given" type="string" required="true()"/>
       <bind nodeset="/data/doses/sick_since" type="string" required="true()"/>
@@ -167,6 +172,9 @@
     </group>
     <group appearance="field-list" ref="/data/doses">
       <label ref="jr:itext('/data/doses:label')"/>
+      <input ref="/data/doses/pilot_warning">
+        <label ref="jr:itext('/data/doses/pilot_warning:label')"/>
+      </input>
       <select1 ref="/data/doses/day2_given">
         <label ref="jr:itext('/data/doses/day2_given:label')"/>
         <itemset nodeset="instance('yes_no')/root/item">

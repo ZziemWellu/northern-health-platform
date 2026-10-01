@@ -60,13 +60,18 @@ Needs: Node.js 20+ (22 used), Python 3.10+, Git, and `xsltproc` (libxslt).
 
 - **Linux / macOS:** install `xsltproc` from the package manager (`apt install xsltproc`, already on macOS).
 - **Windows:** `xsltproc` isn't built in. This project used MSYS2's `mingw-w64-x86_64-libxslt`
-  package and its DLLs, copied into a folder on the PATH (see "Windows notes" below).
+  package and its DLLs, copied into a folder on the PATH (see "Windows notes" below) - or, with no
+  admin rights available, conda's `libxslt` package works just as well (same section).
 
 ```bash
 cd cht-app
 npm ci
-pip install openpyxl "git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic"
+pip install openpyxl numpy scipy pytest "git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic"
 ```
+
+`numpy`/`scipy` are the nutrition module's optimiser (`nutrition/optimiser`), and `pytest` runs
+both `cht-app/tools`'s and `nutrition`'s test suites - all three are imported by the code even
+though they're easy to miss since nothing under `cht-app/` itself requires them.
 
 ## Everyday commands (from `cht-app/`)
 
@@ -104,6 +109,18 @@ export PATH="/c/Users/Owner/.devtools/xslt:/c/Users/Owner/.devtools/python-3.11:
 ```
 
 On a new machine, install the tools normally instead; nothing in the repo depends on those paths.
+
+**No admin rights, so no MSYS2/Chocolatey?** If conda or miniconda is already installed,
+`conda install -n base -c conda-forge libxslt` puts a working `xsltproc.exe` in its `Library\bin`
+without needing an administrator account - unlike Chocolatey's default (machine-wide) install
+location. Add that folder to PATH, e.g. in Git Bash's `~/.bashrc`:
+
+```bash
+export PATH="/c/Users/<you>/miniconda3/Library/bin:$PATH"
+```
+
+Verify with `xsltproc --version`; the rest of the build (`npm run build`, `pyxform-medic`) doesn't
+care which of the two installs put it on PATH.
 
 ## Licence
 

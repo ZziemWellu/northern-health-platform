@@ -26,5 +26,33 @@
     "mocha": "^11.7.4",
     "moment": "^2.29.1",
     "sinon": "^21.0.1"
+  },
+  "overrides": {
+    "form-data": "2.5.6",
+    "node-fetch": "2.7.0",
+    "serialize-javascript": "7.0.5",
+    "tar-fs": "2.1.4",
+    "uglify-js": "2.8.29",
+    "ws": "7.5.11",
+    "diff": "8.0.4",
+    "csv-parse": "7.0.2",
+    "qs": "6.16.0",
+    "tough-cookie": "4.1.4",
+    "xmldom": "npm:@xmldom/xmldom@^0.9.0",
+    "pouchdb-utils": {
+      "uuid": "11.1.1"
+    },
+    "pouchdb": {
+      "uuid": "11.1.1"
+    },
+    "pouchdb-core": {
+      "uuid": "11.1.1"
+    },
+    "gaxios": {
+      "uuid": "11.1.1"
+    },
+    "googleapis-common": {
+      "uuid": "11.1.1"
+    }
   }
 }

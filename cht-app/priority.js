@@ -11,6 +11,12 @@
 // CLINICAL SIGN-OFF REQUIRED: the ordering below follows WHO postnatal guidance (most newborn deaths
 // happen in the first week, the first day most of all). It must be confirmed against GHS's own
 // protocols by the project's clinical advisor before any field use.
+//
+// WHO's 2022 postnatal care guideline specifies four contacts: within 24h, 48-72h (day 3), days
+// 7-14 (day 7), and week 6. NEWBORN_WEEK_6 closes the fourth-contact gap below day 7; it reuses the
+// day 1/3/7 danger-sign-check form as an interim placeholder. WHO's actual week-6 contact also
+// covers postpartum family planning and the start of the immunisation schedule, which this form does
+// not yet ask about - that content still needs the clinical advisor before it's added.
 
 const LEVELS = {
   RAISE_REFERRAL: 110,
@@ -22,6 +28,7 @@ const LEVELS = {
   SICK_CHILD_FOLLOW_UP: 85,
   NEWBORN_DAY_3: 80,
   NEWBORN_DAY_7: 70,
+  NEWBORN_WEEK_6: 65,
   SMC_CATCH_UP: 60,
   BIRTH_PLAN: 55,
   DELIVERY_DUE: 50,
@@ -43,6 +50,7 @@ const REASONS = {
   SICK_CHILD_FOLLOW_UP: 'priority.reason.sick_child_follow_up',
   NEWBORN_DAY_3: 'priority.reason.newborn_day_3',
   NEWBORN_DAY_7: 'priority.reason.newborn_day_7',
+  NEWBORN_WEEK_6: 'priority.reason.newborn_week_6',
   SMC_CATCH_UP: 'priority.reason.smc_catch_up',
   BIRTH_PLAN: 'priority.reason.birth_plan',
   DELIVERY_DUE: 'priority.reason.delivery_due',
@@ -65,6 +73,7 @@ const NEWBORN_EVENT_KINDS = {
   'newborn-visit-day-1': 'NEWBORN_DAY_1',
   'newborn-visit-day-3': 'NEWBORN_DAY_3',
   'newborn-visit-day-7': 'NEWBORN_DAY_7',
+  'newborn-visit-week-6': 'NEWBORN_WEEK_6',
 };
 
 const newbornVisitPriority = (event) => {

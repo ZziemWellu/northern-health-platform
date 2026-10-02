@@ -45,4 +45,16 @@ describe('Northern facility list (referral destinations)', () => {
       expect(f.district).to.equal(fix.district);
     });
   });
+
+  // Capability (caesarean section, blood transfusion) isn't in the source data. These columns exist
+  // so a confirmed value has somewhere to go, but nothing should ever claim capability that hasn't
+  // been verified by a Regional Health Directorate - "unknown" is the only honest default.
+  it('never claims facility capability that hasn\'t been confirmed', () => {
+    facilities.forEach(f => {
+      expect(['yes', 'no', 'unknown'], f.name).to.include(f.can_do_c_section);
+      expect(['yes', 'no', 'unknown'], f.name).to.include(f.has_blood_bank);
+    });
+    const confirmed = facilities.filter(f => f.can_do_c_section !== 'unknown' || f.has_blood_bank !== 'unknown');
+    expect(confirmed, 'no Regional Health Directorate capability data exists yet').to.be.empty;
+  });
 });

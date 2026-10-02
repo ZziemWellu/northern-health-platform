@@ -22,7 +22,7 @@ const newbornVisit = {
 
 const emissionOf = task => task.emission;
 
-describe('Module 1: newborn home visits (day 1, 3, 7) ranked by urgency', () => {
+describe('Module 1: newborn home visits (day 1, 3, 7, week 6) ranked by urgency', () => {
   before(async () => { return await harness.start(); });
   after(async () => { return await harness.stop(); });
   beforeEach(async () => {
@@ -44,7 +44,7 @@ describe('Module 1: newborn home visits (day 1, 3, 7) ranked by urgency', () => 
     expect(emissionOf(tasks[0]).priorityLabel).to.equal(REASONS.NEWBORN_DAY_1);
   });
 
-  it('walks through day 1, day 3 and day 7 as each visit is done, then stops', async () => {
+  it('walks through day 1, day 3, day 7 and week 6 as each visit is done, then stops', async () => {
     await recordDelivery();
 
     let tasks = await harness.getTasks({ title: VISIT_TITLE });
@@ -66,8 +66,16 @@ describe('Module 1: newborn home visits (day 1, 3, 7) ranked by urgency', () => 
     expect(emissionOf(tasks[0]).priority).to.equal(LEVELS.NEWBORN_DAY_7);
     await harness.loadAction(tasks[0]);
     expect((await harness.fillForm(...newbornVisit.allWell)).errors).to.be.empty;
+    expect(await harness.getTasks({ title: VISIT_TITLE })).to.be.empty;
 
-    await harness.flush(7); // day 14: tracking has ended
+    await harness.flush(35); // day 42: WHO's fourth postnatal contact
+    tasks = await harness.getTasks({ title: VISIT_TITLE });
+    expect(tasks).to.have.property('length', 1);
+    expect(emissionOf(tasks[0]).priority).to.equal(LEVELS.NEWBORN_WEEK_6);
+    await harness.loadAction(tasks[0]);
+    expect((await harness.fillForm(...newbornVisit.allWell)).errors).to.be.empty;
+
+    await harness.flush(10); // day 52: tracking has ended
     expect(await harness.getTasks({ title: VISIT_TITLE })).to.be.empty;
   });
 

@@ -29,6 +29,15 @@ from build_referral_forms import meta_rows, row, save, yes_no  # noqa: E402
 AGE = "${age_months}"
 FAST_BREATHING = f"((({AGE} >= 2 and {AGE} < 12) and ${{breaths_per_minute}} >= 50) or ({AGE} >= 12 and ${{breaths_per_minute}} >= 40))"
 
+# SMC eligibility window. Ghana's original (2012-13) policy is 3-59 months; WHO updated its SMC
+# guidance in June 2022 to allow discretionary eligibility for older children at high risk, informed
+# by a Senegal trial of 5-9 year-olds. This project has not verified whether Ghana's National Malaria
+# Control Programme has adopted that extension - CLINICAL SIGN-OFF REQUIRED before changing these
+# values. Kept as single named constants (rather than literals repeated across relevant-expressions)
+# so that confirming or updating the window is a one-line change, not a multi-site find-and-replace.
+SMC_MIN_AGE_MONTHS = 3
+SMC_MAX_AGE_MONTHS = 59
+
 # Danger signs: any one means refer urgently. (code, condition, reason shown)
 DANGER = [
     ("young_infant", f"{AGE} < 2", "Under 2 months old: sick young infants are always referred."),
@@ -224,11 +233,13 @@ def build_smc_dose():
     rows = child_inputs([("cycle_due", "Cycle due")]) + age_rows()
     rows += [
         row("begin group", "dose", "SMC dose", appearance="field-list"),
-        row("note", "not_eligible", "SMC is for children 3 to 59 months. Do not give.", relevant=f"{AGE} < 3"),
-        row("select_one cycles", "cycle", "Which cycle is this?", required="yes", relevant=f"{AGE} >= 3",
-            default=""),
+        row("note", "not_eligible",
+            f"SMC is for children {SMC_MIN_AGE_MONTHS} to {SMC_MAX_AGE_MONTHS} months. Do not give.",
+            relevant=f"{AGE} < {SMC_MIN_AGE_MONTHS}"),
+        row("select_one cycles", "cycle", "Which cycle is this?", required="yes",
+            relevant=f"{AGE} >= {SMC_MIN_AGE_MONTHS}", default=""),
         row("select_one yes_no", "day1_given", "Was the day-1 dose given and swallowed under your observation?",
-            required="yes", relevant=f"{AGE} >= 3"),
+            required="yes", relevant=f"{AGE} >= {SMC_MIN_AGE_MONTHS}"),
         row("select_one not_given", "not_given_reason", "Why was it not given?", required="yes",
             relevant="${day1_given} = 'no'"),
         row("select_one yes_no", "home_doses_explained",

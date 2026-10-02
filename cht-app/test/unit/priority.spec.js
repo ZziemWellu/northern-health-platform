@@ -29,6 +29,12 @@ describe('Module 1 priority scheme', () => {
     expect(LEVELS.ANC_FACILITY_REMINDER).to.be.greaterThan(LEVELS.ANC_HOME_VISIT);
   });
 
+  it('ranks the week-6 postnatal contact below the first week but above routine SMC and birth-plan tasks', () => {
+    expect(LEVELS.NEWBORN_DAY_7).to.be.greaterThan(LEVELS.NEWBORN_WEEK_6);
+    expect(LEVELS.NEWBORN_WEEK_6).to.be.greaterThan(LEVELS.SMC_CATCH_UP);
+    expect(LEVELS.NEWBORN_WEEK_6).to.be.greaterThan(LEVELS.BIRTH_PLAN);
+  });
+
   it('gives every level a distinct value, so the order is never ambiguous', () => {
     const values = Object.values(LEVELS);
     expect(new Set(values).size).to.equal(values.length);

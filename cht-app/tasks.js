@@ -20,7 +20,9 @@ const {
 
 const { priorityFor, newbornVisitPriority } = require('./priority');
 
-const NEWBORN_TRACKING_DAYS = 10;
+// Covers all four of WHO's 2022 postnatal contacts (day 1, day 3, day 7, week 6): the week-6 event's
+// window runs through day 49, so tracking must stay open at least that long.
+const NEWBORN_TRACKING_DAYS = 49;
 
 const getDeliveryDate = (report) => getDateISOLocal(getField(report, 'delivery_outcome.delivery_date'));
 
@@ -520,8 +522,8 @@ module.exports = [
     ],
   },
 
-  // Module 1: routine newborn home visits (day 1, 3, 7), on the mother's record, ranked above
-  // everything except danger-sign follow-ups.
+  // Module 1: routine newborn home visits (day 1, 3, 7, week 6 - WHO's four postnatal contacts),
+  // on the mother's record, ranked above everything except danger-sign follow-ups.
   {
     name: 'pnc.newborn_home_visit',
     icon: 'icon-mother-child',
@@ -574,6 +576,8 @@ module.exports = [
       generateNewbornVisitEvent('newborn-visit-day-1', 0, 0, 2),
       generateNewbornVisitEvent('newborn-visit-day-3', 3, 0, 2),
       generateNewbornVisitEvent('newborn-visit-day-7', 7, 1, 3),
+      // Wider window than the first-week visits: less acute, so more flexible to schedule.
+      generateNewbornVisitEvent('newborn-visit-week-6', 42, 3, 7),
     ],
   },
 

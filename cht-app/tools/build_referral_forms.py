@@ -42,6 +42,13 @@ REASONS = [
     ("other", "Other reason"),
 ]
 
+# Reasons where the receiving facility's capacity to do a caesarean section or blood transfusion is
+# what actually determines whether the referral is to the right place. The facility list's
+# can_do_c_section/has_blood_bank columns are "unknown" for all 277 facilities today (see
+# build_facilities.py), so this warns the nurse rather than silently assuming any facility can cope.
+CAPABILITY_SENSITIVE_REASONS = ["convulsions", "severe_hypertension", "pre_eclampsia_signs",
+                                 "haemorrhage_after_birth", "bleeding_in_pregnancy", "prolonged_labour"]
+
 NOT_ARRIVED_REASONS = [
     ("no_transport", "No transport"),
     ("no_money", "No money for transport or care"),
@@ -222,6 +229,13 @@ def build_referral():
         row("note", "destination_note", "Destination: ${r_destination_name}"),
         row("note", "emergency_note", "EMERGENCY: call the facility or her family today to confirm she arrived.",
             relevant="${r_severity} = 'emergency'"),
+        row("note", "capability_unknown_note",
+            "This facility's ability to do a caesarean section or blood transfusion is not yet "
+            "confirmed in this list. Call ahead if you can, or choose the regional or teaching "
+            "hospital instead.",
+            relevant="${r_severity} = 'emergency' and (" +
+                     " or ".join(f"selected(${{r_reasons}}, '{c}')" for c in CAPABILITY_SENSITIVE_REASONS) +
+                     ")"),
         row("note", "deadline_note", "Arrival must be confirmed within ${r_deadline_days} day(s). A follow-up task will remind you."),
         row("note", "decider_note", "The decider was not present and she did not agree to a call. Encourage her to take this slip home and talk it through tonight.",
             relevant="${decider_present} = 'no' and ${consent_call_decider} = 'no'"),

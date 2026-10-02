@@ -1169,6 +1169,9 @@
           <text id="/data/summary/emergency_note:label">
             <value>EMERGENCY: call the facility or her family today to confirm she arrived.</value>
           </text>
+          <text id="/data/summary/capability_unknown_note:label">
+            <value>This facility's ability to do a caesarean section or blood transfusion is not yet confirmed in this list. Call ahead if you can, or choose the regional or teaching hospital instead.</value>
+          </text>
           <text id="/data/summary/deadline_note:label">
             <value> Arrival must be confirmed within <output value=" /data/r_deadline_days "/> day(s). A follow-up task will remind you.</value>
           </text>
@@ -1233,6 +1236,7 @@
             <code_note/>
             <destination_note/>
             <emergency_note/>
+            <capability_unknown_note/>
             <deadline_note/>
             <decider_note/>
           </summary>
@@ -3638,6 +3642,7 @@
       <bind nodeset="/data/summary/code_note" readonly="true()" type="string"/>
       <bind nodeset="/data/summary/destination_note" readonly="true()" type="string"/>
       <bind nodeset="/data/summary/emergency_note" readonly="true()" type="string" relevant=" /data/r_severity  = 'emergency'"/>
+      <bind nodeset="/data/summary/capability_unknown_note" readonly="true()" type="string" relevant=" /data/r_severity  = 'emergency' and (selected( /data/r_reasons , 'convulsions') or selected( /data/r_reasons , 'severe_hypertension') or selected( /data/r_reasons , 'pre_eclampsia_signs') or selected( /data/r_reasons , 'haemorrhage_after_birth') or selected( /data/r_reasons , 'bleeding_in_pregnancy') or selected( /data/r_reasons , 'prolonged_labour'))"/>
       <bind nodeset="/data/summary/deadline_note" readonly="true()" type="string"/>
       <bind nodeset="/data/summary/decider_note" readonly="true()" type="string" relevant=" /data/people/decider_present  = 'no' and  /data/people/consent_call_decider  = 'no'"/>
       <bind nodeset="/data/data/__referral_code" type="string" calculate=" /data/referral_code "/>
@@ -3757,6 +3762,9 @@
       </input>
       <input ref="/data/summary/emergency_note">
         <label ref="jr:itext('/data/summary/emergency_note:label')"/>
+      </input>
+      <input ref="/data/summary/capability_unknown_note">
+        <label ref="jr:itext('/data/summary/capability_unknown_note:label')"/>
       </input>
       <input ref="/data/summary/deadline_note">
         <label ref="jr:itext('/data/summary/deadline_note:label')"/>

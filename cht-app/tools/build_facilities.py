@@ -13,9 +13,13 @@ Sources (downloaded by this script, not committed):
 - Regions (16, 2021): geoBoundaries GHA ADM1, OpenStreetMap, CC BY-SA 2.0.
 - Districts (260, 2019): geoBoundaries GHA ADM2, USAID Ghana HPNO / Ghana Statistical Service, CC BY 4.0.
 
-Known limits: the facility list predates 2019 and excludes private facilities; it does not record
-which facilities offer caesarean section or blood transfusion. Capability must be added from the
-Regional Health Directorates before emergency routing relies on it.
+Known limits: the facility list predates 2019 and excludes private facilities. It does not yet record
+which facilities offer caesarean section or blood transfusion: the can_do_c_section and
+has_blood_bank columns exist so that data has somewhere to go, but every row defaults to "unknown"
+here. Confirmed values come only from facility_corrections.csv, filled in from the Regional Health
+Directorates - never guessed. Module 2's referral form warns on every emergency referral that
+capability isn't yet verified, precisely because these columns are "unknown" for all 277 facilities
+today.
 
 Run: python tools/build_facilities.py
 """
@@ -136,6 +140,9 @@ def build():
             "district": " ".join((locate(lon, lat, districts) or "").split()),
             "latitude": round(lat, 5),
             "longitude": round(lon, 5),
+            # Unverified until a correction row says otherwise - never guessed from facility type.
+            "can_do_c_section": "unknown",
+            "has_blood_bank": "unknown",
         })
 
     corrections = {row["name"]: row for row in csv.DictReader(CORRECTIONS.open(encoding="utf-8"))}
@@ -145,6 +152,12 @@ def build():
             r.update(region=fix["region"], district=fix["district"],
                      latitude=float(fix["latitude"]), longitude=float(fix["longitude"]))
             r["id"] = slug(f"{r['name']}_{r['region']}")
+            # Optional columns: only a Regional Health Directorate's confirmation should set these,
+            # so a correction row without them leaves the "unknown" default untouched.
+            if fix.get("can_do_c_section"):
+                r["can_do_c_section"] = fix["can_do_c_section"]
+            if fix.get("has_blood_bank"):
+                r["has_blood_bank"] = fix["has_blood_bank"]
     missing = set(corrections) - {r["name"] for r in out}
     if missing:
         raise SystemExit(f"corrections for facilities not in the source: {sorted(missing)}")

@@ -56,6 +56,9 @@ jobs:
       - name: SMS reminder tests (no network; sending is dry-run unless explicitly enabled)
         run: node --test sms/test/sms.test.js
 
+      - name: Voice and eCHIS export tests (no network; live use is switched off)
+        run: node --test voice/test/voice.test.js integration/test/dhis2.test.js
+
       - name: CHT behaviour tests (tasks, forms, targets)
         working-directory: cht-app
         run: npx cross-env TZ=Africa/Accra mocha --recursive --reporter dot test --timeout 120000

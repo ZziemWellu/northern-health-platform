@@ -51,6 +51,14 @@ const submittedSince = (contact, forms, since, excludeId) => contact.reports.som
   forms.includes(r.form) && r._id !== excludeId && r.reported_date >= since
 );
 
+// A barrier screen carries no LMP of its own; the LMP lives on the pregnancy it belongs to.
+const lmpForBarrierScreen = (contact, screenReport) => {
+  const pregnancy = contact.reports
+    .filter(r => r.form === 'pregnancy' && r.reported_date <= screenReport.reported_date)
+    .sort((a, b) => b.reported_date - a.reported_date)[0];
+  return pregnancy ? getMostRecentLMPDateForPregnancy(contact, pregnancy) : undefined;
+};
+
 const pregnancyEnded = (contact, pregnancyReport) =>
   isPregnancyTaskMuted(contact) ||
   submittedSince(contact, ['delivery'], pregnancyReport.reported_date) ||
@@ -827,6 +835,38 @@ module.exports = [
         end: 3,
         dueDate: function (event, contact, report) {
           return getTimeForMidnight(report.reported_date);
+        },
+      },
+    ],
+  },
+
+  // Module 6: a barrier found at screening is still open in the last trimester (from 28 weeks), so
+  // the nurse plans transport and money before she goes into labour, rather than after a referral fails.
+  // Resolved by a birth plan, or by re-screening. Needs an LMP to place the 28-week mark.
+  {
+    name: 'barrier.unresolved_late',
+    icon: 'icon-pregnancy',
+    title: 'task.barrier.unresolved_late.title',
+    appliesTo: 'reports',
+    appliesToType: ['barrier_screen'],
+    appliesIf: function (contact, report) {
+      return isAlive(contact) && Number(getField(report, 'r_barrier_count')) > 0 &&
+        !!lmpForBarrierScreen(contact, report);
+    },
+    resolvedIf: function (contact, report) {
+      return pregnancyEnded(contact, report) ||
+        submittedSince(contact, ['birth_plan'], report.reported_date) ||
+        submittedSince(contact, ['barrier_screen'], report.reported_date, report._id);
+    },
+    priority: () => priorityFor('BARRIER_UNRESOLVED_LATE'),
+    actions: [{ type: 'report', form: 'birth_plan' }],
+    events: [
+      {
+        id: 'barrier-unresolved-late',
+        start: 0,
+        end: 84,
+        dueDate: function (event, contact, report) {
+          return addDays(lmpForBarrierScreen(contact, report), 28 * 7);
         },
       },
     ],

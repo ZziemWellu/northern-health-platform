@@ -1,11 +1,36 @@
 {
   "_about": "Clinical sign-off per module. Until a module is approved here by a named clinical advisor, every one of its forms shows a PILOT warning on its first page. Edit only when a qualified reviewer has checked that module's content against GHS protocols; see CLINICAL_CONTENT.md for what they must check.",
   "modules": {
-    "1": {"name": "Risk before crisis", "approved": false, "by": null, "on": null},
-    "2": {"name": "Last-mile follow-up", "approved": false, "by": null, "on": null},
-    "3": {"name": "Local-food nutrition", "approved": false, "by": null, "on": null},
-    "6": {"name": "Hidden barriers", "approved": false, "by": null, "on": null},
-    "7": {"name": "Sick child and prevention", "approved": false, "by": null, "on": null}
+    "1": {
+      "name": "Risk before crisis",
+      "approved": false,
+      "by": null,
+      "on": null
+    },
+    "2": {
+      "name": "Last-mile follow-up",
+      "approved": false,
+      "by": null,
+      "on": null
+    },
+    "3": {
+      "name": "Local-food nutrition",
+      "approved": false,
+      "by": null,
+      "on": null
+    },
+    "6": {
+      "name": "Hidden barriers",
+      "approved": false,
+      "by": null,
+      "on": null
+    },
+    "7": {
+      "name": "Sick child and prevention",
+      "approved": false,
+      "by": null,
+      "on": null
+    }
   },
   "forms": {
     "pnc_home_visit": "1",
@@ -19,5 +44,10 @@
     "sick_child_follow_up": "7",
     "smc_dose": "7",
     "smc_adherence": "7"
+  },
+  "designated_reviewer": {
+    "role": "Regional Director of Health, Northern Region (or the GHS director they delegate)",
+    "name": null,
+    "note": "Designation only. Approval is recorded per module under 'modules' by the reviewer themselves; nothing here is approved."
   }
 }

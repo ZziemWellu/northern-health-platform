@@ -21,6 +21,7 @@ forms shows a **PILOT - NOT FOR PATIENT CARE** warning on its first page.
 | 3 | Portion limits | `nutrition/data/foods.json` | Planning assumptions | Replace with local intake data |
 | 3 | Each feeding plan | `nutrition/plans/REVIEW.md` | Optimiser output | Approve per plan with `nutrition/approve.py` |
 | 6 | Barrier screen questions and actions | `cht-app/tools/build_barrier_forms.py` | Project design; Upper East pilot (Jakubowski 2024) | "Who decides" is asked privately; NHIS "not sure" counts as a barrier |
+| 6 | Late-pregnancy barrier task | `cht-app/tasks.js` (`barrier.unresolved_late`), `cht-app/priority.js` (level 88) | Project design: birth plan by 32 weeks (existing rule; source to be confirmed by the reviewer) | Shown from 28 weeks (LMP) while any barrier from the screen is open, ranked **below** the newborn day-1 visit and **above** the sick-child day-3 check; cleared by a birth plan or a re-screen; **no transport or money action is prescribed by the app** |
 | 7 | Sick-child danger signs and classifications | `cht-app/tools/build_child_forms.py` | WHO/UNICEF iCCM | Fever >= 7 d, cough >= 21 d, diarrhoea >= 14 d, blood in stool, red MUAC, under 2 months: refer; fast breathing >= 50 (2-11 mo), >= 40 (12-59 mo); fever with no RDT is urgent; **no doses** |
 | 7 | SMC schedule | `cht-app/tools/build_child_forms.py`, `cht-app/tasks.js` | Ghana SMC practice (Ayamba 2025) | 4 cycles, 28 days apart; ages 3-59 months; catch-up next day when not at home |
 

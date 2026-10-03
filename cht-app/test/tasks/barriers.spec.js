@@ -157,4 +157,48 @@ describe('Module 6: hidden barriers', () => {
       expect(await tasksTitled(MISSED)).to.be.empty;
     });
   });
+
+  describe('barriers still open in the last trimester', () => {
+    const UNRESOLVED = 'task.barrier.unresolved_late.title';
+    // LMP 1999-08-01: 28 weeks falls on 2000-02-13; delivery window closes about 40 weeks.
+    const WEEK_28 = '2000-02-13';
+    const WEEK_27 = '2000-02-06';
+
+    const screenWithBarriers = async () => {
+      expect((await harness.fillForm('barrier_screen', ...screen({ transport: 'none', money: 'no' }))).errors).to.be.empty;
+    };
+
+    it('does not appear before 28 weeks, even with a barrier found', async () => {
+      await register();
+      await screenWithBarriers();
+      await harness.setNow(WEEK_27);
+      expect(await tasksTitled(UNRESOLVED)).to.be.empty;
+    });
+
+    it('appears from 28 weeks when a barrier was found, ranked just below the newborn day-1 visit', async () => {
+      await register();
+      await screenWithBarriers();
+      await harness.setNow(WEEK_28);
+      const [task] = await tasksTitled(UNRESOLVED);
+      expect(task.emission.priority).to.equal(LEVELS.BARRIER_UNRESOLVED_LATE);
+      expect(LEVELS.NEWBORN_DAY_1).to.be.greaterThan(LEVELS.BARRIER_UNRESOLVED_LATE);
+      expect(LEVELS.BARRIER_UNRESOLVED_LATE).to.be.greaterThan(LEVELS.SICK_CHILD_FOLLOW_UP);
+    });
+
+    it('never appears when the screen found no barriers', async () => {
+      await register();
+      expect((await harness.fillForm('barrier_screen', ...screen())).errors).to.be.empty;
+      await harness.setNow(WEEK_28);
+      expect(await tasksTitled(UNRESOLVED)).to.be.empty;
+    });
+
+    it('clears once a birth plan is made, so the nurse can see the plan is in place', async () => {
+      await register();
+      await screenWithBarriers();
+      await harness.setNow(WEEK_28);
+      expect(await tasksTitled(UNRESOLVED)).to.not.be.empty;
+      expect((await harness.fillForm('birth_plan', ...plan())).errors).to.be.empty;
+      expect(await tasksTitled(UNRESOLVED)).to.be.empty;
+    });
+  });
 });

@@ -53,6 +53,9 @@ jobs:
           (cd cht-app/tools && python -m pytest -q -p no:cacheprovider)
           (cd nutrition && python -m pytest -q -p no:cacheprovider)
 
+      - name: SMS reminder tests (no network; sending is dry-run unless explicitly enabled)
+        run: node --test sms/test/sms.test.js
+
       - name: CHT behaviour tests (tasks, forms, targets)
         working-directory: cht-app
         run: npx cross-env TZ=Africa/Accra mocha --recursive --reporter dot test --timeout 120000

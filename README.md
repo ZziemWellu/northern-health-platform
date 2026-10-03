@@ -125,3 +125,15 @@ care which of the two installs put it on PATH.
 ## Licence
 
 AGPL-3.0, inherited from the CHT. Changes served to users must be published as open source.
+
+## SMS reminders (sms/)
+
+Sends reminder texts to pregnant women about a clinic visit, a birth plan or a referral. Texts are
+deliberately non-clinical: they never name a condition, a sign or a dose.
+
+- **Dry run by default.** Nothing is sent unless `SMS_LIVE=1` and `ARKESEL_API_KEY` are both set.
+- Cannot re-send the same reminder, cannot text anyone who replied STOP, cannot exceed `SMS_MAX_PER_RUN`.
+- Cost estimate: `node sms/budget.js --women 500 --messages-per-woman 6` (GHS 60-240 for 3,000 texts).
+- Before any live send: register the pilot as a data controller with the Ghana Data Protection
+  Commission (Data Protection Act 2012, Act 843), and have the reviewer approve every template.
+

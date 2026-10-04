@@ -60,6 +60,8 @@ jobs:
         run: node --test voice/test/voice.test.js voice/test/recordings.test.js voice/test/phrases.test.js integration/test/dhis2.test.js
       - name: Referral arrival tests
         run: node --test referral_arrival/test/arrival.test.js referral_arrival/test/server.test.js
+      - name: Showcase checks
+        run: python -m pytest -q prototype/test_showcase.py
 
       - name: CHT behaviour tests (tasks, forms, targets)
         working-directory: cht-app

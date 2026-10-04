@@ -22,6 +22,20 @@ and age group. A nutritionist approves each plan before the CHT app shows it.
 5. `cht-app/tools/build_nutrition_forms.py` puts approved plans, and only those, into the CHT
    feeding counselling form.
 
+**Review workflow for the nutritionist:**
+
+```bash
+python review_pack.py                                        # writes plans/REVIEW_PACK.md
+python record_decision.py <plan-id> approve --by "Name, role"
+python record_decision.py <plan-id> approve_with_changes --by "Name, role" --changes "..."
+python record_decision.py <plan-id> reject --by "Name, role" --changes "reason"
+python record_decision.py --list
+```
+
+Decisions are logged in `plans/decisions.json`, which a rebuild does not touch. Only `approve`
+changes a plan. The drafted referral and supplementation wording names no product or dose; the
+reviewer confirms it against the current GHS protocol.
+
 ```bash
 pip install openpyxl scipy pytest
 python prepare.py        # downloads sources into .cache/ on first run

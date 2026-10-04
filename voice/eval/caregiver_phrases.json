@@ -1,0 +1,75 @@
+{
+  "_status": "DRAFT written by the developer to exercise the matcher. These are NOT recordings from caregivers. Replace them with phrases collected from caregivers in the pilot district (with consent) and checked by a Twi speaker before any result is trusted.",
+  "phrases": [
+    {
+      "lang": "en",
+      "text": "when do I come back to the clinic",
+      "intent": "visit_date"
+    },
+    {
+      "lang": "en",
+      "text": "what date is my next visit",
+      "intent": "visit_date"
+    },
+    {
+      "lang": "en",
+      "text": "my baby is having fits",
+      "intent": "emergency"
+    },
+    {
+      "lang": "en",
+      "text": "there is blood coming out",
+      "intent": "emergency"
+    },
+    {
+      "lang": "en",
+      "text": "the baby is not breathing well",
+      "intent": "emergency"
+    },
+    {
+      "lang": "en",
+      "text": "I don't have money for the bus",
+      "intent": "transport"
+    },
+    {
+      "lang": "en",
+      "text": "there is no transport to the hospital",
+      "intent": "transport"
+    },
+    {
+      "lang": "en",
+      "text": "what should I feed my baby now",
+      "intent": "feeding"
+    },
+    {
+      "lang": "en",
+      "text": "can the baby drink water",
+      "intent": "feeding"
+    },
+    {
+      "lang": "en",
+      "text": "how much porridge should she eat",
+      "intent": "feeding"
+    },
+    {
+      "lang": "tw",
+      "text": "wo clinic nsɔhwɛ bere bɛn",
+      "intent": "visit_date"
+    },
+    {
+      "lang": "tw",
+      "text": "mogya retu",
+      "intent": "emergency"
+    },
+    {
+      "lang": "tw",
+      "text": "me nni sika akwantu",
+      "intent": "transport"
+    },
+    {
+      "lang": "tw",
+      "text": "mɛyɛ dɛn me abofra nnuane",
+      "intent": "feeding"
+    }
+  ]
+}

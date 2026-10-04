@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community Health Platform: unreviewed MVP showcase</title>
+<style>
+:root { --ink:#1b1f24; --muted:#5b6470; --bg:#f6f7f9; --card:#fff; --line:#d9dde3; --no:#b42318; --ok:#067647; --warn:#fff4e5; --warnline:#f5a524; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink:#e8eaed; --muted:#a6adb7; --bg:#15181c; --card:#1e2227; --line:#343a42; --warn:#3a2d12; } }
+:root[data-theme="dark"] { --ink:#e8eaed; --muted:#a6adb7; --bg:#15181c; --card:#1e2227; --line:#343a42; --warn:#3a2d12; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui, Segoe UI, Roboto, sans-serif; }
+main { max-width:1000px; margin:0 auto; padding:16px; }
+.banner { background:var(--warn); border:2px solid var(--warnline); border-radius:10px; padding:14px 16px; font-weight:600; }
+h1 { font-size:1.6rem; margin:18px 0 6px; } h2 { font-size:1.25rem; margin-top:28px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+table { width:100%; border-collapse:collapse; background:var(--card); font-size:.95rem; }
+th, td { text-align:left; padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+.st-no { color:var(--no); font-weight:600; } .st-ok { color:var(--ok); font-weight:600; }
+.pill { display:inline-block; font-size:.8rem; padding:2px 8px; border-radius:999px; border:1px solid var(--line); }
+.pill.no { color:var(--no); border-color:var(--no); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; }
+.small { color:var(--muted); font-size:.9rem; }
+.demo { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; }
+button, input, select { font:inherit; padding:8px 10px; margin:4px 4px 4px 0; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+button { cursor:pointer; }
+pre { background:var(--bg); padding:10px; border-radius:8px; white-space:pre-wrap; overflow-wrap:anywhere; }
+@media (max-width:600px) { main { padding:12px; } table { font-size:.85rem; } }
+</style></head>
+<body><main>
+<div class="banner" role="alert">UNREVIEWED PROTOTYPE. Not for patient care. No clinical content in this build has been approved by a clinical advisor, a nutritionist, the Ghana Health Service or any district. Every status below is read from the project&#x27;s own sign-off records.</div>
+<h1>Community health platform, MVP showcase</h1>
+<p class="small">Northern Ghana. Built on the Community Health Toolkit. Status of every module and plan is shown below.
+This page does not approve anything.</p>
+
+<h2>1. Module sign-off status</h2>
+<p class="small">Read from clinical_signoff.json. A module shows as approved only when a named reviewer has signed it.</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Module</th><th>Name</th><th>Sign-off</th><th>Forms</th></tr></thead>
+<tbody><tr><td>1</td><td>Risk before crisis</td><td class='st-no'>NOT APPROVED</td><td>pnc_home_visit, maternal_danger_assessment</td></tr>
+<tr><td>2</td><td>Last-mile follow-up</td><td class='st-no'>NOT APPROVED</td><td>referral, referral_follow_up</td></tr>
+<tr><td>3</td><td>Local-food nutrition</td><td class='st-no'>NOT APPROVED</td><td>feeding_counselling</td></tr>
+<tr><td>4</td><td>Voice-first caregiver support</td><td class='st-no'>NOT APPROVED</td><td>voice_question</td></tr>
+<tr><td>5</td><td>CHPS workflows and DHIMS-2 reporting</td><td class='st-no'>NOT APPROVED</td><td>-</td></tr>
+<tr><td>6</td><td>Hidden barriers</td><td class='st-no'>NOT APPROVED</td><td>barrier_screen, birth_plan</td></tr>
+<tr><td>7</td><td>Sick child and prevention</td><td class='st-no'>NOT APPROVED</td><td>sick_child, sick_child_follow_up, smc_dose, smc_adherence</td></tr></tbody></table></div>
+
+<h2>2. Module 2: referral arrival loop (demo)</h2>
+<p class="small">Same rules as referral_arrival/arrival.js: deadline by urgency, a code the facility must enter, five wrong
+codes lock a referral, and an overdue referral escalates once. SMS is never sent from this page.</p>
+<div class="demo">
+  <label>Urgency <select id="urg"><option value="emergency">emergency (1 day)</option><option value="urgent" selected>urgent (2 days)</option><option value="routine">routine (7 days)</option></select></label>
+  <button id="create">Create referral</button>
+  <label>Facility ID <select id="fac"><option>F1</option><option>F2</option></select></label>
+  <label>Code <input id="code" size="8" maxlength="6" placeholder="6 letters"></label>
+  <button id="confirm">Facility confirms arrival</button>
+  <label>Days later <input id="days" type="range" min="0" max="10" value="0"> <span id="dayval">0</span></label>
+  <button id="check">Check escalation</button>
+  <pre id="log">No referral yet.</pre>
+</div>
+
+<h2>3. Module 3: feeding plans (drafts)</h2>
+<p class="small">Read from nutrition/plans/plans.json. Plans are drafts. The app shows only approved plans, and none are approved.</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Plan</th><th>Age</th><th>Foods per day</th><th>Nutrients local foods cannot meet</th><th>Status</th></tr></thead>
+<tbody><tr><td>northern-lean-6_8m</td><td>6 to 8 months</td><td>Pearl millet (whole grain flour) 13 g; Yam 59 g; Plantain (unripe) 60 g; Cowpea (beans) 18 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>northern-lean-9_11m</td><td>9 to 11 months</td><td>Yellow maize (whole grain flour) 9 g; Pearl millet (whole grain flour) 12 g; Yam 90 g; Plantain (unripe) 90 g; Cowpea (beans) 26 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>northern-lean-12_23m</td><td>12 to 23 months</td><td>Yellow maize (whole grain flour) 40 g; Pearl millet (whole grain flour) 15 g; Yam 116 g; Plantain (unripe) 150 g; Cowpea (beans) 50 g</td><td>zinc, calcium, vitamin a</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>northern-post_harvest-6_8m</td><td>6 to 8 months</td><td>Yellow maize (whole grain flour) 11 g; Pearl millet (whole grain flour) 17 g; Yam 60 g; Plantain (unripe) 57 g; Cowpea (beans) 1 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>northern-post_harvest-9_11m</td><td>9 to 11 months</td><td>Yellow maize (whole grain flour) 23 g; Pearl millet (whole grain flour) 17 g; Yam 90 g; Plantain (unripe) 87 g; Cowpea (beans) 5 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>northern-post_harvest-12_23m</td><td>12 to 23 months</td><td>Yellow maize (whole grain flour) 48 g; Pearl millet (whole grain flour) 17 g; Yam 121 g; Plantain (unripe) 143 g; Cowpea (beans) 39 g</td><td>zinc, calcium, vitamin a</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_east-lean-6_8m</td><td>6 to 8 months</td><td>Yellow maize (whole grain flour) 11 g; Pearl millet (whole grain flour) 17 g; Yam 58 g; Plantain (unripe) 60 g; Cowpea (beans) 1 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_east-lean-9_11m</td><td>9 to 11 months</td><td>Yellow maize (whole grain flour) 23 g; Pearl millet (whole grain flour) 17 g; Yam 88 g; Plantain (unripe) 90 g; Cowpea (beans) 5 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_east-lean-12_23m</td><td>12 to 23 months</td><td>Yellow maize (whole grain flour) 40 g; Pearl millet (whole grain flour) 19 g; Gari 7 g; Yam 116 g; Plantain (unripe) 150 g; Cowpea (beans) 37 g</td><td>zinc, calcium, vitamin a</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_east-post_harvest-6_8m</td><td>6 to 8 months</td><td>White maize (whole grain flour) 4 g; Yellow maize (whole grain flour) 7 g; Pearl millet (whole grain flour) 17 g; Yam 60 g; Plantain (unripe) 58 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_east-post_harvest-9_11m</td><td>9 to 11 months</td><td>White maize (whole grain flour) 4 g; Yellow maize (whole grain flour) 18 g; Pearl millet (whole grain flour) 17 g; Yam 90 g; Plantain (unripe) 88 g; Cowpea (beans) 4 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_east-post_harvest-12_23m</td><td>12 to 23 months</td><td>Yellow maize (whole grain flour) 45 g; Pearl millet (whole grain flour) 18 g; Yam 147 g; Plantain (unripe) 142 g; Cowpea (beans) 32 g</td><td>zinc, calcium, vitamin a</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_west-lean-6_8m</td><td>6 to 8 months</td><td>Yellow maize (whole grain flour) 11 g; Pearl millet (whole grain flour) 17 g; Yam 58 g; Plantain (unripe) 60 g; Cowpea (beans) 1 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_west-lean-9_11m</td><td>9 to 11 months</td><td>Yellow maize (whole grain flour) 23 g; Pearl millet (whole grain flour) 17 g; Yam 88 g; Plantain (unripe) 90 g; Cowpea (beans) 5 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_west-lean-12_23m</td><td>12 to 23 months</td><td>Yellow maize (whole grain flour) 47 g; Pearl millet (whole grain flour) 17 g; Yam 115 g; Plantain (unripe) 150 g; Cowpea (beans) 40 g</td><td>zinc, calcium, vitamin a</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_west-post_harvest-6_8m</td><td>6 to 8 months</td><td>Pearl millet (whole grain flour) 13 g; Yam 60 g; Plantain (unripe) 59 g; Cowpea (beans) 18 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_west-post_harvest-9_11m</td><td>9 to 11 months</td><td>Yellow maize (whole grain flour) 9 g; Pearl millet (whole grain flour) 12 g; Yam 90 g; Plantain (unripe) 90 g; Cowpea (beans) 26 g</td><td>iron, zinc, calcium, vitamin a, vitamin c</td><td class='st-no'>DRAFT, not approved</td></tr>
+<tr><td>upper_west-post_harvest-12_23m</td><td>12 to 23 months</td><td>Yellow maize (whole grain flour) 29 g; Pearl millet (whole grain flour) 17 g; Yam 119 g; Plantain (unripe) 150 g; Cowpea (beans) 50 g</td><td>zinc, calcium, vitamin a</td><td class='st-no'>DRAFT, not approved</td></tr></tbody></table></div>
+
+<h2>4. Module 4: caregiver voice replies (menu-first)</h2>
+<p class="small">Read from voice/replies.json. The CHW picks the topic on the phone; the approved reply appears offline. No speech recognition is used.</p>
+<div class="grid"><div class='card'><h4>emergency</h4><p>This may be an emergency. Go to the nearest health facility now. If you cannot travel, call your CHW or the emergency number right away.</p><p class='small'>Twi (first draft, not checked by a Twi speaker): Eyi betumi ayɛ ahohia. Kɔ ayaresabea a ɛbɛn wo ho nnɛ. Sɛ wontumi nantew a, frɛ wo CHW anaa ahohia nɔma nnɛ.</p><span class='pill no'>PILOT wording, not approved</span></div>
+<div class='card'><h4>visit_date</h4><p>Your next clinic visit is on the date your CHW gave you. Please come. If you do not know the date, ask your CHW.</p><p class='small'>Twi (first draft, not checked by a Twi speaker): Wo clinic nsɔhwɛ a edi hɔ no yɛ da a wo CHW kyerɛɛ wo. Sɛ wonnim da no a, bisa wo CHW.</p><span class='pill no'>PILOT wording, not approved</span></div>
+<div class='card'><h4>transport</h4><p>If transport is a problem, tell your CHW. Your CHW can help you plan a ride to the facility.</p><p class='small'>Twi (first draft, not checked by a Twi speaker): Sɛ akwantu yɛ ɔhaw a, ka kyerɛ wo CHW. Wo CHW betumi aboa wo ma wonhyehyɛ akwantu.</p><span class='pill no'>PILOT wording, not approved</span></div>
+<div class='card'><h4>feeding</h4><p>For feeding questions, your CHW will help. Ask them to show you an approved feeding plan for your baby.</p><p class='small'>Twi (first draft, not checked by a Twi speaker): Sɛ w&#x27;abisa nneɛma a wɔde bɛma abofra no ho a, wo CHW bɛboa wo. Bisa no sɛ ɔnkyerɛ wo nnuane a wɔapene so.</p><span class='pill no'>PILOT wording, not approved</span></div>
+<div class='card'><h4>unknown</h4><p>Sorry, I did not understand. Please call your CHW, or ask a family member to call them for you.</p><p class='small'>Twi (first draft, not checked by a Twi speaker): Me ho ayɛ wo, minnte nea woka no. Frɛ wo CHW, anaa ka sɛ obi nfrɛ wɔn ma wo.</p><span class='pill no'>PILOT wording, not approved</span></div></div>
+
+<h2>5. What is needed before any of this can be used</h2>
+<ul>
+<li>A named clinical advisor signs each module (section 1).</li>
+<li>A nutritionist approves or rejects each plan (section 3).</li>
+<li>A Twi speaker and a health worker check each voice reply (section 4).</li>
+<li>The Ghana Health Service protocol governs the postnatal schedule (National Safe Motherhood Protocol: at least three visits, within 48 hours, day 6 or 7, and 6 weeks).</li>
+<li>A district agrees in writing to the paper registers it retires. Ethics review and Data Protection Commission registration come before any real data.</li>
+</ul>
+<p class="small">Source of this page: prototype/build_showcase.py. Regenerate after any change to the files it reads.</p>
+</main>
+<script>
+(function () {
+  var RULES = { days: { emergency: 1, urgent: 2, routine: 7 }, maxAttempts: 5 };
+  var ALPHA = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  var ref = null;
+  var now = new Date();
+  var log = document.getElementById('log');
+  function say(s) { log.textContent = s; }
+  function newCode() {
+    var out = '';
+    for (var i = 0; i < 6; i++) out += ALPHA[Math.floor(Math.random() * ALPHA.length)];
+    return out;
+  }
+  function at(days) { return new Date(now.getTime() + days * 86400000); }
+  document.getElementById('dayval').textContent = '0';
+  document.getElementById('days').addEventListener('input', function (e) {
+    document.getElementById('dayval').textContent = e.target.value;
+  });
+  document.getElementById('create').addEventListener('click', function () {
+    var u = document.getElementById('urg').value;
+    now = new Date();
+    ref = { code: newCode(), urgency: u, facility: document.getElementById('fac').value,
+            deadline: at(RULES.days[u]), arrived: null, failed: 0, escalated: false };
+    say('Referral created (urgency ' + u + ').\nSMS to facility (not sent in this demo): ZZ REF ' + ref.code +
+        '. Confirm arrival by ' + ref.deadline.toISOString().slice(0, 10) + '.\nThe nurse view never shows the code.');
+  });
+  document.getElementById('confirm').addEventListener('click', function () {
+    if (!ref) return say('Create a referral first.');
+    if (ref.arrived) return say('Already confirmed. Confirming twice is harmless.');
+    if (ref.failed >= RULES.maxAttempts) return say('Locked after too many wrong codes.');
+    if (document.getElementById('fac').value !== ref.facility) return say('Not this facility.');
+    var code = document.getElementById('code').value.trim().toUpperCase();
+    if (code !== ref.code) { ref.failed++; return say('Wrong code (' + ref.failed + ' of ' + RULES.maxAttempts + ').'); }
+    ref.arrived = new Date(); say('Arrival confirmed.');
+  });
+  document.getElementById('check').addEventListener('click', function () {
+    if (!ref) return say('Create a referral first.');
+    var d = parseInt(document.getElementById('days').value, 10);
+    var t = at(d);
+    if (ref.arrived) return say('Arrived. Never escalates.');
+    if (t.getTime() <= ref.deadline.getTime()) return say('Day ' + d + ': before the deadline. No escalation.');
+    if (ref.escalated) return say('Day ' + d + ': already escalated once.');
+    ref.escalated = true;
+    say('Day ' + d + ': overdue. Escalation to the CHPS nurse (not sent in this demo): trace the woman.');
+  });
+})();
+</script>
+</body></html>

@@ -34,10 +34,10 @@ const REPLIES = {
 
 // Emergency words are checked first, so an emergency never waits behind a lesser match.
 const INTENTS = [
-  { id: 'emergency', words: ['bleeding', 'fits', 'convulsion', 'not breathing', 'unconscious', 'fainted', 'seizure', 'mogya', 'ayaresa', 'mo nnhu'] },
+  { id: 'emergency', words: ['bleeding', 'fits', 'convulsion', 'not breathing', 'unconscious', 'fainted', 'seizure', 'blood', 'mogya', 'ayaresa', 'mo nnhu'] },
   { id: 'visit_date', words: ['when', 'visit', 'appointment', 'clinic', 'date', 'bɛba', 'bere', 'nsɔhwɛ', 'daa', 'da'] },
   { id: 'transport', words: ['transport', 'bus', 'ride', 'money for', 'cannot go', 'akwantu', 'sika', 'ɛnkɔ'] },
-  { id: 'feeding', words: ['feed', 'food', 'milk', 'breastfeed', 'porridge', 'nnuane', 'aduane', 'nufu'] },
+  { id: 'feeding', words: ['feed', 'food', 'milk', 'breastfeed', 'porridge', 'drink', 'nnuane', 'aduane', 'nufu'] },
 ];
 
 function normalise(text) {

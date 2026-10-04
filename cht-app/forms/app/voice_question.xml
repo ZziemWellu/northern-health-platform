@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Caregiver question (voice)</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="topic-0">
+            <value>Danger sign or emergency</value>
+          </text>
+          <text id="topic-1">
+            <value>When to come to the clinic</value>
+          </text>
+          <text id="topic-2">
+            <value>Getting to the facility</value>
+          </text>
+          <text id="topic-3">
+            <value>Feeding her baby</value>
+          </text>
+          <text id="topic-4">
+            <value>Something else</value>
+          </text>
+          <text id="/data/consent_group:label">
+            <value>Her question</value>
+          </text>
+          <text id="/data/consent_group/pilot_warning:label">
+            <value>PILOT BUILD - NOT FOR PATIENT CARE. This module's clinical content has not yet been approved by a GHS clinical advisor. Use only for training and testing.</value>
+          </text>
+          <text id="/data/consent_group/consent_note:label">
+            <value>Ask her first. Record only if she agrees. If she says no, choose the topic and go on.</value>
+          </text>
+          <text id="/data/consent_group/consent:label">
+            <value>Does she agree to a short voice recording of her question?</value>
+          </text>
+          <text id="/data/consent_group/question_audio:label">
+            <value>Record her question (she speaks, you hold the phone)</value>
+          </text>
+          <text id="/data/consent_group/topic:label">
+            <value>What is her question about?</value>
+          </text>
+          <text id="/data/reply:label">
+            <value>Reply to give her</value>
+          </text>
+          <text id="/data/reply/en_emergency:label">
+            <value>This may be an emergency. Go to the nearest health facility now. If you cannot travel, call your CHW or the emergency number right away.</value>
+          </text>
+          <text id="/data/reply/tw_emergency:label">
+            <value>Twi (first draft, not yet checked by a Twi speaker): Eyi betumi ayɛ ahohia. Kɔ ayaresabea a ɛbɛn wo ho nnɛ. Sɛ wontumi nantew a, frɛ wo CHW anaa ahohia nɔma nnɛ.</value>
+          </text>
+          <text id="/data/reply/en_visit_date:label">
+            <value>Your next clinic visit is on the date your CHW gave you. Please come. If you do not know the date, ask your CHW.</value>
+          </text>
+          <text id="/data/reply/tw_visit_date:label">
+            <value>Twi (first draft, not yet checked by a Twi speaker): Wo clinic nsɔhwɛ a edi hɔ no yɛ da a wo CHW kyerɛɛ wo. Sɛ wonnim da no a, bisa wo CHW.</value>
+          </text>
+          <text id="/data/reply/en_transport:label">
+            <value>If transport is a problem, tell your CHW. Your CHW can help you plan a ride to the facility.</value>
+          </text>
+          <text id="/data/reply/tw_transport:label">
+            <value>Twi (first draft, not yet checked by a Twi speaker): Sɛ akwantu yɛ ɔhaw a, ka kyerɛ wo CHW. Wo CHW betumi aboa wo ma wonhyehyɛ akwantu.</value>
+          </text>
+          <text id="/data/reply/en_feeding:label">
+            <value>For feeding questions, your CHW will help. Ask them to show you an approved feeding plan for your baby.</value>
+          </text>
+          <text id="/data/reply/tw_feeding:label">
+            <value>Twi (first draft, not yet checked by a Twi speaker): Sɛ w'abisa nneɛma a wɔde bɛma abofra no ho a, wo CHW bɛboa wo. Bisa no sɛ ɔnkyerɛ wo nnuane a wɔapene so.</value>
+          </text>
+          <text id="/data/reply/en_unknown:label">
+            <value>Sorry, I did not understand. Please call your CHW, or ask a family member to call them for you.</value>
+          </text>
+          <text id="/data/reply/tw_unknown:label">
+            <value>Twi (first draft, not yet checked by a Twi speaker): Me ho ayɛ wo, minnte nea woka no. Frɛ wo CHW, anaa ka sɛ obi nfrɛ wɔn ma wo.</value>
+          </text>
+          <text id="/data/reply/pilot_reply_note:label">
+            <value>These replies are PILOT wording. Give only what is written here. Do not add advice, doses or diagnoses.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="voice_question" version="2026092801" prefix="J1!voice_question!" delimiter="#">
+          <consent_group>
+            <pilot_warning/>
+            <consent_note/>
+            <consent/>
+            <question_audio/>
+            <topic/>
+          </consent_group>
+          <reply>
+            <en_emergency/>
+            <tw_emergency/>
+            <en_visit_date/>
+            <tw_visit_date/>
+            <en_transport/>
+            <tw_transport/>
+            <en_feeding/>
+            <tw_feeding/>
+            <en_unknown/>
+            <tw_unknown/>
+            <pilot_reply_note/>
+          </reply>
+          <data>
+            <__topic/>
+            <__has_audio/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="user-contact-summary"/>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="topic">
+        <root>
+          <item>
+            <itextId>topic-0</itextId>
+            <name>emergency</name>
+          </item>
+          <item>
+            <itextId>topic-1</itextId>
+            <name>visit_date</name>
+          </item>
+          <item>
+            <itextId>topic-2</itextId>
+            <name>transport</name>
+          </item>
+          <item>
+            <itextId>topic-3</itextId>
+            <name>feeding</name>
+          </item>
+          <item>
+            <itextId>topic-4</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/consent_group/pilot_warning" readonly="true()" type="string"/>
+      <bind nodeset="/data/consent_group/consent_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/consent_group/consent" type="string" required="true()"/>
+      <bind nodeset="/data/consent_group/question_audio" type="binary" required="false()" relevant=" /data/consent_group/consent  = 'yes'"/>
+      <bind nodeset="/data/consent_group/topic" type="string" required="true()"/>
+      <bind nodeset="/data/reply/en_emergency" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency'"/>
+      <bind nodeset="/data/reply/tw_emergency" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency'"/>
+      <bind nodeset="/data/reply/en_visit_date" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'visit_date'"/>
+      <bind nodeset="/data/reply/tw_visit_date" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'visit_date'"/>
+      <bind nodeset="/data/reply/en_transport" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'transport'"/>
+      <bind nodeset="/data/reply/tw_transport" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'transport'"/>
+      <bind nodeset="/data/reply/en_feeding" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'feeding'"/>
+      <bind nodeset="/data/reply/tw_feeding" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'feeding'"/>
+      <bind nodeset="/data/reply/en_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown'"/>
+      <bind nodeset="/data/reply/tw_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown'"/>
+      <bind nodeset="/data/reply/pilot_reply_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/data/__topic" type="string" calculate=" /data/consent_group/topic "/>
+      <bind nodeset="/data/data/__has_audio" type="string" calculate="if( /data/consent_group/question_audio  != '', 'yes', 'no')"/>
+      <bind nodeset="/data/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/data/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/data/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/data/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/data/consent_group">
+      <label ref="jr:itext('/data/consent_group:label')"/>
+      <input ref="/data/consent_group/pilot_warning">
+        <label ref="jr:itext('/data/consent_group/pilot_warning:label')"/>
+      </input>
+      <input ref="/data/consent_group/consent_note">
+        <label ref="jr:itext('/data/consent_group/consent_note:label')"/>
+      </input>
+      <select1 ref="/data/consent_group/consent">
+        <label ref="jr:itext('/data/consent_group/consent:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <upload ref="/data/consent_group/question_audio" mediatype="audio/*">
+        <label ref="jr:itext('/data/consent_group/question_audio:label')"/>
+      </upload>
+      <select1 ref="/data/consent_group/topic">
+        <label ref="jr:itext('/data/consent_group/topic:label')"/>
+        <itemset nodeset="instance('topic')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/data/reply">
+      <label ref="jr:itext('/data/reply:label')"/>
+      <input ref="/data/reply/en_emergency">
+        <label ref="jr:itext('/data/reply/en_emergency:label')"/>
+      </input>
+      <input ref="/data/reply/tw_emergency">
+        <label ref="jr:itext('/data/reply/tw_emergency:label')"/>
+      </input>
+      <input ref="/data/reply/en_visit_date">
+        <label ref="jr:itext('/data/reply/en_visit_date:label')"/>
+      </input>
+      <input ref="/data/reply/tw_visit_date">
+        <label ref="jr:itext('/data/reply/tw_visit_date:label')"/>
+      </input>
+      <input ref="/data/reply/en_transport">
+        <label ref="jr:itext('/data/reply/en_transport:label')"/>
+      </input>
+      <input ref="/data/reply/tw_transport">
+        <label ref="jr:itext('/data/reply/tw_transport:label')"/>
+      </input>
+      <input ref="/data/reply/en_feeding">
+        <label ref="jr:itext('/data/reply/en_feeding:label')"/>
+      </input>
+      <input ref="/data/reply/tw_feeding">
+        <label ref="jr:itext('/data/reply/tw_feeding:label')"/>
+      </input>
+      <input ref="/data/reply/en_unknown">
+        <label ref="jr:itext('/data/reply/en_unknown:label')"/>
+      </input>
+      <input ref="/data/reply/tw_unknown">
+        <label ref="jr:itext('/data/reply/tw_unknown:label')"/>
+      </input>
+      <input ref="/data/reply/pilot_reply_note">
+        <label ref="jr:itext('/data/reply/pilot_reply_note:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/data/data">
+      <group ref="/data/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

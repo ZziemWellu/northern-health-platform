@@ -5,3 +5,8 @@ node_modules/
 .cache/
 __pycache__/
 *.pyc
+
+# Akan speech model weights (large) and caregiver voice audio (personal data, CC-BY-4.0 clips)
+voice/models/
+voice/eval/data/
+referral_arrival/data/

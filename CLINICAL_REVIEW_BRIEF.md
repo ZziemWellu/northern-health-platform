@@ -19,6 +19,8 @@ For each module, confirm or correct the rules in `CLINICAL_CONTENT.md`, then sig
 | 6 | Barrier questions; new rule: barrier open from 28 weeks, ranked 88 | `cht-app/tasks.js` (`barrier.unresolved_late`) |
 | 7 | Sick-child danger signs and fast-breathing cut-offs | `cht-app/tools/build_child_forms.py` |
 | 7 | SMC schedule: 4 cycles, 28 days apart, ages 3-59 months | `cht-app/tools/build_child_forms.py` |
+| 3 | Feeding plans (18 drafts), problem-nutrient wording and the referral direction | `nutrition/plans/REVIEW_PACK.md` (decision block per plan, recorded with `nutrition/record_decision.py`) |
+| 4 | Caregiver question form (voice): topic replies in English and a first-draft Twi | `cht-app/tools/build_voice_forms.py`, `voice/replies.json` |
 | SMS | Reminder texts (non-clinical; need Twi translations and checking) | `sms/templates.js` |
 
 ## 2. What the research found
@@ -46,6 +48,7 @@ For each module, confirm or correct the rules in `CLINICAL_CONTENT.md`, then sig
 1. Which Ghana STG edition applies, and do the thresholds in section 1 match it?
 2. Is the 32-week birth-plan deadline GHS policy, or a project choice?
 3. Should the barrier ranking (level 88) sit where it does against newborn day 1 and sick-child day 3?
+6. Newborn schedule: the national minimum is day 1 (within 48 hours), day 6 or 7, and 6 weeks. Keep the optional day-3 visit off (default), or switch `NEWBORN_DAY_3_VISIT` on in `cht-app/tasks.js`?
 4. Who in the district delivers Twi reminder texts, and who checks the translations?
 5. Which facilities can actually provide caesarean or blood transfusion? The data does not say.
 
@@ -62,3 +65,41 @@ For each module, confirm or correct the rules in `CLINICAL_CONTENT.md`, then sig
 - **Not verified:** distance from Tamale and road access. Check before committing.
 
 The district choice still needs the partner's agreement. Nothing here is agreed with them.
+
+## 5. What is ready for the reviewer, and what is not
+
+- **Feeding plans (Module 3).** Every plan is a draft. The review pack gives each plan its foods, the
+  nutrient coverage, drafted referral and supplementation wording, and a decision block (approve,
+  approve with changes, reject). A reviewer's decision is logged in `nutrition/plans/decisions.json`.
+  Only an approval changes a plan, and only approved plans reach the feeding form. Iron, zinc, calcium
+  and vitamin A are short in every plan with local foods at current prices; the wording says so and
+  points to the GHS protocol. The reviewer must confirm the wording and name the product.
+- **Caregiver question form (Module 2).** Offline, the CHW chooses the topic and the approved reply
+  appears at once. The phone does not do speech recognition. Recordings are taken only with consent
+  and kept for later transcription. **Decision needed:** how long recordings are kept, and who may
+  hear them.
+- **Twi wording** in both the SMS and the voice replies is a first draft. A Twi speaker from the
+  district must check it.
+- **Decisions taken by the developer, for the reviewer to confirm or overrule** (in `voice/recordings.js`):
+  - *Recording kept how long:* on the phone, deleted once the server confirms it (never kept more than
+    14 days if it never syncs). On the server, audio deleted 7 days after transcription. Only the topic
+    is kept, never the words.
+  - *Who can hear it:* nobody by default. A named quality reviewer may listen only if the caregiver
+    also agreed to quality checks, and each listen is logged. Data protection law (Ghana's Data
+    Protection Act 2012) has not been checked against this policy: the district data officer must.
+  - *Module:* moved from module 2 to module 4 (voice support), following the blueprint's module
+    numbering. Module 4 is a separate sign-off line from module 2.
+- **Akan speech model:** `waxal-benchmarking/whisper-small-waxal-aka` (Apache-2.0 model, CC-BY-4.0
+  data). Its card reports WER 31.7% on the WAXAL test set and says it is not for high-stakes use
+  without validation. **Measured here** on 20 WAXAL validation clips (747 words): **WER 43.1%** before
+  and **42.7%** after the repetition fix. One clip is still at WER 2.71: the model writes wrong words
+  at a normal speaking rate, which neither the repetition rule nor a words-per-second check catches.
+  A confidence-based filter is the next step and is not built. Treat the transcript as unreliable
+  until the topic matching is tested on real caregiver phrases.
+- **Topic matching** passes a drafted set of 14 caregiver-style phrases. The developer wrote that set,
+  not caregivers, so it proves little until replaced with collected phrases. The Tɛkyerɛma TTS model is **not** used: its licence is non-commercial only (CC BY-NC).
+- **On the phone:** the phone runs the offline topic menu and the offline recording queue. It does not
+  run speech recognition. Akan recognition runs on the server when the phone syncs. A small on-phone
+  model would need a separate validation first.
+- **Not built:** the eCHIS link needs access that has not been granted (see `ECHIS_ACCESS_GUIDE.md`).
+  The CHT Android app is built separately and is not changed here.

@@ -48,6 +48,7 @@ For each module, confirm or correct the rules in `CLINICAL_CONTENT.md`, then sig
 1. Which Ghana STG edition applies, and do the thresholds in section 1 match it?
 2. Is the 32-week birth-plan deadline GHS policy, or a project choice?
 3. Should the barrier ranking (level 88) sit where it does against newborn day 1 and sick-child day 3?
+6. Newborn schedule: the national minimum is day 1 (within 48 hours), day 6 or 7, and 6 weeks. Keep the optional day-3 visit off (default), or switch `NEWBORN_DAY_3_VISIT` on in `cht-app/tasks.js`?
 4. Who in the district delivers Twi reminder texts, and who checks the translations?
 5. Which facilities can actually provide caesarean or blood transfusion? The data does not say.
 

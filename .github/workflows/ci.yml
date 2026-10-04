@@ -57,7 +57,9 @@ jobs:
         run: node --test sms/test/sms.test.js
 
       - name: Voice and eCHIS export tests (no network; live use is switched off)
-        run: node --test voice/test/voice.test.js integration/test/dhis2.test.js
+        run: node --test voice/test/voice.test.js voice/test/recordings.test.js voice/test/phrases.test.js integration/test/dhis2.test.js
+      - name: Referral arrival tests
+        run: node --test referral_arrival/test/arrival.test.js referral_arrival/test/server.test.js
 
       - name: CHT behaviour tests (tasks, forms, targets)
         working-directory: cht-app

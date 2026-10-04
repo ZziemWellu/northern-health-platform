@@ -16,4 +16,29 @@ function whisperCppTranscriber({ bin = process.env.WHISPER_CPP_BIN, model = proc
   });
 }
 
-module.exports = { whisperCppTranscriber };
+// Akan (Twi) on the server: runs voice/transcribe_akan.py with the WAXAL Whisper model. The runner is
+// injectable so tests do not need Python, ffmpeg or the model.
+function akanTranscriber({
+  python = process.env.PYTHON || 'python',
+  script = require('node:path').join(__dirname, 'transcribe_akan.py'),
+  model,
+  run = runProcess,
+} = {}) {
+  return async (audioPath) => {
+    const args = [script, audioPath];
+    if (model) args.push('--model', model);
+    const out = await run(python, args);
+    return String(out).trim();
+  };
+}
+
+function runProcess(cmd, args) {
+  return new Promise((resolve, reject) => {
+    execFile(cmd, args, { maxBuffer: 1024 * 1024, encoding: 'utf8' }, (err, stdout) => {
+      if (err) return reject(new Error(`speech recognition failed: ${err.message}`));
+      resolve(stdout);
+    });
+  });
+}
+
+module.exports = { whisperCppTranscriber, akanTranscriber };

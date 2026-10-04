@@ -15,10 +15,11 @@ GENERATORS = [
     "build_barrier_forms.py",
     "build_child_forms.py",
     "build_nutrition_forms.py",
+    "build_voice_forms.py",
 ]
 FORMS = ["pnc_home_visit", "maternal_danger_assessment", "referral", "referral_follow_up", "barrier_screen",
          "birth_plan", "sick_child", "sick_child_follow_up", "smc_dose", "smc_adherence",
-         "feeding_counselling", "market_prices"]
+         "feeding_counselling", "market_prices", "voice_question"]
 
 if __name__ == "__main__":
     sys.path.insert(0, str(TOOLS))

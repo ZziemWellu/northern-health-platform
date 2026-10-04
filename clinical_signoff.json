@@ -1,5 +1,5 @@
 {
-  "_about": "Clinical sign-off per module. Until a module is approved here by a named clinical advisor, every one of its forms shows a PILOT warning on its first page. Edit only when a qualified reviewer has checked that module's content against GHS protocols; see CLINICAL_CONTENT.md for what they must check.",
+  "_about": "Clinical sign-off per module. Until a module is approved here by a named clinical advisor, every one of its forms shows a PILOT warning on its first page. Edit only when a qualified reviewer has checked that module's content against GHS protocols; see CLINICAL_CONTENT.md for what they must check. Module numbers follow the blueprint: 1 risk, 2 last-mile, 3 nutrition, 4 voice, 5 CHPS workflows, 6 barriers, 7 sick child.",
   "modules": {
     "1": {
       "name": "Risk before crisis",
@@ -30,6 +30,18 @@
       "approved": false,
       "by": null,
       "on": null
+    },
+    "4": {
+      "name": "Voice-first caregiver support",
+      "approved": false,
+      "by": null,
+      "on": null
+    },
+    "5": {
+      "name": "CHPS workflows and DHIMS-2 reporting",
+      "approved": false,
+      "by": null,
+      "on": null
     }
   },
   "forms": {
@@ -37,6 +49,7 @@
     "maternal_danger_assessment": "1",
     "referral": "2",
     "referral_follow_up": "2",
+    "voice_question": "4",
     "feeding_counselling": "3",
     "barrier_screen": "6",
     "birth_plan": "6",

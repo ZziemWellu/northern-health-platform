@@ -62,6 +62,8 @@ jobs:
         run: node --test referral_arrival/test/arrival.test.js referral_arrival/test/server.test.js
       - name: Shared household record tests
         run: node --test shared/household_link/test/household_link.test.js
+      - name: Module 5 export and household adapter tests
+        run: node --test shared/module5/test/export.test.js shared/household_link/test/adapters.test.js
       - name: Showcase checks
         run: python -m pytest -q prototype/test_showcase.py
 

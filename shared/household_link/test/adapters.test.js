@@ -20,7 +20,7 @@ test('CHT: creates a person under a household with Basic auth and the documented
   assert.equal(calls[0].url, 'https://cht.example/api/v1/person');
   assert.equal(calls[0].init.method, 'POST');
   assert.equal(calls[0].init.headers.Authorization, 'Basic ' + Buffer.from('u:p').toString('base64'));
-  assert.deepEqual(JSON.parse(calls[0].init.body), { name: 'Ama', type: 'person', place: 'H-uuid' });
+  assert.deepEqual(JSON.parse(calls[0].init.body), { name: 'Ama', type: 'person', parent: 'H-uuid' });
 });
 
 test('CHT: a person without a household is refused before any request', () => {

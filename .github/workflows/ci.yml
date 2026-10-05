@@ -64,7 +64,7 @@ jobs:
         run: node --test shared/household_link/test/household_link.test.js
       - name: Module 5 export and household adapter tests
         run: node --test shared/module5/test/export.test.js shared/household_link/test/adapters.test.js
-      - name: Production dependencies: no high or critical vulnerabilities
+      - name: "Production dependencies: no high or critical vulnerabilities"
         working-directory: cht-app
         run: npm audit --omit=dev --audit-level=high
       - name: Showcase checks

@@ -1,5 +1,5 @@
 // CHT adapter for the shared household record. It talks to the CHT REST API (cht-core 5.x):
-//   POST /api/v1/person        create a person under a household place (body: name, type, place)
+//   POST /api/v1/person        create a person under a household place (body: name, type, parent)
 //   GET  /api/v1/person/{uuid} read a person back
 // Authentication is HTTP Basic, as the CHT API documents. The CHT is the source of truth for names and
 // contact details. This adapter sends them there only; the household link keeps references, never names.
@@ -29,7 +29,7 @@ function chtClient({ baseUrl, username, password, fetchImpl = fetch }) {
     // householdUuid is the CHT place (household) the person belongs to.
     createPerson({ name, householdUuid, type = 'person' }) {
       if (!name || !householdUuid) throw new Error('a person needs a name and a household');
-      return call('POST', '/api/v1/person', { name, type, place: householdUuid });
+      return call('POST', '/api/v1/person', { name, type, parent: householdUuid });
     },
     getPerson(uuid) {
       return call('GET', `/api/v1/person/${encodeURIComponent(uuid)}`);

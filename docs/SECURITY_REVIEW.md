@@ -38,3 +38,20 @@ run in `cht-app/`.
 The MAMA-AI services have their own dependency manifests (`services/api-gateway/requirements.txt`,
 `apps/mobile-pwa/package.json`, `apps/dashboard/requirements.txt`). Dependabot's five alerts were all in
 `cht-app/`, so the MAMA-AI manifests were not part of this review. Run the same audit on them before a pilot.
+
+## Update, 7 November 2026: six development-only alerts fixed
+
+Fixed with version overrides in `cht-app/package.json`; all are development tooling, none reaches a device.
+
+| Package | Was | Now | How |
+|---|---|---|---|
+| joi (high) | 18.2.9 | 18.3.2 | override (under `cht-conf`) |
+| source-map-js (high) | 1.2.1 | 1.2.2 | override (under `svgo`) |
+| qs | 6.16.0 | 6.16.1 | override bumped |
+| serialize-javascript | 7.0.5 | 7.1.3 | override bumped |
+| minimatch | 9.0.9 | 11.0.5 | override scoped to `mocha` (other packages need minimatch 3, which is not affected) |
+| glob | 10.5.0 | 14.0.2 | override scoped to `mocha` (glob 7 elsewhere is not affected) |
+
+Upgrading mocha does not help: mocha 12.0.3 still depends on vulnerable minimatch 10 and glob 13.
+GitHub auto-dismissed the joi and glob alerts when the repository became public; they are fixed anyway.
+`npm audit` still lists the accepted items above (extract-zip, request, uuid), which have no fix on npm.

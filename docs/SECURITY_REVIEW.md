@@ -45,7 +45,7 @@ Fixed with version overrides in `cht-app/package.json`; all are development tool
 
 | Package | Was | Now | How |
 |---|---|---|---|
-| joi (high) | 18.2.9 | 18.3.1 | override (under `cht-conf`) |
+| joi (high) | 18.2.9 | 18.3.2 | override (under `cht-conf`) |
 | source-map-js (high) | 1.2.1 | 1.2.2 | override (under `svgo`) |
 | qs | 6.16.0 | 6.16.1 | override bumped |
 | serialize-javascript | 7.0.5 | 7.1.3 | override bumped |

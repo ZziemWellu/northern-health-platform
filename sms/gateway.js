@@ -22,14 +22,19 @@ async function sendOne({ to, text, sender, apiKey, fetchImpl = fetch }) {
 
 // Sends each planned message, one request each, and returns a result per message. A failure on one
 // message never stops the rest; the caller records failures so they are retried on the next run.
-async function sendAll(messages, { sender, apiKey, fetchImpl }) {
+// `onResult` is awaited after every message, so the caller can write it to the send log before the
+// next one goes out: if the run dies halfway, the messages already sent are not sent again.
+async function sendAll(messages, { sender, apiKey, fetchImpl, onResult = async () => {} }) {
   const results = [];
   for (const m of messages) {
+    let result;
     try {
-      results.push({ key: m.key, ...(await sendOne({ to: m.to, text: m.text, sender, apiKey, fetchImpl })) });
+      result = { key: m.key, ...(await sendOne({ to: m.to, text: m.text, sender, apiKey, fetchImpl })) };
     } catch (err) {
-      results.push({ key: m.key, ok: false, to: m.to, error: err.message });
+      result = { key: m.key, ok: false, to: m.to, error: err.message };
     }
+    results.push(result);
+    await onResult(result);
   }
   return results;
 }

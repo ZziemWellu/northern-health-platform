@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { buildExport, validateCsv, HEADER, SUPPRESS_BELOW } = require('../export');
+const { buildExport, validateCsv, HEADER } = require('../export');
 
 const ORG = 'y77LiPqLMoq'; // a DHIS2 UID (example from the public demo)
 const MAPPING = {
@@ -16,10 +16,29 @@ test('builds a DHIS2-layout CSV with one row per measure per facility', () => {
   assert.equal(validateCsv(out.csv).ok, true);
 });
 
-test('counts below the suppression threshold are withheld, never exported', () => {
-  const out = buildExport({ counts: { [ORG]: { anc_registrations: SUPPRESS_BELOW - 1 } }, mapping: MAPPING, period: '202609' });
-  assert.equal(out.rows.length, 0);
-  assert.match(out.report.withheld[0].reason, /withheld/);
+test('the district file carries exact small counts, including zero: it replaces a register', () => {
+  const out = buildExport({ counts: { [ORG]: { anc_registrations: 1, deliveries: 0 } }, mapping: MAPPING, period: '202609' });
+  assert.equal(out.importReady, true);
+  assert.deepEqual(out.rows.map(r => r.value), ['1', '0']);
+  assert.match(out.csv, /,1\n/);
+  assert.match(out.csv, /,0\n/);
+  assert.equal(validateCsv(out.csv).ok, true);
+});
+
+test('an invalid count blocks the file instead of being dropped silently', () => {
+  for (const bad of [-1, 2.5, 'seven', null]) {
+    const out = buildExport({ counts: { [ORG]: { anc_registrations: 20, deliveries: bad } }, mapping: MAPPING, period: '202609' });
+    assert.equal(out.importReady, false, `value ${bad} should block the file`);
+    assert.equal(out.report.invalidValue.length, 1);
+  }
+  const fromCsvText = buildExport({ counts: { [ORG]: { anc_registrations: '12' } }, mapping: MAPPING, period: '202609' });
+  assert.equal(fromCsvText.rows[0].value, '12', 'a whole number read as text is accepted');
+});
+
+test('a bad category option combo is refused, in the build and in the validator', () => {
+  const out = buildExport({ counts: { [ORG]: { anc_registrations: 20 } }, mapping: { anc_registrations: { dataElement: 'iYCGteGcr6Q', categoryOptionCombo: 'girls 10-14' } }, period: '202609' });
+  assert.equal(out.importReady, false);
+  assert.equal(validateCsv(`${HEADER}\niYCGteGcr6Q,202609,${ORG},Mensah,4\n`).ok, false);
 });
 
 test('an unmapped measure is reported and makes the file not import-ready', () => {

@@ -8,10 +8,10 @@ Each module can ship on its own or together with the others. The design is in th
 | Module | Status |
 | --- | --- |
 | 1 Risk before crisis | In progress: urgency ranking, newborn home visits (day 1, 3, 7), maternal danger assessment with explained rules |
-| 2 Last-mile follow-up | In progress: tracked referrals with code, destination and deadline; arrival follow-up; supervisor targets. SMS confirmation by facilities needs a live server (not built yet) |
+| 2 Last-mile follow-up | In progress: tracked referrals with code, destination and deadline; arrival follow-up; supervisor targets. The arrival server (`referral_arrival/`: facility confirms by code, overdue referrals escalate to the nurse) is built and tested, SMS dry-run by default. Not yet connected to the CHT referral form, and not deployed |
 | 3 Local-food nutrition | In progress: nutrition engine (`nutrition/`) with checked prices, balanced least-cost plans and a nutritionist approval gate; CHT feeding counselling (approved plans only, dietary diversity) and market price forms. No plan approved yet |
-| 4 Voice support | Not started (MAMA-AI's Twi audio pipeline will move here) |
-| 5 CHPS workflows | Not started |
+| 4 Voice support | In progress: menu-first caregiver question form (the CHW picks the topic), approved replies in English and Twi, consent and deletion rules for recordings (`voice/`). Twi wording needs a native speaker. Akan speech recognition is off by default (42.7% word error rate on 20 WAXAL clips) |
+| 5 CHPS workflows | In progress: aggregate export file for DHIS2 / DHIMS-2 (`shared/module5/`, `integration/`), accepted on the public DHIS2 demo with sample data. Needs the district's data-element IDs. CHPS register workflows not started |
 | 6 Hidden barriers | In progress: barrier screen with an action per barrier, birth plan with the decider (by 32 weeks), same-day barrier check after a missed referral, supervisor target |
 | 7 Sick child and prevention | In progress: iCCM sick-child assessment (malaria, pneumonia, diarrhoea, danger signs) with day-3 follow-up, SMC dose tracking with catch-up and home-dose checks. Vaccine defaulter tracking not started |
 
@@ -32,7 +32,18 @@ cht-app/                  CHT app configuration (forms, tasks, targets, translat
   tools/                  Form generators (forms written as code)
   test/unit/              Fast unit tests (no browser)
   test/tasks|forms|...    Behaviour tests in the CHT test harness (headless browser)
+referral_arrival/         Module 2 arrival server: facility code confirmation and escalation
+voice/                    Module 4 caregiver replies, recording rules, Akan speech tools (off)
+shared/household_link/    Shared household record: platform IDs linked to CHT and MAMA-AI by reference
+shared/module5/           Module 5 aggregate export file for DHIS2 / DHIMS-2
+integration/              DHIS2 push (dry-run unless configured)
+sms/                      SMS reminders (dry-run by default)
+prototype/                Status board, built from the repo (nothing approved)
+docs/                     Roadmap, security review, outreach pack, pitch
 ```
+
+MAMA-AI (facility referral ranking) is a separate repository, `ZziemWellu/mama-ai-platform`; do not
+clone it inside this one.
 
 `cht-app/` started as a copy of `config/default` from cht-core **5.3.1** (AGPL-3.0).
 
@@ -99,16 +110,11 @@ npx cht --url=https://medic:password@localhost:10443 --accept-self-signed-certs
 
 Use only made-up data. Real health data must stay in Ghana or on GHS-controlled servers.
 
-## Windows notes (the first development laptop)
+## Windows notes
 
-Tools live outside the repo in `C:\Users\Owner\.devtools\` (Node, Python, gh, xsltproc). Put these
-on the PATH before running commands:
-
-```bash
-export PATH="/c/Users/Owner/.devtools/xslt:/c/Users/Owner/.devtools/python-3.11:/c/Users/Owner/.devtools/node-v22.23.2-win-x64:$PATH"
-```
-
-On a new machine, install the tools normally instead; nothing in the repo depends on those paths.
+Install Node.js, Python and Git normally; nothing in the repo depends on where they are installed.
+For `xsltproc`, either install MSYS2's `mingw-w64-x86_64-libxslt` package and put its `bin` folder
+on the PATH, or use conda (below).
 
 **No admin rights, so no MSYS2/Chocolatey?** If conda or miniconda is already installed,
 `conda install -n base -c conda-forge libxslt` puts a working `xsltproc.exe` in its `Library\bin`

@@ -10,3 +10,7 @@ __pycache__/
 voice/models/
 voice/eval/data/
 referral_arrival/data/
+
+# MAMA-AI is its own repository (ZziemWellu/mama-ai-platform); never nest a clone here
+mama-admin/
+mama-ai-platform/

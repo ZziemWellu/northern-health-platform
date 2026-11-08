@@ -14,13 +14,14 @@ function fakeFetch(handler) {
 }
 
 test('CHT: creates a person under a household with Basic auth and the documented fields', async () => {
-  const { fn, calls } = fakeFetch(() => ({ body: { _id: 'p1', name: 'Ama' } }));
+  const { fn, calls } = fakeFetch(() => ({ body: { ok: true, id: 'p1', rev: '1-a' } }));
   const cht = chtClient({ baseUrl: 'https://cht.example/', username: 'u', password: 'p', fetchImpl: fn });
-  await cht.createPerson({ name: 'Ama', householdUuid: 'H-uuid' });
-  assert.equal(calls[0].url, 'https://cht.example/api/v1/person');
+  assert.deepEqual(await cht.createPerson({ name: 'Ama', householdUuid: 'H-uuid' }), { _id: 'p1', rev: '1-a' });
+  // /api/v1/people stores type "person", which every app form's context requires (checked on CHT 5.3.1).
+  assert.equal(calls[0].url, 'https://cht.example/api/v1/people');
   assert.equal(calls[0].init.method, 'POST');
   assert.equal(calls[0].init.headers.Authorization, 'Basic ' + Buffer.from('u:p').toString('base64'));
-  assert.deepEqual(JSON.parse(calls[0].init.body), { name: 'Ama', type: 'person', parent: 'H-uuid' });
+  assert.deepEqual(JSON.parse(calls[0].init.body), { name: 'Ama', type: 'person', place: 'H-uuid' });
 });
 
 test('CHT: a person without a household is refused before any request, as a rejected promise', async () => {

@@ -21,7 +21,7 @@ async function main() {
   if (env.CHT_URL && env.CHT_USER && env.CHT_PASS && env.CHT_HOUSEHOLD_UUID) {
     const cht = chtClient({ baseUrl: env.CHT_URL, username: env.CHT_USER, password: env.CHT_PASS });
     const person = await cht.createPerson({ name: 'Demo Ama', householdUuid: env.CHT_HOUSEHOLD_UUID });
-    chtUuid = person._id || person.uuid;
+    chtUuid = person._id;
     log('cht.createPerson', { status: 'created', uuid: chtUuid });
   } else {
     log('cht.createPerson', { status: 'skipped', reason: 'CHT_URL, CHT_USER, CHT_PASS, CHT_HOUSEHOLD_UUID not set' });

@@ -43,6 +43,7 @@ the code review fixed, and what only a person can settle. Nothing here is approv
 | MAMA-AI login that returned no token left every later call unauthenticated | Error at login |
 | An expired MAMA-AI token was never renewed | One fresh login and one retry, never a loop |
 | The demo flag said "newborn feeding problem" while the demo referral request said postpartum haemorrhage | Both describe the same case |
+| People created through the CHT adapter were stored as `type: contact`, which no app form accepts (found on a live CHT 5.3.1) | Uses `/api/v1/people`, which stores `type: person` |
 
 ## Needs a person (not fixable in code)
 
@@ -74,7 +75,10 @@ the code review fixed, and what only a person can settle. Nothing here is approv
 3. `prepare.py` assumes 100% edible portion when the food table has no factor, and the energy column is
    read by position (`r[7]`), not by name. Check both the next time the table is rebuilt.
 
-### Developer, when the CHT server is next available
+### Checked on a running CHT 5.3.1 (8 November 2026)
 
-The CHT person endpoint and field (`POST /api/v1/person` with `parent`) were changed in PR #6 after a test
-on a local CHT 5.3.1. Re-check against the server before relying on it (see `docs/E2E_RUN.md`).
+The CHT adapter created people with `POST /api/v1/person` and `parent` (PR #6). The request succeeds, but
+CHT 5.3.1 stores that person as `type: "contact"` with `contact_type: "person"`, and every app form here
+is offered only when `contact.type === 'person'`, so a person registered through the household link
+would never be offered the pilot's forms. The adapter now uses `POST /api/v1/people` with `place`, which
+stores `type: "person"`; confirmed against the server.

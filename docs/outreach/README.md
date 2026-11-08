@@ -14,9 +14,14 @@ or a regulator.
 | Clinical advisor | `clinical_advisor_role.md` | Project lead recruits; the advisor signs their own reviews | Role description |
 | District agreement | `district_agreement_mou_draft.md` | District Health Directorate and the organisation | Draft |
 | Ethics review | `ethics_pack_outline.md` | Research partner and project lead | Outline |
+| Institutional home (who hosts the pilot) | `institutional_home.md` | Project lead decides | Options and recommendation |
+| Letters: district, university, clinical advisor, Medic, UNICEF | `letters.md` | Project lead sends | Drafts |
+| What the pilot must show, and how each figure is produced | `pilot_evidence_plan.md` | Project lead, clinical advisor, research partner | Plan |
 
 ## Order of work
 
+0. Settle the institutional home (`institutional_home.md`) and send letters 1 and 2 (`letters.md`):
+   the district and a host institution unlock everything below.
 1. File the not-for-profit. The DPC registration, grants and district agreement all need it.
 2. Send the three quote requests now. Hosting decisions take time, and quotes are the cheapest evidence
    of seriousness an NGO or investor will ask for.

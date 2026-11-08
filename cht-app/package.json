@@ -13,7 +13,8 @@
     "build-forms": "python tools/build_all.py && python tools/build_language_fields.py && cht --no-check convert-app-forms -- pnc_home_visit maternal_danger_assessment referral referral_follow_up barrier_screen birth_plan sick_child sick_child_follow_up smc_dose smc_adherence feeding_counselling market_prices voice_question && cht --no-check convert-contact-forms -- person-create person-edit",
     "build": "npm run build-forms && cht --no-check compile-app-settings",
     "test-unit": "mocha test/unit",
-    "build-pilot": "node tools/pilot_build.js"
+    "build-pilot": "node tools/pilot_build.js",
+    "demo-seed": "node demo/seed.js"
   },
   "devDependencies": {
     "@medic/eslint-config": "1.1.0",

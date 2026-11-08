@@ -87,6 +87,10 @@ say so in the results.
 
 Record results in a hazard log per release: what happened, severity, fix, retest.
 
+How each figure is produced, the usability questionnaire and the pilot report:
+`docs/outreach/pilot_evidence_plan.md`. The app-side figures come from
+`shared/pilot_metrics/report.js`; rehearse it on the demo district (`docs/pitch/DEMO_SETUP.md`).
+
 ## 5. After the pilot passes
 
 In this order, each with its own sign-off and field test: Module 2 arrival tracking (needs the

@@ -26,9 +26,29 @@ test('an unsynced recording is deleted after the phone limit, not before', () =>
 });
 
 test('server audio is deleted a set number of days after transcription, and not before', () => {
-  const recs = [{ id: 'x', transcribedAt: NOW }, { id: 'y' }];
+  const recs = [{ id: 'x', transcribedAt: NOW, receivedAt: NOW - DAY }];
   assert.deepEqual(r.serverDeletions(recs, NOW + DAY), []);
   assert.deepEqual(r.serverDeletions(recs, NOW + (r.SERVER_MAX_DAYS + 1) * DAY), ['x']);
+});
+
+test('audio that was never transcribed is still deleted, counted from when it arrived', () => {
+  const recs = [{ id: 'failed', receivedAt: NOW }];
+  assert.deepEqual(r.serverDeletions(recs, NOW + DAY), []);
+  assert.deepEqual(r.serverDeletions(recs, NOW + (r.SERVER_MAX_DAYS + 1) * DAY), ['failed']);
+  assert.deepEqual(r.serverDeletions([{ id: 'nodate' }], NOW), ['nodate'], 'with no date at all it is deleted, not kept');
+});
+
+test('a stored "no" for quality consent is not treated as consent', () => {
+  const reviewer = { name: 'QA', role: 'quality_reviewer' };
+  assert.equal(r.canListen(reviewer, { id: 'a', consentQuality: 'no' }), false);
+  assert.equal(r.canListen(reviewer, { id: 'a', consentQuality: 'yes' }), false, 'only the boolean set at queueing counts');
+});
+
+test('recordings need a unique id, so syncing one never marks another', () => {
+  assert.throws(() => r.queueRecording([], { file: 'a.amr', consent: 'yes' }, NOW), /needs an id/);
+  const q = r.queueRecording([], { id: 'a', file: 'a.amr', consent: 'yes' }, NOW);
+  assert.throws(() => r.queueRecording(q, { id: 'a', file: 'b.amr', consent: 'yes' }, NOW), /already queued/);
+  assert.throws(() => r.markSynced(q, undefined), /needs a recording id/);
 });
 
 test('nobody listens by default: only a quality reviewer, and only with quality consent', () => {

@@ -45,6 +45,11 @@ class Plan:
 
 def optimise(foods, rni, energy_kcal, energy_tolerance=0.1, adequacy_threshold=0.7):
     nutrients = list(rni)
+    bad = [m for m in nutrients if not isinstance(rni[m], (int, float)) or not rni[m] > 0]
+    if bad:
+        raise ValueError(f"every RNI must be a positive number; check targets.json for {bad}")
+    if not energy_kcal > 0:
+        raise ValueError("the energy target must be a positive number of kcal")
     n, k = len(foods), len(nutrients)
     if n == 0:
         return Plan(feasible=False, reason="No foods with usable prices.")

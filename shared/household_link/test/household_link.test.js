@@ -88,3 +88,73 @@ test('a flag becomes the referral input the arrival module already accepts', () 
   const ref = referralFromFlag(flag, { facilityId: 'F1', nurseId: 'N1', referralId: 'r-9' });
   assert.deepEqual(ref, { id: 'r-9', urgency: 'urgent', facilityId: 'F1', nurseId: 'N1', personId: 'P-1' });
 });
+
+// --- Review fixes (7 November 2026) ---------------------------------------------------------------
+
+function twoInOneHousehold() {
+  const links = new HouseholdLinks();
+  const a = links.register({ source: 'cht', externalId: 'c-a', householdId: 'H1' });
+  const b = links.register({ source: 'cht', externalId: 'c-b', householdId: 'H1' });
+  return { links, a, b };
+}
+
+test('a second record from the same source is refused, not silently overwritten', () => {
+  const links = new HouseholdLinks();
+  const p = links.register({ source: 'cht', externalId: 'c-1', householdId: 'H1' });
+  assert.throws(() => links.register({ source: 'cht', externalId: 'c-2', householdId: 'H1', personId: p }), /already has a cht record/);
+  assert.equal(links.lookup('cht', 'c-1'), p);
+  assert.equal(links.lookup('cht', 'c-2'), null);
+});
+
+test('after a merge, the merged person still resolves to the survivor, and new links go to the survivor', () => {
+  const { links, a, b } = twoInOneHousehold();
+  const c = links.flagDuplicate(a, b, 'same name and age');
+  links.mergeBySupervisor(c.id, 'Supervisor Abu');
+  assert.equal(links.resolve(b), a);
+  assert.equal(links.lookup('cht', 'c-b'), a);
+  const viaMerged = links.register({ source: 'mama', externalId: 'P9', householdId: 'H1', personId: b });
+  assert.equal(viaMerged, a, 'linking to a merged person attaches the reference to the survivor');
+  assert.equal(links.state.people[a].refs.mama, 'P9');
+});
+
+test('a merge where both have a CHT record keeps both references', () => {
+  const { links, a, b } = twoInOneHousehold();
+  const c = links.flagDuplicate(a, b, 'same person registered twice');
+  links.mergeBySupervisor(c.id, 'Supervisor Abu');
+  assert.equal(links.state.people[a].refs.cht, 'c-a');
+  assert.deepEqual(links.state.people[a].aliases, [{ source: 'cht', externalId: 'c-b' }]);
+  assert.equal(links.lookup('cht', 'c-b'), a);
+});
+
+test('an old duplicate candidate cannot merge a person who was merged since', () => {
+  const links = new HouseholdLinks();
+  const a = links.register({ source: 'cht', externalId: 'c-a', householdId: 'H1' });
+  const b = links.register({ source: 'cht', externalId: 'c-b', householdId: 'H1' });
+  const d = links.register({ source: 'mama', externalId: 'P-d', householdId: 'H1' });
+  const first = links.flagDuplicate(a, b, 'x');
+  const stale = links.flagDuplicate(b, d, 'y');
+  links.mergeBySupervisor(first.id, 'Supervisor Abu');
+  assert.throws(() => links.mergeBySupervisor(stale.id, 'Supervisor Abu'), /already been merged/);
+  assert.throws(() => links.flagDuplicate(b, d, 'again'), /already merged/);
+});
+
+test('duplicate flags need real people and are not queued twice', () => {
+  const { links, a, b } = twoInOneHousehold();
+  assert.throws(() => links.flagDuplicate(a, 'P-nobody', 'x'), /no person/);
+  const first = links.flagDuplicate(a, b, 'x');
+  assert.equal(links.flagDuplicate(b, a, 'x again'), first);
+  assert.equal(links.pendingDuplicates().length, 1);
+});
+
+test('a phone number written with spaces or dashes is still refused in a flag', () => {
+  for (const reason of ['call 024 412 3456', 'call 024-412-3456', 'call +233 24 412 3456', 'call (024) 4123456']) {
+    assert.throws(() => riskFlagEvent({ personId: 'P1', source: 'cht', urgency: 'urgent', reason }), /phone number/, reason);
+  }
+  assert.doesNotThrow(() => riskFlagEvent({ personId: 'P1', source: 'cht', urgency: 'urgent', reason: 'BP 160/110 at 34 weeks' }));
+});
+
+test('inherited object keys are not people or references', () => {
+  const links = new HouseholdLinks();
+  assert.equal(links.lookup('cht', '__proto__'), null);
+  assert.equal(links.resolve('constructor'), null);
+});

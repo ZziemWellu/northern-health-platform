@@ -6,10 +6,14 @@
 // Nothing here calls a network service unless the caller supplies one.
 const { execFile } = require('node:child_process');
 
-function whisperCppTranscriber({ bin = process.env.WHISPER_CPP_BIN, model = process.env.WHISPER_MODEL, language = 'ak' } = {}) {
+// A model that hangs must not hang the caller: after this long the run is killed and treated as failed
+// (respond.js then gives the safe default reply).
+const TIMEOUT_MS = 120 * 1000;
+
+function whisperCppTranscriber({ bin = process.env.WHISPER_CPP_BIN, model = process.env.WHISPER_MODEL, language = 'ak', timeoutMs = TIMEOUT_MS } = {}) {
   return (audioPath) => new Promise((resolve, reject) => {
     if (!bin || !model) return reject(new Error('Set WHISPER_CPP_BIN and WHISPER_MODEL to use local speech recognition'));
-    execFile(bin, ['-m', model, '-l', language, '-nt', '-f', audioPath], { maxBuffer: 1024 * 1024 }, (err, stdout) => {
+    execFile(bin, ['-m', model, '-l', language, '-nt', '-f', audioPath], { maxBuffer: 1024 * 1024, timeout: timeoutMs, encoding: 'utf8' }, (err, stdout) => {
       if (err) return reject(err);
       resolve(String(stdout).trim());
     });
@@ -32,13 +36,14 @@ function akanTranscriber({
   };
 }
 
-function runProcess(cmd, args) {
+function runProcess(cmd, args, timeoutMs = TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
-    execFile(cmd, args, { maxBuffer: 1024 * 1024, encoding: 'utf8' }, (err, stdout) => {
+    // PYTHONIOENCODING: Twi letters (ɛ, ɔ) must reach us as UTF-8 whatever the server's console code page.
+    execFile(cmd, args, { maxBuffer: 1024 * 1024, encoding: 'utf8', timeout: timeoutMs, env: { ...process.env, PYTHONIOENCODING: 'utf-8' } }, (err, stdout) => {
       if (err) return reject(new Error(`speech recognition failed: ${err.message}`));
       resolve(stdout);
     });
   });
 }
 
-module.exports = { whisperCppTranscriber, akanTranscriber };
+module.exports = { TIMEOUT_MS, whisperCppTranscriber, akanTranscriber, runProcess };

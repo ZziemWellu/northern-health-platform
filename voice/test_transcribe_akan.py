@@ -24,6 +24,15 @@ def test_output_length_is_capped_by_audio_duration():
     assert t.token_cap(60.0) == t.MAX_TOKENS
 
 
+def test_long_audio_is_split_into_30_second_windows_so_nothing_is_cut():
+    import numpy as np
+    audio = np.zeros(t.RATE * 75, dtype="float32")
+    parts = t.windows(audio)
+    assert [len(p) / t.RATE for p in parts] == [30, 30, 15]
+    assert sum(len(p) for p in parts) == len(audio)
+    assert len(t.windows(np.zeros(t.RATE * 10, dtype="float32"))) == 1
+
+
 def test_a_transcript_far_above_speech_rate_is_rejected():
     assert t.is_plausible("wo ho te sɛn " * 3, 3.0)
     assert not t.is_plausible(" ".join(["ye"] * 200), 25.0)

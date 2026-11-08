@@ -1,5 +1,5 @@
 {
- "built_on": "2026-09-28",
+ "built_on": "2026-11-07",
  "unpriced_foods": [
   {
    "label": "Groundnut / groundnut paste",
@@ -143,6 +143,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -211,6 +212,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -277,6 +279,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -345,6 +348,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -413,6 +417,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -479,6 +484,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -545,6 +551,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -611,6 +618,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -677,6 +685,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -743,6 +752,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -811,6 +821,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -875,6 +886,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -941,6 +953,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -1007,6 +1020,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -1071,6 +1085,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -1135,6 +1150,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -1201,6 +1217,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",
@@ -1265,6 +1282,7 @@
     "plantain": "wfp",
     "cowpea": "wfp"
    },
+   "oldest_price_date": "2023-07-15",
    "excluded_foods": {
     "soybean": "inconsistent",
     "egg": "known_issue",

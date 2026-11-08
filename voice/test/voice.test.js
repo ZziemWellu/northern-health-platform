@@ -61,6 +61,42 @@ test('the audit line records the intent and language, never the spoken words', (
   assert.equal(JSON.stringify(r.audit).includes('bleeding'), false);
 });
 
+test('the danger signs from the maternal danger assessment are emergencies, in their common forms', () => {
+  for (const phrase of [
+    'she bleeds a lot', 'she bled last night', 'she is convulsing', 'she had convulsions',
+    'she has a severe headache', 'her vision is blurry', 'she has fever', 'her body is very hot',
+    'there is a bad smell from below', 'her water broke', 'the baby is not moving',
+    'the baby stopped feeding', 'the baby can’t breathe',
+  ]) {
+    assert.equal(matchIntent(phrase), 'emergency', phrase);
+  }
+});
+
+test('the topic with the most matching words wins, so a feeding question is not sent to the clinic date', () => {
+  assert.equal(matchIntent('when should I feed the baby porridge'), 'feeding');
+  assert.equal(matchIntent('when is my clinic visit date'), 'visit_date');
+});
+
+test('a decomposed accent is the same word as the composed one', () => {
+  assert.equal(require('../intents').normalise('café'), require('../intents').normalise('café'));
+});
+
+test('an unknown or inherited id never produces an empty reply', () => {
+  for (const id of ['constructor', '__proto__', 'toString', 'nope', undefined]) {
+    const r = replyFor(id, 'en');
+    assert.equal(r.intent, 'unknown');
+    assert.equal(r.text, REPLIES.unknown.en);
+  }
+  assert.equal(replyFor('transport', 'constructor').text, REPLIES.transport.en);
+});
+
+test('if speech recognition fails, the caller still gets the safe default reply', async () => {
+  const r = await respondToAudio({ audioPath: '/a.amr', transcriber: async () => { throw new Error('model missing'); } });
+  assert.equal(r.intent, 'unknown');
+  assert.equal(r.text, REPLIES.unknown.en);
+  assert.equal(r.audit.transcriberFailed, true);
+});
+
 test('audio goes through the injected transcriber, then the same matching', async () => {
   const r = await respondToAudio({
     audioPath: '/tmp/x.wav',

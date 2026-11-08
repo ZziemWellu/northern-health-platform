@@ -77,6 +77,9 @@
           <text id="/data/reply/tw_unknown:label">
             <value>Twi (first draft, not yet checked by a Twi speaker): Me ho ayɛ wo, minnte nea woka no. Frɛ wo CHW, anaa ka sɛ obi nfrɛ wɔn ma wo.</value>
           </text>
+          <text id="/data/reply/emergency_action:label">
+            <value>Danger sign: after giving the reply, do the Maternal danger assessment for her now (or the Sick child assessment for a child), and refer as it says.</value>
+          </text>
           <text id="/data/reply/pilot_reply_note:label">
             <value>These replies are PILOT wording. Give only what is written here. Do not add advice, doses or diagnoses.</value>
           </text>
@@ -102,6 +105,7 @@
             <tw_feeding/>
             <en_unknown/>
             <tw_unknown/>
+            <emergency_action/>
             <pilot_reply_note/>
           </reply>
           <data>
@@ -172,6 +176,7 @@
       <bind nodeset="/data/reply/tw_feeding" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'feeding'"/>
       <bind nodeset="/data/reply/en_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown'"/>
       <bind nodeset="/data/reply/tw_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown'"/>
+      <bind nodeset="/data/reply/emergency_action" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency'"/>
       <bind nodeset="/data/reply/pilot_reply_note" readonly="true()" type="string"/>
       <bind nodeset="/data/data/__topic" type="string" calculate=" /data/consent_group/topic "/>
       <bind nodeset="/data/data/__has_audio" type="string" calculate="if( /data/consent_group/question_audio  != '', 'yes', 'no')"/>
@@ -240,6 +245,9 @@
       </input>
       <input ref="/data/reply/tw_unknown">
         <label ref="jr:itext('/data/reply/tw_unknown:label')"/>
+      </input>
+      <input ref="/data/reply/emergency_action">
+        <label ref="jr:itext('/data/reply/emergency_action:label')"/>
       </input>
       <input ref="/data/reply/pilot_reply_note">
         <label ref="jr:itext('/data/reply/pilot_reply_note:label')"/>

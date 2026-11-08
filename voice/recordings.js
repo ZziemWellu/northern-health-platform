@@ -16,10 +16,14 @@ const SERVER_MAX_DAYS = 7;
 function queueRecording(queue, item, now = Date.now()) {
   if (!item || item.consent !== 'yes') throw new Error('no recording without the caregiver\'s consent');
   if (!item.file) throw new Error('a recording needs a file');
+  // Without a unique id, markSynced could mark (and so delete) the wrong recording.
+  if (!item.id) throw new Error('a recording needs an id');
+  if (queue.some(r => r.id === item.id)) throw new Error(`a recording with id ${item.id} is already queued`);
   return [...queue, { id: item.id, file: item.file, consentQuality: item.consentQuality === 'yes', createdAt: now, synced: false }];
 }
 
 function markSynced(queue, id) {
+  if (!id) throw new Error('markSynced needs a recording id');
   return queue.map(r => (r.id === id ? { ...r, synced: true } : r));
 }
 
@@ -30,14 +34,21 @@ function phoneDeletions(queue, now = Date.now()) {
     .map(r => r.id);
 }
 
+// Audio is deleted SERVER_MAX_DAYS after transcription. A recording that was never transcribed (the
+// model failed, or speech recognition is switched off) is deleted SERVER_MAX_DAYS after it arrived,
+// so a failure cannot keep a caregiver's voice on the server for ever.
 function serverDeletions(records, now = Date.now()) {
   return records
-    .filter(r => r.transcribedAt && now - r.transcribedAt > SERVER_MAX_DAYS * DAY)
+    .filter(r => {
+      const since = r.transcribedAt || r.receivedAt;
+      return since ? now - since > SERVER_MAX_DAYS * DAY : true; // no date at all: delete, never keep
+    })
     .map(r => r.id);
 }
 
+// Strictly true: a record read back from storage may say consentQuality: "no", which is truthy.
 function canListen(user, record) {
-  return Boolean(user && user.role === 'quality_reviewer' && record && record.consentQuality);
+  return Boolean(user && user.role === 'quality_reviewer' && record && record.consentQuality === true);
 }
 
 // Every listen leaves a line the reviewer can audit: who, which recording, when. Never the audio itself.

@@ -10,7 +10,7 @@ function mamaClient({ baseUrl, phone, password, fetchImpl = fetch }) {
   if (!base) throw new Error('baseUrl is required');
   let token = null;
 
-  async function call(method, path, body) {
+  async function raw(method, path, body) {
     const res = await fetchImpl(`${base}${path}`, {
       method,
       headers: {
@@ -20,24 +20,44 @@ function mamaClient({ baseUrl, phone, password, fetchImpl = fetch }) {
       body: body ? JSON.stringify(body) : undefined,
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      const err = new Error(`MAMA-AI ${method} ${path} failed: ${data.detail || res.status}`);
-      err.status = res.status;
-      throw err;
+    return { res, data };
+  }
+
+  function fail(method, path, res, data) {
+    const detail = typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail || res.status);
+    const err = new Error(`MAMA-AI ${method} ${path} failed: ${detail}`);
+    err.status = res.status;
+    return err;
+  }
+
+  async function login() {
+    token = null;
+    const { res, data } = await raw('POST', '/api/v1/auth/login', { phone_number: phone, password });
+    if (!res.ok) throw fail('POST', '/api/v1/auth/login', res, data);
+    // A 200 without a token would leave every later call unauthenticated, failing far from the cause.
+    if (!data.access_token) throw new Error('MAMA-AI login answered without an access token');
+    token = data.access_token;
+    return { ok: true };
+  }
+
+  // An expired token gets one fresh login and one retry; a second 401 is reported, never looped on.
+  async function call(method, path, body) {
+    let { res, data } = await raw(method, path, body);
+    if (res.status === 401 && token) {
+      await login();
+      ({ res, data } = await raw(method, path, body));
     }
+    if (!res.ok) throw fail(method, path, res, data);
     return data;
   }
 
   return {
-    async login() {
-      const data = await call('POST', '/api/v1/auth/login', { phone_number: phone, password });
-      token = data.access_token;
-      return { ok: true };
-    },
+    login,
     createPatient(fields) {
       return call('POST', '/api/v1/patients/', fields);
     },
-    getPatient(id) {
+    async getPatient(id) {
+      if (!id) throw new Error('getPatient needs an id');
       return call('GET', `/api/v1/patients/${encodeURIComponent(id)}`);
     },
     recommendReferral(request) {

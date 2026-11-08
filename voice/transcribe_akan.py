@@ -26,10 +26,22 @@ def load_audio_16k(path):
     """Decode any format the phone records (AMR, 3GP, M4A, WAV) to 16 kHz mono float32."""
     proc = subprocess.run(
         ["ffmpeg", "-v", "error", "-i", str(path), "-ac", "1", "-ar", str(RATE), "-f", "wav", "pipe:1"],
-        capture_output=True, check=True)
+        capture_output=True, check=True, timeout=120)
     samples, rate = sf.read(io.BytesIO(proc.stdout), dtype="float32")
-    assert rate == RATE
+    if rate != RATE:  # an explicit check: `assert` is skipped when Python runs with -O
+        raise ValueError(f"expected {RATE} Hz audio from ffmpeg, got {rate} Hz")
     return samples
+
+
+# Whisper hears 30 seconds at a time: its feature extractor pads or CUTS every input to 30 s. A longer
+# question would lose everything after the first 30 s (an emergency mentioned late would vanish), so
+# audio is split into windows of at most 30 s and each window is transcribed.
+WINDOW_S = 30
+
+
+def windows(samples, rate=RATE, window_s=WINDOW_S):
+    size = int(rate * window_s)
+    return [samples[i:i + size] for i in range(0, len(samples), size)] or [samples]
 
 
 # Akan speech with Whisper runs at about 6 output tokens per second of audio. The cap stops a model that
@@ -82,7 +94,7 @@ def is_plausible(text, duration_s):
     return len(text.split()) / duration_s <= MAX_WORDS_PER_SECOND
 
 
-def transcribe(path, model_dir=DEFAULT_MODEL):
+def transcribe_samples(audio, model_dir=DEFAULT_MODEL):
     import torch
     from transformers import (WhisperFeatureExtractor, WhisperForConditionalGeneration,
                               WhisperTokenizerFast)
@@ -93,19 +105,30 @@ def transcribe(path, model_dir=DEFAULT_MODEL):
     model = WhisperForConditionalGeneration.from_pretrained(model_dir).eval()
     # Newer transformers rejects the forced_decoder_ids this checkpoint ships; the model was tuned without them.
     model.generation_config.forced_decoder_ids = None
-    audio = load_audio_16k(path)
-    features = extractor(audio, sampling_rate=RATE, return_tensors="pt").input_features
-    with torch.no_grad():
-        ids = model.generate(features, max_new_tokens=token_cap(len(audio) / RATE))
-    text = tokenizer.batch_decode(ids, skip_special_tokens=True)[0].strip()
-    return collapse_repetitions(text)
+    parts = []
+    for chunk in windows(audio):
+        if len(chunk) == 0:
+            continue
+        features = extractor(chunk, sampling_rate=RATE, return_tensors="pt").input_features
+        with torch.no_grad():
+            ids = model.generate(features, max_new_tokens=token_cap(len(chunk) / RATE))
+        parts.append(tokenizer.batch_decode(ids, skip_special_tokens=True)[0].strip())
+    return collapse_repetitions(" ".join(p for p in parts if p))
+
+
+def transcribe(path, model_dir=DEFAULT_MODEL):
+    return transcribe_samples(load_audio_16k(path), model_dir)
 
 
 def transcribe_with_duration(path, model_dir=DEFAULT_MODEL):
-    return transcribe(path, model_dir), len(load_audio_16k(path)) / RATE
+    """Decodes the audio once and returns (transcript, duration in seconds)."""
+    audio = load_audio_16k(path)
+    return transcribe_samples(audio, model_dir), len(audio) / RATE
 
 
 if __name__ == "__main__":
+    # Twi letters (ɛ, ɔ) would crash print() on a console that is not UTF-8 (Windows' default).
+    sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
     parser.add_argument("audio")
     parser.add_argument("--model", default=str(DEFAULT_MODEL))

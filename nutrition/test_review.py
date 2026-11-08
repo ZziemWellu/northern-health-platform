@@ -1,5 +1,6 @@
 import json
 import re
+from datetime import date
 
 import pytest
 
@@ -14,7 +15,7 @@ def _plan(pid, feasible=True):
         "regions": ["Northern"], "feasible": feasible, "status": "draft", "energy_kcal": 217,
         "energy_target_kcal": 200, "cost_ghs_per_day": 1.5, "grams_per_day": {"yam": 59},
         "foods": {"yam": "Yam"}, "adequacy": {"iron_mg": 0.2, "vitamin_c_mg": 0.9},
-        "problem_nutrients": ["iron_mg"],
+        "problem_nutrients": ["iron_mg"], "oldest_price_date": date.today().isoformat(),
     }
 
 

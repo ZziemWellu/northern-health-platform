@@ -1,6 +1,10 @@
 // CHT adapter for the shared household record. It talks to the CHT REST API (cht-core 5.x):
-//   POST /api/v1/person        create a person under a household place (body: name, type, parent)
+//   POST /api/v1/people        create a person under a household place (body: name, type, place)
 //   GET  /api/v1/person/{uuid} read a person back
+// Checked against a running CHT 5.3.1 on 8 November 2026: POST /api/v1/person (body with `parent`)
+// also creates a person, but stores it as type "contact" with contact_type "person". Every app form
+// here is offered only when contact.type === 'person', so such a person would never be offered the
+// pilot's forms. /api/v1/people stores type "person", as the forms expect.
 // Authentication is HTTP Basic, as the CHT API documents. The CHT is the source of truth for names and
 // contact details. This adapter sends them there only; the household link keeps references, never names.
 // The HTTP client is injected, so the adapter can be tested without a running CHT.
@@ -27,11 +31,14 @@ function chtClient({ baseUrl, username, password, fetchImpl = fetch }) {
 
   return {
     // householdUuid is the CHT place (household) the person belongs to.
-    createPerson({ name, householdUuid, type = 'person' }) {
+    // async, so a missing field is a rejected promise like any other failure, never a synchronous throw.
+    async createPerson({ name, householdUuid, type = 'person' }) {
       if (!name || !householdUuid) throw new Error('a person needs a name and a household');
-      return call('POST', '/api/v1/person', { name, type, parent: householdUuid });
+      const data = await call('POST', '/api/v1/people', { name, type, place: householdUuid });
+      return { _id: data.id, rev: data.rev };
     },
-    getPerson(uuid) {
+    async getPerson(uuid) {
+      if (!uuid) throw new Error('getPerson needs a uuid');
       return call('GET', `/api/v1/person/${encodeURIComponent(uuid)}`);
     },
   };

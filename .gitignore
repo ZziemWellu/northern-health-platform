@@ -17,6 +17,7 @@ mama-ai-platform/
 
 # Pilot build output (tools/pilot_build.js)
 cht-app/.pilot-build/
+cht-app/.demo-out/
 # cht-conf's convert-contact-forms writes these from the PLACE_TYPE templates on every build; the
 # committed XML is the source of truth for the place forms.
 cht-app/forms/contact/clinic-create.xlsx

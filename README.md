@@ -102,6 +102,7 @@ though they're easy to miss since nothing under `cht-app/` itself requires them.
 ```bash
 npm run build          # regenerate every platform form and compile app settings: run after ANY change
 npm run build-pilot    # the pilot app (Modules 1 + 5 + raising a referral) in .pilot-build/; see cht-app/modules.js
+npm run demo-seed -- --url=...   # load the synthetic Kumbungu demo district (docs/pitch/DEMO_SETUP.md)
 npm run test-unit      # ranking, facility data, integrity checks: seconds
 npm test               # everything in the CHT harness (about 15 minutes on a slow laptop)
 cd tools && python -m pytest -q    # form generators, pilot warning, emergency routing
@@ -119,10 +120,19 @@ Needs Docker and a machine with at least 8 GB RAM. Follow the CHT docs for a loc
 ("CHT Docker Helper"), then upload this config:
 
 ```bash
-npx cht --url=https://medic:password@localhost:10443 --accept-self-signed-certs
+npm run build-pilot -- --url=https://medic:<admin password>@localhost:10443
+npm run demo-seed -- --url=https://medic:<admin password>@localhost:10443 --nurse-password=<password> --insecure
 ```
 
+The second command loads the demo district: three CHPS zones in Kumbungu, their nurses and 13 women
+with histories, all made up (`docs/pitch/DEMO_SETUP.md`). The five-minute demo script is
+`docs/pitch/DEMO_SCRIPT.md`; `node demo/walkthrough.js` checks every step of it in the real app and
+can record a two-minute video. Change the default admin password before exposing a server.
+
 Use only made-up data. Real health data must stay in Ghana or on GHS-controlled servers.
+
+**Pitch and outreach:** `docs/pitch/` (one-page summary, demo, costing, screenshots) and
+`docs/outreach/` (institutional home, letters, pilot evidence plan, registration and ethics checklists).
 
 ## Windows notes
 

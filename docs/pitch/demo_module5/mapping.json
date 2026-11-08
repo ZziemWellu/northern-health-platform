@@ -1,0 +1,9 @@
+{
+  "pregnancy_registrations": { "dataElement": "DemoElem000" },
+  "deliveries": { "dataElement": "DemoElem001" },
+  "facility_deliveries": { "dataElement": "DemoElem002" },
+  "postnatal_home_visits": { "dataElement": "DemoElem003" },
+  "maternal_danger_assessments": { "dataElement": "DemoElem004" },
+  "maternal_danger_emergencies": { "dataElement": "DemoElem005" },
+  "referrals_raised": { "dataElement": "DemoElem006" }
+}

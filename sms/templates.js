@@ -7,12 +7,15 @@ const TEMPLATES = {
     en: 'Hello {name}. Your next clinic visit at {facility} is due on {date}. Please come. Reply STOP to end these messages.',
   },
   birth_plan: {
-    en: 'Hello {name}. Please plan how you will reach {facility} when your baby comes. Your CHW can help you plan.',
+    en: 'Hello {name}. Please plan how you will reach {facility} when your baby comes. Your CHW can help you plan. Reply STOP to end these messages.',
   },
   referral: {
-    en: 'Hello {name}. Your CHW asked you to go to {facility} today. If you cannot go, please call your CHW.',
+    en: 'Hello {name}. Your CHW asked you to go to {facility} today. If you cannot go, please call your CHW. Reply STOP to end these messages.',
   },
 };
+
+// Every message must tell the reader how to stop them (consent, Data Protection Act 2012).
+const OPT_OUT = 'Reply STOP to end these messages.';
 
 function render(kind, values, lang = 'en') {
   const template = TEMPLATES[kind] && TEMPLATES[kind][lang];
@@ -23,4 +26,4 @@ function render(kind, values, lang = 'en') {
   });
 }
 
-module.exports = { TEMPLATES, render };
+module.exports = { TEMPLATES, OPT_OUT, render };

@@ -32,31 +32,69 @@ const REPLIES = {
   },
 };
 
-// Emergency words are checked first, so an emergency never waits behind a lesser match.
+// Emergency words are checked first, so an emergency never waits behind a lesser match. Matching is on
+// whole words or phrases, so each inflection is listed ("bleed", "bleeds", "bleeding", "bled").
+//
+// The English emergency list covers the danger signs the maternal danger assessment form already asks
+// about (cht-app/tools/build_maternal_danger_assessment.py) plus the newborn signs in the voice phrases,
+// so a caregiver describing one of them gets the emergency reply, not "call your CHW". A wrong
+// emergency costs a trip; a missed one can cost a life, so the list errs towards emergency.
+// CLINICAL SIGN-OFF REQUIRED, and the Twi words need a Twi speaker (see docs/CODE_REVIEW_2026-11-07.md).
 const INTENTS = [
-  { id: 'emergency', words: ['bleeding', 'fits', 'convulsion', 'not breathing', 'unconscious', 'fainted', 'seizure', 'blood', 'mogya', 'ayaresa', 'mo nnhu'] },
+  {
+    id: 'emergency',
+    words: [
+      'bleed', 'bleeds', 'bleeding', 'bled', 'blood',
+      'fit', 'fits', 'fitting', 'convulsion', 'convulsions', 'convulsing', 'seizure', 'seizures',
+      'not breathing', 'cannot breathe', 'can\'t breathe', 'difficulty breathing', 'hard to breathe',
+      'unconscious', 'fainted', 'fainting', 'collapsed',
+      'severe headache', 'bad headache', 'blurred vision', 'blurry', 'cannot see',
+      'fever', 'hot body', 'very hot', 'smelly discharge', 'bad smell',
+      'water broke', 'waters broke', 'water has broken', 'labour pains', 'labor pains', 'in labour', 'in labor',
+      'not moving', 'stopped moving', 'not feeding', 'stopped feeding', 'yellow eyes',
+      'mogya', 'ayaresa', 'mo nnhu',
+    ],
+  },
   { id: 'visit_date', words: ['when', 'visit', 'appointment', 'clinic', 'date', 'bɛba', 'bere', 'nsɔhwɛ', 'daa', 'da'] },
   { id: 'transport', words: ['transport', 'bus', 'ride', 'money for', 'cannot go', 'akwantu', 'sika', 'ɛnkɔ'] },
   { id: 'feeding', words: ['feed', 'food', 'milk', 'breastfeed', 'porridge', 'drink', 'nnuane', 'aduane', 'nufu'] },
 ];
 
+// NFC first, so a letter typed with a separate accent mark is the same word as the composed letter;
+// accent marks (\p{M}) are kept, so they do not split a Twi word in two.
 function normalise(text) {
-  return String(text || '').toLowerCase().replace(/[^\p{L}\p{N}\s']/gu, ' ').replace(/\s+/g, ' ').trim();
+  return String(text || '').normalize('NFC').toLowerCase()
+    .replace(/[‘’]/g, '\'')
+    .replace(/[^\p{L}\p{M}\p{N}\s']/gu, ' ').replace(/\s+/g, ' ').trim();
 }
 
+function hits(text, intent) {
+  return intent.words.filter(w => text.includes(` ${normalise(w)} `)).length;
+}
+
+// Any emergency word wins outright. Otherwise the topic with the most matching words wins, so
+// "when should I feed the baby" is about feeding, not the clinic date; a tie keeps the list order.
 function matchIntent(transcript) {
   const text = ` ${normalise(transcript)} `;
-  for (const intent of INTENTS) {
-    if (intent.words.some(w => text.includes(` ${normalise(w)} `))) return intent.id;
+  const [emergency, ...others] = INTENTS;
+  if (hits(text, emergency) > 0) return emergency.id;
+  let best = { id: 'unknown', score: 0 };
+  for (const intent of others) {
+    const score = hits(text, intent);
+    if (score > best.score) best = { id: intent.id, score };
   }
-  return 'unknown';
+  return best.id;
 }
+
+const hasReply = id => typeof id === 'string' && Object.prototype.hasOwnProperty.call(REPLIES, id);
 
 // Returns the approved reply for the caller's language. Falls back to English where a translation
 // has not been provided, so no caller ever gets an empty answer.
 function replyFor(intentId, lang = 'en') {
-  const reply = REPLIES[intentId] || REPLIES.unknown;
-  return { intent: REPLIES[intentId] ? intentId : 'unknown', text: reply[lang] || reply.en, status: reply.status };
+  const intent = hasReply(intentId) ? intentId : 'unknown';
+  const reply = REPLIES[intent];
+  const text = Object.prototype.hasOwnProperty.call(reply, lang) && reply[lang] ? reply[lang] : reply.en;
+  return { intent, text, status: reply.status };
 }
 
 module.exports = { REPLIES, INTENTS, normalise, matchIntent, replyFor };

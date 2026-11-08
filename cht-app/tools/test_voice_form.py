@@ -38,6 +38,13 @@ def test_audio_is_only_recorded_with_consent():
     assert audio[4] == "${consent} = 'yes'"
 
 
+def test_an_emergency_topic_tells_the_chw_to_assess_and_refer_now():
+    rows = _survey_rows()
+    note = next(r for r in rows if r[1] == "emergency_action")
+    assert note[4] == "${topic} = 'emergency'"
+    assert "Maternal danger assessment" in note[2] and "Sick child assessment" in note[2]
+
+
 def test_the_pilot_warning_is_on_the_form_until_module_4_is_signed_off():
     rows = _survey_rows()
     assert any(r[1] == "pilot_warning" for r in rows)

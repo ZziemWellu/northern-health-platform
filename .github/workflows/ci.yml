@@ -31,7 +31,7 @@ jobs:
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
       - name: Python tools (form conversion, generators, nutrition engine)
-        run: pip install openpyxl scipy pytest "git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic"
+        run: pip install openpyxl scipy soundfile pytest "git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic"
 
       - name: Install CHT tooling
         working-directory: cht-app
@@ -52,6 +52,7 @@ jobs:
         run: |
           (cd cht-app/tools && python -m pytest -q -p no:cacheprovider)
           (cd nutrition && python -m pytest -q -p no:cacheprovider)
+          (cd voice && python -m pytest -q -p no:cacheprovider test_transcribe_akan.py)
 
       - name: SMS reminder tests (no network; sending is dry-run unless explicitly enabled)
         run: node --test sms/test/sms.test.js

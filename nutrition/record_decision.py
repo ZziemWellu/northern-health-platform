@@ -27,7 +27,7 @@ def _load_log(log_path):
     return json.loads(log_path.read_text(encoding="utf-8"))
 
 
-def record(plan_id, decision, by, changes="", plans_path=PLANS, log_path=LOG):
+def record(plan_id, decision, by, changes="", plans_path=PLANS, log_path=LOG, today=None):
     if decision not in DECISIONS:
         raise SystemExit(f"decision must be one of {', '.join(DECISIONS)}")
     if not by or not by.strip():
@@ -35,13 +35,13 @@ def record(plan_id, decision, by, changes="", plans_path=PLANS, log_path=LOG):
     if decision != "approve" and not changes.strip():
         raise SystemExit("changes or a reason are needed for this decision")
     if decision == "approve":
-        approve(plan_id, by, plans_path)  # refuses infeasible plans and checks the name
+        approve(plan_id, by, plans_path, today=today)  # refuses infeasible or stale-priced plans
     log = _load_log(log_path)
     log["decisions"].append({
         "plan_id": plan_id,
         "decision": decision,
         "by": by.strip(),
-        "on": date.today().isoformat(),
+        "on": (today or date.today()).isoformat(),
         "changes": changes.strip(),
     })
     log_path.write_text(json.dumps(log, indent=1, ensure_ascii=False), encoding="utf-8")

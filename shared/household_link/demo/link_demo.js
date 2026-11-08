@@ -51,10 +51,11 @@ async function main() {
   log('mama.createPatient', { patientId: patient.id, code: patient.patient_code });
 
   // 4. Module 1 raises a flag for this person. Only references and one short reason travel.
-  const flag = riskFlagEvent({ personId, source: 'cht', urgency: 'urgent', reason: 'Newborn feeding problem on day 1 visit' });
+  const flag = riskFlagEvent({ personId, source: 'cht', urgency: 'emergency', reason: 'Heavy bleeding after birth at the day 1 visit' });
   log('flag', flag);
 
   // 5. Module 2 turns the flag into a referral without re-entry, and MAMA-AI recommends a facility.
+  //    The demo flag and the recommendation request describe the same case (bleeding after birth).
   const referralInput = referralFromFlag(flag, { facilityId, nurseId: 'N-demo', referralId: `r-${Date.now()}` });
   const rec = await mama.recommendReferral({
     patient_id: patient.id, current_latitude: 9.4, current_longitude: -1.0, gestation_weeks: 36,

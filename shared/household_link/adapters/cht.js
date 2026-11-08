@@ -27,11 +27,13 @@ function chtClient({ baseUrl, username, password, fetchImpl = fetch }) {
 
   return {
     // householdUuid is the CHT place (household) the person belongs to.
-    createPerson({ name, householdUuid, type = 'person' }) {
+    // async, so a missing field is a rejected promise like any other failure, never a synchronous throw.
+    async createPerson({ name, householdUuid, type = 'person' }) {
       if (!name || !householdUuid) throw new Error('a person needs a name and a household');
       return call('POST', '/api/v1/person', { name, type, parent: householdUuid });
     },
-    getPerson(uuid) {
+    async getPerson(uuid) {
+      if (!uuid) throw new Error('getPerson needs a uuid');
       return call('GET', `/api/v1/person/${encodeURIComponent(uuid)}`);
     },
   };

@@ -55,6 +55,12 @@ def build_voice_question():
                         "Twi (first draft, not yet checked by a Twi speaker): " + reply["tw"],
                         relevant=f"${{topic}} = '{intent}'"))
     rows += [
+        # The reply tells the caregiver to go now; the CHW must also act. Without this, choosing
+        # "emergency" showed a reply and created nothing for the CHW to do.
+        row("note", "emergency_action",
+            "Danger sign: after giving the reply, do the Maternal danger assessment for her now "
+            "(or the Sick child assessment for a child), and refer as it says.",
+            relevant="${topic} = 'emergency'"),
         row("note", "pilot_reply_note", "These replies are PILOT wording. Give only what is written here. "
             "Do not add advice, doses or diagnoses."),
         row("end group", "reply"),

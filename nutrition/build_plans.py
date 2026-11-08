@@ -24,31 +24,65 @@ DATA = ROOT / "data"
 PLANS = ROOT / "plans"
 
 
-def load_local_prices():
+def load_local_prices(known_foods=None, regions=None, seasons=None, today=None):
+    """Volunteer prices, checked row by row. A typo in a food, region or season would otherwise be
+    ignored without a word, and a zero price would make a food free, so any bad row stops the build
+    with the row number and the reason."""
     path = DATA / "local_prices.csv"
     if not path.exists():
         return {}
-    grouped = {}
-    for r in csv.DictReader(path.open(encoding="utf-8")):
-        grouped.setdefault((r["food_id"], r["price_region"], r["season"]), []).append(float(r["ghs_per_kg"]))
-    return {k: statistics.median(v) / 10 for k, v in grouped.items()}  # GHS per 100 g
+    today = today or date.today()
+    grouped, problems = {}, []
+    with path.open(encoding="utf-8", newline="") as fh:
+        for line_no, r in enumerate(csv.DictReader(fh), start=2):
+            key = (r.get("food_id", "").strip(), r.get("price_region", "").strip(), r.get("season", "").strip())
+            if known_foods is not None and key[0] not in known_foods:
+                problems.append(f"line {line_no}: unknown food_id {key[0]!r}")
+            if regions is not None and key[1] not in regions:
+                problems.append(f"line {line_no}: unknown price_region {key[1]!r}")
+            if seasons is not None and key[2] not in seasons:
+                problems.append(f"line {line_no}: unknown season {key[2]!r}")
+            try:
+                price = float(r.get("ghs_per_kg", ""))
+                if not price > 0:
+                    raise ValueError
+            except ValueError:
+                problems.append(f"line {line_no}: ghs_per_kg must be a positive number, got {r.get('ghs_per_kg')!r}")
+                continue
+            try:
+                collected = date.fromisoformat(r.get("collected_on", "").strip())
+            except ValueError:
+                problems.append(f"line {line_no}: collected_on must be YYYY-MM-DD, got {r.get('collected_on')!r}")
+                continue
+            if collected > today:
+                problems.append(f"line {line_no}: collected_on {collected} is in the future")
+                continue
+            grouped.setdefault(key, []).append((price, collected))
+    if problems:
+        raise SystemExit("data/local_prices.csv has problems:\n  " + "\n  ".join(problems))
+    # GHS per 100 g, and the newest collection date behind that median.
+    return {k: (statistics.median(p for p, _ in v) / 10, max(d for _, d in v).isoformat()) for k, v in grouped.items()}
 
 
 def price_for(item, region, season, local):
-    local_price = local.get((item["id"], region, season))
-    if local_price is not None:
-        return local_price, "local"
+    """(GHS per 100 g, source, price date) or (None, reason, None)."""
+    found = local.get((item["id"], region, season))
+    if found is not None:
+        return found[0], "local", found[1]
     if not item["price"]["usable"]:
-        return None, item["price"]["check"]["status"]
+        return None, item["price"]["check"]["status"], None
     seasonal = item["price"]["per_100g"][region]["seasons"][season]
-    return (seasonal["ghs"], "wfp") if seasonal else (None, "no_price_in_season")
+    if not seasonal:
+        return None, "no_price_in_season", None
+    return seasonal["ghs"], "wfp", item["price"]["latest_price_date"]
 
 
 def build():
     targets = json.loads((DATA / "targets.json").read_text(encoding="utf-8"))
     table = json.loads((DATA / "food_table.json").read_text(encoding="utf-8"))
     unpriced = json.loads((DATA / "foods.json").read_text(encoding="utf-8"))["unpriced_foods"]
-    local = load_local_prices()
+    local = load_local_prices(known_foods={f["id"] for f in table["foods"]},
+                              regions=set(table["regions"]), seasons=set(table["seasons"]))
     existing = {}
     if (PLANS / "plans.json").exists():
         existing = {p["id"]: p for p in json.loads((PLANS / "plans.json").read_text(encoding="utf-8"))["plans"]}
@@ -57,13 +91,14 @@ def build():
     for region, covers in table["regions"].items():
         for season, season_spec in table["seasons"].items():
             for age, spec in targets["age_groups"].items():
-                foods, excluded, price_sources = [], {}, {}
+                foods, excluded, price_sources, price_dates = [], {}, {}, {}
                 for item in table["foods"]:
-                    cost, source = price_for(item, region, season, local)
+                    cost, source, priced_on = price_for(item, region, season, local)
                     if cost is None:
                         excluded[item["id"]] = source
                         continue
                     price_sources[item["id"]] = source
+                    price_dates[item["id"]] = priced_on
                     foods.append(Food(id=item["id"], label=item["label"],
                                       nutrients={m: item["per_100g_as_bought"].get(m) for m in spec["rni"]},
                                       energy_kcal=item["per_100g_as_bought"]["energy_kcal"] or 0,
@@ -90,6 +125,9 @@ def build():
                     "problem_nutrients": result.problem_nutrients,
                     "unknown_values": result.unknown_values,
                     "price_sources": price_sources,
+                    # The oldest price behind a food the plan uses: approve.py refuses a plan whose prices
+                    # are older than the roadmap gate (three months).
+                    "oldest_price_date": min((price_dates[f] for f in result.grams), default=None),
                     "excluded_foods": excluded,
                 }
                 previous = existing.get(plan_id)
@@ -121,14 +159,20 @@ def what_if(table, targets, local, region="NORTHERN", season="lean"):
                         cost_per_100g=cost, max_g=item["max_g"][age])
         priced = [as_food(i, 0.0) for i in table["foods"] if price_for(i, region, season, local)[0] is not None]
         base = optimise(priced, spec["rni"], spec["energy_kcal"], targets["energy_tolerance"])
+        # With no feasible base there is nothing to compare against: report zero adequacy, never crash.
+        base_adequacy = base.adequacy if base.feasible else {m: 0.0 for m in spec["rni"]}
         rows = []
         for extra in table.get("unpriced", []):
             plan = optimise(priced + [as_food(extra, 0.0)], spec["rni"], spec["energy_kcal"], targets["energy_tolerance"])
-            gains = {m: round(plan.adequacy[m] - base.adequacy[m], 3) for m in spec["rni"]}
+            if not plan.feasible:
+                rows.append({"food": extra["label"], "grams": 0, "gain": {m: 0.0 for m in spec["rni"]}})
+                continue
+            gains = {m: round(plan.adequacy[m] - base_adequacy[m], 3) for m in spec["rni"]}
             rows.append({"food": extra["label"], "grams": plan.grams.get(extra["id"], 0), "gain": gains})
         everything = optimise(priced + [as_food(e, 0.0) for e in table.get("unpriced", [])],
                               spec["rni"], spec["energy_kcal"], targets["energy_tolerance"])
-        results[age] = {"base": base.adequacy, "each": rows, "all_together": everything.adequacy}
+        results[age] = {"base": base_adequacy, "each": rows,
+                        "all_together": everything.adequacy if everything.feasible else base_adequacy}
     return results
 
 

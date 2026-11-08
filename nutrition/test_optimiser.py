@@ -72,3 +72,14 @@ def test_unknown_values_count_as_zero_and_are_listed():
 
 def test_no_foods():
     assert optimise([], RNI, energy_kcal=200).feasible is False
+
+
+def test_a_zero_or_missing_rni_is_refused_instead_of_dividing_by_zero():
+    import pytest
+    from optimiser import optimise
+    with pytest.raises(ValueError, match="RNI"):
+        optimise([], {"iron_mg": 0}, 200)
+    with pytest.raises(ValueError, match="RNI"):
+        optimise([], {"iron_mg": None}, 200)
+    with pytest.raises(ValueError, match="energy"):
+        optimise([], {"iron_mg": 5}, 0)

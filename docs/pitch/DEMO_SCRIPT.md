@@ -29,8 +29,9 @@ Say: "The household record holds references, not names. A flag goes to the refer
 
 ## 4. The district file (1 minute)
 
-Open `docs/pitch/example_module5_export_2026Q2_SYNTHETIC.csv`. Point out the DHIS2 layout and that one
-count is withheld because it is under five.
+Open `docs/pitch/example_module5_export_2026Q2_SYNTHETIC.csv`. Point out the DHIS2 layout and that the
+small count (3) is in the file: the district gets exact numbers, because rare events matter most to it.
+Numbers we publish outside the health service hide counts of 1 to 4.
 Say: "This file is what a district imports. It has counts only, and it is not sent anywhere automatically.
 The data-element IDs are from DHIS2's public demo; ours come from the Ghana Health Service."
 

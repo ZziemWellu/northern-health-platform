@@ -17,11 +17,17 @@ Written for: the project lead, to take to the Regional Health Directorate.
 4. The **reporting period convention** the national system uses (monthly or quarterly) and the data set they belong to.
 5. Confirmation of whether eCHIS → DHIS2 is already connected (a mediator), so we do not double-count with the CHW's own entries.
 6. Written approval for the pilot, with a named officer who owns the account.
+7. **Confirmation of the small-number rule.** Our decision (7 November 2026): the district file and the
+   DHIMS-2 push carry exact counts, including 0 to 4, because they are the district's own routine report
+   in an access-controlled system and rare events must not disappear. Small numbers (1 to 4) are hidden
+   only on public outputs (dashboards, reports, slides, papers), using `shared/public_counts`. Ask the
+   HMIS officer to confirm this in writing, and whether GHS applies a different threshold for publication.
 
 ## What we will not ask for or send
 
 - No individual records, names, phone numbers or patient identifiers. The export sends counts only.
-- Counts below 5 are withheld (`SUPPRESS_BELOW` in `integration/dhis2.js`).
+- No small-number hiding inside the district's own report: exact counts go to DHIMS-2 (question 7).
+  Anything we publish outside GHS hides counts of 1 to 4 (`shared/public_counts/public_counts.js`).
 - No live push until the mapping has no TODO values and `DHIS2_LIVE=1` is set on purpose.
 
 ## How the code connects once you have the UIDs

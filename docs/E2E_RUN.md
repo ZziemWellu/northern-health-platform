@@ -79,6 +79,24 @@ maternal_danger_assessments 1, maternal_danger_emergencies 1, referrals_raised 0
 CouchDB warned that no index matches the query, so it scans the database. That is fine at pilot scale;
 add a Mango index on `type`, `form` and `reported_date` before district-wide use.
 
+### Recording a client's language (added later on 8 November)
+
+After the language fields were added (`docs/LANGUAGES.md`), the pilot build was uploaded again. The CHW
+user opened a woman's profile, chose **Edit**, picked her languages and submitted:
+
+- **The list:** 31 languages of the five northern regions plus "Other", with Dagbani first and English
+  near the end.
+- **What the server stored:** `preferred_language: "dag"` and `other_languages: "hau twi"` on her
+  record, edited by the CHW user.
+- **Her profile:** "Language: Dagbani (Dagbanli); also understands Hausa, Akan (Twi)".
+- **A woman with no language recorded:** her profile says "Not recorded: edit the profile to add it".
+
+The script set her date of birth and the languages programmatically. cht-core's edit form asks for the
+date of birth again, and the synthetic record had none. The drop-down was not tapped by hand.
+
+![The language questions on the edit form](e2e/language-edit-form.png)
+![The language on her profile](e2e/language-profile.png)
+
 ## Not covered by this run
 
 - **The nurses, their phones and their network.** That is the field test.

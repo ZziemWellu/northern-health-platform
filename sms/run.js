@@ -4,7 +4,8 @@
 //   node sms/run.js --input reminders.json --log sms-log.json            (dry run: prints the plan)
 //   SMS_LIVE=1 ARKESEL_API_KEY=... node sms/run.js --input ... --log ... (really sends)
 //
-// reminders.json: [{ kind, patientId, name, patientPhone, facility, dueDate: "YYYY-MM-DD" }]
+// reminders.json: [{ kind, patientId, name, patientPhone, facility, dueDate: "YYYY-MM-DD",
+//                   preferred_language, other_languages }]   (languages from her CHT profile, optional)
 // optedOut.json (optional): ["0244...", "233244..."] numbers that replied STOP, in any common form
 //
 // The send log is the memory that stops a woman being texted twice, so:
@@ -62,6 +63,8 @@ async function main({ argv = process.argv, env = process.env, fetchImpl, log: pr
     const sentKeys = new Set(log.filter(e => e.ok).map(e => e.key));
     const { send, skipped } = planRun({ reminders, sentKeys, optedOut, maxMessages, today });
     print(`Plan: ${send.length} to send, ${skipped.length} skipped`);
+    const fellBack = send.filter(m => m.fallback).length;
+    if (fellBack) print(`Language: ${fellBack} of ${send.length} go in English because her language has no checked translation yet`);
     const reasons = skipped.reduce((acc, s) => ({ ...acc, [s.reason]: (acc[s.reason] || 0) + 1 }), {});
     print('Skipped by reason:', reasons);
 

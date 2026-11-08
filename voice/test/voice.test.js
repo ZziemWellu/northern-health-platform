@@ -44,15 +44,21 @@ test('every reply is marked pilot until the reviewer approves it', () => {
 
 test('no reply gives a clinical instruction, dose or diagnosis', () => {
   for (const reply of Object.values(REPLIES)) {
-    for (const lang of ['en', 'tw']) {
-      assert.doesNotMatch(reply[lang], /\bdose\b|\bmg\b|tablet|diagnos|take .* pill|malaria|pre-?eclampsia/i);
-    }
+    assert.doesNotMatch(reply.en, /\bdose\b|\bmg\b|tablet|diagnos|take .* pill|malaria|pre-?eclampsia/i);
   }
 });
 
-test('falls back to English when a translation is missing', () => {
+test('falls back to English when a translation is missing, and says so', () => {
   const r = replyFor('transport', 'fr');
   assert.equal(r.text, REPLIES.transport.en);
+  assert.equal(r.fallback, true);
+  assert.equal(replyFor('transport', 'dag').lang, 'en');
+});
+
+test('the unchecked Twi drafts are no longer given to a caller', () => {
+  const r = replyFor('emergency', 'tw');
+  assert.equal(r.text, REPLIES.emergency.en);
+  assert.doesNotMatch(r.text, /nnɛ/);
 });
 
 test('the audit line records the intent and language, never the spoken words', () => {
@@ -103,4 +109,29 @@ test('audio goes through the injected transcriber, then the same matching', asyn
     transcriber: async (p) => { assert.equal(p, '/tmp/x.wav'); return 'when is my visit'; },
   });
   assert.equal(r.intent, 'visit_date');
+});
+
+test('the Akan model is never run on another language\'s audio: the caller gets the safe reply', async () => {
+  let ran = false;
+  const akan = async () => { ran = true; return 'bleeding'; };
+  akan.lang = 'twi';
+  const r = await respondToAudio({ audioPath: '/a.wav', transcriber: akan, lang: { preferred_language: 'dag' } });
+  assert.equal(ran, false);
+  assert.equal(r.intent, 'unknown');
+  assert.equal(r.audit.noModelForLanguage, true);
+  assert.equal(r.audit.lang, 'dag');
+  const ok = await respondToAudio({ audioPath: '/a.wav', transcriber: akan, lang: 'tw' });
+  assert.equal(ok.intent, 'emergency');
+});
+
+test('the shipped transcribers say which language their model understands', () => {
+  const { akanTranscriber, whisperCppTranscriber } = require('../transcribe');
+  assert.equal(akanTranscriber({ run: async () => '' }).lang, 'twi');
+  assert.equal(whisperCppTranscriber({ bin: 'x', model: 'y' }).lang, 'twi');
+  assert.equal(whisperCppTranscriber({ bin: 'x', model: 'y', language: 'xx', lang: 'dag' }).lang, 'dag');
+});
+
+test('the audit line records the reply language and whether it fell back to English', () => {
+  const r = respondToTranscript({ transcript: 'when is my visit', lang: { preferred_language: 'dag' } });
+  assert.deepEqual([r.audit.lang, r.audit.replyLang, r.audit.fallback], ['dag', 'en', true]);
 });

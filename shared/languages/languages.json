@@ -1,0 +1,112 @@
+{
+  "_about": [
+    "The languages a client in the five northern regions may need, and where each is spoken.",
+    "Codes are ISO 639-3 (English stays 'en', as CHT uses it). A code of null means it has not been confirmed.",
+    "District lists are a starting point from published sources. Each District Health Directorate confirms",
+    "its own list before its district joins (docs/LANGUAGES.md). 'tier' is the order of work, not importance:",
+    "1 = needed for the Kumbungu pilot; 2 = a region's main language, needed before that region joins;",
+    "3 = served through a CHW or interpreter until a speaker community and reviewers are found.",
+    "'bgl' = has a Bureau of Ghana Languages standard orthography (11 older languages; Kusaal, Likpakpaanl and",
+    "Sisaali added in 2026). 'resources' lists what is publicly LISTED by the provider; nothing is verified",
+    "for health use until we have tested it with speakers."
+  ],
+  "languages": {
+    "en": { "name": "English", "tier": 1, "regions": ["northern", "savannah", "north_east", "upper_east", "upper_west"], "role": "Official language; the nurses' working language and the source text for every translation." },
+
+    "dag": { "name": "Dagbani", "aliases": ["Dagbanli", "Dagbane"], "tier": 1, "bgl": true,
+      "regions": ["northern", "north_east"],
+      "districts": ["Kumbungu", "Tolon", "Tamale Metropolitan", "Sagnarigu", "Savelugu", "Nanton", "Karaga", "Gushegu", "Yendi", "Mion", "Zabzugu", "Bimbilla (Nanumba North)", "Nanumba South"],
+      "dialects": ["Tomosili (western, Tamale/Kumbungu)", "Nayahili (eastern, Yendi)", "Nanuni (Nanumba): close to Dagbani; check with Nanumba speakers before reusing Dagbani text"],
+      "resources": { "translation": ["Khaya (GhanaNLP), listed"], "tts": ["Khaya, listed"], "asr_data": ["Mozilla Common Voice Dagbani (v25, ~16 h validated, CC0)", "University of Ghana 5-language corpus (2025), ~100 h transcribed", "Google WAXAL (CC-BY-4.0)"] } },
+
+    "xon": { "name": "Likpakpaanl", "aliases": ["Konkomba", "Lekpakpaln"], "tier": 2, "bgl": true,
+      "regions": ["northern", "north_east"],
+      "districts": ["Saboba", "Chereponi", "Zabzugu", "Tatale-Sanguli", "Yendi", "Nanumba North", "Nanumba South", "Kpandai", "Yunyoo-Nasuan", "Bunkpurugu-Nakpanduri"],
+      "resources": {} },
+
+    "hau": { "name": "Hausa", "aliases": ["ha"], "tier": 2,
+      "regions": ["northern", "savannah", "north_east", "upper_east", "upper_west"],
+      "districts": ["Tamale Metropolitan", "Wa Municipal", "Bawku Municipal", "Bolgatanga Municipal"],
+      "role": "Lingua franca in towns and markets (zongo communities). A fallback only if the client lists it.",
+      "resources": { "asr_data": ["Mozilla Common Voice Hausa"] } },
+
+    "gjn": { "name": "Gonja", "aliases": ["Ngbanyito"], "tier": 2, "bgl": true,
+      "regions": ["savannah"],
+      "districts": ["West Gonja", "Central Gonja", "East Gonja", "North Gonja", "North East Gonja", "Bole", "Sawla-Tuna-Kalba"],
+      "resources": {} },
+
+    "tpm": { "name": "Tampulma", "aliases": ["Tamprusi"], "tier": 3, "regions": ["savannah"], "districts": ["North Gonja"], "resources": {} },
+    "vag": { "name": "Vagla", "tier": 3, "regions": ["savannah"], "districts": ["Bole", "Sawla-Tuna-Kalba"], "resources": {} },
+    "hag": { "name": "Hanga", "aliases": ["Anga"], "tier": 3, "regions": ["savannah"], "districts": ["West Gonja"], "resources": {} },
+    "mzw": { "name": "Deg", "aliases": ["Mo"], "tier": 3, "regions": ["savannah"], "districts": ["Bole"], "resources": {} },
+    "saf": { "name": "Safaliba", "tier": 3, "regions": ["savannah"], "districts": ["Bole"], "resources": {} },
+    "biv": { "name": "Birifor (Southern)", "aliases": ["Birifor"], "tier": 3, "regions": ["savannah", "upper_west"], "districts": ["Sawla-Tuna-Kalba", "Wa West"], "resources": {} },
+    "naw": { "name": "Nawuri", "tier": 3, "regions": ["northern"], "districts": ["Kpandai"], "resources": {} },
+    "ncu": { "name": "Chumburung", "aliases": ["Nchumburu"], "tier": 3, "regions": ["northern"], "districts": ["Kpandai"], "resources": {} },
+    "bud": { "name": "Ntcham", "aliases": ["Bassari"], "tier": 3, "regions": ["northern"], "districts": ["Zabzugu", "Tatale-Sanguli"], "resources": {} },
+
+    "maw": { "name": "Mampruli", "aliases": ["Mampelle"], "tier": 2,
+      "regions": ["north_east"],
+      "districts": ["West Mamprusi", "East Mamprusi", "Mamprugu-Moagduri"],
+      "resources": {} },
+
+    "bim": { "name": "Bimoba", "aliases": ["Moar"], "tier": 2, "regions": ["north_east"], "districts": ["Bunkpurugu-Nakpanduri", "Yunyoo-Nasuan"], "resources": {} },
+    "cko": { "name": "Anufo", "aliases": ["Chokosi"], "tier": 3, "regions": ["north_east"], "districts": ["Chereponi"], "resources": {} },
+
+    "gur": { "name": "Gurene", "aliases": ["Farefare", "Frafra", "Gurune", "Nankani"], "tier": 2, "bgl": true,
+      "regions": ["upper_east"],
+      "districts": ["Bolgatanga Municipal", "Bolgatanga East", "Bongo", "Talensi", "Nabdam", "Kassena-Nankana Municipal"],
+      "dialects": ["Gurene (Bolgatanga)", "Nankani (Navrongo area)", "Boone (Bongo)"],
+      "resources": { "translation": ["Khaya, listed"], "tts": ["Khaya, listed"] } },
+
+    "xsm": { "name": "Kasem", "aliases": ["Kassem", "Kasena"], "tier": 2, "bgl": true,
+      "regions": ["upper_east"],
+      "districts": ["Kassena-Nankana Municipal", "Kassena-Nankana West"],
+      "resources": {} },
+
+    "kus": { "name": "Kusaal", "aliases": ["Kusasi"], "tier": 2, "bgl": true,
+      "regions": ["upper_east"],
+      "districts": ["Bawku Municipal", "Bawku West", "Garu", "Tempane", "Binduri", "Pusiga"],
+      "resources": { "translation": ["Khaya, listed"], "tts": ["Khaya, listed"] } },
+
+    "bwu": { "name": "Buli", "aliases": ["Builsa"], "tier": 2, "regions": ["upper_east"], "districts": ["Builsa North", "Builsa South"], "resources": {} },
+    "bib": { "name": "Bisa", "aliases": ["Bissa", "Busanga"], "tier": 3, "regions": ["upper_east"], "districts": ["Bawku Municipal", "Pusiga", "Bawku West"], "resources": {} },
+    "talni": { "name": "Talni", "aliases": ["Talensi"], "iso": null, "tier": 3, "regions": ["upper_east"], "districts": ["Talensi"], "note": "ISO code not confirmed; Talensi speakers may also use Gurene.", "resources": {} },
+    "mos": { "name": "Mooré", "aliases": ["Moshie"], "tier": 3, "regions": ["upper_east"], "districts": ["Bawku Municipal", "Pusiga"], "resources": {} },
+
+    "dga": { "name": "Dagaare", "aliases": ["Dagaari", "Dagara"], "tier": 2, "bgl": true,
+      "regions": ["upper_west"],
+      "districts": ["Wa Municipal", "Nadowli-Kaleo", "Jirapa", "Lawra", "Nandom", "Lambussie-Karni", "Wa West", "Daffiama-Bussie-Issa"],
+      "dialects": ["Central (Wa, Nadowli, Jirapa)", "Northern / Lobr (Lawra, Nandom): close to Northern Dagara (dgi); check with speakers"],
+      "resources": { "asr_data": ["University of Ghana 5-language corpus (2025), ~100 h transcribed", "Google WAXAL (CC-BY-4.0)"] } },
+
+    "sld": { "name": "Sisaali", "aliases": ["Sissala", "Sisaala"], "tier": 2, "bgl": true,
+      "regions": ["upper_west"],
+      "districts": ["Sissala East", "Sissala West"],
+      "resources": {} },
+
+    "wlx": { "name": "Wali", "aliases": ["Waali", "Wala"], "tier": 2, "regions": ["upper_west"], "districts": ["Wa Municipal", "Wa West", "Wa East"], "resources": {} },
+    "cli": { "name": "Chakali", "tier": 3, "regions": ["upper_west"], "districts": ["Wa East"], "resources": {} },
+    "lob": { "name": "Lobi", "tier": 3, "regions": ["upper_west"], "districts": ["Lambussie-Karni", "Wa West"], "resources": {} },
+
+    "ful": { "name": "Fulfulde", "aliases": ["Fula", "Fulani"], "tier": 3,
+      "regions": ["northern", "savannah", "north_east", "upper_east", "upper_west"],
+      "note": "Pastoral Fulani households are spread across all five regions and are often missed by services. Variety to be confirmed locally.",
+      "resources": {} },
+
+    "twi": { "name": "Akan (Twi)", "aliases": ["tw", "aka", "Asante Twi"], "tier": 3, "bgl": true,
+      "regions": ["northern", "savannah", "north_east", "upper_east", "upper_west"],
+      "role": "Spoken by southern migrants and in towns. NOT the default for any northern district.",
+      "resources": { "asr_data": ["Google WAXAL (Akan): the repo's Whisper model voice/models/whisper-small-waxal-aka"] } }
+  },
+
+  "regions": {
+    "northern":   { "name": "Northern",   "capital": "Tamale",     "main": ["dag", "xon"], "also": ["hau", "naw", "ncu", "bud", "twi", "ful"] },
+    "savannah":   { "name": "Savannah",   "capital": "Damongo",    "main": ["gjn"], "also": ["tpm", "vag", "hag", "mzw", "saf", "biv", "hau", "ful"] },
+    "north_east": { "name": "North East", "capital": "Nalerigu",   "main": ["maw", "bim", "xon"], "also": ["cko", "dag", "hau", "ful"] },
+    "upper_east": { "name": "Upper East", "capital": "Bolgatanga", "main": ["gur", "kus", "xsm", "bwu"], "also": ["bib", "talni", "mos", "hau", "ful"] },
+    "upper_west": { "name": "Upper West", "capital": "Wa",         "main": ["dga", "sld", "wlx"], "also": ["biv", "cli", "lob", "hau", "ful"] }
+  },
+
+  "pilot": { "district": "Kumbungu", "region": "northern", "languages": ["dag"] }
+}

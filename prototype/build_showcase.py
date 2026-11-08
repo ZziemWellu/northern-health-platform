@@ -50,10 +50,16 @@ def plan_rows(plans):
 
 def reply_cards(replies):
     cards = []
+    translations = replies.get("translations", {})
     for intent, r in replies["replies"].items():
+        local = [f"<p class='small'>{html.escape(t['_name'])}: {html.escape(t[intent])}</p>"
+                 for t in translations.values() if intent in t]
+        if not local:
+            local = ["<p class='small'>No checked translation in a northern language yet (Dagbani first, "
+                     "for the Kumbungu pilot); the CHW interprets the English.</p>"]
         cards.append(f"<div class='card'><h4>{html.escape(intent)}</h4><p>{html.escape(r['en'])}</p>"
-                     f"<p class='small'>Twi (first draft, not checked by a Twi speaker): {html.escape(r['tw'])}</p>"
-                     f"<span class='pill no'>PILOT wording, not approved</span></div>")
+                     + "".join(local) +
+                     "<span class='pill no'>PILOT wording, not approved</span></div>")
     return "\n".join(cards)
 
 

@@ -10,7 +10,7 @@ Each module can ship on its own or together with the others. The design is in th
 | 1 Risk before crisis | In progress: urgency ranking, newborn home visits (day 1, 3, 7), maternal danger assessment with explained rules |
 | 2 Last-mile follow-up | In progress: tracked referrals with code, destination and deadline; arrival follow-up; supervisor targets. The arrival server (`referral_arrival/`: facility confirms by code, overdue referrals escalate to the nurse) is built and tested, SMS dry-run by default. Not yet connected to the CHT referral form, and not deployed |
 | 3 Local-food nutrition | In progress: nutrition engine (`nutrition/`) with checked prices, balanced least-cost plans and a nutritionist approval gate; CHT feeding counselling (approved plans only, dietary diversity) and market price forms. No plan approved yet |
-| 4 Voice support | In progress: menu-first caregiver question form (the CHW picks the topic), approved replies in English and Twi, consent and deletion rules for recordings (`voice/`). Twi wording needs a native speaker. Akan speech recognition is off by default (42.7% word error rate on 20 WAXAL clips) |
+| 4 Voice support | In progress: menu-first caregiver question form (the CHW picks the topic), approved replies in English, and in the caregiver's own language once a checked translation exists, consent and deletion rules for recordings (`voice/`). The first Twi drafts are kept as unchecked drafts and are never shown. Akan speech recognition is off by default (42.7% word error rate on 20 WAXAL clips) |
 | 5 CHPS workflows | In progress: counts the month's CHT reports per CHPS zone (`shared/module5/from_cht.js`, run against a real CHT 5.3.1) and writes the DHIS2 / DHIMS-2 import file with exact counts (`shared/module5/`, `integration/`). Measures are drafts until mapped to the district's data elements. CHPS register workflows not started |
 | 6 Hidden barriers | In progress: barrier screen with an action per barrier, birth plan with the decider (by 32 weeks), same-day barrier check after a missed referral, supervisor target |
 | 7 Sick child and prevention | In progress: iCCM sick-child assessment (malaria, pneumonia, diarrhoea, danger signs) with day-3 follow-up, SMC dose tracking with catch-up and home-dose checks. Vaccine defaulter tracking not started |
@@ -19,6 +19,13 @@ Each module can ship on its own or together with the others. The design is in th
 Phase 0 steps and the five-nurse field test in [docs/PILOT_PLAN.md](docs/PILOT_PLAN.md)). No new modules
 until the pilot passes. `cd cht-app && npm run build-pilot` builds the pilot app; the committed app is the
 full build. A run on a real CHT server is written up in [docs/E2E_RUN.md](docs/E2E_RUN.md).
+
+**Local languages.** Every person's profile records the language they speak best and the others they
+understand, chosen from the languages of the five northern regions (`shared/languages/languages.json`).
+Reminders and voice replies use her language once a second native speaker has checked the translation;
+until then she gets English and the gap is counted. Dagbani comes first, for Kumbungu. How translations
+are made and checked, and which languages each region needs, is in [docs/LANGUAGES.md](docs/LANGUAGES.md).
+`node shared/languages/coverage.js --district=Kumbungu` shows what a district can receive today.
 
 > **Not for clinical use.** No module has clinical sign-off yet, so every clinical form shows a
 > "PILOT - NOT FOR PATIENT CARE" warning. What a clinician must check, and how to sign a module off,
@@ -41,6 +48,7 @@ referral_arrival/         Module 2 arrival server: facility code confirmation an
 voice/                    Module 4 caregiver replies, recording rules, Akan speech tools (off)
 shared/household_link/    Shared household record: platform IDs linked to CHT and MAMA-AI by reference
 shared/module5/           Module 5 aggregate export file for DHIS2 / DHIMS-2
+shared/languages/         Northern languages: registry, translation rules, translators' workpack, coverage
 integration/              DHIS2 push (dry-run unless configured)
 sms/                      SMS reminders (dry-run by default)
 prototype/                Status board, built from the repo (nothing approved)

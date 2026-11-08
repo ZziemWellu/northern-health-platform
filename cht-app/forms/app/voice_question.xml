@@ -26,6 +26,27 @@
           <text id="topic-4">
             <value>Something else</value>
           </text>
+          <text id="/data/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/data/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/data/inputs/contact/_id:label">
+            <value>Whose question is this?</value>
+          </text>
+          <text id="/data/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/preferred_language:label">
+            <value>Language</value>
+          </text>
+          <text id="/data/inputs/contact/other_languages:label">
+            <value>Other languages</value>
+          </text>
+          <text id="/data/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
           <text id="/data/consent_group:label">
             <value>Her question</value>
           </text>
@@ -50,32 +71,32 @@
           <text id="/data/reply/en_emergency:label">
             <value>This may be an emergency. Go to the nearest health facility now. If you cannot travel, call your CHW or the emergency number right away.</value>
           </text>
-          <text id="/data/reply/tw_emergency:label">
-            <value>Twi (first draft, not yet checked by a Twi speaker): Eyi betumi ayɛ ahohia. Kɔ ayaresabea a ɛbɛn wo ho nnɛ. Sɛ wontumi nantew a, frɛ wo CHW anaa ahohia nɔma nnɛ.</value>
+          <text id="/data/reply/interpret_emergency:label">
+            <value>There is no checked translation in her language yet. Give the English reply, interpreting it word for word. Do not add to it or change it.</value>
           </text>
           <text id="/data/reply/en_visit_date:label">
             <value>Your next clinic visit is on the date your CHW gave you. Please come. If you do not know the date, ask your CHW.</value>
           </text>
-          <text id="/data/reply/tw_visit_date:label">
-            <value>Twi (first draft, not yet checked by a Twi speaker): Wo clinic nsɔhwɛ a edi hɔ no yɛ da a wo CHW kyerɛɛ wo. Sɛ wonnim da no a, bisa wo CHW.</value>
+          <text id="/data/reply/interpret_visit_date:label">
+            <value>There is no checked translation in her language yet. Give the English reply, interpreting it word for word. Do not add to it or change it.</value>
           </text>
           <text id="/data/reply/en_transport:label">
             <value>If transport is a problem, tell your CHW. Your CHW can help you plan a ride to the facility.</value>
           </text>
-          <text id="/data/reply/tw_transport:label">
-            <value>Twi (first draft, not yet checked by a Twi speaker): Sɛ akwantu yɛ ɔhaw a, ka kyerɛ wo CHW. Wo CHW betumi aboa wo ma wonhyehyɛ akwantu.</value>
+          <text id="/data/reply/interpret_transport:label">
+            <value>There is no checked translation in her language yet. Give the English reply, interpreting it word for word. Do not add to it or change it.</value>
           </text>
           <text id="/data/reply/en_feeding:label">
             <value>For feeding questions, your CHW will help. Ask them to show you an approved feeding plan for your baby.</value>
           </text>
-          <text id="/data/reply/tw_feeding:label">
-            <value>Twi (first draft, not yet checked by a Twi speaker): Sɛ w'abisa nneɛma a wɔde bɛma abofra no ho a, wo CHW bɛboa wo. Bisa no sɛ ɔnkyerɛ wo nnuane a wɔapene so.</value>
+          <text id="/data/reply/interpret_feeding:label">
+            <value>There is no checked translation in her language yet. Give the English reply, interpreting it word for word. Do not add to it or change it.</value>
           </text>
           <text id="/data/reply/en_unknown:label">
             <value>Sorry, I did not understand. Please call your CHW, or ask a family member to call them for you.</value>
           </text>
-          <text id="/data/reply/tw_unknown:label">
-            <value>Twi (first draft, not yet checked by a Twi speaker): Me ho ayɛ wo, minnte nea woka no. Frɛ wo CHW, anaa ka sɛ obi nfrɛ wɔn ma wo.</value>
+          <text id="/data/reply/interpret_unknown:label">
+            <value>There is no checked translation in her language yet. Give the English reply, interpreting it word for word. Do not add to it or change it.</value>
           </text>
           <text id="/data/reply/emergency_action:label">
             <value>Danger sign: after giving the reply, do the Maternal danger assessment for her now (or the Sick child assessment for a child), and refer as it says.</value>
@@ -87,6 +108,27 @@
       </itext>
       <instance>
         <data id="voice_question" version="2026092801" prefix="J1!voice_question!" delimiter="#">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <preferred_language/>
+              <other_languages/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
           <consent_group>
             <pilot_warning/>
             <consent_note/>
@@ -96,15 +138,15 @@
           </consent_group>
           <reply>
             <en_emergency/>
-            <tw_emergency/>
+            <interpret_emergency/>
             <en_visit_date/>
-            <tw_visit_date/>
+            <interpret_visit_date/>
             <en_transport/>
-            <tw_transport/>
+            <interpret_transport/>
             <en_feeding/>
-            <tw_feeding/>
+            <interpret_feeding/>
             <en_unknown/>
-            <tw_unknown/>
+            <interpret_unknown/>
             <emergency_action/>
             <pilot_reply_note/>
           </reply>
@@ -161,21 +203,29 @@
           </item>
         </root>
       </instance>
+      <bind nodeset="/data/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/data/inputs/source" type="string"/>
+      <bind nodeset="/data/inputs/source_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="string"/>
+      <bind nodeset="/data/inputs/contact/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/preferred_language" type="string"/>
+      <bind nodeset="/data/inputs/contact/other_languages" type="string"/>
+      <bind nodeset="/data/inputs/contact/parent/_id" type="string"/>
       <bind nodeset="/data/consent_group/pilot_warning" readonly="true()" type="string"/>
       <bind nodeset="/data/consent_group/consent_note" readonly="true()" type="string"/>
       <bind nodeset="/data/consent_group/consent" type="string" required="true()"/>
       <bind nodeset="/data/consent_group/question_audio" type="binary" required="false()" relevant=" /data/consent_group/consent  = 'yes'"/>
       <bind nodeset="/data/consent_group/topic" type="string" required="true()"/>
       <bind nodeset="/data/reply/en_emergency" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency'"/>
-      <bind nodeset="/data/reply/tw_emergency" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency'"/>
+      <bind nodeset="/data/reply/interpret_emergency" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency' and  /data/inputs/contact/preferred_language  != 'en' and not(false())"/>
       <bind nodeset="/data/reply/en_visit_date" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'visit_date'"/>
-      <bind nodeset="/data/reply/tw_visit_date" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'visit_date'"/>
+      <bind nodeset="/data/reply/interpret_visit_date" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'visit_date' and  /data/inputs/contact/preferred_language  != 'en' and not(false())"/>
       <bind nodeset="/data/reply/en_transport" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'transport'"/>
-      <bind nodeset="/data/reply/tw_transport" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'transport'"/>
+      <bind nodeset="/data/reply/interpret_transport" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'transport' and  /data/inputs/contact/preferred_language  != 'en' and not(false())"/>
       <bind nodeset="/data/reply/en_feeding" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'feeding'"/>
-      <bind nodeset="/data/reply/tw_feeding" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'feeding'"/>
+      <bind nodeset="/data/reply/interpret_feeding" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'feeding' and  /data/inputs/contact/preferred_language  != 'en' and not(false())"/>
       <bind nodeset="/data/reply/en_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown'"/>
-      <bind nodeset="/data/reply/tw_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown'"/>
+      <bind nodeset="/data/reply/interpret_unknown" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'unknown' and  /data/inputs/contact/preferred_language  != 'en' and not(false())"/>
       <bind nodeset="/data/reply/emergency_action" readonly="true()" type="string" relevant=" /data/consent_group/topic  = 'emergency'"/>
       <bind nodeset="/data/reply/pilot_reply_note" readonly="true()" type="string"/>
       <bind nodeset="/data/data/__topic" type="string" calculate=" /data/consent_group/topic "/>
@@ -188,6 +238,14 @@
     </model>
   </h:head>
   <h:body class="pages">
+    <group appearance="field-list" ref="/data/inputs">
+      <group ref="/data/inputs/contact">
+        <input ref="/data/inputs/contact/_id" appearance="select-contact type-person">
+          <label ref="jr:itext('/data/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/data/inputs/contact/parent"/>
+      </group>
+    </group>
     <group appearance="field-list" ref="/data/consent_group">
       <label ref="jr:itext('/data/consent_group:label')"/>
       <input ref="/data/consent_group/pilot_warning">
@@ -219,32 +277,32 @@
       <input ref="/data/reply/en_emergency">
         <label ref="jr:itext('/data/reply/en_emergency:label')"/>
       </input>
-      <input ref="/data/reply/tw_emergency">
-        <label ref="jr:itext('/data/reply/tw_emergency:label')"/>
+      <input ref="/data/reply/interpret_emergency">
+        <label ref="jr:itext('/data/reply/interpret_emergency:label')"/>
       </input>
       <input ref="/data/reply/en_visit_date">
         <label ref="jr:itext('/data/reply/en_visit_date:label')"/>
       </input>
-      <input ref="/data/reply/tw_visit_date">
-        <label ref="jr:itext('/data/reply/tw_visit_date:label')"/>
+      <input ref="/data/reply/interpret_visit_date">
+        <label ref="jr:itext('/data/reply/interpret_visit_date:label')"/>
       </input>
       <input ref="/data/reply/en_transport">
         <label ref="jr:itext('/data/reply/en_transport:label')"/>
       </input>
-      <input ref="/data/reply/tw_transport">
-        <label ref="jr:itext('/data/reply/tw_transport:label')"/>
+      <input ref="/data/reply/interpret_transport">
+        <label ref="jr:itext('/data/reply/interpret_transport:label')"/>
       </input>
       <input ref="/data/reply/en_feeding">
         <label ref="jr:itext('/data/reply/en_feeding:label')"/>
       </input>
-      <input ref="/data/reply/tw_feeding">
-        <label ref="jr:itext('/data/reply/tw_feeding:label')"/>
+      <input ref="/data/reply/interpret_feeding">
+        <label ref="jr:itext('/data/reply/interpret_feeding:label')"/>
       </input>
       <input ref="/data/reply/en_unknown">
         <label ref="jr:itext('/data/reply/en_unknown:label')"/>
       </input>
-      <input ref="/data/reply/tw_unknown">
-        <label ref="jr:itext('/data/reply/tw_unknown:label')"/>
+      <input ref="/data/reply/interpret_unknown">
+        <label ref="jr:itext('/data/reply/interpret_unknown:label')"/>
       </input>
       <input ref="/data/reply/emergency_action">
         <label ref="jr:itext('/data/reply/emergency_action:label')"/>

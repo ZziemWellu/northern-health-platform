@@ -1,5 +1,22 @@
 const moment = require('moment');
 const extras = require('./contact-summary-extras');
+const LANGUAGE_NAMES = require('./language-names');
+
+// "Dagbani (Dagbanli); also understands Hausa (ha)": the nurse sees which language to use before she
+// speaks to the client or reads her a reply, and whether an interpreter is needed.
+function languageLabel(person) {
+  const name = code => {
+    if (code === 'other') {
+      return person.preferred_language_other || 'Other';
+    }
+    return LANGUAGE_NAMES[code] || code;
+  };
+  if (!person.preferred_language) {
+    return 'Not recorded: edit the profile to add it';
+  }
+  const others = String(person.other_languages || '').split(' ').filter(c => c && c !== person.preferred_language);
+  return name(person.preferred_language) + (others.length ? '; also understands ' + others.map(name).join(', ') : '');
+}
 const { today, MAX_DAYS_IN_PREGNANCY, isHighRiskPregnancy, getNewestReport, getSubsequentPregnancyFollowUps,
   getSubsequentDeliveries, isAlive, isReadyForNewPregnancy, isReadyForDelivery, isActivePregnancy, countANCFacilityVisits,
   getAllRiskFactors, getLatestDangerSignsForPregnancy, getNextANCVisitDate,
@@ -23,6 +40,7 @@ const fields = [
   { appliesToType: 'person', label: 'contact.sex', value: 'contact.sex.' + thisContact.sex, translate: true, width: 4 },
   { appliesToType: 'person', label: 'person.field.phone', value: thisContact.phone, width: 4 },
   { appliesToType: 'person', label: 'person.field.alternate_phone', value: thisContact.phone_alternate, width: 4 },
+  { appliesToType: 'person', label: 'Language', value: languageLabel(thisContact), width: 12 },
   { appliesToType: 'person', label: 'External ID', value: thisContact.external_id, width: 4 },
   { appliesToType: 'person', label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: '!person', label: 'contact', value: thisContact.contact && thisContact.contact.name, width: 4 },

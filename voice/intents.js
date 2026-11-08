@@ -2,33 +2,33 @@
 // approved replies. It never composes medical advice. Anything it cannot match gets the safe default,
 // and anything that sounds like an emergency gets the emergency instruction first.
 //
-// Every reply is PILOT-status until the reviewer approves it. Twi wording is a first draft: it must
-// be checked by a Twi speaker from the district before any caregiver hears it.
+// Every reply is PILOT-status until the reviewer approves it. English is the source text. The reply in
+// the caregiver's own language (Dagbani in Kumbungu; the other northern languages are listed in
+// shared/languages/languages.json) comes from shared/languages/translations/<code>.json, keyed
+// "voice.reply.<intent>", and is given only once a second native speaker has checked it. The first
+// Twi drafts are kept there as drafts; Twi is not the language of any northern district.
+const languages = require('../shared/languages');
+
 const REPLIES = {
   emergency: {
     status: 'pilot',
     en: 'This may be an emergency. Go to the nearest health facility now. If you cannot travel, call your CHW or the emergency number right away.',
-    tw: 'Eyi betumi ayɛ ahohia. Kɔ ayaresabea a ɛbɛn wo ho nnɛ. Sɛ wontumi nantew a, frɛ wo CHW anaa ahohia nɔma nnɛ.',
   },
   visit_date: {
     status: 'pilot',
     en: 'Your next clinic visit is on the date your CHW gave you. Please come. If you do not know the date, ask your CHW.',
-    tw: 'Wo clinic nsɔhwɛ a edi hɔ no yɛ da a wo CHW kyerɛɛ wo. Sɛ wonnim da no a, bisa wo CHW.',
   },
   transport: {
     status: 'pilot',
     en: 'If transport is a problem, tell your CHW. Your CHW can help you plan a ride to the facility.',
-    tw: 'Sɛ akwantu yɛ ɔhaw a, ka kyerɛ wo CHW. Wo CHW betumi aboa wo ma wonhyehyɛ akwantu.',
   },
   feeding: {
     status: 'pilot',
     en: 'For feeding questions, your CHW will help. Ask them to show you an approved feeding plan for your baby.',
-    tw: 'Sɛ w\'abisa nneɛma a wɔde bɛma abofra no ho a, wo CHW bɛboa wo. Bisa no sɛ ɔnkyerɛ wo nnuane a wɔapene so.',
   },
   unknown: {
     status: 'pilot',
     en: 'Sorry, I did not understand. Please call your CHW, or ask a family member to call them for you.',
-    tw: 'Me ho ayɛ wo, minnte nea woka no. Frɛ wo CHW, anaa ka sɛ obi nfrɛ wɔn ma wo.',
   },
 };
 
@@ -68,19 +68,28 @@ function normalise(text) {
     .replace(/[^\p{L}\p{M}\p{N}\s']/gu, ' ').replace(/\s+/g, ' ').trim();
 }
 
-function hits(text, intent) {
-  return intent.words.filter(w => text.includes(` ${normalise(w)} `)).length;
+// Words for one intent: the English and first-draft list above, plus the words a checked translation
+// adds for the caller's language ("voice.words.<intent>" in shared/languages/translations; its source
+// is the English list joined with " | ", so a change to the list makes the translation stale).
+function wordsFor(intent, lang) {
+  if (!lang || languages.normaliseCode(lang) === 'en') return intent.words;
+  const t = languages.translation(`voice.words.${intent.id}`, lang, intent.words.join(' | '));
+  return t.ok && Array.isArray(t.words) ? [...intent.words, ...t.words] : intent.words;
+}
+
+function hits(text, words) {
+  return words.filter(w => text.includes(` ${normalise(w)} `)).length;
 }
 
 // Any emergency word wins outright. Otherwise the topic with the most matching words wins, so
 // "when should I feed the baby" is about feeding, not the clinic date; a tie keeps the list order.
-function matchIntent(transcript) {
+function matchIntent(transcript, lang) {
   const text = ` ${normalise(transcript)} `;
   const [emergency, ...others] = INTENTS;
-  if (hits(text, emergency) > 0) return emergency.id;
+  if (hits(text, wordsFor(emergency, lang)) > 0) return emergency.id;
   let best = { id: 'unknown', score: 0 };
   for (const intent of others) {
-    const score = hits(text, intent);
+    const score = hits(text, wordsFor(intent, lang));
     if (score > best.score) best = { id: intent.id, score };
   }
   return best.id;
@@ -88,13 +97,15 @@ function matchIntent(transcript) {
 
 const hasReply = id => typeof id === 'string' && Object.prototype.hasOwnProperty.call(REPLIES, id);
 
-// Returns the approved reply for the caller's language. Falls back to English where a translation
-// has not been provided, so no caller ever gets an empty answer.
-function replyFor(intentId, lang = 'en') {
+// Returns the reply for the caller. `who` is a language code ("dag") or her CHT profile fields
+// ({ preferred_language, other_languages }). She gets her own language only if a checked translation
+// exists; otherwise the English, with fallback: true so the gap is visible. Never an empty answer.
+function replyFor(intentId, who = 'en') {
   const intent = hasReply(intentId) ? intentId : 'unknown';
   const reply = REPLIES[intent];
-  const text = Object.prototype.hasOwnProperty.call(reply, lang) && reply[lang] ? reply[lang] : reply.en;
-  return { intent, text, status: reply.status };
+  const client = typeof who === 'string' ? { preferred_language: who } : (who || {});
+  const choice = languages.pick(`voice.reply.${intent}`, reply.en, client);
+  return { intent, text: choice.text, status: reply.status, lang: choice.lang, fallback: choice.fallback };
 }
 
 module.exports = { REPLIES, INTENTS, normalise, matchIntent, replyFor };

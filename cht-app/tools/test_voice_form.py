@@ -23,12 +23,31 @@ def test_replies_json_matches_intents_js():
     assert json.loads(js) == exported
 
 
-def test_every_topic_has_english_and_twi_replies_on_the_form():
+def test_every_topic_has_the_english_reply_and_an_interpret_note_but_no_draft():
     rows = _survey_rows()
     for intent, _ in build_voice_forms.TOPICS:
         assert any(r[1] == f"en_{intent}" for r in rows), intent
-        twi = [r for r in rows if r[1] == f"tw_{intent}"]
-        assert twi and "first draft" in twi[0][2], intent
+        note = next(r for r in rows if r[1] == f"interpret_{intent}")
+        assert "word for word" in note[2]
+        assert "${preferred_language} != 'en'" in note[4]
+    # Unchecked drafts (the first Twi wording) must never reach the form.
+    assert not any(r[1] and r[1].startswith("tw_") for r in rows)
+    assert not any(r[2] and "first draft" in str(r[2]) for r in rows)
+
+
+def test_replies_json_holds_only_checked_translations():
+    js = subprocess.run(
+        ["node", "-e", "console.log(JSON.stringify(require('./voice/export_replies').exportReplies()))"],
+        cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True).stdout
+    exported = json.loads((ROOT / "voice" / "replies.json").read_text(encoding="utf-8"))
+    assert json.loads(js) == exported, "run: node voice/export_replies.js"
+
+
+def test_the_form_knows_whose_question_it_is_and_her_languages():
+    rows = _survey_rows()
+    names = [r[1] for r in rows]
+    for field in ("inputs", "_id", "preferred_language", "other_languages"):
+        assert field in names, field
 
 
 def test_audio_is_only_recorded_with_consent():

@@ -47,7 +47,12 @@ the code review fixed, and what only a person can settle. Nothing here is approv
 
 ## Needs a person (not fixable in code)
 
-### Twi speaker (from the pilot district), before any caregiver hears a reply
+### Twi speaker, before any caregiver hears a reply
+
+> **Update, 8 November 2026.** Twi is not the language of Kumbungu or any northern district; the pilot
+> language is **Dagbani** (`docs/LANGUAGES.md`). The Twi drafts below have moved to
+> `shared/languages/translations/twi.json` with status `draft`, so no caregiver hears them. They still
+> need the corrections below before they can be checked and used for Twi-speaking clients.
 
 1. **Emergency reply says "today", not "now".** English: "Go to the nearest health facility *now* ... call
    ... *right away*." Twi draft: "Kɔ ayaresabea a ɛbɛn wo ho *nnɛ* ... frɛ ... *nnɛ*." *Nnɛ* means today.

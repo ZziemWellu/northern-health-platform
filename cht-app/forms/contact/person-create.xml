@@ -53,6 +53,102 @@
           <text id="place_type-2">
             <value>Household</value>
           </text>
+          <text id="language-0">
+            <value>Dagbani (Dagbanli)</value>
+          </text>
+          <text id="language-1">
+            <value>Bimoba (Moar)</value>
+          </text>
+          <text id="language-2">
+            <value>Buli (Builsa)</value>
+          </text>
+          <text id="language-3">
+            <value>Dagaare (Dagaari)</value>
+          </text>
+          <text id="language-4">
+            <value>Gonja (Ngbanyito)</value>
+          </text>
+          <text id="language-5">
+            <value>Gurene (Farefare)</value>
+          </text>
+          <text id="language-6">
+            <value>Hausa</value>
+          </text>
+          <text id="language-7">
+            <value>Kasem (Kassem)</value>
+          </text>
+          <text id="language-8">
+            <value>Kusaal (Kusasi)</value>
+          </text>
+          <text id="language-9">
+            <value>Likpakpaanl (Konkomba)</value>
+          </text>
+          <text id="language-10">
+            <value>Mampruli (Mampelle)</value>
+          </text>
+          <text id="language-11">
+            <value>Sisaali (Sissala)</value>
+          </text>
+          <text id="language-12">
+            <value>Wali (Waali)</value>
+          </text>
+          <text id="language-13">
+            <value>Akan (Twi)</value>
+          </text>
+          <text id="language-14">
+            <value>Anufo (Chokosi)</value>
+          </text>
+          <text id="language-15">
+            <value>Birifor (Southern)</value>
+          </text>
+          <text id="language-16">
+            <value>Bisa (Bissa)</value>
+          </text>
+          <text id="language-17">
+            <value>Chakali</value>
+          </text>
+          <text id="language-18">
+            <value>Chumburung (Nchumburu)</value>
+          </text>
+          <text id="language-19">
+            <value>Deg</value>
+          </text>
+          <text id="language-20">
+            <value>Fulfulde (Fula)</value>
+          </text>
+          <text id="language-21">
+            <value>Hanga (Anga)</value>
+          </text>
+          <text id="language-22">
+            <value>Lobi</value>
+          </text>
+          <text id="language-23">
+            <value>Mooré (Moshie)</value>
+          </text>
+          <text id="language-24">
+            <value>Nawuri</value>
+          </text>
+          <text id="language-25">
+            <value>Ntcham (Bassari)</value>
+          </text>
+          <text id="language-26">
+            <value>Safaliba</value>
+          </text>
+          <text id="language-27">
+            <value>Talni (Talensi)</value>
+          </text>
+          <text id="language-28">
+            <value>Tampulma (Tamprusi)</value>
+          </text>
+          <text id="language-29">
+            <value>Vagla</value>
+          </text>
+          <text id="language-30">
+            <value>English</value>
+          </text>
+          <text id="language-31">
+            <value>Other (write it in)</value>
+          </text>
           <text id="/data/inputs/user/contact_id:label">
             <value>Contact ID of the logged in user</value>
           </text>
@@ -129,6 +225,21 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           </text>
           <text id="/data/person/phone_alternate:label">
             <value>Alternate Phone Number</value>
+          </text>
+          <text id="/data/person/preferred_language:label">
+            <value>Which language does this person speak best?</value>
+          </text>
+          <text id="/data/person/preferred_language:hint">
+            <value>Reminders and voice replies use this language once a checked translation exists; until then they are in English.</value>
+          </text>
+          <text id="/data/person/preferred_language_other:label">
+            <value>Which language?</value>
+          </text>
+          <text id="/data/person/other_languages:label">
+            <value>Other languages this person understands</value>
+          </text>
+          <text id="/data/person/other_languages:hint">
+            <value>Used only if their own language has no checked message yet. Leave empty if none.</value>
           </text>
           <text id="/data/person/role:label">
             <value>Role</value>
@@ -249,6 +360,102 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           <text id="/data/person/notes:label">
             <value>नोट्स</value>
           </text>
+          <text id="language-0">
+            <value>-</value>
+          </text>
+          <text id="language-1">
+            <value>-</value>
+          </text>
+          <text id="language-2">
+            <value>-</value>
+          </text>
+          <text id="language-3">
+            <value>-</value>
+          </text>
+          <text id="language-4">
+            <value>-</value>
+          </text>
+          <text id="language-5">
+            <value>-</value>
+          </text>
+          <text id="language-6">
+            <value>-</value>
+          </text>
+          <text id="language-7">
+            <value>-</value>
+          </text>
+          <text id="language-8">
+            <value>-</value>
+          </text>
+          <text id="language-9">
+            <value>-</value>
+          </text>
+          <text id="language-10">
+            <value>-</value>
+          </text>
+          <text id="language-11">
+            <value>-</value>
+          </text>
+          <text id="language-12">
+            <value>-</value>
+          </text>
+          <text id="language-13">
+            <value>-</value>
+          </text>
+          <text id="language-14">
+            <value>-</value>
+          </text>
+          <text id="language-15">
+            <value>-</value>
+          </text>
+          <text id="language-16">
+            <value>-</value>
+          </text>
+          <text id="language-17">
+            <value>-</value>
+          </text>
+          <text id="language-18">
+            <value>-</value>
+          </text>
+          <text id="language-19">
+            <value>-</value>
+          </text>
+          <text id="language-20">
+            <value>-</value>
+          </text>
+          <text id="language-21">
+            <value>-</value>
+          </text>
+          <text id="language-22">
+            <value>-</value>
+          </text>
+          <text id="language-23">
+            <value>-</value>
+          </text>
+          <text id="language-24">
+            <value>-</value>
+          </text>
+          <text id="language-25">
+            <value>-</value>
+          </text>
+          <text id="language-26">
+            <value>-</value>
+          </text>
+          <text id="language-27">
+            <value>-</value>
+          </text>
+          <text id="language-28">
+            <value>-</value>
+          </text>
+          <text id="language-29">
+            <value>-</value>
+          </text>
+          <text id="language-30">
+            <value>-</value>
+          </text>
+          <text id="language-31">
+            <value>-</value>
+          </text>
           <text id="/data/person/short_name:jr:constraintMsg">
             <value>-</value>
           </text>
@@ -289,6 +496,21 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
             <value>-</value>
           </text>
           <text id="/data/person/ephemeral_dob/dob_debug:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:hint">
             <value>-</value>
           </text>
         </translation>
@@ -389,6 +611,102 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           <text id="/data/person/notes:label">
             <value>Catatan</value>
           </text>
+          <text id="language-0">
+            <value>-</value>
+          </text>
+          <text id="language-1">
+            <value>-</value>
+          </text>
+          <text id="language-2">
+            <value>-</value>
+          </text>
+          <text id="language-3">
+            <value>-</value>
+          </text>
+          <text id="language-4">
+            <value>-</value>
+          </text>
+          <text id="language-5">
+            <value>-</value>
+          </text>
+          <text id="language-6">
+            <value>-</value>
+          </text>
+          <text id="language-7">
+            <value>-</value>
+          </text>
+          <text id="language-8">
+            <value>-</value>
+          </text>
+          <text id="language-9">
+            <value>-</value>
+          </text>
+          <text id="language-10">
+            <value>-</value>
+          </text>
+          <text id="language-11">
+            <value>-</value>
+          </text>
+          <text id="language-12">
+            <value>-</value>
+          </text>
+          <text id="language-13">
+            <value>-</value>
+          </text>
+          <text id="language-14">
+            <value>-</value>
+          </text>
+          <text id="language-15">
+            <value>-</value>
+          </text>
+          <text id="language-16">
+            <value>-</value>
+          </text>
+          <text id="language-17">
+            <value>-</value>
+          </text>
+          <text id="language-18">
+            <value>-</value>
+          </text>
+          <text id="language-19">
+            <value>-</value>
+          </text>
+          <text id="language-20">
+            <value>-</value>
+          </text>
+          <text id="language-21">
+            <value>-</value>
+          </text>
+          <text id="language-22">
+            <value>-</value>
+          </text>
+          <text id="language-23">
+            <value>-</value>
+          </text>
+          <text id="language-24">
+            <value>-</value>
+          </text>
+          <text id="language-25">
+            <value>-</value>
+          </text>
+          <text id="language-26">
+            <value>-</value>
+          </text>
+          <text id="language-27">
+            <value>-</value>
+          </text>
+          <text id="language-28">
+            <value>-</value>
+          </text>
+          <text id="language-29">
+            <value>-</value>
+          </text>
+          <text id="language-30">
+            <value>-</value>
+          </text>
+          <text id="language-31">
+            <value>-</value>
+          </text>
           <text id="/data/person/short_name:jr:constraintMsg">
             <value>-</value>
           </text>
@@ -435,6 +753,21 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
             <value>-</value>
           </text>
           <text id="/data/person/phone_alternate:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:hint">
             <value>-</value>
           </text>
         </translation>
@@ -535,6 +868,102 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           <text id="/data/person/notes:label">
             <value>Maelezo</value>
           </text>
+          <text id="language-0">
+            <value>-</value>
+          </text>
+          <text id="language-1">
+            <value>-</value>
+          </text>
+          <text id="language-2">
+            <value>-</value>
+          </text>
+          <text id="language-3">
+            <value>-</value>
+          </text>
+          <text id="language-4">
+            <value>-</value>
+          </text>
+          <text id="language-5">
+            <value>-</value>
+          </text>
+          <text id="language-6">
+            <value>-</value>
+          </text>
+          <text id="language-7">
+            <value>-</value>
+          </text>
+          <text id="language-8">
+            <value>-</value>
+          </text>
+          <text id="language-9">
+            <value>-</value>
+          </text>
+          <text id="language-10">
+            <value>-</value>
+          </text>
+          <text id="language-11">
+            <value>-</value>
+          </text>
+          <text id="language-12">
+            <value>-</value>
+          </text>
+          <text id="language-13">
+            <value>-</value>
+          </text>
+          <text id="language-14">
+            <value>-</value>
+          </text>
+          <text id="language-15">
+            <value>-</value>
+          </text>
+          <text id="language-16">
+            <value>-</value>
+          </text>
+          <text id="language-17">
+            <value>-</value>
+          </text>
+          <text id="language-18">
+            <value>-</value>
+          </text>
+          <text id="language-19">
+            <value>-</value>
+          </text>
+          <text id="language-20">
+            <value>-</value>
+          </text>
+          <text id="language-21">
+            <value>-</value>
+          </text>
+          <text id="language-22">
+            <value>-</value>
+          </text>
+          <text id="language-23">
+            <value>-</value>
+          </text>
+          <text id="language-24">
+            <value>-</value>
+          </text>
+          <text id="language-25">
+            <value>-</value>
+          </text>
+          <text id="language-26">
+            <value>-</value>
+          </text>
+          <text id="language-27">
+            <value>-</value>
+          </text>
+          <text id="language-28">
+            <value>-</value>
+          </text>
+          <text id="language-29">
+            <value>-</value>
+          </text>
+          <text id="language-30">
+            <value>-</value>
+          </text>
+          <text id="language-31">
+            <value>-</value>
+          </text>
           <text id="/data/person/short_name:jr:constraintMsg">
             <value>-</value>
           </text>
@@ -581,6 +1010,21 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
             <value>-</value>
           </text>
           <text id="/data/person/phone_alternate:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:hint">
             <value>-</value>
           </text>
         </translation>
@@ -675,6 +1119,102 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           <text id="/data/person/notes:label">
             <value>टिप्पणी</value>
           </text>
+          <text id="language-0">
+            <value>-</value>
+          </text>
+          <text id="language-1">
+            <value>-</value>
+          </text>
+          <text id="language-2">
+            <value>-</value>
+          </text>
+          <text id="language-3">
+            <value>-</value>
+          </text>
+          <text id="language-4">
+            <value>-</value>
+          </text>
+          <text id="language-5">
+            <value>-</value>
+          </text>
+          <text id="language-6">
+            <value>-</value>
+          </text>
+          <text id="language-7">
+            <value>-</value>
+          </text>
+          <text id="language-8">
+            <value>-</value>
+          </text>
+          <text id="language-9">
+            <value>-</value>
+          </text>
+          <text id="language-10">
+            <value>-</value>
+          </text>
+          <text id="language-11">
+            <value>-</value>
+          </text>
+          <text id="language-12">
+            <value>-</value>
+          </text>
+          <text id="language-13">
+            <value>-</value>
+          </text>
+          <text id="language-14">
+            <value>-</value>
+          </text>
+          <text id="language-15">
+            <value>-</value>
+          </text>
+          <text id="language-16">
+            <value>-</value>
+          </text>
+          <text id="language-17">
+            <value>-</value>
+          </text>
+          <text id="language-18">
+            <value>-</value>
+          </text>
+          <text id="language-19">
+            <value>-</value>
+          </text>
+          <text id="language-20">
+            <value>-</value>
+          </text>
+          <text id="language-21">
+            <value>-</value>
+          </text>
+          <text id="language-22">
+            <value>-</value>
+          </text>
+          <text id="language-23">
+            <value>-</value>
+          </text>
+          <text id="language-24">
+            <value>-</value>
+          </text>
+          <text id="language-25">
+            <value>-</value>
+          </text>
+          <text id="language-26">
+            <value>-</value>
+          </text>
+          <text id="language-27">
+            <value>-</value>
+          </text>
+          <text id="language-28">
+            <value>-</value>
+          </text>
+          <text id="language-29">
+            <value>-</value>
+          </text>
+          <text id="language-30">
+            <value>-</value>
+          </text>
+          <text id="language-31">
+            <value>-</value>
+          </text>
           <text id="/data/person/parent:label">
             <value>-</value>
           </text>
@@ -727,6 +1267,21 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
             <value>-</value>
           </text>
           <text id="/data/person/phone_alternate:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:hint">
             <value>-</value>
           </text>
         </translation>
@@ -833,6 +1388,102 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           <text id="/data/person/notes:label">
             <value>Notes</value>
           </text>
+          <text id="language-0">
+            <value>-</value>
+          </text>
+          <text id="language-1">
+            <value>-</value>
+          </text>
+          <text id="language-2">
+            <value>-</value>
+          </text>
+          <text id="language-3">
+            <value>-</value>
+          </text>
+          <text id="language-4">
+            <value>-</value>
+          </text>
+          <text id="language-5">
+            <value>-</value>
+          </text>
+          <text id="language-6">
+            <value>-</value>
+          </text>
+          <text id="language-7">
+            <value>-</value>
+          </text>
+          <text id="language-8">
+            <value>-</value>
+          </text>
+          <text id="language-9">
+            <value>-</value>
+          </text>
+          <text id="language-10">
+            <value>-</value>
+          </text>
+          <text id="language-11">
+            <value>-</value>
+          </text>
+          <text id="language-12">
+            <value>-</value>
+          </text>
+          <text id="language-13">
+            <value>-</value>
+          </text>
+          <text id="language-14">
+            <value>-</value>
+          </text>
+          <text id="language-15">
+            <value>-</value>
+          </text>
+          <text id="language-16">
+            <value>-</value>
+          </text>
+          <text id="language-17">
+            <value>-</value>
+          </text>
+          <text id="language-18">
+            <value>-</value>
+          </text>
+          <text id="language-19">
+            <value>-</value>
+          </text>
+          <text id="language-20">
+            <value>-</value>
+          </text>
+          <text id="language-21">
+            <value>-</value>
+          </text>
+          <text id="language-22">
+            <value>-</value>
+          </text>
+          <text id="language-23">
+            <value>-</value>
+          </text>
+          <text id="language-24">
+            <value>-</value>
+          </text>
+          <text id="language-25">
+            <value>-</value>
+          </text>
+          <text id="language-26">
+            <value>-</value>
+          </text>
+          <text id="language-27">
+            <value>-</value>
+          </text>
+          <text id="language-28">
+            <value>-</value>
+          </text>
+          <text id="language-29">
+            <value>-</value>
+          </text>
+          <text id="language-30">
+            <value>-</value>
+          </text>
+          <text id="language-31">
+            <value>-</value>
+          </text>
           <text id="/data/person/short_name:jr:constraintMsg">
             <value>-</value>
           </text>
@@ -875,10 +1526,25 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           <text id="/data/person/ephemeral_dob/dob_debug:label">
             <value>-</value>
           </text>
+          <text id="/data/person/preferred_language:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/person/preferred_language_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:label">
+            <value>-</value>
+          </text>
+          <text id="/data/person/other_languages:hint">
+            <value>-</value>
+          </text>
         </translation>
       </itext>
       <instance>
-        <data id="contact:person:create" version="2025-05-01 22-35" prefix="J1!contact:person:create!" delimiter="#">
+        <data id="contact:person:create" prefix="J1!contact:person:create!" delimiter="#">
           <inputs>
             <meta>
               <location>
@@ -915,6 +1581,9 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
             <sex/>
             <phone/>
             <phone_alternate/>
+            <preferred_language/>
+            <preferred_language_other/>
+            <other_languages/>
             <role/>
             <role_other/>
             <external_id/>
@@ -1028,6 +1697,138 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
           </item>
         </root>
       </instance>
+      <instance id="language">
+        <root>
+          <item>
+            <itextId>language-0</itextId>
+            <name>dag</name>
+          </item>
+          <item>
+            <itextId>language-1</itextId>
+            <name>bim</name>
+          </item>
+          <item>
+            <itextId>language-2</itextId>
+            <name>bwu</name>
+          </item>
+          <item>
+            <itextId>language-3</itextId>
+            <name>dga</name>
+          </item>
+          <item>
+            <itextId>language-4</itextId>
+            <name>gjn</name>
+          </item>
+          <item>
+            <itextId>language-5</itextId>
+            <name>gur</name>
+          </item>
+          <item>
+            <itextId>language-6</itextId>
+            <name>hau</name>
+          </item>
+          <item>
+            <itextId>language-7</itextId>
+            <name>xsm</name>
+          </item>
+          <item>
+            <itextId>language-8</itextId>
+            <name>kus</name>
+          </item>
+          <item>
+            <itextId>language-9</itextId>
+            <name>xon</name>
+          </item>
+          <item>
+            <itextId>language-10</itextId>
+            <name>maw</name>
+          </item>
+          <item>
+            <itextId>language-11</itextId>
+            <name>sld</name>
+          </item>
+          <item>
+            <itextId>language-12</itextId>
+            <name>wlx</name>
+          </item>
+          <item>
+            <itextId>language-13</itextId>
+            <name>twi</name>
+          </item>
+          <item>
+            <itextId>language-14</itextId>
+            <name>cko</name>
+          </item>
+          <item>
+            <itextId>language-15</itextId>
+            <name>biv</name>
+          </item>
+          <item>
+            <itextId>language-16</itextId>
+            <name>bib</name>
+          </item>
+          <item>
+            <itextId>language-17</itextId>
+            <name>cli</name>
+          </item>
+          <item>
+            <itextId>language-18</itextId>
+            <name>ncu</name>
+          </item>
+          <item>
+            <itextId>language-19</itextId>
+            <name>mzw</name>
+          </item>
+          <item>
+            <itextId>language-20</itextId>
+            <name>ful</name>
+          </item>
+          <item>
+            <itextId>language-21</itextId>
+            <name>hag</name>
+          </item>
+          <item>
+            <itextId>language-22</itextId>
+            <name>lob</name>
+          </item>
+          <item>
+            <itextId>language-23</itextId>
+            <name>mos</name>
+          </item>
+          <item>
+            <itextId>language-24</itextId>
+            <name>naw</name>
+          </item>
+          <item>
+            <itextId>language-25</itextId>
+            <name>bud</name>
+          </item>
+          <item>
+            <itextId>language-26</itextId>
+            <name>saf</name>
+          </item>
+          <item>
+            <itextId>language-27</itextId>
+            <name>talni</name>
+          </item>
+          <item>
+            <itextId>language-28</itextId>
+            <name>tpm</name>
+          </item>
+          <item>
+            <itextId>language-29</itextId>
+            <name>vag</name>
+          </item>
+          <item>
+            <itextId>language-30</itextId>
+            <name>en</name>
+          </item>
+          <item>
+            <itextId>language-31</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
       <bind nodeset="/data/inputs" relevant="false()"/>
       <bind nodeset="/data/inputs/user/contact_id" type="string"/>
       <bind nodeset="/data/inputs/user/facility_id" type="string"/>
@@ -1055,6 +1856,9 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
       <bind nodeset="/data/person/sex" type="string" required="true()"/>
       <bind nodeset="/data/person/phone" type="tel" constraint="true()" jr:constraintMsg="jr:itext('/data/person/phone:jr:constraintMsg')"/>
       <bind nodeset="/data/person/phone_alternate" type="tel" constraint="true()" jr:constraintMsg="jr:itext('/data/person/phone_alternate:jr:constraintMsg')"/>
+      <bind nodeset="/data/person/preferred_language" type="string" required="true()"/>
+      <bind nodeset="/data/person/preferred_language_other" type="string" required="true()" relevant="selected( /data/person/preferred_language ,'other')"/>
+      <bind nodeset="/data/person/other_languages" type="string"/>
       <bind nodeset="/data/person/role" type="string"/>
       <bind nodeset="/data/person/role_other" type="string" required="true()" relevant="selected(  /data/person/role ,'other')"/>
       <bind nodeset="/data/person/external_id" type="string"/>
@@ -1139,6 +1943,25 @@ DOB ISO: <output value=" /data/person/ephemeral_dob/dob_iso "/></value>
       <input ref="/data/person/phone_alternate">
         <label ref="jr:itext('/data/person/phone_alternate:label')"/>
       </input>
+      <select1 ref="/data/person/preferred_language" appearance="minimal">
+        <label ref="jr:itext('/data/person/preferred_language:label')"/>
+        <hint ref="jr:itext('/data/person/preferred_language:hint')"/>
+        <itemset nodeset="instance('language')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/person/preferred_language_other">
+        <label ref="jr:itext('/data/person/preferred_language_other:label')"/>
+      </input>
+      <select ref="/data/person/other_languages" appearance="minimal">
+        <label ref="jr:itext('/data/person/other_languages:label')"/>
+        <hint ref="jr:itext('/data/person/other_languages:hint')"/>
+        <itemset nodeset="instance('language')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
       <select1 ref="/data/person/role">
         <label ref="jr:itext('/data/person/role:label')"/>
         <hint ref="jr:itext('/data/person/role:hint')"/>

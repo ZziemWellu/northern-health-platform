@@ -201,3 +201,40 @@ test('budget: messages times the rate range, in cedis', () => {
   assert.equal(e.cedis.typical, 90);
   assert.equal(e.cedis.high, 240);
 });
+
+test('budget: local-language reminders are billed per SMS part', () => {
+  const e = estimate({ women: 500, messagesPerWoman: 6, partsPerMessage: 3 });
+  assert.deepEqual([e.messages, e.parts, e.cedis.typical], [3000, 9000, 270]);
+});
+
+test('each message records its language; with no checked translation a Dagbani speaker gets English, flagged', () => {
+  const p = planRun({
+    reminders: [reminder({ preferred_language: 'dag', other_languages: 'hau' }), reminder({ patientId: 'p2', preferred_language: 'en' })],
+    today: '2026-10-05', maxMessages: 10,
+  });
+  assert.deepEqual(p.send.map(m => [m.lang, m.fallback]), [['en', true], ['en', false]]);
+  assert.match(p.send[0].text, /Reply STOP/);
+});
+
+test('a checked Dagbani reminder goes to a Dagbani speaker, with the gateway keyword kept', () => {
+  const os = require('node:os');
+  const path = require('node:path');
+  const languages = require('../../shared/languages');
+  const { TEMPLATES } = require('../templates');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nhp-sms-'));
+  fs.writeFileSync(path.join(dir, 'dag.json'), JSON.stringify({ language: 'dag', entries: { 'sms.anc_visit': {
+    text: 'DAG {name} {facility} {date}. STOP', source: TEMPLATES.anc_visit.en, status: 'checked',
+    translator: 'A', checker: 'B', back_translation: 'x', date: '2026-11-08' } } }));
+  process.env.NHP_TRANSLATIONS_DIR = dir;
+  languages.clearCache();
+  try {
+    const p = planRun({ reminders: [reminder({ preferred_language: 'Dagbanli' })], today: '2026-10-05', maxMessages: 10 });
+    assert.equal(p.send[0].lang, 'dag');
+    assert.match(p.send[0].text, /^DAG .* STOP$/);
+    assert.throws(() => render('birth_plan', { name: 'a', facility: 'b' }, 'dag'), /No usable dag template/);
+  } finally {
+    delete process.env.NHP_TRANSLATIONS_DIR;
+    languages.clearCache();
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});

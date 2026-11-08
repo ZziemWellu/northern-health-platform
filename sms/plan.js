@@ -3,9 +3,11 @@
 //   - nobody who replied STOP is texted;
 //   - nobody is texted twice for the same reminder (the send log is the memory);
 //   - a bad or missing phone number is reported, never silently sent to a wrong person;
-//   - a run never exceeds its message cap, so a bug can't spend the whole budget.
+//   - a run never exceeds its message cap, so a bug can't spend the whole budget;
+//   - each woman is texted in her own language once a checked translation exists, and every
+//     message that fell back to English is marked (shared/languages).
 const { toGhanaInternational } = require('./phone');
-const { render } = require('./templates');
+const { renderFor } = require('./templates');
 
 // STOP replies arrive from the gateway in international form (233244..., +233244...), while the
 // forms record 0244... . Both sides are reduced to the same form before comparing, so a woman who
@@ -33,7 +35,11 @@ function planRun({ reminders, sentKeys = new Set(), optedOut = new Set(), maxMes
     if (!to) { skipped.push({ key, reason: 'invalid phone number' }); continue; }
     if (send.length >= maxMessages) { skipped.push({ key, reason: 'run cap reached' }); continue; }
     plannedKeys.add(key);
-    send.push({ key, to, text: render(r.kind, { name: r.name, facility: r.facility, date: r.dueDate }) });
+    // Her own language when a checked translation exists (r.preferred_language, r.other_languages from
+    // her CHT profile); otherwise English, flagged so the run reports how many fell back.
+    const msg = renderFor(r.kind, { name: r.name, facility: r.facility, date: r.dueDate },
+      { preferred_language: r.preferred_language, other_languages: r.other_languages });
+    send.push({ key, to, text: msg.text, lang: msg.lang, fallback: msg.fallback });
   }
   return { send, skipped };
 }

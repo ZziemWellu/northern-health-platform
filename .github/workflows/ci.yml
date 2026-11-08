@@ -65,6 +65,10 @@ jobs:
         run: node --test shared/household_link/test/household_link.test.js
       - name: Module 5 export and household adapter tests
         run: node --test shared/module5/test/export.test.js shared/module5/test/from_cht.test.js shared/public_counts/test/public_counts.test.js shared/household_link/test/adapters.test.js
+      - name: Northern languages (registry, translation rules, workpack, coverage)
+        run: |
+          node --test shared/languages/test/languages.test.js
+          node shared/languages/coverage.js --district=Kumbungu
       - name: "Production dependencies: no high or critical vulnerabilities"
         working-directory: cht-app
         run: npm audit --omit=dev --audit-level=high

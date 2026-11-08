@@ -1,13 +1,15 @@
 """Generates the voice_question form: the CHW asks the caregiver's question, records it if she agrees,
-and the app shows the approved reply for the topic, offline, in English and Twi.
+and the app shows the approved reply for the topic, offline: in English, and in the woman's own language
+when a second native speaker has checked that translation (shared/languages). Unchecked drafts never
+appear; instead the CHW is told to interpret the English word for word.
 
 Why the CHW picks the topic: speech matching runs on the server (voice/respond.js with Whisper.cpp),
 and the phone cannot run it offline. So the phone works without a network: the CHW chooses the
 topic from the list, and the approved reply appears at once. The recording is kept for later
 transcription, and only with the caregiver's consent.
 
-The reply texts come from voice/replies.json, which is exported from voice/intents.js. Twi wording is a
-first draft and is marked as such until a Twi speaker from the district checks it.
+The reply texts come from voice/replies.json, which voice/export_replies.js writes from voice/intents.js
+and the checked translations in shared/languages/translations.
 
 Run:  python tools/build_voice_forms.py
 then: npx cht --no-check convert-app-forms -- voice_question
@@ -19,6 +21,29 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # embedded Pythons don't add the script dir
 
 from build_referral_forms import meta_rows, row, save, yes_no  # noqa: E402
+
+
+def inputs_rows():
+    """The woman the form is opened for, with the languages on her profile."""
+    return [
+        row("begin group", "inputs", "NO_LABEL", relevant="./source = 'user'", appearance="field-list"),
+        row("hidden", "source", "Source", default="user"),
+        row("hidden", "source_id", "Source ID"),
+        row("begin group", "contact", "NO_LABEL"),
+        row("string", "_id", "Whose question is this?", appearance="select-contact type-person"),
+        row("hidden", "name", "Name"),
+        row("hidden", "preferred_language", "Language"),
+        row("hidden", "other_languages", "Other languages"),
+        row("begin group", "parent", "NO_LABEL"),
+        row("hidden", "_id", "Household ID"),
+        row("end group", "parent"),
+        row("end group", "contact"),
+        row("end group", "inputs"),
+    ]
+
+
+def her_languages(code):
+    return f"(${{preferred_language}} = '{code}' or selected(${{other_languages}}, '{code}'))"
 
 REPLIES_PATH = Path(__file__).resolve().parents[2] / "voice" / "replies.json"
 
@@ -38,7 +63,7 @@ def build_voice_question():
     choices = yes_no()
     choices += [{"list_name": "topic", "name": n, "label::en": l} for n, l in TOPICS]
 
-    rows = [
+    rows = inputs_rows() + [
         row("begin group", "consent_group", "Her question", appearance="field-list"),
         row("note", "consent_note", "Ask her first. Record only if she agrees. If she says no, choose the topic and go on."),
         row("select_one yes_no", "consent", "Does she agree to a short voice recording of her question?", required="yes"),
@@ -48,12 +73,21 @@ def build_voice_question():
         row("end group", "consent_group"),
         row("begin group", "reply", "Reply to give her", appearance="field-list"),
     ]
+    translations = data.get("translations", {})
     for intent, _ in TOPICS:
         reply = replies[intent]
-        rows.append(row("note", f"en_{intent}", reply["en"], relevant=f"${{topic}} = '{intent}'"))
-        rows.append(row("note", f"tw_{intent}",
-                        "Twi (first draft, not yet checked by a Twi speaker): " + reply["tw"],
-                        relevant=f"${{topic}} = '{intent}'"))
+        shown = f"${{topic}} = '{intent}'"
+        rows.append(row("note", f"en_{intent}", reply["en"], relevant=shown))
+        usable = sorted(code for code, t in translations.items() if intent in t)
+        for code in usable:
+            rows.append(row("note", f"{code}_{intent}", f"{translations[code]['_name']}: {translations[code][intent]}",
+                            relevant=f"{shown} and {her_languages(code)}"))
+        # No checked translation in any language she understands: say so, rather than show a draft.
+        has_one = " or ".join(her_languages(c) for c in usable) or "false()"
+        rows.append(row("note", f"interpret_{intent}",
+                        "There is no checked translation in her language yet. Give the English reply, "
+                        "interpreting it word for word. Do not add to it or change it.",
+                        relevant=f"{shown} and ${{preferred_language}} != 'en' and not({has_one})"))
     rows += [
         # The reply tells the caregiver to go now; the CHW must also act. Without this, choosing
         # "emergency" showed a reply and created nothing for the CHW to do.

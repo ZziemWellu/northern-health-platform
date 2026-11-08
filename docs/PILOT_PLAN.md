@@ -46,6 +46,7 @@ target or form has not been assigned to a part). The committed app remains the f
 | 0.7 | Ethics review with a research partner (`docs/outreach/ethics_pack_outline.md`) | Project lead | Approval letter |
 | 0.8 | Ghana-hosted CHT server (`docs/outreach/quote_request_*.md`) | Project lead | Server running, backed up, inside Ghana |
 | 0.9 | Map each Module 5 measure to a DHIMS-2 data element and its definition (`MEASURES` in `from_cht.js` are drafts) | HMIS officer, developer | Mapping file reviewed by the HMIS officer |
+| 0.10 | **Dagbani:** a translator and a separate checker from Kumbungu translate and back-translate the 12 client-facing texts (`docs/LANGUAGES.md` section 4); the clinical advisor approves the emergency ones. The DHD confirms Kumbungu's language list | Project lead, DHD, clinical advisor | `node shared/languages/coverage.js --district=Kumbungu` shows 12 usable |
 
 ## 4. Field test: five nurses, Kumbungu, their own phones
 
@@ -71,6 +72,11 @@ For each nurse, each task, three repetitions, timed with a stopwatch by an obser
 
 Also record: every error a nurse makes, every time she asks for help, offline use (airplane mode, then
 sync), battery used in a half-day, and whether any form failed to open.
+
+Language: record each nurse's own languages, and for each training client the language on her profile.
+Note every time the nurse had to interpret, and whether a client understood the reply she was given. If
+the Dagbani texts are not checked by the field test, run it in English with the nurse interpreting, and
+say so in the results.
 
 ### Pass, fix or drop
 

@@ -2,28 +2,23 @@
   "replies": {
     "emergency": {
       "status": "pilot",
-      "en": "This may be an emergency. Go to the nearest health facility now. If you cannot travel, call your CHW or the emergency number right away.",
-      "tw": "Eyi betumi ayɛ ahohia. Kɔ ayaresabea a ɛbɛn wo ho nnɛ. Sɛ wontumi nantew a, frɛ wo CHW anaa ahohia nɔma nnɛ."
+      "en": "This may be an emergency. Go to the nearest health facility now. If you cannot travel, call your CHW or the emergency number right away."
     },
     "visit_date": {
       "status": "pilot",
-      "en": "Your next clinic visit is on the date your CHW gave you. Please come. If you do not know the date, ask your CHW.",
-      "tw": "Wo clinic nsɔhwɛ a edi hɔ no yɛ da a wo CHW kyerɛɛ wo. Sɛ wonnim da no a, bisa wo CHW."
+      "en": "Your next clinic visit is on the date your CHW gave you. Please come. If you do not know the date, ask your CHW."
     },
     "transport": {
       "status": "pilot",
-      "en": "If transport is a problem, tell your CHW. Your CHW can help you plan a ride to the facility.",
-      "tw": "Sɛ akwantu yɛ ɔhaw a, ka kyerɛ wo CHW. Wo CHW betumi aboa wo ma wonhyehyɛ akwantu."
+      "en": "If transport is a problem, tell your CHW. Your CHW can help you plan a ride to the facility."
     },
     "feeding": {
       "status": "pilot",
-      "en": "For feeding questions, your CHW will help. Ask them to show you an approved feeding plan for your baby.",
-      "tw": "Sɛ w'abisa nneɛma a wɔde bɛma abofra no ho a, wo CHW bɛboa wo. Bisa no sɛ ɔnkyerɛ wo nnuane a wɔapene so."
+      "en": "For feeding questions, your CHW will help. Ask them to show you an approved feeding plan for your baby."
     },
     "unknown": {
       "status": "pilot",
-      "en": "Sorry, I did not understand. Please call your CHW, or ask a family member to call them for you.",
-      "tw": "Me ho ayɛ wo, minnte nea woka no. Frɛ wo CHW, anaa ka sɛ obi nfrɛ wɔn ma wo."
+      "en": "Sorry, I did not understand. Please call your CHW, or ask a family member to call them for you."
     }
   },
   "intents": [
@@ -31,5 +26,6 @@
     "visit_date",
     "transport",
     "feeding"
-  ]
+  ],
+  "translations": {}
 }

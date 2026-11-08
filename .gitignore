@@ -14,3 +14,6 @@ referral_arrival/data/
 # MAMA-AI is its own repository (ZziemWellu/mama-ai-platform); never nest a clone here
 mama-admin/
 mama-ai-platform/
+
+# Pilot build output (tools/pilot_build.js)
+cht-app/.pilot-build/

@@ -134,7 +134,7 @@ function checkTaskResolvedForHomeVisit(contact, report, event, dueDate) {
   );
 }
 
-module.exports = [
+const TASKS = [
   //ANC Home Visit: 12, 20, 26, 30, 34, 36, 38, 40 weeks (Known LMP)
   {
     name: 'anc.pregnancy_home_visit.known_lmp',
@@ -1099,3 +1099,6 @@ module.exports = [
     ],
   },
 ];
+
+// Only the parts the build profile enables (profile.js; the committed app enables all).
+module.exports = require('./modules').inProfile('task', TASKS);

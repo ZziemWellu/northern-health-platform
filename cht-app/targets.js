@@ -8,7 +8,7 @@ const {
   getField
 } = extras;
 
-module.exports = [
+const TARGETS = [
 
   {
     id: 'deaths-this-month',
@@ -243,3 +243,6 @@ module.exports = [
   },
 
 ];
+
+// Only the parts the build profile enables (profile.js; the committed app enables all).
+module.exports = require('./modules').inProfile('target', TARGETS);
